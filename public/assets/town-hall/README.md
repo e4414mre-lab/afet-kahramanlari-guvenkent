@@ -2,7 +2,7 @@
 
 Bu fazda OpenAI görsel üretim aracı ile hazırlanmış yerel PNG'lerdir.
 Üçüncü taraf stok içerik indirilmedi, harici resim URL'si hotlink edilmedi.
-Yeni sanat henüz kullanıcı tarafından onaylanmadı.
+Belediye binasının görsel tasarımı kullanıcı tarafından onaylandı.
 
 | Dosya | Katman / pivot |
 | --- | --- |
@@ -36,5 +36,5 @@ Codex oturumundaki OpenAI image generation; üçüncü taraf paket kullanılmad�
 - Ses, müzik, seslendirme varlıkları yoktur. Ses yüklenmeye çalışılmaz;
   tercihleri korunur ve zorunlu uyarılar yazılı gösterilir.
 
-Bu liste nedeniyle nihai sanat üretiminin tamamlandığı söylenmez. İşlevsel
-prototip ve yeni görsel konseptler kullanıcı görsel onayını bekler.
+Bu liste nedeniyle nihai sanat üretiminin tamamlandığı söylenmez. Belediye binasının görsel tasarımı onaylandı; eksik animasyon ve üretim
+varlıkları bu son doğrulamada değiştirilmedi.

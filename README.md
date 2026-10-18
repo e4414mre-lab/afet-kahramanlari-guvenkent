@@ -3,7 +3,7 @@
 5. sınıf öğrencileri için React + TypeScript + Phaser ile geliştirilen
 2.5D afet farkındalığı macera oyununun oynanabilir meydan ve belediye prototipi.
 
-**Görsel onay bekliyor. Konsept görseller nihai oyun sanatı değildir.**
+**Belediye binasının görsel tasarımı onaylandı. Animasyon ve ses varlıkları henüz nihai değildir.**
 
 ## Başlangıç
 

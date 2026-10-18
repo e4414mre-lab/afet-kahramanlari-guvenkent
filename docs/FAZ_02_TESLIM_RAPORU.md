@@ -1,6 +1,6 @@
 # Faz 02 — Belediye iç mekânı ve ilk hikâye görevi
 
-**İşlevsel prototip; yeni iç mekân sanatı görsel onay bekliyor.**
+**Belediye binasının görsel tasarımı kullanıcı tarafından onaylandı. İşlevsel prototip.**
 Kaynak: GitHub `feat/city-square-prototype`, `e18412c` (Faz 02 belgesi dâhil).
 Geliştirme dalı: `feat/town-hall-interior`. `main` ile birleştirme veya dağıtım yapılmadı.
 
@@ -126,4 +126,30 @@ onayından sonra geliştirilebilir.
 iddiası yoktur. Yeni afet bölgesi, Supabase, sınav, okul içi veya öğretmen
 paneli geliştirilmedi. Gerçek dağıtım yapılmadı.
 
-**Sonraki aşamaya geçmeden kullanıcı görsel ve işlevsel onayı beklenir.**
+**Belediye görsel tasarımı onaylandı. Kullanıcı talimatıyla sonraki oyun bölümüne henüz geçilmedi.**
+
+## Görsel onay sonrası son doğrulama
+
+Kullanıcı belediye binasının görsel tasarımını onayladı. Son kontroller
+`feat/town-hall-interior` dalındaki `7c1cd06` uygulaması üzerinde yeniden
+çalıştırıldı. Oyun kaynak kodları ve sanat PNG'leri değiştirilmedi; yalnızca
+onay/test notları ve yeniden alınan iki ekran görüntüsü güncellendi.
+
+- `npm run build`: başarılı; mevcut büyük JS paketi uyarısı devam eder.
+- `node --experimental-strip-types --test tests/*.test.ts`: **12/12 geçti**.
+- `python -u tests/browser_smoke.py`: **başarılı**.
+- Masaüstü **1440×1000** ve dokunmatik Chromium emülasyonu **390×844**:
+  belediyeye giriş/çıkış, başkan konuşması, berat kabulü, kent planı,
+  görev defteri, görev sırası, okula dönüş yönlendirmesi ve kontroller doğrulandı.
+- Her iki ortamda **beşer tam çıkış/yeniden giriş**: tek etkin sahne/tek tuval;
+  18 nesne, 4 blur, 1 pointer, 3 etkileşim klavye dinleyicisi ve 8 doku sabit.
+- Son ölçümde GC sonrası JS heap farkı masaüstünde yaklaşık **+0,21 MiB**,
+  dokunmatikte **+0,18 MiB**; test eşiğini aşan büyüme görülmedi.
+- Sessiz mod, azaltılmış hareket, ayarlardan dönüşte konum/görev koruması,
+  eksik görselde açık uyarı, JavaScript hata ve yatay taşma kontrolleri geçti.
+- Fiziksel telefon/tablet kullanılmadı; mobil kontrol gerçek touch/pointer
+  olaylarıyla Chromium emülasyonunda yapıldı.
+
+Ekran görüntüleri yukarıdaki GitHub bağlantılarındaki aynı dosyalara yeniden
+kaydedildi. `main` dalına birleştirme veya dağıtım yapılmadı. Sonraki oyun
+bölümü geliştirilmedi.
