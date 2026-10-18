@@ -6,3 +6,6 @@ dist/
 .DS_Store
 
 *.tsbuildinfo
+
+# Generated browser QA import cache
+tests/__pycache__/

@@ -409,3 +409,106 @@ main {
   visibility: hidden;
   pointer-events: none;
 }
+.story-bottom {
+  align-items: flex-end;
+}
+.story-dialogue {
+  pointer-events: auto;
+  width: min(620px, 100%);
+}
+.story-dialogue p {
+  margin: 0;
+  min-height: 1.5em;
+}
+.dialogue-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+.dialogue-actions small {
+  margin-right: auto;
+  font-size: 11px;
+  color: #55726c;
+}
+.dialogue-actions button {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+.afi-hint {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  background: #fffdf3ed;
+  padding: 10px 13px;
+  font-size: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.afi-hint span {
+  display: grid;
+  place-items: center;
+  background: #d6ebe1;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  color: #28584b;
+}
+.safety-caption {
+  font-size: 12px;
+  color: #365a50;
+  margin: 8px 2px;
+}
+.asset-warning {
+  position: absolute;
+  top: 85px;
+  left: 18px;
+  right: 18px;
+  padding: 10px;
+  background: #fff3d6;
+  border-radius: 12px;
+  font-size: 12px;
+}
+.city-bottom.story-bottom:has(.story-dialogue) {
+  right: auto;
+  max-width: calc(100% - 36px);
+}
+@media (max-width: 600px) {
+  .story-dialogue {
+    padding: 12px;
+  }
+  .story-dialogue p {
+    line-height: 1.5;
+  }
+  .dialogue-actions {
+    gap: 5px;
+  }
+  .dialogue-actions button {
+    font-size: 12px;
+    padding: 9px;
+  }
+  .safety-caption {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .afi-hint {
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    gap: 5px;
+  }
+  .quest-card {
+    max-width: calc(100% - 100px);
+  }
+  .city-bottom.story-bottom:has(.story-dialogue) {
+    max-width: calc(100% - 20px);
+  }
+  .scene-guidance {
+    font-size: 11px;
+  }
+  .story-bottom {
+    gap: 5px;
+  }
+}
