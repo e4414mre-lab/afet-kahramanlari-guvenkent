@@ -37,6 +37,9 @@ export class CitySquareScene extends AdventureScene {
     if (id === "townHall") {
       this.session.enter();
       this.switchTo("TownHall");
+    } else if (id === "school" && this.session.quest === "goToSchool") {
+      this.session.schoolVisited = true;
+      this.switchTo("SchoolClassroom");
     } else this.session.interact(id);
   }
   protected updateWorld() {

@@ -1,7 +1,7 @@
 # Afet Kahramanları – Güvenkent
 
 5. sınıf öğrencileri için React + TypeScript + Phaser ile geliştirilen
-2.5D afet farkındalığı macera oyununun oynanabilir meydan ve belediye prototipi.
+2.5D afet farkındalığı macera oyununun oynanabilir meydan, belediye ve 5-A sınıf risk avı prototipi.
 
 **Belediye binasının görsel tasarımı onaylandı. Animasyon ve ses varlıkları henüz nihai değildir.**
 
@@ -20,8 +20,14 @@ puan sunucuya kaydedilmez. WASD/yön tuşları veya zemine tıklama/dokunmayla
 Belediye kapısında **E / Enter** veya **Etkileşim** ile içeri girin. Başkanla
 konuşup görev beratını kabul edin; kent planından okul rotasını alın. Görev
 defteri mevcut hedefi gösterir. Ön kapıdan meydana dönüp okul girişine
-yürüyün. Okul içi sonraki fazdadır. AFİ sizi takip eder; H veya AFİ düğmesi
-üç kademeli ipucu verir.
+yürüyün. Okul girişinde E / Enter ile 5-A sınıfına girin. Altı risk ve dört güvenli
+nesneyi inceleyin; güvenli çözümü seçip öğretmene bildirim/yetişkin çözümü
+canlandırmasını izleyin. AFİ takip eder; H veya AFİ düğmesi üç kademeli
+ipucu verir. İlk iki risk rehberli, diğerleri bağımsız keşiftir.
+
+Sınıfta Q yakındaki nesneleri seçer; E / Enter etkileşimi açar. İnceleme
+kartındaki düğmeler Tab / Shift+Tab / Enter ile, kapatma Esc ile kullanılabilir.
+Bulgu ve güvenli nesne sayaçları ayrıdır; tekrar inceleme çift sayılmaz.
 
 Oyun içinden Ayarlar'a gidip geri dönmek konum ve görevi korur. Sessiz mod
 ve azaltılmış hareket tercihleri bu cihazda saklanır; henüz ses dosyası yoktur.
@@ -39,16 +45,19 @@ node --experimental-strip-types --test tests/*.test.ts
 ```sh
 # Python Playwright paketi ve /usr/bin/chromium gerektirir.
 python tests/browser_smoke.py
+python tests/school_risk_hunt_smoke.py
 ```
 
-Tarayıcı testi iç mekân ekran görüntülerini `docs/screenshots/town-hall-desktop.png`
+Belediye tarayıcı testi iç mekân ekran görüntülerini `docs/screenshots/town-hall-desktop.png`
 ve `town-hall-mobile.png` olarak; ek dönüş görüntülerini
-`/tmp/guvenkent-hall-checks/` altında oluşturur.
+`/tmp/guvenkent-hall-checks/` altında oluşturur. Sınıf testi
+`docs/screenshots/school-classroom-desktop.png` ve
+`school-classroom-mobile.png` görüntülerini oluşturur.
 
 ## Kapsam ve sanat durumu
 
-- Oynanabilir alanlar: şehir meydanı ve belediye iç mekânı.
-- Yeni afet bölgeleri, sınıf risk avı, sınav ve öğretmen sistemi bu fazda yok.
+- Oynanabilir alanlar: şehir meydanı, belediye iç mekânı ve 5-A sınıfı.
+- Ev, gerçek deprem tatbikatı, yeni afet bölgeleri, sınav ve öğretmen sistemi bu fazda yok.
 - Öğretmen bilgilendirme ekranı gerçek kimlik doğrulaması yapmaz.
 - Karakterler ayrı transparan PNG konseptlerdir; yürüyüş/yön atlasları eksiktir.
 - Meydan çevresi mevcut boyalı konsepttir. Belediye mobilyaları ve NPC,
@@ -62,3 +71,9 @@ Sonraki faza kullanıcı görsel onayıyla geçilir.
 
 [Faz 2 belediye iç mekânı teslim/test raporu](docs/FAZ_02_TESLIM_RAPORU.md) ·
 [Belediye sanat varlıkları ve eksikler](public/assets/town-hall/README.md)
+
+[Faz 3 sınıf risk avı teslim ve test raporu](docs/FAZ_03_TESLIM_RAPORU.md) ·
+[Sınıf görsel varlıkları ve eksikler](public/assets/school/README.md)
+
+Yeni sınıf görselleri onay bekleyen konseptlerdir. Yetişkin müdahaleleri
+eğitim canlandırmasıdır; dış sisteme bildirim veya puan aktarımı yapılmaz.

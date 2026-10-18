@@ -58,7 +58,18 @@ class Player:
 
     def stable(self, scene):
         self.wait('d.scene === arg && !d.status.transitioning && !!d.player', scene)
-        self.page.wait_for_timeout(250)
+        # A cold image cache can delay initial render frames. Wait for the
+        # follow camera itself, not an assumed number of wall-clock frames,
+        # before projecting coordinates for a real click.
+        previous=self.snapshot()['scroll'];settled=0
+        for _ in range(25):
+            self.page.wait_for_timeout(100)
+            current=self.snapshot()['scroll']
+            delta=math.hypot(current['x']-previous['x'],current['y']-previous['y'])
+            settled=settled+1 if delta<.2 else 0
+            previous=current
+            if settled>=2:break
+        assert settled>=2,'Follow camera did not settle'
         assert self.snapshot()['sceneCount'] == 1
         assert self.snapshot()['canvasCount'] == 1
 
@@ -241,7 +252,7 @@ def scenario(browser, mobile):
     assert p.snapshot()['status']['quest'] == 'goToSchool'
     p.dialogue(); p.check()
     p.close_dialogue()
-    p.page.get_by_text('Sınıf risk avı giriş noktası · Sonraki fazda açılacak',exact=True).wait_for()
+    p.page.get_by_text('5-A sınıfına giriş hazır · E / Enter ile gir',exact=True).wait_for()
     p.page.screenshot(path=str(ARTIFACTS / ('returned-mobile.png' if mobile else 'returned-desktop.png')))
     if not mobile:
         p.page.reload()

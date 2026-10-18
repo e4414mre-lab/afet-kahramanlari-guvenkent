@@ -1,3 +1,4 @@
+import { findWalkPath } from "./navigation";
 import Phaser from "phaser";
 import type { GameSession, SceneId, InteractionId } from "./story";
 import { closest, blocked, type Hotspot, type Obstacle } from "./townHallData";
@@ -8,6 +9,10 @@ type Definition = {
   spawn: { x: number; y: number };
   hotspots: readonly Hotspot[];
   obstacles?: readonly Obstacle[];
+  pathfinding?: boolean;
+  cycleNearby?: boolean;
+  hideIdleHalos?: boolean;
+  followOffsetY?: number;
 };
 /** Shared original movement/camera rules; each scene owns only its art and interactions. */
 export abstract class AdventureScene extends Phaser.Scene {
@@ -16,6 +21,10 @@ export abstract class AdventureScene extends Phaser.Scene {
   protected props = new Map<InteractionId, Phaser.GameObjects.Image>();
   private keys?: Record<string, Phaser.Input.Keyboard.Key>;
   private target?: Phaser.Math.Vector2;
+  private path: Phaser.Math.Vector2[] = [];
+  private focused?: Hotspot;
+  private cycleQueued = false;
+  protected zones = new Map<InteractionId, Phaser.GameObjects.Zone>();
   private selected?: Hotspot;
   private elapsed = 0;
   private actionQueued = false;
@@ -74,6 +83,10 @@ export abstract class AdventureScene extends Phaser.Scene {
   }
   create() {
     this.props.clear();
+    this.zones.clear();
+    this.path = [];
+    this.focused = undefined;
+    this.cycleQueued = false;
     this.halos = [];
     this.target = undefined;
     this.selected = undefined;
@@ -107,7 +120,8 @@ export abstract class AdventureScene extends Phaser.Scene {
           event: Phaser.Types.Input.EventData,
         ) => {
           event.stopPropagation();
-          if (!this.session.paused) this.session.hint();
+          if (!this.session.paused && !this.session.transitioning)
+            this.session.hint();
         },
       );
     this.definition.hotspots.forEach((h) => {
@@ -116,7 +130,7 @@ export abstract class AdventureScene extends Phaser.Scene {
         .setStrokeStyle(2, 0xfff1bc, 0.65)
         .setDepth(2);
       this.halos.push(halo);
-      this.add
+      const zone = this.add
         .zone(h.hit.x, h.hit.y, h.hit.width, h.hit.height)
         .setDepth(3000)
         .setInteractive()
@@ -132,6 +146,7 @@ export abstract class AdventureScene extends Phaser.Scene {
             this.select(h);
           },
         );
+      this.zones.set(h.id, zone);
     });
     const { world } = this.definition;
     this.cameras.main.setBounds(0, 0, world.width, world.height);
@@ -141,15 +156,18 @@ export abstract class AdventureScene extends Phaser.Scene {
       true,
       this.session.settings.reducedMotion ? 1 : 0.09,
       this.session.settings.reducedMotion ? 1 : 0.09,
+      0,
+      this.definition.followOffsetY ?? 0,
     );
     this.keys = this.input.keyboard?.addKeys(
-      "W,A,S,D,UP,DOWN,LEFT,RIGHT,E,ENTER,H",
+      "W,A,S,D,UP,DOWN,LEFT,RIGHT",
     ) as typeof this.keys;
-    this.input.keyboard?.addCapture(["UP", "DOWN", "LEFT", "RIGHT", "SPACE"]);
+    this.input.keyboard?.addCapture(["UP", "DOWN", "LEFT", "RIGHT"]);
     const ground = (pointer: Phaser.Input.Pointer) => {
       if (
         this.session.paused ||
         this.session.dialogue ||
+        this.session.inspection ||
         this.session.transitioning
       )
         return;
@@ -158,7 +176,7 @@ export abstract class AdventureScene extends Phaser.Scene {
       ) as Phaser.Math.Vector2;
       const { walk } = this.definition;
       this.selected = undefined;
-      this.target = new Phaser.Math.Vector2(
+      this.destination(
         Phaser.Math.Clamp(p.x, walk.left, walk.right),
         Phaser.Math.Clamp(p.y, walk.top, walk.bottom),
       );
@@ -168,11 +186,12 @@ export abstract class AdventureScene extends Phaser.Scene {
     const action = (event: KeyboardEvent) => {
       if (event.repeat || this.session.paused || this.session.transitioning)
         return;
-      const button = document.activeElement;
+      // Native buttons own Enter even if their click removes the button and
+      // moves focus before Phaser processes the original key event.
       if (
         event.key === "Enter" &&
-        button instanceof HTMLButtonElement &&
-        !button.disabled
+        event.target instanceof Element &&
+        event.target.closest("button")
       )
         return;
       this.actionQueued = true;
@@ -184,6 +203,17 @@ export abstract class AdventureScene extends Phaser.Scene {
     this.input.keyboard?.on("keydown-E", action);
     this.input.keyboard?.on("keydown-ENTER", action);
     this.input.keyboard?.on("keydown-H", hint);
+    const cycle = (event: KeyboardEvent) => {
+      if (
+        !event.repeat &&
+        !this.session.paused &&
+        !this.session.dialogue &&
+        !this.session.inspection
+      )
+        this.cycleQueued = true;
+    };
+    if (this.definition.cycleNearby)
+      this.input.keyboard?.on("keydown-Q", cycle);
     const clear = () => this.clearInput();
     this.input.on("pointerdown", ground);
     this.game.events.on("blur", clear);
@@ -194,13 +224,8 @@ export abstract class AdventureScene extends Phaser.Scene {
       this.input.keyboard?.off("keydown-E", action);
       this.input.keyboard?.off("keydown-ENTER", action);
       this.input.keyboard?.off("keydown-H", hint);
-      this.input.keyboard?.removeCapture([
-        "UP",
-        "DOWN",
-        "LEFT",
-        "RIGHT",
-        "SPACE",
-      ]);
+      this.input.keyboard?.off("keydown-Q", cycle);
+      this.input.keyboard?.removeCapture(["UP", "DOWN", "LEFT", "RIGHT"]);
     });
     if (!this.session.settings.reducedMotion) this.cameras.main.fadeIn(160);
     this.configure();
@@ -213,6 +238,9 @@ export abstract class AdventureScene extends Phaser.Scene {
   }
   private clearInput() {
     this.target = undefined;
+    this.path = [];
+    this.focused = undefined;
+    this.cycleQueued = false;
     this.selected = undefined;
     this.actionQueued = false;
     this.hintQueued = false;
@@ -238,6 +266,7 @@ export abstract class AdventureScene extends Phaser.Scene {
     if (
       this.session.paused ||
       this.session.dialogue ||
+      this.session.inspection ||
       this.session.transitioning
     )
       return;
@@ -246,14 +275,43 @@ export abstract class AdventureScene extends Phaser.Scene {
       this.activate(h.id);
     } else {
       this.selected = h;
-      this.target = new Phaser.Math.Vector2(h.x, h.y);
+      this.destination(h.x, h.y);
     }
+  }
+  private destination(x: number, y: number) {
+    if (this.definition.pathfinding) {
+      const path = findWalkPath(
+        this.child,
+        { x, y },
+        this.definition.walk,
+        this.definition.obstacles ?? [],
+      );
+      if (!path) {
+        this.selected = undefined;
+        this.session.say([
+          "AFİ: Buradan geçemeyiz. Açık koridordan başka bir nokta seçelim.",
+        ]);
+        return;
+      }
+      this.path = path.map((p) => new Phaser.Math.Vector2(p.x, p.y));
+      this.target = this.path.shift();
+    } else this.target = new Phaser.Math.Vector2(x, y);
+  }
+  private nearbyChoice() {
+    if (
+      this.focused &&
+      Math.hypot(this.child.x - this.focused.x, this.child.y - this.focused.y) <
+        170
+    )
+      return this.focused;
+    return closest(this.child, this.definition.hotspots);
   }
   protected switchTo(next: SceneId) {
     if (this.session.transitioning) return;
     this.session.positions[this.sceneId] = { x: this.child.x, y: this.child.y };
     this.clearInput();
     this.session.dialogue = null;
+    this.session.riskHunt.close();
     this.session.nearby = null;
     this.session.transitioning = true;
     this.session.notify();
@@ -265,8 +323,7 @@ export abstract class AdventureScene extends Phaser.Scene {
     }
   }
   protected publish() {
-    this.session.nearby =
-      closest(this.child, this.definition.hotspots)?.name ?? null;
+    this.session.nearby = this.nearbyChoice()?.name ?? null;
     this.session.notify();
   }
   update(_time: number, delta: number) {
@@ -274,6 +331,18 @@ export abstract class AdventureScene extends Phaser.Scene {
       return;
     this.resizeCamera();
     this.cameras.main.setLerp(this.session.settings.reducedMotion ? 1 : 0.09);
+    if (this.cycleQueued) {
+      this.cycleQueued = false;
+      const options = this.definition.hotspots.filter(
+        (h) => Math.hypot(this.child.x - h.x, this.child.y - h.y) < 170,
+      );
+      if (options.length)
+        this.focused =
+          options[
+            (options.findIndex((h) => h.id === this.focused?.id) + 1) %
+              options.length
+          ];
+    }
     const trigger = this.actionQueued || this.session.controls.interact;
     this.actionQueued = false;
     if (this.hintQueued || this.session.controls.hint) {
@@ -286,13 +355,12 @@ export abstract class AdventureScene extends Phaser.Scene {
       this.session.next();
     } else if (trigger) {
       this.session.controls.interact = false;
-      if (this.session.dialogue) this.session.next();
+      if (this.session.inspection) {
+        /* Choices use native Tab/Enter in the inspection card. */
+      } else if (this.session.dialogue) this.session.next();
       else {
-        const active = closest(this.child, this.definition.hotspots);
-        if (active) {
-          this.clearInput();
-          this.activate(active.id);
-        }
+        const active = this.nearbyChoice();
+        if (active) this.select(active);
       }
     }
     if (this.session.transitioning) return;
@@ -304,18 +372,21 @@ export abstract class AdventureScene extends Phaser.Scene {
       down("D") + down("RIGHT") - down("A") - down("LEFT") + c.x,
       down("S") + down("DOWN") - down("W") - down("UP") + c.y,
     );
-    if (this.session.dialogue) {
+    if (this.session.dialogue || this.session.inspection) {
       dir.set(0, 0);
       this.target = undefined;
+      this.path = [];
       this.selected = undefined;
     } else if (dir.lengthSq() > 0) {
       this.target = undefined;
+      this.path = [];
+      this.focused = undefined;
       this.selected = undefined;
     } else if (this.target) {
       dir.set(this.target.x - this.child.x, this.target.y - this.child.y);
       if (dir.length() < 5) {
         dir.set(0, 0);
-        this.target = undefined;
+        this.target = this.path.shift();
       }
     }
     if (dir.lengthSq() > 0) {
@@ -372,14 +443,21 @@ export abstract class AdventureScene extends Phaser.Scene {
       this.clearInput();
       this.activate(h.id);
     }
-    const active = closest(this.child, this.definition.hotspots);
+    const active = this.nearbyChoice();
     this.halos.forEach((halo, i) =>
-      halo.setAlpha(
-        active?.id === this.definition.hotspots[i].id ||
-          this.selected?.id === this.definition.hotspots[i].id
-          ? 1
-          : 0.35,
-      ),
+      halo
+        .setPosition(
+          this.definition.hotspots[i].x,
+          this.definition.hotspots[i].y,
+        )
+        .setAlpha(
+          active?.id === this.definition.hotspots[i].id ||
+            this.selected?.id === this.definition.hotspots[i].id
+            ? 1
+            : this.definition.hideIdleHalos
+              ? 0
+              : 0.35,
+        ),
     );
     this.props.forEach((sprite, id) => {
       if (active?.id === id || this.selected?.id === id)
@@ -417,7 +495,12 @@ export abstract class AdventureScene extends Phaser.Scene {
       objects: this.children.length,
       blurListeners: this.game.events.listenerCount("blur"),
       pointerListeners: this.input.listenerCount("pointerdown"),
-      keyboardListeners: ["keydown-E", "keydown-ENTER", "keydown-H"].reduce(
+      keyboardListeners: [
+        "keydown-E",
+        "keydown-ENTER",
+        "keydown-H",
+        "keydown-Q",
+      ].reduce(
         (sum, event) => sum + (this.input.keyboard?.listenerCount(event) ?? 0),
         0,
       ),

@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Phaser from "phaser";
 import { CitySquareScene } from "../game/CitySquareScene";
+import { SchoolClassroomScene } from "../game/SchoolClassroomScene";
+import { InspectionPanel } from "./InspectionPanel";
+import { CLASSROOM_SAFETY } from "../game/classroomData";
 import { TownHallScene } from "../game/TownHallScene";
 import { GameSession, SAFETY, type GameStatus } from "../game/story";
 import type { AdventureScene } from "../game/AdventureScene";
@@ -23,22 +26,19 @@ export function GamePreview({
   const ref = useRef<HTMLDivElement>(null);
   const sessionRef = useRef<GameSession | null>(null);
   const scenes = useRef<AdventureScene[]>([]);
-  const [status, setStatus] = useState<GameStatus>({
-    scene: "CitySquare",
-    quest: "notStarted",
-    objective: "Belediye binasına gir",
-    nearby: null,
-    dialogue: null,
-    schoolVisited: false,
-    transitioning: false,
-    assetErrors: [],
-  });
+  const [status, setStatus] = useState<GameStatus>(() =>
+    new GameSession(settings, () => {}).status(),
+  );
   useEffect(() => {
     if (!ref.current) return;
     const session = new GameSession(settings, setStatus);
     sessionRef.current = session;
     session.paused = paused;
-    scenes.current = [new CitySquareScene(session), new TownHallScene(session)];
+    scenes.current = [
+      new CitySquareScene(session),
+      new TownHallScene(session),
+      new SchoolClassroomScene(session),
+    ];
     const game = new Phaser.Game({
       type: Phaser.AUTO,
       parent: ref.current,
@@ -113,13 +113,16 @@ export function GamePreview({
   const dialogue = status.dialogue;
   const lastPage = !!dialogue && dialogue.index === dialogue.pages.length - 1;
   return (
-    <div className="city-shell">
+    <div
+      className={`city-shell ${status.scene === "SchoolClassroom" ? "classroom-shell" : ""}`}
+    >
       <div className="city-top">
         <div>
           <span className="eyebrow">GÖRSEL ONAY BEKLEYEN PROTOTİP</span>
           <h2>
-            Güvenkent •{" "}
-            {status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}
+            {status.scene === "SchoolClassroom"
+              ? "Güvenkent İlkokulu · 5-A"
+              : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
           </h2>
         </div>
         <button onClick={onSettings}>Ayarlar</button>
@@ -128,18 +131,29 @@ export function GamePreview({
         <div
           ref={ref}
           className="city-canvas"
+          tabIndex={0}
           aria-label={
-            status.scene === "TownHall"
-              ? "Oynanabilir belediye iç mekânı"
-              : "Oynanabilir Güvenkent meydanı"
+            status.scene === "SchoolClassroom"
+              ? "Oynanabilir 5-A sınıfı"
+              : status.scene === "TownHall"
+                ? "Oynanabilir belediye iç mekânı"
+                : "Oynanabilir Güvenkent meydanı"
           }
         />
         <div className="quest-card" role="status">
-          <small>{status.schoolVisited ? "İLK DURAK ✓" : "İLK HİKÂYE •"}</small>
+          <small>
+            {status.scene === "SchoolClassroom"
+              ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
+              : status.schoolVisited
+                ? "İLK DURAK ✓"
+                : "İLK HİKÂYE •"}
+          </small>
           <span>
-            {status.schoolVisited
-              ? "Okula ulaştın · Sınıf yakında"
-              : status.objective}
+            {status.scene === "SchoolClassroom"
+              ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
+              : status.schoolVisited
+                ? "5-A sınıfına giriş hazır"
+                : status.objective}
           </span>
         </div>
         <button
@@ -156,52 +170,64 @@ export function GamePreview({
             korunuyor.
           </p>
         )}
-        <div className="city-bottom story-bottom">
-          {dialogue ? (
-            <div className="dialogue story-dialogue" aria-live="polite">
-              <p>{dialogue.pages[dialogue.index]}</p>
-              <div className="dialogue-actions">
-                <small>
-                  {dialogue.index + 1}/{dialogue.pages.length}
-                </small>
-                <button
-                  className="subtle"
-                  onClick={() => sessionRef.current?.skip()}
-                  disabled={lastPage && dialogue.accept === "mayor"}
-                >
-                  Geç
-                </button>
-                <button
-                  className="primary"
-                  onClick={() => sessionRef.current?.next()}
-                >
-                  {lastPage ? (dialogue.label ?? "Tamam") : "Konuşmaya Devam"}
-                </button>
+        {status.inspection && sessionRef.current && (
+          <InspectionPanel
+            status={status}
+            session={sessionRef.current}
+            onClose={() => {
+              sessionRef.current?.closeInspection();
+              ref.current?.focus({ preventScroll: true });
+            }}
+          />
+        )}
+        {!status.inspection && (
+          <div className="city-bottom story-bottom">
+            {dialogue ? (
+              <div className="dialogue story-dialogue" aria-live="polite">
+                <p>{dialogue.pages[dialogue.index]}</p>
+                <div className="dialogue-actions">
+                  <small>
+                    {dialogue.index + 1}/{dialogue.pages.length}
+                  </small>
+                  <button
+                    className="subtle"
+                    onClick={() => sessionRef.current?.skip()}
+                    disabled={lastPage && dialogue.accept === "mayor"}
+                  >
+                    Geç
+                  </button>
+                  <button
+                    className="primary"
+                    onClick={() => sessionRef.current?.next()}
+                  >
+                    {lastPage ? (dialogue.label ?? "Tamam") : "Konuşmaya Devam"}
+                  </button>
+                </div>
               </div>
-            </div>
-          ) : (
-            <>
-              {settings.text && (
-                <p className="dialogue scene-guidance">
-                  {status.scene === "TownHall"
-                    ? "AFİ: Nesnelere dokunarak yaklaşabilir veya E / Enter ile inceleyebilirsin."
-                    : "AFİ: Belediye kapısından başlayalım. Zemine dokunarak da yürüyebilirsin."}
-                </p>
-              )}
-              <button
-                className="primary interact"
-                disabled={!status.nearby || status.transitioning}
-                onClick={() => {
-                  if (sessionRef.current)
-                    sessionRef.current.controls.interact = true;
-                }}
-              >
-                Etkileşim{status.nearby ? ` · ${status.nearby}` : ""}
-              </button>
-            </>
-          )}
-        </div>
-        {!dialogue && (
+            ) : (
+              <>
+                {settings.text && status.scene !== "SchoolClassroom" && (
+                  <p className="dialogue scene-guidance">
+                    {status.scene === "TownHall"
+                      ? "AFİ: Nesnelere dokunarak yaklaşabilir veya E / Enter ile inceleyebilirsin."
+                      : "AFİ: Belediye kapısından başlayalım. Zemine dokunarak da yürüyebilirsin."}
+                  </p>
+                )}
+                <button
+                  className="primary interact"
+                  disabled={!status.nearby || status.transitioning}
+                  onClick={() => {
+                    if (sessionRef.current)
+                      sessionRef.current.controls.interact = true;
+                  }}
+                >
+                  Etkileşim{status.nearby ? ` · ${status.nearby}` : ""}
+                </button>
+              </>
+            )}
+          </div>
+        )}
+        {!dialogue && !status.inspection && (
           <div className="dpad" aria-label="Dokunmatik yön kontrolü">
             {[
               [0, -1, "↑", "Yukarı"],
@@ -228,13 +254,21 @@ export function GamePreview({
           {SAFETY} Tehlikeli işleri yetişkinlere bırak.
         </p>
       )}
-      {status.schoolVisited && (
+      {status.scene === "SchoolClassroom" && (
+        <p className="safety-caption">
+          {CLASSROOM_SAFETY} Yetişkin uygulamaları bir canlandırmadır.
+        </p>
+      )}
+      {status.schoolVisited && status.scene === "CitySquare" && (
         <p className="next-step" role="status">
-          Sınıf risk avı giriş noktası · Sonraki fazda açılacak
+          5-A sınıfına giriş hazır · E / Enter ile gir
         </p>
       )}
       <p className="city-help">
-        WASD / yön tuşları: yürü · E / Enter: etkileşim · H: ipucu{" "}
+        WASD / yön tuşları: yürü · E / Enter: etkileşim · H: ipucu
+        {status.scene === "SchoolClassroom"
+          ? " · Q: yakındaki nesne · Tab: seçim"
+          : ""}{" "}
         <span>Konsept varlıkları · İlerleme yalnızca açık oturumda.</span>
       </p>
     </div>

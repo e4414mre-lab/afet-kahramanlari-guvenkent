@@ -512,3 +512,132 @@ main {
     gap: 5px;
   }
 }
+.inspection-card {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 345px;
+  max-height: calc(100% - 100px);
+  overflow: auto;
+  background: #fffdf5f7;
+  border: 1px solid #e4ddc8;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 35px #153e4c30;
+  color: #173d4c;
+  pointer-events: auto;
+  overscroll-behavior: contain;
+}
+.inspection-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 24px;
+}
+.inspection-header img {
+  width: 65px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.inspection-header small {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #557b6e;
+}
+.inspection-header h3 {
+  font-size: 17px;
+  margin: 4px 0;
+}
+.inspection-close {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  font-size: 25px;
+  padding: 3px 10px;
+  line-height: 1.2;
+}
+.inspection-detail,
+.inspection-feedback {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 9px 0;
+}
+.inspection-feedback {
+  padding: 9px 11px;
+  background: #e5f2e6;
+  border-radius: 10px;
+}
+.inspection-feedback.retry {
+  background: #f9efdc;
+}
+.inspection-card h4 {
+  font-size: 14px;
+  margin: 9px 0;
+}
+.inspection-choices {
+  display: grid;
+  gap: 6px;
+}
+.inspection-card button:not(.inspection-close) {
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 10px 12px;
+  min-height: 43px;
+  text-align: left;
+  border-radius: 11px;
+}
+.inspection-choices button {
+  background: #fffdf9;
+  font-weight: 600;
+}
+.inspection-card > .primary {
+  width: 100%;
+  margin-top: 9px;
+  text-align: center;
+}
+.finding-stage {
+  font-size: 10px;
+  color: #527768;
+  display: block;
+  margin: 8px 0;
+}
+.inspection-footnote {
+  font-size: 10px;
+  line-height: 1.4;
+  margin: 12px 0 0;
+  color: #58786a;
+}
+@media (max-width: 600px) {
+  .inspection-card {
+    right: 10px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    max-height: 58%;
+    padding: 12px;
+  }
+  .inspection-header img {
+    height: 52px;
+    width: 48px;
+  }
+  .inspection-header h3 {
+    font-size: 15px;
+  }
+  .inspection-header small {
+    font-size: 8px;
+  }
+  .inspection-detail {
+    margin: 6px 0;
+  }
+  .inspection-feedback {
+    margin: 7px 0;
+    padding: 7px 9px;
+  }
+  .inspection-footnote {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+  .classroom-shell .safety-caption {
+    font-size: 12px;
+  }
+}
