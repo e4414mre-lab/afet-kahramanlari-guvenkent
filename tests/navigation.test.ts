@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { findWalkPath } from "../src/game/navigation.ts";
 import {
   SCHOOL_WALK,
+  DESKS,
   SCHOOL_OBSTACLES,
   schoolHotspots,
 } from "../src/game/schoolLayout.ts";
@@ -46,7 +47,7 @@ test("no route goes through a desk or outside the classroom", () => {
   assert.equal(
     findWalkPath(
       { x: 1000, y: 1075 },
-      { x: 740, y: 790 },
+      { x: DESKS[0].x, y: DESKS[0].y - 15 },
       SCHOOL_WALK,
       SCHOOL_OBSTACLES,
     ),

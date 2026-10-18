@@ -7,18 +7,18 @@ import type { HuntSnapshot } from "./riskHunt.ts";
 import type { Hotspot, Obstacle } from "./townHallData.ts";
 export const SCHOOL_WORLD = { width: 1920, height: 1280 };
 export const SCHOOL_WALK = { left: 300, right: 1620, top: 600, bottom: 1100 };
-export const DESKS = [
-  { x: 740, y: 810 },
-  { x: 1100, y: 810 },
-  { x: 740, y: 990 },
-  { x: 1100, y: 990 },
-];
+// Four columns of four individual seats; a broad centre aisle and side aisles
+// connect the board, storage and door without crossing furniture footprints.
+export const DESK_WIDTH = 120;
+export const DESKS = [690, 790, 890, 990].flatMap((y) =>
+  [650, 820, 1180, 1350].map((x) => ({ x, y })),
+);
 export const SCHOOL_OBSTACLES: readonly Obstacle[] = [
   ...DESKS.map((p) => ({
-    left: p.x - 75,
-    right: p.x + 75,
-    top: p.y - 45,
-    bottom: p.y + 5,
+    left: p.x - 60,
+    right: p.x + 60,
+    top: p.y - 36,
+    bottom: p.y + 8,
   })),
   { left: 299, right: 800, top: 1020, bottom: 1101 },
   { left: 1120, right: 1621, top: 1020, bottom: 1101 },
@@ -35,14 +35,14 @@ export function placementFor(
     if (id === "exit_bags")
       return {
         ...original,
-        x: 550,
-        y: 990,
+        x: 420,
+        y: 985,
         hitY: 945,
-        approach: { x: 550, y: 925 },
+        approach: { x: 500, y: 1010 },
       };
-    if (id === "heavy_boxes") return { ...original, y: 540, hitY: 490 };
+    if (id === "heavy_boxes") return { ...original, x: 540, y: 555, hitY: 520, approach: { x: 540, y: 630 } };
     if (id === "window_heavy")
-      return { ...original, x: 430, y: 790, approach: { x: 550, y: 830 } };
+      return { ...original, x: 450, y: 860, approach: { x: 510, y: 930 } };
   }
   return { ...original, approach: { ...original.approach } };
 }
@@ -65,13 +65,14 @@ export function schoolHotspots(hunt: HuntSnapshot): Hotspot[] {
       x: 1000,
       y: 1090,
       radius: 76,
-      hit: { x: 1000, y: 1190, width: 190, height: 95 },
+      hit: { x: 1000, y: 1070, width: 210, height: 270 },
     },
   ];
 }
 export const SCHOOL_ASSETS: readonly (readonly [string, string])[] = [
   ["school-room", "room"],
-  ["school-desk", "desk"],
+  ["school-desk", "desk-facing-board"],
   ["school-teacher", "teacher_desk"],
+  ["school-door", "door"],
   ...CLASSROOM_OBJECTS.map((o) => [`school-${o.asset}`, o.asset] as const),
 ];

@@ -2,12 +2,15 @@
 
 Bu fazda OpenAI görsel üretim aracıyla hazırlanmış yerel PNG konseptleridir.
 Harici resim URL'si hotlink edilmez; üçüncü taraf stok paket indirilmedi.
-Yeni sınıf görselleri kullanıcı görsel onayını bekler.
+Sınıfın ışıklandırması ve sanat stili kullanıcı tarafından beğenildi.
+16 sıralı yeni yerleşim, tahtaya dönük sıra varyantı ve açık kapı yeniden görsel onay bekler.
 
 | Dosya | Kullanım |
 | --- | --- |
 | `room.png` | Karaktersiz ve etkileşimli mobilyasız oda kabuğu: parke, pencereler, kara tahta, kapı eşiği ve sabit mimari dekor |
-| `desk.png` | Bağımsız öğrenci sırası + sandalye; dört örnek |
+| `desk.png` | Önceki sıra varyantı; yeni yerleşimde kullanılmıyor |
+| `desk-facing-board.png` | Tahtaya dönük oturma yönüyle 16 bağımsız sıra/sandalye; mevcut ahşap ve turkuaz stile uygun yeni varyant |
+| `door.png` | Eşiğe yerleşen açık ahşap/turkuaz sınıf kapısı; küçük çıkış levhası sahnede ayrıca çizilir |
 | `teacher_desk.png` | Bağımsız öğretmen masası |
 | `bookshelf.png` | Sabitlenmemiş uzun kitaplık |
 | `exit_bags.png` | Kapı geçişindeki dağınık çantalar |

@@ -36,9 +36,10 @@ class SchoolPlayer(Player):
 
     def navigate(self,identifier):
         h=self.hotspot(identifier);start=self.snapshot()['player']
-        row=710 if start['y']<880 else 1010
-        self.axis('y',row);self.axis('x',940)
-        target_row=630 if h['y']<=680 else 710 if h['y']<880 else 1010
+        aisles=[630,730,830,930,1010]
+        row=min(aisles,key=lambda y:abs(y-start['y']))
+        self.axis('y',row);self.axis('x',1000)
+        target_row=min(aisles,key=lambda y:abs(y-h['y']))
         self.axis('y',target_row);self.axis('x',h['x']);self.axis('y',h['y'])
         self.page.wait_for_timeout(500)
 
@@ -76,9 +77,29 @@ class SchoolPlayer(Player):
         self.wait('d.status.hunt.findings[arg.id] === arg.state',{'id':identifier,'state':state})
 
 
+
+def control_touch_boundary(p):
+    """Real d-pad touch must not reach Phaser's window touch listener."""
+    p.page.evaluate("""() => {
+      window.__controlTouchCount=0;
+      window.__observeControlTouch=(event) => {
+        if(event.target instanceof Element && event.target.closest('.dpad button'))
+          window.__controlTouchCount++;
+      };
+      window.addEventListener('touchstart',window.__observeControlTouch);
+    }""")
+    start=p.snapshot()['player']['x']
+    p.axis('x',start+25)
+    assert p.snapshot()['status']['dialogue'] is None
+    assert p.page.evaluate('window.__controlTouchCount')==0,'D-pad touch leaked to Phaser window input'
+    p.page.evaluate("window.removeEventListener('touchstart',window.__observeControlTouch)")
+    p.axis('x',1000)
+    print('PASS: mobile DOM direction touches do not reach underlying game sprites',flush=True)
+
+
 def far_route(p):
     """Click a distant bookcase across the row of desks; never teleport."""
-    p.axis('y',900);p.axis('x',940);p.page.wait_for_timeout(900)
+    p.axis('y',830);p.axis('x',1000);p.page.wait_for_timeout(900)
     start=p.snapshot()['player']
     p.page.screenshot(path=str(OUT/'school-classroom-entrance-desktop.png'))
     p.object('bookshelf');p.wait('d.status.inspection?.id === "bookshelf"')
@@ -92,8 +113,9 @@ def far_route(p):
 
 def run_classroom(browser,mobile):
     p=SchoolPlayer(browser,mobile);p.setup()
-    p.axis('y',700);p.page.wait_for_timeout(800)
-    if not mobile:p.page.screenshot(path=str(OUT/'school-classroom-desktop.png'))
+    if mobile:control_touch_boundary(p)
+    p.axis('y',830 if mobile else 730);p.page.wait_for_timeout(800)
+    p.page.screenshot(path=str(OUT/('school-classroom-mobile.png' if mobile else 'school-classroom-desktop.png')))
     if not mobile:far_route(p)
     for index,identifier in enumerate(RISKS):
         p.inspect(identifier,keyboard=not mobile and identifier in ('bookshelf','exit_bags'))
@@ -127,7 +149,7 @@ def run_classroom(browser,mobile):
         p.close_dialogue()
         if identifier=='bookshelf':
             if mobile:
-                p.page.screenshot(path=str(OUT/'school-classroom-mobile.png'))
+                p.page.screenshot(path=str(OUT/'school-classroom-bookshelf-mobile.png'))
             count=p.snapshot()['status']['hunt']['found']
             p.inspect(identifier);p.close_inspection()
             assert p.snapshot()['status']['hunt']['found']==count
@@ -156,8 +178,11 @@ def run_classroom(browser,mobile):
     p.cdp.send('HeapProfiler.collectGarbage');heap_before=p.cdp.send('Runtime.getHeapUsage')['usedSize']
     fields=('objects','blurListeners','pointerListeners','keyboardListeners','textureCount')
     baseline={key:p.snapshot()[key] for key in fields}
-    for _ in range(5):
-        p.navigate('classroomExit');p.interaction('Enter');p.stable('CitySquare')
+    for cycle in range(5):
+        p.navigate('classroomExit')
+        if cycle==0:p.object('classroomExit')
+        else:p.interaction('Enter')
+        p.stable('CitySquare')
         assert p.snapshot()['status']['hunt']['fixed']==6
         p.interaction('Enter');p.stable('SchoolClassroom')
         assert p.snapshot()['status']['hunt']['safeCount']==4

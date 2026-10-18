@@ -1,8 +1,48 @@
 # Faz 03 — Güvenkent İlkokulu ve 5-A sınıf risk avı
 
-**İşlevsel keşif prototipi; yeni sınıf görselleri kullanıcı onayını bekliyor.**
+**İşlevsel keşif prototipi; sınıf yerleşimi revizyonu yeniden görsel onay bekliyor.**
 Kaynak: GitHub `feat/town-hall-interior`, `c768aeb` (Faz 03 belgesi dâhil).
 Geliştirme dalı: `feat/school-risk-hunt`. `main` ile birleştirme ve dağıtım yok.
+
+## Sınıf düzeni revizyonu
+
+Bu revizyon önceki `feat/school-risk-hunt` teslimi (`280e7cd`) üzerine yapılmıştır.
+
+Kullanıcının görsel değerlendirmesine göre yalnızca sınıf düzeni yenilendi:
+
+- Dört dağınık sıra yerine **4 sütun × 4 sıra = 16 tekli öğrenci yeri** var.
+  Sandalyeler tahtaya dönük; ortada geniş, yanlarda ve sıra aralarında açık
+  geçişler bulunur. Çağrı'nın tasarımı ve boyutu korunurken sıra genişliği
+  120 dünya birimine ayarlandı; görsellerin en/boy oranları değiştirilmedi.
+- Öğretmen masası tahtanın önündeki öğretim alanında; kitaplık pencere/duvar
+  yanında, yüksek dolap sağ duvar tarafında, panolar duvar hizasında yer alır.
+  Düzenli çantalar sağdaki saklama alanındadır. Riskli çantalar yalnızca çıkışın
+  sol bölümünü daraltır; kapı ve çıkış etkileşimi erişilebilir kalır.
+- Mevcut oda kabuğu, ışık ve parke aynen korunur. Açık ahşap/turkuaz kapı
+  kanadı mevcut sağ kasaya yerleştirildi. Küçük **ÇIKIŞ ↓** levhası kapıyı
+  belirtir; risk nesnelerine büyük uyarı işareti/etiketi eklenmedi.
+- On incelenebilir nesnenin konumu/ölçeği, gerçek sprite seçim alanları,
+  yaklaşım noktaları, 16 sıra çarpışması ve yetişkin çözümü sonrası taşınan
+  nesnelerin konumları birlikte güncellendi. Görselin içine gömülü sahte
+  etkileşim yoktur.
+- Meydan/belediye sahneleri ve varlıkları, Çağrı/AFİ görselleri, ortak hareket
+  kodu, görev durumu, ipucu, sayaç ve karar mantığı önceki commit ile aynıdır.
+  Değişiklikler yalnızca sınıf sahnesi/verisi, sınıf görselleri, ilgili testler
+  ve bu rapordadır. Yeni bağımlılık veya sonraki bölüm yoktur.
+- `desk-facing-board.png` ve `door.png`, mevcut sınıf stiline uygun olarak
+  OpenAI görsel üretim aracıyla hazırlandı. Eski sıra PNG'si de korundu.
+  Kapı görselinden yalnızca kanat, Phaser doku çerçevesiyle kullanılır;
+  mevcut kapı kasası ikinci bir kasayla örtülmez.
+
+Mobil kabul sırasında yön düğmesine dokunmanın Phaser'ın pencere düzeyindeki
+`touchstart` dinleyicisi üzerinden alttaki AFİ sprite'ına da ulaşabildiği
+saptandı. Yalnızca `SchoolClassroomScene` içinde HTML düğmesi dokunmalarının
+pencereye yayılması engellendi; React yön/inceleme/ipucu düğmeleri ve gerçek
+tuval etkileşimleri korunur. Dinleyici sınıf kapanışında kaldırılır. Ortak
+`AdventureScene`, meydan ve belediye girdisi değiştirilmedi.
+
+**Yerleşim revizyonu yeniden görsel onay bekler.**
+
 
 ## Oynanabilir akış
 
@@ -64,7 +104,7 @@ incelemeleri ayrı 0/4–4/4 tutulur. Aynı nesneye tekrar tıklama ikinci sayı
 | `src/game/story.ts` | Ortak oturumda risk avı ve sahneler arası ilerleme/özet köprüsü |
 | `src/game/CitySquareScene.ts` | Mevcut okul kapısına sınıf sahnesi geçişi |
 | `src/components/GamePreview.tsx`, `src/styles/app.css` | Üç sahne, küçük sayaçlar/inceleme kartı, sınıfa özgü mobil görünüm |
-| `public/assets/school/` | 13 yerel PNG ve kaynak/eksik varlık listesi |
+| `public/assets/school/` | 15 yerel PNG ve kaynak/eksik varlık listesi |
 | `tests/riskHunt.test.ts`, `tests/navigation.test.ts` | Durum, eğitim verisi, sayaç, rehberlik ve erişilebilir rota testleri |
 | `tests/school_risk_hunt_smoke.py` | Gerçek girdilerle okul/sınıf kabul testleri |
 | `tests/town_hall_smoke.py` | Mevcut belediye kabul akışı; okul kapısındaki yeni metin beklentisi güncellendi |
@@ -86,10 +126,10 @@ Node 24.19.0, npm 11.9.0, Python Playwright ve sistem Chromium kullanıldı.
 ```sh
 npm run build
 node --experimental-strip-types --test tests/*.test.ts
-npm run dev -- --port 5173 --strictPort
-# Ayrı terminal:
-python -u tests/browser_smoke.py
-python -u tests/school_risk_hunt_smoke.py
+npm run preview -- --port 4173 --strictPort
+# Ayrı terminal; değişmeyen üretim çıktısında:
+GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/browser_smoke.py
+GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/school_risk_hunt_smoke.py
 ```
 
 - **Üretim derlemesi başarılı.** Vite'ın mevcut büyük JS paket uyarısı devam eder; derleme hatası değildir.
@@ -97,9 +137,11 @@ python -u tests/school_risk_hunt_smoke.py
 - **Mevcut meydan/belediye kabul paketi başarılı:** 1440×1000 masaüstü ve 390×844 dokunmatik emülasyonda görev akışı, ayarlar ve beşer giriş/çıkış. Eksik başkan görselinde de oyun kullanılabilir kaldı.
 - **Sınıf kabul paketi başarılı:** her iki boyutta altı riskin yanlış/doğru neden ve çözüm seçenekleri, bildirim, yetişkin çözümü, dört güvenli nesne ve 6/6–4/4 sayaçları ayrı ayrı çalıştırıldı.
 - **Tekrar inceleme çift sayılmadı.** Tab/Enter ile gerçek HTML seçimleri, Q ile yakındaki nesne seçimi ve Enter ile kartın yalnızca bir kez kapanması doğrulandı.
-- **Her iki boyutta beşer sınıf çıkış/yeniden giriş döngüsü geçti:** ilerleme korunur; tek etkin sahne/tek tuval, 67 nesne, 4 blur/1 pointer/4 etkileşim klavye dinleyicisi ve 22 doku sabit kaldı.
-- GC sonrası sınıf JS heap farkı son turda masaüstünde yaklaşık **+0,12 MiB**, dokunmatikte **+0,29 MiB**; belirlenen büyüme sınırı aşılmadı. Bu kısa kontrol uzun süreli donanım profili değildir.
+- **Her iki boyutta beşer sınıf çıkış/yeniden giriş döngüsü geçti:** ilerleme korunur; tek etkin sahne/tek tuval, 93 nesne, 4 blur/1 pointer/4 etkileşim klavye dinleyicisi ve 24 doku sabit kaldı.
+- GC sonrası sınıf JS heap büyümesi iki görünümde de testin 15 MiB sınırını aşmadı. Bu kısa kontrol uzun süreli donanım profili değildir.
+- İlk çıkış gerçek kapı hotspotuna fare/dokunma ile, sonraki dört çıkış etkileşim kontrolüyle yapıldı.
 - **Uzaktan tıkla-git ayrıca gerçek tarayıcı girdisiyle denendi:** Çağrı, kitaplığa giderken aradaki sıraların çevresinden yürüdü; konum atlatma kullanılmadı. Kapı ve inceleme görüntüleri bu ek kontrolde alındı.
+- **Yeni dokunmatik regresyon kontrolü geçti:** gerçek yön düğmesiyle hareket sırasında DOM dokunması Phaser pencere girdisine ulaşmadı; görünür AFİ ipucu düğmesi ayrıca çalıştırıldı.
 - Sessiz mod, konuşma balonları kapalıyken zorunlu yazı, azaltılmış hareket ve ayarlardan dönüşte bulgu koruması geçti.
 - Kitaplık görseli kasıtlı engellenince açık uyarı çıktı; inceleme ve hareket kullanılabilir kaldı. Başarılı akışlarda yakalanmamış JavaScript hatası ve yatay taşma görülmedi.
 - Testler soğuk önbellekte de doğru nesneye tıklamak için takip kamerasının gerçekten durmasını bekler; sabit bir ilk kare süresi varsaymaz.
@@ -114,6 +156,7 @@ ortamda denenmedi; mobil sonuçlar Chromium dokunmatik emülasyonudur.
 
 - [Masaüstü — 1440×1000](screenshots/school-classroom-desktop.png)
 - [Dokunmatik — 390×844](screenshots/school-classroom-mobile.png)
+- [Mobil kitaplık incelemesi sonrası görünüm](screenshots/school-classroom-bookshelf-mobile.png)
 - [Kapı geçişi ve çantalar](screenshots/school-classroom-entrance-desktop.png)
 - [Yakın inceleme / karar kartı](screenshots/school-classroom-inspection-desktop.png)
 

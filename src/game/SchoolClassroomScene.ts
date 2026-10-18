@@ -7,6 +7,7 @@ import {
   SCHOOL_ASSETS,
   SCHOOL_OBSTACLES,
   DESKS,
+  DESK_WIDTH,
   schoolHotspots,
   placementFor,
 } from "./schoolLayout";
@@ -34,6 +35,18 @@ export class SchoolClassroomScene extends AdventureScene {
   }
   create() {
     super.create();
+    // Phaser also listens for touchstart on window, including DOM controls.
+    // Keep classroom UI touches out of sprites underneath (notably AFİ).
+    // Pointer events and native clicks still reach React's controls normally.
+    const stage = this.game.canvas.parentElement?.parentElement;
+    const overlayTouch = (event: TouchEvent) => {
+      if (event.target instanceof Element && event.target.closest("button"))
+        event.stopPropagation();
+    };
+    stage?.addEventListener("touchstart", overlayTouch);
+    this.events.once("shutdown", () =>
+      stage?.removeEventListener("touchstart", overlayTouch),
+    );
     this.session.classroomIntro();
   }
   private prop(
@@ -75,10 +88,23 @@ export class SchoolClassroomScene extends AdventureScene {
       })
       .setOrigin(0.5)
       .setDepth(1);
-    DESKS.forEach((p) => this.prop("school-desk", p.x, p.y, 130));
-    this.prop("school-teacher", 960, 545, 225);
+    DESKS.forEach((p) => this.prop("school-desk", p.x, p.y, DESK_WIDTH));
+    this.prop("school-teacher", 1050, 540, 205);
+    // Use only the open leaf from the generated prop. The room already owns
+    // the door jambs; drawing another frame would create a doorway inside it.
+    if (this.textures.exists("school-door")) {
+      const texture = this.textures.get("school-door");
+      if (!texture.has("open-leaf"))
+        texture.add("open-leaf", 0, 590, 120, 400, 1380);
+      this.add.image(1155, 1205, "school-door", "open-leaf")
+        .setOrigin(0.5, 1).setDisplaySize(75, 259).setDepth(1205);
+    }
+    this.add.text(1130, 930, "ÇIKIŞ ↓", {
+      fontFamily: "Arial", fontSize: "15px", color: "#fff8e5",
+      backgroundColor: "#326f65", padding: { x: 10, y: 5 },
+    }).setOrigin(0.5).setDepth(1206);
     // A low storage unit and a separate box sprite make the adult's relocation visible.
-    this.prop("school-safe_shelf", 690, 500, 185);
+    this.prop("school-safe_shelf", 700, 495, 165);
     CLASSROOM_OBJECTS.forEach((object) => {
       const p = placementFor(object.id, this.session.riskHunt.snapshot());
       const image = this.prop(
