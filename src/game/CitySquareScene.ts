@@ -70,6 +70,11 @@ export class CitySquareScene extends AdventureScene {
     } else this.session.interact(id);
   }
   protected updateWorld() {
+    if (this.session.floodEntryRequested && this.session.floodUnlocked) {
+      this.session.floodEntryRequested = false;
+      this.switchTo("Flood");
+      return;
+    }
     this.schoolMarker?.setVisible(this.session.quest === "goToSchool");
     if (
       this.session.quest === "goToSchool" &&

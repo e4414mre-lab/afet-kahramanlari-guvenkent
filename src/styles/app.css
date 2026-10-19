@@ -657,3 +657,42 @@ main {
   .home-panel:has(.home-protection) .inspection-feedback { margin: 8px 0; }
   .home-panel:has(.home-protection) .inspection-footnote { font-size: 10px; line-height: 1.3; }
 }
+
+/* Flood-only panels: keep the diorama visible and critical text available. */
+.flood-panel {max-height:68%; overflow:auto;}
+.flood-panel h3 {margin:9px 22px 12px 0;}
+.flood-panel > button, .region-picker > button {margin:5px 5px 0 0;}
+.flood-panel [aria-pressed="true"] {background:#dfede2;border-color:#4b8972;}
+.flood-panel progress {width:100%;height:8px;accent-color:#3d7b7c;}
+.flood-panel .flood-timer {font-weight:700;font-size:14px;}
+.flood-effect {font-size:13px;}
+.region-picker {z-index:15;max-height:75%;overflow:auto;}
+.region-picker > button {display:block;width:100%;}
+.day-two {margin:10px 0;}
+.flood-comparison {width:min(670px,calc(100% - 32px));}
+.flood-compare-grid [role="row"] {display:grid;grid-template-columns:.7fr 1fr 1.5fr;gap:10px;padding:9px 0;border-bottom:1px solid #ccd8d0;font-size:13px;line-height:1.45;}
+@media(max-width:600px){
+ .flood-panel {max-height:58%;}
+ .flood-panel p {font-size:12px;line-height:1.45;margin:8px 0;}
+ .flood-panel h3 {font-size:18px;margin:7px 20px 9px 0;}
+ .flood-panel .inspection-choices button {font-size:12px;padding:9px;}
+ .flood-panel .inspection-footnote {font-size:10px;}
+ .flood-panel .home-object img {width:55px;height:65px;}
+ .flood-compare-grid [role="row"] {grid-template-columns:.65fr 1fr 1.2fr;gap:7px;font-size:11px;padding:7px 0;}
+ .flood-simulation-panel .flood-effect {font-size:11px;}
+}
+@media(max-width:600px){.flood-comparison{max-height:92%;}.flood-comparison .inspection-footnote{font-size:9px;}.flood-comparison .flood-compare-grid [role="row"]{font-size:10px;line-height:1.35;padding:6px 0;}}
+/* Keep the low bridge and river visible beside the simulation controls. */
+.flood-simulation-panel {left:18px;right:auto;}
+@media(max-width:600px){.flood-simulation-panel{left:10px;}}
+.flood-effect-compact{display:none;}
+.flood-simulation-actions{display:flex;gap:8px;align-items:stretch;}
+.flood-simulation-actions button{flex:1;font-size:12px;}
+@media(max-width:600px){
+ .flood-simulation-panel{max-height:48%;}
+ .flood-simulation-panel .flood-effect,.flood-simulation-panel .inspection-footnote{display:none;}
+ .flood-simulation-panel .flood-effect-compact{display:block;font-size:11px;}
+ .flood-simulation-panel > small{font-size:9px;}
+ .flood-simulation-panel .flood-timer{font-size:12px;}
+ .flood-simulation-actions button{font-size:11px;line-height:1.3;padding:9px;}
+}

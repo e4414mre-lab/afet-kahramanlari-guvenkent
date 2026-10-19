@@ -1,3 +1,5 @@
+import { FloodFlow } from "./floodFlow.ts";
+import { FLOOD_OBJECTIVES, type FloodRiskId } from "../data/flood.ts";
 import { HomeFlow, type HomeId } from "./homeFlow.ts";
 import { RiskHunt, type HuntSnapshot, type Inspection } from "./riskHunt.ts";
 import {
@@ -19,7 +21,8 @@ export type SceneId =
   | "TownHall"
   | "SchoolClassroom"
   | "Home"
-  | "GatheringPoint";
+  | "GatheringPoint"
+  | "Flood";
 export type InteriorObject =
   | "mayor"
   | "certificate"
@@ -36,7 +39,11 @@ export type InteractionId =
   | HomeId
   | "home"
   | "homeExit"
-  | "gatherHere";
+  | "gatherHere"
+  | FloodRiskId
+  | "hasan"
+  | "floodPreparedness"
+  | "floodExit";
 export type Controls = {
   x: number;
   y: number;
@@ -111,6 +118,8 @@ export type GameStatus = {
   inspection: Inspection | null;
   home: ReturnType<HomeFlow["snapshot"]>;
   homeUnlocked: boolean;
+  flood: ReturnType<FloodFlow["snapshot"]>;
+  floodUnlocked: boolean;
 };
 /** In-memory session only: survives scene restarts, never claims a database save. */
 export class GameSession {
@@ -130,6 +139,15 @@ export class GameSession {
   dialogue: Dialogue | null = null;
   nearby: string | null = null;
   assetErrors: string[] = [];
+  readonly flood = new FloodFlow();
+  floodEntryRequested = false;
+  get floodUnlocked() {
+    return this.home.completedOnce;
+  }
+  requestFlood() {
+    if (this.floodUnlocked && this.scene === "CitySquare")
+      this.floodEntryRequested = true;
+  }
   readonly home = new HomeFlow();
   get homeUnlocked() {
     return this.riskHunt.snapshot().complete;
@@ -152,20 +170,24 @@ export class GameSession {
       scene: this.scene,
       quest: this.quest,
       objective:
-        this.scene === "Home"
-          ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
-          : this.scene === "GatheringPoint"
-            ? "Belirlenmiş buluşma alanına yürü"
-            : this.scene === "SchoolClassroom"
-              ? this.riskHunt.snapshot().complete
-                ? "Güvenli çözümleri birlikte planladık"
-                : "Sınıftaki riskleri incele"
-              : OBJECTIVES[this.quest],
+        this.scene === "Flood"
+          ? FLOOD_OBJECTIVES[this.flood.phase]
+          : this.scene === "Home"
+            ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
+            : this.scene === "GatheringPoint"
+              ? "Belirlenmiş buluşma alanına yürü"
+              : this.scene === "SchoolClassroom"
+                ? this.riskHunt.snapshot().complete
+                  ? "Güvenli çözümleri birlikte planladık"
+                  : "Sınıftaki riskleri incele"
+                : OBJECTIVES[this.quest],
       nearby: this.nearby,
       dialogue: this.dialogue ? { ...this.dialogue } : null,
       schoolVisited: this.schoolVisited,
       transitioning: this.transitioning,
       assetErrors: [...this.assetErrors],
+      flood: this.flood.snapshot(),
+      floodUnlocked: this.floodUnlocked,
       home: this.home.snapshot(),
       homeUnlocked: this.homeUnlocked,
       hunt: this.riskHunt.snapshot(),
@@ -268,6 +290,10 @@ export class GameSession {
     this.notify();
   }
   hint() {
+    if (this.scene === "Flood") {
+      if (!this.flood.locked) this.say([this.flood.hint()]);
+      return;
+    }
     if (this.scene === "Home" || this.scene === "GatheringPoint") {
       if (!this.home.locked)
         this.say([

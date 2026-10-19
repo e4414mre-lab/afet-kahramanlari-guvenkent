@@ -90,3 +90,15 @@ Azaltılmış harekette kamera sarsıntısı yoktur. Tekrar oynama ikinci tamaml
 sayımı üretmez. Yeni sahneler görsel onay bekler; sonraki bölge açılmaz.
 
 [Teslim, testler ve masaüstü/mobil görseller](docs/FAZ_04_TESLIM_RAPORU.md).
+
+### Faz 05 — Dere Mahallesi
+
+Deprem tatbikatını ve buluşma alanını tamamladıktan sonra meydandaki
+**İkinci gün bölgelerini aç** düğmesinden Dere Mahallesi seçilir. Diğer üç bölge
+henüz geliştiriliyor. Hasan Amca, üç güvenli risk araştırması, hazırlık panosu ve
+aynı 45 saniyelik yağışın önce/sonra karşılaştırması oynanabilir. Simülasyon gerçek
+sel tahmini değildir. Hazırlık ve rapor yalnızca açık oturumda tutulur.
+
+Yeni kabul testi (önceki belediye/okul/ev akışını da gerçek girdilerle oynar):
+`GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/flood_smoke.py`.
+[Testler, ekran görüntüleri ve varlık eksikleri](docs/FAZ_05_TESLIM_RAPORU.md).

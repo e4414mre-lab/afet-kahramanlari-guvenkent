@@ -53,7 +53,7 @@ def complete_school(p):
   print('school prerequisite '+identifier+' PASS',flush=True)
  assert p.snapshot()['status']['homeUnlocked']
 
-def run(browser,mobile):
+def run(browser,mobile,keep_open=False):
  p=HomePlayer(browser,mobile)
  p.start();p.axis('y',820);p.axis('x',760);p.axis('y',850);p.interaction('Enter');p.dialogue()
  assert p.snapshot()['scene']=='CitySquare' and not p.snapshot()['status']['homeUnlocked']
@@ -140,6 +140,7 @@ def run(browser,mobile):
  p.home_walk('homeExit');p.interaction('Enter');p.stable('GatheringPoint');p.home_walk('gatherHere');p.interaction('Enter')
  p.wait('d.status.home.phase === "completed"');assert p.home_status()['completionCount']==1
  p.check();print(json.dumps({'mode':mode,'result':'PASS','homeRisks':4,'homeSafe':2,'completionCount':1,'replayMutedReducedMotion':True},ensure_ascii=False),flush=True)
+ if keep_open:return p
  p.close()
 
 def main():
