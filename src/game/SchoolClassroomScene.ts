@@ -5,7 +5,7 @@ import {
   SCHOOL_WORLD,
   SCHOOL_WALK,
   SCHOOL_ASSETS,
-  SCHOOL_OBSTACLES,
+  schoolObstacles,
   DESKS,
   DESK_WIDTH,
   schoolHotspots,
@@ -14,6 +14,7 @@ import {
 export class SchoolClassroomScene extends AdventureScene {
   private markers = new Map<ClassroomObjectId, Phaser.GameObjects.Graphics>();
   private shadows = new Map<ClassroomObjectId, Phaser.GameObjects.Ellipse>();
+  private bagsFixed?: boolean;
   private guided?: Phaser.GameObjects.Ellipse;
   constructor(session: GameSession) {
     super("SchoolClassroom", session, {
@@ -21,7 +22,7 @@ export class SchoolClassroomScene extends AdventureScene {
       walk: SCHOOL_WALK,
       spawn: { x: 1000, y: 1075 },
       hotspots: schoolHotspots(session.riskHunt.snapshot()),
-      obstacles: SCHOOL_OBSTACLES,
+      obstacles: schoolObstacles(session.riskHunt.snapshot()),
       pathfinding: true,
       cycleNearby: true,
       hideIdleHalos: true,
@@ -88,6 +89,12 @@ export class SchoolClassroomScene extends AdventureScene {
       })
       .setOrigin(0.5)
       .setDepth(1);
+    // Quiet classroom details belong to the room, not to the risk overlay.
+    this.prop("school-clock", 1360, 175, 64, false)?.setDepth(1);
+    this.add.text(855, 115, "Fen Bilimleri\nGözlem • Neden • Güvenli çözüm", {
+      fontFamily: "Georgia", fontSize: "20px", fontStyle: "italic",
+      color: "#d5dfcd", lineSpacing: 10,
+    }).setAlpha(0.78).setDepth(1);
     DESKS.forEach((p) => this.prop("school-desk", p.x, p.y, DESK_WIDTH));
     this.prop("school-teacher", 1050, 540, 205);
     // Use only the open leaf from the generated prop. The room already owns
@@ -103,6 +110,11 @@ export class SchoolClassroomScene extends AdventureScene {
       fontFamily: "Arial", fontSize: "15px", color: "#fff8e5",
       backgroundColor: "#326f65", padding: { x: 10, y: 5 },
     }).setOrigin(0.5).setDepth(1206);
+    const exitPaint = this.add.graphics().setDepth(1);
+    exitPaint.lineStyle(3, 0x62877a, 0.5);
+    for (const y of [940, 1010, 1080])
+      exitPaint.beginPath().moveTo(991, y - 7).lineTo(1000, y + 3)
+        .lineTo(1009, y - 7).strokePath();
     // A low storage unit and a separate box sprite make the adult's relocation visible.
     this.prop("school-safe_shelf", 700, 495, 165);
     CLASSROOM_OBJECTS.forEach((object) => {
@@ -143,6 +155,11 @@ export class SchoolClassroomScene extends AdventureScene {
   }
   protected updateWorld() {
     const hunt = this.session.riskHunt.snapshot();
+    const bagsFixed = hunt.findings.exit_bags === "verifiedFixed";
+    if (bagsFixed !== this.bagsFixed) {
+      this.definition.obstacles = schoolObstacles(hunt);
+      this.bagsFixed = bagsFixed;
+    }
     CLASSROOM_OBJECTS.forEach((object) => {
       const p = placementFor(object.id, hunt),
         image = this.props.get(object.id);

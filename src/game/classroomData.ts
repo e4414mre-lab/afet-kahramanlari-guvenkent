@@ -73,7 +73,7 @@ export const RISKS: readonly RiskObject[] = [
     kind: "risk",
     name: "Uzun kitaplık",
     asset: "bookshelf",
-    placement: { x: 420, y: 535, width: 150, approach: { x: 420, y: 630 } },
+    placement: { x: 430, y: 550, width: 150, approach: { x: 420, y: 630 } },
     detail: "Kitaplık yüksek; duvar bağlantısı görünmüyor.",
     reason: "Sabitlenmemiş uzun kitaplık sarsıntıda devrilebilir.",
     reasons: reasons(
@@ -108,9 +108,9 @@ export const RISKS: readonly RiskObject[] = [
     name: "Kapı önündeki çantalar",
     asset: "exit_bags",
     placement: {
-      x: 880,
+      x: 900,
       y: 1080,
-      width: 125,
+      width: 160,
       approach: { x: 880, y: 1010 },
       hitY: 1045,
     },
@@ -148,11 +148,11 @@ export const RISKS: readonly RiskObject[] = [
     name: "Yüksekteki ağır kutular",
     asset: "heavy_boxes",
     placement: {
-      x: 700,
-      y: 405,
+      x: 720,
+      y: 425,
       width: 105,
       approach: { x: 700, y: 630 },
-      hitY: 360,
+      hitY: 380,
     },
     detail: "Ağır arşiv kutuları dolabın üstünde duruyor.",
     reason: "Yüksekteki ağır kutular sarsıntıda düşebilir.",
@@ -187,7 +187,7 @@ export const RISKS: readonly RiskObject[] = [
     kind: "risk",
     name: "Yüksek dolap",
     asset: "tall_cabinet",
-    placement: { x: 1510, y: 535, width: 145, approach: { x: 1490, y: 630 } },
+    placement: { x: 1530, y: 570, width: 145, approach: { x: 1490, y: 630 } },
     detail: "Yüksek dolabın sabitleme bağlantısı görünmüyor.",
     reason: "Sabitlenmemiş yüksek dolap devrilebilir.",
     reasons: reasons(
@@ -221,7 +221,7 @@ export const RISKS: readonly RiskObject[] = [
     kind: "risk",
     name: "Pencere yanındaki ağır eşya",
     asset: "window_heavy",
-    placement: { x: 330, y: 780, width: 105, approach: { x: 460, y: 830 } },
+    placement: { x: 340, y: 795, width: 105, approach: { x: 460, y: 830 } },
     detail: "Ağır küre pencereye çok yakın, sabitlenmemiş bir kaide üzerinde.",
     reason: "Pencere yanındaki ağır eşya hareket edebilir veya düşebilir.",
     reasons: reasons(

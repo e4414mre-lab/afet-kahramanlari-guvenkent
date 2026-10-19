@@ -25,6 +25,15 @@ export const SCHOOL_OBSTACLES: readonly Obstacle[] = [
   { left: 300, right: 375, top: 735, bottom: 790 },
   { left: 1530, right: 1621, top: 715, bottom: 775 },
 ];
+// Bags narrow the left half of the doorway; adult relocation opens it again.
+const BLOCKED_EXIT: readonly Obstacle[] = [
+  ...SCHOOL_OBSTACLES,
+  { left: 850, right: 950, top: 1055, bottom: 1095 },
+];
+export function schoolObstacles(hunt: HuntSnapshot): readonly Obstacle[] {
+  return hunt.findings.exit_bags === "verifiedFixed"
+    ? SCHOOL_OBSTACLES : BLOCKED_EXIT;
+}
 export function placementFor(
   id: ClassroomObjectId,
   hunt: HuntSnapshot,
@@ -65,7 +74,7 @@ export function schoolHotspots(hunt: HuntSnapshot): Hotspot[] {
       x: 1000,
       y: 1090,
       radius: 76,
-      hit: { x: 1000, y: 1070, width: 210, height: 270 },
+      hit: { x: 1050, y: 1070, width: 110, height: 270 },
     },
   ];
 }
@@ -74,5 +83,6 @@ export const SCHOOL_ASSETS: readonly (readonly [string, string])[] = [
   ["school-desk", "desk-facing-board"],
   ["school-teacher", "teacher_desk"],
   ["school-door", "door"],
+  ["school-clock", "clock"],
   ...CLASSROOM_OBJECTS.map((o) => [`school-${o.asset}`, o.asset] as const),
 ];

@@ -1,5 +1,9 @@
 # Faz 03 — Güvenkent İlkokulu ve 5-A sınıf risk avı
 
+Son küçük çevre/kapı düzenlemeleri ve 18 gerçek oynanış kanıtı için
+[güncel oynanış doğrulama raporuna](FAZ_03_OYNANIS_DOGRULAMA_RAPORU.md) bakın.
+Aşağıdaki rapor önceki yerleşim tesliminin kaydıdır.
+
 **İşlevsel keşif prototipi; sınıf yerleşimi revizyonu yeniden görsel onay bekliyor.**
 Kaynak: GitHub `feat/town-hall-interior`, `c768aeb` (Faz 03 belgesi dâhil).
 Geliştirme dalı: `feat/school-risk-hunt`. `main` ile birleştirme ve dağıtım yok.

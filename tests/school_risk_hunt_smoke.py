@@ -19,6 +19,31 @@ CORRECT={
 }
 
 class SchoolPlayer(Player):
+    def capture(self, moment):
+        folder=OUT/'risk-hunt';folder.mkdir(parents=True,exist_ok=True)
+        mode='mobile' if self.mobile else 'desktop'
+        self.page.evaluate('document.fonts.ready')
+        self.page.wait_for_timeout(250)
+        filename=f'{moment}-{mode}.png'
+        self.page.screenshot(path=str(folder/filename))
+        state=self.snapshot()
+        evidence=getattr(self,'evidence',[])
+        evidence.append({'moment':moment,'image':filename,'viewport':self.page.viewport_size,
+                         'scene':state['scene'],'player':state['player'],'robot':state['robot'],
+                         'hunt':state['status']['hunt'],'inspection':state['status']['inspection'],
+                         'dialogue':state['status']['dialogue']})
+        self.evidence=evidence
+        (folder/f'evidence-{mode}.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
+
+    def doorway_walk(self, blocked):
+        self.axis('y',1010);self.axis('x',900)
+        deadline=self.page.evaluate('performance.now()')+900
+        self.hold('Aşağı','s','performance.now() >= arg',deadline)
+        y=self.snapshot()['player']['y']
+        assert (1040<y<=1055) if blocked else y>1080,('doorway collision',blocked,y)
+        self.capture('08-exit-blocked' if blocked else '09-exit-cleared')
+        self.axis('y',1010);self.axis('x',880)
+
     def setup(self):
         self.start(student=not self.mobile)
         self.approach('townHall')
@@ -46,12 +71,20 @@ class SchoolPlayer(Player):
     def object(self,identifier):
         if self.snapshot()['scene']!='SchoolClassroom':return super().object(identifier)
         h=self.hotspot(identifier);point=h['screen'];b=self.page.locator('canvas').bounding_box()
-        # The lower part is still inside the object's real sprite hitbox and
-        # avoids overlaying the top HUD for high-mounted classroom objects.
-        y=point['y']+h['hit']['height']*.20*self.snapshot()['zoom']
-        assert 0<point['x']<b['width'] and 65<y<b['height']-90,(identifier,point,y,b)
-        if self.mobile:self.page.touchscreen.tap(b['x']+point['x'],b['y']+y)
-        else:self.page.mouse.click(b['x']+point['x'],b['y']+y)
+        # Choose a real part of the sprite that is not covered by HUD/d-pad.
+        # Prefer the previous lower point for wall props, then visible centre/top.
+        target=None
+        for dy in (.20,0,-.20,.35,-.35):
+            for dx in (0,-.20,.20):
+                x=b['x']+point['x']+h['hit']['width']*dx*self.snapshot()['zoom']
+                y=b['y']+point['y']+h['hit']['height']*dy*self.snapshot()['zoom']
+                if not (b['x']<x<b['x']+b['width'] and b['y']+65<y<b['y']+b['height']-90):continue
+                visible=self.page.evaluate("p => document.elementFromPoint(p.x,p.y)?.tagName === 'CANVAS'",{'x':x,'y':y})
+                if visible:target=(x,y);break
+            if target:break
+        assert target,('No unobstructed sprite point',identifier,point,b)
+        if self.mobile:self.page.touchscreen.tap(*target)
+        else:self.page.mouse.click(*target)
 
     def inspect(self,identifier,keyboard=False):
         self.navigate(identifier)
@@ -117,8 +150,19 @@ def run_classroom(browser,mobile):
     p.axis('y',830 if mobile else 730);p.page.wait_for_timeout(800)
     p.page.screenshot(path=str(OUT/('school-classroom-mobile.png' if mobile else 'school-classroom-desktop.png')))
     if not mobile:far_route(p)
+    p.navigate('bookshelf')
+    assert p.snapshot()['status']['inspection'] is None
+    p.capture('01-approach')
+    p.tap(p.page.locator('.afi-hint'));p.dialogue()
+    assert p.snapshot()['status']['hunt']['guidedTarget']=='bookshelf'
+    p.capture('03-afi-guidance')
+    p.tap(p.page.get_by_role('button',name='Tamam',exact=True))
+    p.wait('d.status.dialogue === null')
     for index,identifier in enumerate(RISKS):
+        if identifier=='exit_bags':
+            p.navigate(identifier);p.doorway_walk(blocked=True)
         p.inspect(identifier,keyboard=not mobile and identifier in ('bookshelf','exit_bags'))
+        if identifier=='bookshelf':p.capture('02-inspection')
         before=p.snapshot()['status']['hunt']['found']
         if identifier=='bookshelf' and not mobile:
             # Opening focuses the first choice; native Tab/Enter selects the second.
@@ -127,6 +171,7 @@ def run_classroom(browser,mobile):
         p.wait('d.status.inspection.retry === true')
         assert p.snapshot()['status']['hunt']['found']==before
         p.page.get_by_text('Tekrar düşünelim.',exact=False).wait_for()
+        if identifier=='bookshelf':p.capture('04-wrong-feedback')
         p.tap(p.page.locator('.inspection-choices button').first)
         p.stage(identifier,'identified')
         correct=p.page.get_by_role('button',name=CORRECT[identifier],exact=True)
@@ -136,6 +181,9 @@ def run_classroom(browser,mobile):
                 p.tap(choices.nth(j));break
         p.wait('d.status.inspection.retry === true');p.stage(identifier,'identified')
         p.tap(correct);p.stage(identifier,'planned')
+        if identifier=='bookshelf':
+            assert p.snapshot()['status']['inspection']['retry'] is False
+            p.capture('05-correct-feedback')
         p.tap(p.page.get_by_role('button',name='Öğretmene bildir',exact=True));p.stage(identifier,'assigned')
         p.tap(p.page.get_by_role('button',name='Yetişkin çözümünü gör',exact=True));p.stage(identifier,'verifiedFixed')
         assert p.snapshot()['status']['hunt']['fixed']==index+1
@@ -154,7 +202,12 @@ def run_classroom(browser,mobile):
             p.inspect(identifier);p.close_inspection()
             assert p.snapshot()['status']['hunt']['found']==count
             assert p.snapshot()['status']['hunt']['fixed']==1
-        if identifier=='exit_bags':assert p.snapshot()['status']['hunt']['guidedTarget'] is None
+        if identifier=='exit_bags':
+            assert p.snapshot()['status']['hunt']['guidedTarget'] is None
+            p.doorway_walk(blocked=False)
+        if index in (2,5):
+            assert p.snapshot()['status']['hunt']['found']==index+1
+            p.capture('06-progress-3-of-6' if index==2 else '07-progress-6-of-6')
         print(('touch' if mobile else 'desktop')+' risk '+identifier+' PASS',flush=True)
     assert p.snapshot()['status']['hunt']['complete'] is True
     assert p.snapshot()['status']['hunt']['found']==6

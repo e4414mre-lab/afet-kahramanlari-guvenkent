@@ -6,6 +6,7 @@ import {
   DESKS,
   SCHOOL_OBSTACLES,
   schoolHotspots,
+  schoolObstacles,
 } from "../src/game/schoolLayout.ts";
 import { RiskHunt } from "../src/game/riskHunt.ts";
 import { RISKS } from "../src/game/classroomData.ts";
@@ -13,8 +14,9 @@ import { blocked } from "../src/game/townHallData.ts";
 function walkable(
   start: { x: number; y: number },
   end: { x: number; y: number },
+  obstacles = schoolObstacles(new RiskHunt().snapshot()),
 ) {
-  const path = findWalkPath(start, end, SCHOOL_WALK, SCHOOL_OBSTACLES);
+  const path = findWalkPath(start, end, SCHOOL_WALK, obstacles);
   assert.ok(path, JSON.stringify({ start, end }));
   let previous = start;
   for (const p of path) {
@@ -23,7 +25,7 @@ function walkable(
         blocked(
           previous.x + (p.x - previous.x) * t,
           previous.y + (p.y - previous.y) * t,
-          SCHOOL_OBSTACLES,
+          obstacles,
         ),
         false,
       );
@@ -41,7 +43,7 @@ test("adult relocation keeps every object reachable and distinct", () => {
   for (const r of RISKS) h.findings[r.id] = "verifiedFixed";
   const points = schoolHotspots(h.snapshot());
   assert.equal(new Set(points.map((p) => p.id)).size, 11);
-  for (const p of points) walkable({ x: 1000, y: 1075 }, p);
+  for (const p of points) walkable({ x: 1000, y: 1075 }, p, schoolObstacles(h.snapshot()));
 });
 test("no route goes through a desk or outside the classroom", () => {
   assert.equal(
@@ -62,4 +64,12 @@ test("no route goes through a desk or outside the classroom", () => {
     ),
     null,
   );
+});
+
+test("door bags block their floor area until the adult solution, keeping the right escape aisle open", () => {
+  const h = new RiskHunt();
+  assert.equal(blocked(900, 1080, schoolObstacles(h.snapshot())), true);
+  assert.equal(blocked(1000, 1080, schoolObstacles(h.snapshot())), false);
+  h.findings.exit_bags = "verifiedFixed";
+  assert.equal(blocked(900, 1080, schoolObstacles(h.snapshot())), false);
 });

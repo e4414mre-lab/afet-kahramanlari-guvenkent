@@ -10,6 +10,7 @@ Sınıfın ışıklandırması ve sanat stili kullanıcı tarafından beğenildi
 | `room.png` | Karaktersiz ve etkileşimli mobilyasız oda kabuğu: parke, pencereler, kara tahta, kapı eşiği ve sabit mimari dekor |
 | `desk.png` | Önceki sıra varyantı; yeni yerleşimde kullanılmıyor |
 | `desk-facing-board.png` | Tahtaya dönük oturma yönüyle 16 bağımsız sıra/sandalye; mevcut ahşap ve turkuaz stile uygun yeni varyant |
+| `clock.png` | Mevcut ahşap/turkuaz stile uygun, sabit duvar saati dekoru; yeni bir risk nesnesi değildir |
 | `door.png` | Eşiğe yerleşen açık ahşap/turkuaz sınıf kapısı; küçük çıkış levhası sahnede ayrıca çizilir |
 | `teacher_desk.png` | Bağımsız öğretmen masası |
 | `bookshelf.png` | Sabitlenmemiş uzun kitaplık |
@@ -49,3 +50,7 @@ yoktur. Oyun gerçek bir öğretmen bildirimi veya fiziksel kontrol yapmaz.
 
 Yeni sınıf, nihai sanat teslimi olarak değil, görsel onay bekleyen
 oynanabilir keşif prototipi olarak sunulur.
+
+Son çevre ayrıntıları: duvar saati OpenAI görsel üretim aracıyla üretildi;
+tahtadaki kısa ders yazısı ve zemindeki küçük tahliye yön işaretleri Phaser
+katmanıdır. Oda kabuğu, karakterler ve onaylı 16 sıra düzeni değiştirilmedi.

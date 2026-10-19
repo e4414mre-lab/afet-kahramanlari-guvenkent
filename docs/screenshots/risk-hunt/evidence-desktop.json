@@ -1,0 +1,327 @@
+[
+  {
+    "moment": "01-approach",
+    "image": "01-approach-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 415.9819868254849,
+      "y": 632.5613741765928
+    },
+    "robot": {
+      "x": 371.84740445145394,
+      "y": 650.5613741765956
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "notFound",
+        "exit_bags": "notFound",
+        "heavy_boxes": "notFound",
+        "tall_cabinet": "notFound",
+        "window_heavy": "notFound",
+        "wall_board": "notFound"
+      },
+      "found": 0,
+      "fixed": 0,
+      "safeCount": 0,
+      "complete": false,
+      "guidedTarget": "bookshelf"
+    },
+    "inspection": null,
+    "dialogue": null
+  },
+  {
+    "moment": "03-afi-guidance",
+    "image": "03-afi-guidance-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 415.9819868254849,
+      "y": 632.5613741765928
+    },
+    "robot": {
+      "x": 371.84740445145394,
+      "y": 650.5613741765956
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "notFound",
+        "exit_bags": "notFound",
+        "heavy_boxes": "notFound",
+        "tall_cabinet": "notFound",
+        "window_heavy": "notFound",
+        "wall_board": "notFound"
+      },
+      "found": 0,
+      "fixed": 0,
+      "safeCount": 0,
+      "complete": false,
+      "guidedTarget": "bookshelf"
+    },
+    "inspection": null,
+    "dialogue": {
+      "pages": [
+        "AFİ: Yüksek eşyaların dengesi önemli."
+      ],
+      "index": 0,
+      "accept": null,
+      "label": null
+    }
+  },
+  {
+    "moment": "02-inspection",
+    "image": "02-inspection-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 415.22148682548493,
+      "y": 632.5613741765928
+    },
+    "robot": {
+      "x": 371.08690442135025,
+      "y": 650.5613741765931
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "notFound",
+        "exit_bags": "notFound",
+        "heavy_boxes": "notFound",
+        "tall_cabinet": "notFound",
+        "window_heavy": "notFound",
+        "wall_board": "notFound"
+      },
+      "found": 0,
+      "fixed": 0,
+      "safeCount": 0,
+      "complete": false,
+      "guidedTarget": "bookshelf"
+    },
+    "inspection": {
+      "id": "bookshelf",
+      "feedback": "",
+      "retry": false
+    },
+    "dialogue": null
+  },
+  {
+    "moment": "04-wrong-feedback",
+    "image": "04-wrong-feedback-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 415.22148682548493,
+      "y": 632.5613741765928
+    },
+    "robot": {
+      "x": 371.08690442135025,
+      "y": 650.5613741765931
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "notFound",
+        "exit_bags": "notFound",
+        "heavy_boxes": "notFound",
+        "tall_cabinet": "notFound",
+        "window_heavy": "notFound",
+        "wall_board": "notFound"
+      },
+      "found": 0,
+      "fixed": 0,
+      "safeCount": 0,
+      "complete": false,
+      "guidedTarget": "bookshelf"
+    },
+    "inspection": {
+      "id": "bookshelf",
+      "feedback": "Tekrar düşünelim. Renk değil, yükseklik ve sabitleme önemlidir.",
+      "retry": true
+    },
+    "dialogue": null
+  },
+  {
+    "moment": "05-correct-feedback",
+    "image": "05-correct-feedback-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 415.22148682548493,
+      "y": 632.5613741765928
+    },
+    "robot": {
+      "x": 371.08690442135025,
+      "y": 650.5613741765931
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "planned",
+        "exit_bags": "notFound",
+        "heavy_boxes": "notFound",
+        "tall_cabinet": "notFound",
+        "window_heavy": "notFound",
+        "wall_board": "notFound"
+      },
+      "found": 1,
+      "fixed": 0,
+      "safeCount": 0,
+      "complete": false,
+      "guidedTarget": "bookshelf"
+    },
+    "inspection": {
+      "id": "bookshelf",
+      "feedback": "Güvenli karar! Bu işi öğretmen veya yetkili yetişkin planlamalı.",
+      "retry": false
+    },
+    "dialogue": null
+  },
+  {
+    "moment": "08-exit-blocked",
+    "image": "08-exit-blocked-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 906.4617368254849,
+      "y": 1048.8113741765928
+    },
+    "robot": {
+      "x": 857.3557979215658,
+      "y": 1063.1223147486032
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "verifiedFixed",
+        "exit_bags": "notFound",
+        "heavy_boxes": "notFound",
+        "tall_cabinet": "notFound",
+        "window_heavy": "notFound",
+        "wall_board": "notFound"
+      },
+      "found": 1,
+      "fixed": 1,
+      "safeCount": 0,
+      "complete": false,
+      "guidedTarget": "exit_bags"
+    },
+    "inspection": null,
+    "dialogue": null
+  },
+  {
+    "moment": "09-exit-cleared",
+    "image": "09-exit-cleared-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 906.4617368254849,
+      "y": 1100
+    },
+    "robot": {
+      "x": 858.2756288351304,
+      "y": 1114.2514521680746
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "verifiedFixed",
+        "exit_bags": "verifiedFixed",
+        "heavy_boxes": "notFound",
+        "tall_cabinet": "notFound",
+        "window_heavy": "notFound",
+        "wall_board": "notFound"
+      },
+      "found": 2,
+      "fixed": 2,
+      "safeCount": 0,
+      "complete": false,
+      "guidedTarget": null
+    },
+    "inspection": null,
+    "dialogue": null
+  },
+  {
+    "moment": "06-progress-3-of-6",
+    "image": "06-progress-3-of-6-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 692.7117368254849,
+      "y": 627.5
+    },
+    "robot": {
+      "x": 648.5697290552861,
+      "y": 645.5047828037654
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "verifiedFixed",
+        "exit_bags": "verifiedFixed",
+        "heavy_boxes": "verifiedFixed",
+        "tall_cabinet": "notFound",
+        "window_heavy": "notFound",
+        "wall_board": "notFound"
+      },
+      "found": 3,
+      "fixed": 3,
+      "safeCount": 0,
+      "complete": false,
+      "guidedTarget": null
+    },
+    "inspection": null,
+    "dialogue": null
+  },
+  {
+    "moment": "07-progress-6-of-6",
+    "image": "07-progress-6-of-6-desktop.png",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scene": "SchoolClassroom",
+    "player": {
+      "x": 1390.2117368254849,
+      "y": 627.4977500000006
+    },
+    "robot": {
+      "x": 1338.3482118233562,
+      "y": 645.4989818193516
+    },
+    "hunt": {
+      "findings": {
+        "bookshelf": "verifiedFixed",
+        "exit_bags": "verifiedFixed",
+        "heavy_boxes": "verifiedFixed",
+        "tall_cabinet": "verifiedFixed",
+        "window_heavy": "verifiedFixed",
+        "wall_board": "verifiedFixed"
+      },
+      "found": 6,
+      "fixed": 6,
+      "safeCount": 0,
+      "complete": true,
+      "guidedTarget": null
+    },
+    "inspection": null,
+    "dialogue": null
+  }
+]
