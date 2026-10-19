@@ -13,6 +13,8 @@ okul ve Çağrı/AFİ kaynak PNG'leri değiştirilmedi.
 - `protect.png`: Çağrı'nın mevcut tasarımı referans alınarak üretilen tek kare
   çökmüş korunma pozu; yönlü yürüyüş atlası veya tam animasyon değildir.
 - `courtyard.png`: belirlenmiş açık buluşma alanı.
+- `plant-books.png`: alçak saksı ve iki çocuk kitabı; dolap üzerinde küçük
+  dekor olarak kullanılır, yürüyüşü ve nesne seçimlerini kapatmaz.
 - `drill-soft.wav`: Python standart `wave` modülüyle oluşturulan 95 Hz yumuşak
   ton; kaynak tepe genliği yaklaşık %5,2, oynatma seviyesi %12. Yalnızca efekt
   ayarı açıkken tatbikatta döngüye girer; sessiz/pause/çıkışta durur. Konuşma,

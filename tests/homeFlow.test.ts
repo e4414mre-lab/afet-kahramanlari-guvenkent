@@ -6,6 +6,7 @@ import {
   homeObstacles,
   HOME_WALK,
 } from "../src/game/homeLayout.ts";
+import { blocked } from "../src/game/townHallData.ts";
 import { findWalkPath } from "../src/game/navigation.ts";
 function ready() {
   const h = new HomeFlow();
@@ -82,4 +83,12 @@ test("all home interactions remain reachable before and after adult furniture mo
         findWalkPath({ x: 1040, y: 1080 }, point, HOME_WALK, homeObstacles(h)),
         point.id,
       );
+});
+
+test("the full entrance aisle is clear before and after the adult sofa adjustment", () => {
+  for (const home of [new HomeFlow(), ready()]) {
+    for (let x = 850; x <= 1120; x += 15)
+      for (let y = 870; y <= 1100; y += 10)
+        assert.equal(blocked(x, y, homeObstacles(home)), false, `${x},${y}`);
+  }
 });

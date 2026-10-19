@@ -23,7 +23,7 @@ export function homeObstacles(home: HomeFlow): readonly Obstacle[] {
     { left: 1160, right: 1621, top: 915, bottom: 1101 },
     ...(home.findings.homeSofa === "fixed"
       ? [{ left: 440, right: 700, top: 750, bottom: 815 }]
-      : [{ left: 790, right: 1000, top: 900, bottom: 980 }]),
+      : [{ left: 440, right: 700, top: 800, bottom: 865 }]),
   ];
 }
 export function homeHotspots(home: HomeFlow): Hotspot[] {
@@ -53,5 +53,6 @@ export const HOME_ASSETS = [
   ["home-room", "room"],
   ["home-courtyard", "courtyard"],
   ["home-protect", "protect"],
+  ["home-plant-books", "plant-books"],
   ...HOME_ITEMS.map((o) => ["home-" + o.asset, o.asset]),
 ];

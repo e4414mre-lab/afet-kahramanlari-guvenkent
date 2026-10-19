@@ -36,13 +36,14 @@ Yeni ev ve buluşma alanı görselleri kullanıcı görsel onayını bekler.
 | Yüksek kitaplık | Devrilebilir; yetişkine bildir, uygun yöntemle sabitlemeyi yetkili kişi yapsın |
 | Oturma alanı üstündeki ağır çerçeve | Düşebilir; güvenli konumu ve bağlantıyı yetişkin sağlasın |
 | Dolap üstündeki ağır sandık/kap | Yüksekten düşebilir; yetişkin alçak depolamaya alsın |
-| Çıkış geçişini daraltan kanepe | Tahliyeyi zorlaştırır; yetişkin yerleşimi düzenlesin |
+| Sol duvar kenarındaki kanepe | Kapı önü açıktır; dar yan geçişi yetişkin duvar boyunca küçük bir yerleşim düzeltmesiyle genişletsin |
 | Sağlam masa | Bu örnek sahnede uygun korunma alanı; kesin güvenlik garantisi değildir |
 | Ulaşılabilir afet çantası | Aileyle kişiye/koşullara uygun hazırlanır ve kontrol edilir; almak için tehlikeye geri dönülmez |
 
 Taşınan eşyaların sprite konumu, ölçeği, seçim alanı ve yaklaşım noktası birlikte
-güncellenir. Kanepe çarpışması yetişkin çözümünde yeni konuma taşınır; kapının
-sağ aralığı ilk durumda da kullanılabilir. Diğer kanepe sabit oturma dekorudur.
+güncellenir. Kanepe ve çarpışması başlangıçtan itibaren sol duvar kenarındadır. Yetişkin
+çözümünde duvar boyunca biraz geriye alınır; yan geçiş genişler. Kapıya uzanan
+ana koridor her iki durumda da açıktır. Diğer kanepe sabit oturma dekorudur.
 
 ## Mimari ve koruma
 
@@ -81,7 +82,7 @@ GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/home_smoke.py
 
 - `npm run build`: başarılı. Phaser paketinin 500 kB üzerindeki mevcut Vite
   boyut uyarısı sürer; derleme hatası yoktur.
-- Birim testleri: **25/25 başarılı**. Ev durum makinesi, erken tahliye engeli,
+- Birim testleri: **26/26 başarılı**. Ev durum makinesi, erken tahliye engeli,
   yanlış kararlar, tekrarda tek tamamlanma ve mobilya taşındıktan sonra gerçek
   yaklaşım noktalarına yol bulunması kapsanır.
 - Ev: masaüstü klavye/fare ve mobil dokunmatik akış başarılı. Okul tamamlanmadan
@@ -102,7 +103,7 @@ GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/home_smoke.py
 - On yeni PNG açılarak doğrulandı. Mobil korunma kartı, masa altındaki Çağrı'yı
   kapatmaması için yalnızca tekrarlanan metin bölümü daraltılarak düzenlendi.
 
-Son derleme üzerinde sıralı mobil tekrar **başarılı**: ev tam akışı, sınıf tam
+İlk teslim derlemesinde sıralı mobil regresyon **başarılı**: ev tam akışı, sınıf tam
 akışı, eksik sınıf görselinde oynanabilirlik ve belediye giriş/başkan/berat/plan/
 defter/çıkış akışı. Belediyede beş giriş–çıkış döngüsü de geçti; tarayıcı hata ve
 yatay taşma kontrollerinde hata yoktur.
@@ -125,7 +126,7 @@ fiziksel telefon/tablet denenmedi.
 
 ## Sanat varlıkları, eksikler ve yayın öncesi doğrulama
 
-Dokuz yerel PNG ve bir yumuşak tatbikat sesi eklendi. PNG'ler OpenAI görsel üretim
+On yerel PNG ve bir yumuşak tatbikat sesi eklendi. PNG'ler OpenAI görsel üretim
 aracıyla hazırlandı; önceki karakter tasarımı korunarak ayrı bir korunma pozu
 üretildi. Ayrıntılı kaynak listesi: [ev varlıkları](../public/assets/home/README.md).
 Sahne düz geometrik kutularla nihai oyun olarak sunulmaz; ayrı mobilya ve obje
@@ -140,3 +141,32 @@ Bu, korkutmayan ve yeniden denenebilir planlı eğitim senaryosudur. İçeriğin
 **yayın öncesinde yerel resmî afet yönergeleri ve yetkili eğitimcilerle doğrulanması
 beklenir**; bu prototip resmî afet eğitimi onayı aldığı iddiasında değildir.
 İkinci gün bölgeleri, sınav ve öğretmen paneli geliştirilmedi. Görsel onay beklenir.
+
+## Görsel onay sonrası ev düzenlemesi
+
+- Kapı önündeki kanepe sol duvar kenarına taşındı. İnceleme metni, sprite,
+  yaklaşım noktası ve çarpışması birlikte güncellendi; kapı engeli varmış gibi
+  geri bildirim verilmez. Dört risk/iki güvenli öğe akışı değişmedi.
+- Dolap üstüne alçak saksı ve iki çocuk kitabından oluşan küçük dekor eklendi;
+  yürüyüş/etkileşim alanı kaplamaz. Oda, ışık, diğer sahneler ve karakter
+  kaynak görselleri korunur.
+- Mevcut baş-boyun koruyan, çökmüş ve masa ayağına uzanan tek kare Çağrı pozu
+  korunur; sarsıntı bitene kadar gösterilir. Tam animasyon atlası hâlâ eksiktir.
+- Korkutucu ses, siren, panik veya tehlikeli davranış animasyonu eklenmedi.
+  Mevcut kısa hafif kamera etkisi azaltılmış harekette, yumuşak ton sessiz
+  modda kapalıdır.
+- Yeni koridor testi başlangıçta ve yetişkin çözümü sonrasında kapı yolunun
+  tamamının çarpışmasız olduğunu doğrular.
+
+Son düzenlemenin doğrulaması: `npm run build` başarılı (mevcut Vite paket boyutu
+uyarısı devam ediyor); birim testleri **26/26** geçti. Son derleme üzerinde
+`GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/home_smoke.py`
+masaüstü ve dokunmatik emülasyonunda bütünüyle başarılıdır. Altı nesne gerçek
+sprite üzerinden açıldı, taşınan nesneler yeniden incelendi; yanlış/doğru kararlar,
+masa altındaki korunma pozu, sarsıntı sonrası yürüyerek tahliye ve buluşma alanı
+geçildi. Her iki görünümde beş giriş–çıkış döngüsü ve sessiz/azaltılmış hareketli
+tekrar başarılı; tamamlanma sayısı 1 kaldı. Tarayıcı hatası veya yatay taşma yok.
+On ekran görüntüsü son yerleşimle yeniden oluşturulup PNG olarak doğrulandı.
+Masaüstü klavye/fare, mobil Chromium dokunmatik emülasyonudur; fiziksel cihazda
+denenmedi. Önceki sahne/motor/karakter kaynakları bu
+revizyonda değiştirilmedi. `main` birleştirilmedi; test ve görsel onay beklenir.

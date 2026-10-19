@@ -69,6 +69,8 @@ export class HomeScene extends AdventureScene {
   protected drawWorld() {
     this.shadows.clear();
     this.picture("home-room", 960, 1280, 1920, 1280)?.setDepth(0);
+    // Low decorative objects stay on the built-in cabinet, outside all walkways.
+    this.prop("home-plant-books", 570, 315, 105);
     this.add.ellipse(1480, 620, 165, 30, 0x4b3c28, 0.14).setDepth(624.9);
     this.prop("home-sofa", 1480, 625, 230);
     HOME_ITEMS.forEach((o) => {
