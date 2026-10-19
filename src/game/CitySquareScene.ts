@@ -13,7 +13,17 @@ export class CitySquareScene extends AdventureScene {
       world: WORLD,
       walk: WALK,
       spawn: { x: 670, y: 790 },
-      hotspots: HOTSPOTS,
+      hotspots: [
+        ...HOTSPOTS,
+        {
+          id: "home",
+          name: "Çağrı’nın evine giden yol",
+          x: 760,
+          y: 850,
+          radius: 75,
+          hit: { x: 760, y: 890, width: 145, height: 85 },
+        },
+      ],
     });
   }
   protected preloadWorld() {
@@ -27,6 +37,17 @@ export class CitySquareScene extends AdventureScene {
       WORLD.width,
       WORLD.height,
     )?.setDepth(0);
+    // A small wayfinding plaque links the existing square to the family home.
+    this.add
+      .text(760, 897, "EV YOLU ↓", {
+        fontFamily: "Arial",
+        fontSize: "16px",
+        color: "#fff7df",
+        backgroundColor: "#4e776d",
+        padding: { x: 8, y: 5 },
+      })
+      .setOrigin(0.5)
+      .setDepth(1);
     this.schoolMarker = this.add
       .ellipse(1120, 580, 90, 28, 0x8ee5c0, 0.25)
       .setStrokeStyle(3, 0x8ee5c0)
@@ -34,7 +55,13 @@ export class CitySquareScene extends AdventureScene {
       .setVisible(this.session.quest === "goToSchool");
   }
   protected activate(id: InteractionId) {
-    if (id === "townHall") {
+    if (id === "home") {
+      if (this.session.homeUnlocked) this.switchTo("Home");
+      else
+        this.session.say([
+          "AFİ: Ev incelemesi için önce okulun altı riskini yetişkin çözümleriyle tamamlayalım.",
+        ]);
+    } else if (id === "townHall") {
       this.session.enter();
       this.switchTo("TownHall");
     } else if (id === "school" && this.session.quest === "goToSchool") {

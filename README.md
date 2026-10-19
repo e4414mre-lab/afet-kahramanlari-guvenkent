@@ -77,3 +77,16 @@ Sonraki faza kullanıcı görsel onayıyla geçilir.
 
 Yeni sınıf görselleri onay bekleyen konseptlerdir. Yetişkin müdahaleleri
 eğitim canlandırmasıdır; dış sisteme bildirim veya puan aktarımı yapılmaz.
+
+## Faz 04: ev ve planlı deprem tatbikatı
+
+Okuldaki altı yetişkin çözümünü tamamlayınca meydandaki **EV YOLU ↓** girişini
+kullanın. Evde dört risk ve iki güvenli öğeyi inceleyin; sağlam masanın yanında
+planlı tatbikatı başlatın. Sarsıntıda korunma, bittikten sonra yetişkin
+yönlendirmesiyle çıkış ve buluşma alanına yürüme ayrı aşamalardır.
+
+Kritik yönergeler sessiz modda ve konuşma metni kapalıyken de yazılıdır.
+Azaltılmış harekette kamera sarsıntısı yoktur. Tekrar oynama ikinci tamamlanma
+sayımı üretmez. Yeni sahneler görsel onay bekler; sonraki bölge açılmaz.
+
+[Teslim, testler ve masaüstü/mobil görseller](docs/FAZ_04_TESLIM_RAPORU.md).

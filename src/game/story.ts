@@ -1,3 +1,4 @@
+import { HomeFlow, type HomeId } from "./homeFlow.ts";
 import { RiskHunt, type HuntSnapshot, type Inspection } from "./riskHunt.ts";
 import {
   classroomObject,
@@ -13,7 +14,12 @@ export type StoryQuest =
   | "inspectCertificate"
   | "reviewCityPlan"
   | "goToSchool";
-export type SceneId = "CitySquare" | "TownHall" | "SchoolClassroom";
+export type SceneId =
+  | "CitySquare"
+  | "TownHall"
+  | "SchoolClassroom"
+  | "Home"
+  | "GatheringPoint";
 export type InteriorObject =
   | "mayor"
   | "certificate"
@@ -26,7 +32,11 @@ export type InteractionId =
   | "school"
   | "afi"
   | ClassroomObjectId
-  | "classroomExit";
+  | "classroomExit"
+  | HomeId
+  | "home"
+  | "homeExit"
+  | "gatherHere";
 export type Controls = {
   x: number;
   y: number;
@@ -99,6 +109,8 @@ export type GameStatus = {
   assetErrors: string[];
   hunt: HuntSnapshot;
   inspection: Inspection | null;
+  home: ReturnType<HomeFlow["snapshot"]>;
+  homeUnlocked: boolean;
 };
 /** In-memory session only: survives scene restarts, never claims a database save. */
 export class GameSession {
@@ -118,6 +130,10 @@ export class GameSession {
   dialogue: Dialogue | null = null;
   nearby: string | null = null;
   assetErrors: string[] = [];
+  readonly home = new HomeFlow();
+  get homeUnlocked() {
+    return this.riskHunt.snapshot().complete;
+  }
   readonly riskHunt = new RiskHunt();
   private guidedAnnounced: RiskId | null = "bookshelf";
   get inspection() {
@@ -136,16 +152,22 @@ export class GameSession {
       scene: this.scene,
       quest: this.quest,
       objective:
-        this.scene === "SchoolClassroom"
-          ? this.riskHunt.snapshot().complete
-            ? "Güvenli çözümleri birlikte planladık"
-            : "Sınıftaki riskleri incele"
-          : OBJECTIVES[this.quest],
+        this.scene === "Home"
+          ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
+          : this.scene === "GatheringPoint"
+            ? "Belirlenmiş buluşma alanına yürü"
+            : this.scene === "SchoolClassroom"
+              ? this.riskHunt.snapshot().complete
+                ? "Güvenli çözümleri birlikte planladık"
+                : "Sınıftaki riskleri incele"
+              : OBJECTIVES[this.quest],
       nearby: this.nearby,
       dialogue: this.dialogue ? { ...this.dialogue } : null,
       schoolVisited: this.schoolVisited,
       transitioning: this.transitioning,
       assetErrors: [...this.assetErrors],
+      home: this.home.snapshot(),
+      homeUnlocked: this.homeUnlocked,
       hunt: this.riskHunt.snapshot(),
       inspection: this.inspection ? { ...this.inspection } : null,
     };
@@ -217,7 +239,7 @@ export class GameSession {
       this.riskHunt.summaryShown = true;
       this.say([
         "AFİ: Altı riski fark ettik ve yetişkinlerle güvenli çözümler planladık. Bu müdahaleler bir canlandırmaydı.",
-        "Gün 1 için hazırlık tamam. Gerçek deprem anı tatbikatı sonraki aşamada; bu bölümde yapılmaz.",
+        "AFİ: Şimdi evdeki önlemleri inceleyebiliriz. Meydandaki ev girişinden Çağrı’nın evine gidelim.",
       ]);
     } else if (this.guidedAnnounced !== snapshot.guidedTarget) {
       this.guidedAnnounced = snapshot.guidedTarget;
@@ -246,6 +268,17 @@ export class GameSession {
     this.notify();
   }
   hint() {
+    if (this.scene === "Home" || this.scene === "GatheringPoint") {
+      if (!this.home.locked)
+        this.say([
+          this.home.phase === "drillReady"
+            ? "AFİ: Sağlam masaya yaklaş; planlı eğitim tatbikatını birlikte başlatalım."
+            : this.home.evacuation
+              ? "AFİ: Sarsıntı bitti. Yetişkin yönlendirmesiyle açık kapıya ve buluşma alanına gidelim."
+              : "AFİ: Eşyaları gözlemle; ağır taşıma veya sabitleme işini yetişkine bildir.",
+        ]);
+      return;
+    }
     if (this.scene === "SchoolClassroom") {
       this.riskHunt.close();
       this.say([this.riskHunt.hint()]);

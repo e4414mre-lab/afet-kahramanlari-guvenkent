@@ -1,3 +1,6 @@
+import { HomeScene, GatheringPointScene } from "../game/HomeScene";
+import { HomePanel } from "./HomePanel";
+import { HOME_SAFETY } from "../game/homeFlow";
 import { useEffect, useRef, useState } from "react";
 import Phaser from "phaser";
 import { CitySquareScene } from "../game/CitySquareScene";
@@ -38,6 +41,8 @@ export function GamePreview({
       new CitySquareScene(session),
       new TownHallScene(session),
       new SchoolClassroomScene(session),
+      new HomeScene(session),
+      new GatheringPointScene(session),
     ];
     const game = new Phaser.Game({
       type: Phaser.AUTO,
@@ -110,19 +115,32 @@ export function GamePreview({
       c.y = 0;
     }
   };
+  const homeScene =
+    status.scene === "Home" || status.scene === "GatheringPoint";
+  const homeLocked = homeScene && !!sessionRef.current?.home.locked;
   const dialogue = status.dialogue;
   const lastPage = !!dialogue && dialogue.index === dialogue.pages.length - 1;
   return (
     <div
-      className={`city-shell ${status.scene === "SchoolClassroom" ? "classroom-shell" : ""}`}
+      onTouchStart={(event) => {
+        // Phaser's window touch listener must not receive DOM control presses.
+        // Canvas touches keep bubbling normally for scene interactions.
+        if (event.target instanceof Element && event.target.closest("button"))
+          event.stopPropagation();
+      }}
+      className={`city-shell ${status.scene === "SchoolClassroom" || homeScene ? "classroom-shell" : ""}`}
     >
       <div className="city-top">
         <div>
           <span className="eyebrow">GÖRSEL ONAY BEKLEYEN PROTOTİP</span>
           <h2>
-            {status.scene === "SchoolClassroom"
-              ? "Güvenkent İlkokulu · 5-A"
-              : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
+            {homeScene
+              ? status.scene === "Home"
+                ? "Çağrı’nın evi"
+                : "Güvenli buluşma alanı"
+              : status.scene === "SchoolClassroom"
+                ? "Güvenkent İlkokulu · 5-A"
+                : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
           </h2>
         </div>
         <button onClick={onSettings}>Ayarlar</button>
@@ -133,33 +151,50 @@ export function GamePreview({
           className="city-canvas"
           tabIndex={0}
           aria-label={
-            status.scene === "SchoolClassroom"
-              ? "Oynanabilir 5-A sınıfı"
-              : status.scene === "TownHall"
-                ? "Oynanabilir belediye iç mekânı"
-                : "Oynanabilir Güvenkent meydanı"
+            homeScene
+              ? "Oynanabilir ev ve eğitim tatbikatı"
+              : status.scene === "SchoolClassroom"
+                ? "Oynanabilir 5-A sınıfı"
+                : status.scene === "TownHall"
+                  ? "Oynanabilir belediye iç mekânı"
+                  : "Oynanabilir Güvenkent meydanı"
           }
         />
         <div className="quest-card" role="status">
           <small>
-            {status.scene === "SchoolClassroom"
-              ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
-              : status.schoolVisited
-                ? "İLK DURAK ✓"
-                : "İLK HİKÂYE •"}
+            {homeScene
+              ? `PLANLI EĞİTİM · ${status.home.risks}/4 EV RİSKİ`
+              : status.scene === "SchoolClassroom"
+                ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
+                : status.schoolVisited
+                  ? "İLK DURAK ✓"
+                  : "İLK HİKÂYE •"}
           </small>
           <span>
-            {status.scene === "SchoolClassroom"
-              ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
-              : status.schoolVisited
-                ? "5-A sınıfına giriş hazır"
-                : status.objective}
+            {homeScene
+              ? `${status.home.safe}/2 güvenli nesne · ${
+                  status.scene === "GatheringPoint" &&
+                  status.home.phase === "gatheringPoint"
+                    ? status.objective
+                    : status.home.phase === "completed"
+                      ? "Tatbikat tamam"
+                      : status.home.phase === "drillReady"
+                        ? "Masa yanında tatbikatı başlat"
+                        : status.home.evacuation
+                          ? "Açık kapıdan kontrollü çıkış"
+                          : "Gözlemle · Yetişkine bildir"
+                }`
+              : status.scene === "SchoolClassroom"
+                ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
+                : status.schoolVisited
+                  ? "5-A sınıfına giriş hazır"
+                  : status.objective}
           </span>
         </div>
         <button
           className="afi-hint"
           aria-label="AFİ’den ipucu al"
-          disabled={status.transitioning}
+          disabled={status.transitioning || homeLocked}
           onClick={() => sessionRef.current?.hint()}
         >
           AFİ <span>?</span>
@@ -180,7 +215,14 @@ export function GamePreview({
             }}
           />
         )}
-        {!status.inspection && (
+        {homeScene && sessionRef.current && (
+          <HomePanel
+            status={status}
+            session={sessionRef.current}
+            onFocus={() => ref.current?.focus({ preventScroll: true })}
+          />
+        )}
+        {!status.inspection && !homeLocked && (
           <div className="city-bottom story-bottom">
             {dialogue ? (
               <div className="dialogue story-dialogue" aria-live="polite">
@@ -206,13 +248,15 @@ export function GamePreview({
               </div>
             ) : (
               <>
-                {settings.text && status.scene !== "SchoolClassroom" && (
-                  <p className="dialogue scene-guidance">
-                    {status.scene === "TownHall"
-                      ? "AFİ: Nesnelere dokunarak yaklaşabilir veya E / Enter ile inceleyebilirsin."
-                      : "AFİ: Belediye kapısından başlayalım. Zemine dokunarak da yürüyebilirsin."}
-                  </p>
-                )}
+                {settings.text &&
+                  status.scene !== "SchoolClassroom" &&
+                  !homeScene && (
+                    <p className="dialogue scene-guidance">
+                      {status.scene === "TownHall"
+                        ? "AFİ: Nesnelere dokunarak yaklaşabilir veya E / Enter ile inceleyebilirsin."
+                        : "AFİ: Belediye kapısından başlayalım. Zemine dokunarak da yürüyebilirsin."}
+                    </p>
+                  )}
                 <button
                   className="primary interact"
                   disabled={!status.nearby || status.transitioning}
@@ -227,7 +271,7 @@ export function GamePreview({
             )}
           </div>
         )}
-        {!dialogue && !status.inspection && (
+        {!dialogue && !status.inspection && !homeLocked && (
           <div className="dpad" aria-label="Dokunmatik yön kontrolü">
             {[
               [0, -1, "↑", "Yukarı"],
@@ -249,6 +293,17 @@ export function GamePreview({
           </div>
         )}
       </div>
+      {homeScene && (
+        <p className="safety-caption">
+          {HOME_SAFETY} {status.home.evacuation ? status.home.feedback : ""}
+        </p>
+      )}
+      {status.homeUnlocked && !homeScene && (
+        <p className="next-step" role="status">
+          AFİ: Ev görevimiz açıldı. Meydandaki EV YOLU girişinden Çağrı’nın
+          evine gidelim.
+        </p>
+      )}
       {status.scene === "TownHall" && (
         <p className="safety-caption">
           {SAFETY} Tehlikeli işleri yetişkinlere bırak.
@@ -266,7 +321,7 @@ export function GamePreview({
       )}
       <p className="city-help">
         WASD / yön tuşları: yürü · E / Enter: etkileşim · H: ipucu
-        {status.scene === "SchoolClassroom"
+        {status.scene === "SchoolClassroom" || homeScene
           ? " · Q: yakındaki nesne · Tab: seçim"
           : ""}{" "}
         <span>Konsept varlıkları · İlerleme yalnızca açık oturumda.</span>

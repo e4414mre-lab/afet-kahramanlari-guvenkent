@@ -65,6 +65,10 @@ class SchoolPlayer(Player):
         row=min(aisles,key=lambda y:abs(y-start['y']))
         self.axis('y',row);self.axis('x',1000)
         target_row=min(aisles,key=lambda y:abs(y-h['y']))
+        # Cross to side storage before descending beside the front wall.
+        # Delayed touch release in the central doorway must not send a
+        # horizontal route through the painted front wall.
+        if target_row==1010 and (h['x']<800 or h['x']>1120):target_row=930
         self.axis('y',target_row);self.axis('x',h['x']);self.axis('y',h['y'])
         self.page.wait_for_timeout(500)
 
