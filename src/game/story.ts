@@ -1,3 +1,8 @@
+import { LandslideFlow } from "./landslideFlow.ts";
+import {
+  LANDSLIDE_OBJECTIVES,
+  type LandslideRiskId,
+} from "../data/landslide.ts";
 import { ForestFlow } from "./forestFlow.ts";
 import { FOREST_OBJECTIVES, type ForestRiskId } from "../data/forestFire.ts";
 import { FloodFlow } from "./floodFlow.ts";
@@ -25,7 +30,8 @@ export type SceneId =
   | "Home"
   | "GatheringPoint"
   | "Flood"
-  | "CamlikForest";
+  | "CamlikForest"
+  | "Landslide";
 export type InteriorObject =
   | "mayor"
   | "certificate"
@@ -51,7 +57,11 @@ export type InteractionId =
   | "elif"
   | "forestPreparedness"
   | "forestExit"
-  | "forestSmoke";
+  | "forestSmoke"
+  | LandslideRiskId
+  | "murat"
+  | "landslidePreparedness"
+  | "landslideExit";
 export type Controls = {
   x: number;
   y: number;
@@ -130,6 +140,8 @@ export type GameStatus = {
   floodUnlocked: boolean;
   forest: ReturnType<ForestFlow["snapshot"]>;
   forestUnlocked: boolean;
+  landslide: ReturnType<LandslideFlow["snapshot"]>;
+  landslideUnlocked: boolean;
 };
 /** In-memory session only: survives scene restarts, never claims a database save. */
 export class GameSession {
@@ -149,6 +161,15 @@ export class GameSession {
   dialogue: Dialogue | null = null;
   nearby: string | null = null;
   assetErrors: string[] = [];
+  readonly landslide = new LandslideFlow();
+  landslideEntryRequested = false;
+  get landslideUnlocked() {
+    return this.home.completedOnce;
+  }
+  requestLandslide() {
+    if (this.landslideUnlocked && this.scene === "CitySquare")
+      this.landslideEntryRequested = true;
+  }
   readonly forest = new ForestFlow();
   forestEntryRequested = false;
   get forestUnlocked() {
@@ -189,24 +210,28 @@ export class GameSession {
       scene: this.scene,
       quest: this.quest,
       objective:
-        this.scene === "CamlikForest"
-          ? FOREST_OBJECTIVES[this.forest.phase]
-          : this.scene === "Flood"
-            ? FLOOD_OBJECTIVES[this.flood.phase]
-            : this.scene === "Home"
-              ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
-              : this.scene === "GatheringPoint"
-                ? "Belirlenmiş buluşma alanına yürü"
-                : this.scene === "SchoolClassroom"
-                  ? this.riskHunt.snapshot().complete
-                    ? "Güvenli çözümleri birlikte planladık"
-                    : "Sınıftaki riskleri incele"
-                  : OBJECTIVES[this.quest],
+        this.scene === "Landslide"
+          ? LANDSLIDE_OBJECTIVES[this.landslide.phase]
+          : this.scene === "CamlikForest"
+            ? FOREST_OBJECTIVES[this.forest.phase]
+            : this.scene === "Flood"
+              ? FLOOD_OBJECTIVES[this.flood.phase]
+              : this.scene === "Home"
+                ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
+                : this.scene === "GatheringPoint"
+                  ? "Belirlenmiş buluşma alanına yürü"
+                  : this.scene === "SchoolClassroom"
+                    ? this.riskHunt.snapshot().complete
+                      ? "Güvenli çözümleri birlikte planladık"
+                      : "Sınıftaki riskleri incele"
+                    : OBJECTIVES[this.quest],
       nearby: this.nearby,
       dialogue: this.dialogue ? { ...this.dialogue } : null,
       schoolVisited: this.schoolVisited,
       transitioning: this.transitioning,
       assetErrors: [...this.assetErrors],
+      landslide: this.landslide.snapshot(),
+      landslideUnlocked: this.landslideUnlocked,
       forest: this.forest.snapshot(),
       forestUnlocked: this.forestUnlocked,
       flood: this.flood.snapshot(),
@@ -313,6 +338,10 @@ export class GameSession {
     this.notify();
   }
   hint() {
+    if (this.scene === "Landslide") {
+      if (!this.landslide.locked) this.say([this.landslide.hint()]);
+      return;
+    }
     if (this.scene === "CamlikForest") {
       if (!this.forest.locked) this.say([this.forest.hint()]);
       return;

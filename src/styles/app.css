@@ -732,3 +732,43 @@ main {
  .forest-simulation-panel .forest-timer{font-size:12px;}
  .forest-simulation-actions button{font-size:11px;line-height:1.3;padding:9px;}
 }
+
+/* Landslide-only panels: keep the diorama visible and critical text available. */
+.landslide-panel {max-height:68%; overflow:auto;}
+.landslide-panel h3 {margin:9px 22px 12px 0;}
+.landslide-panel > button {margin:5px 5px 0 0;}
+.landslide-panel [aria-pressed="true"] {background:#dfede2;border-color:#4b8972;}
+.landslide-panel progress {width:100%;height:8px;accent-color:#3d7b7c;}
+.landslide-panel .landslide-timer {font-weight:700;font-size:14px;}
+.landslide-effect {font-size:13px;}
+.landslide-comparison {width:min(670px,calc(100% - 32px));}
+.landslide-compare-grid [role="row"] {display:grid;grid-template-columns:.7fr 1fr 1.5fr;gap:10px;padding:9px 0;border-bottom:1px solid #ccd8d0;font-size:13px;line-height:1.45;}
+@media(max-width:600px){
+ .landslide-panel {max-height:58%;}
+ .landslide-panel p {font-size:12px;line-height:1.45;margin:8px 0;}
+ .landslide-panel h3 {font-size:18px;margin:7px 20px 9px 0;}
+ .landslide-panel .inspection-choices button {font-size:12px;padding:9px;}
+ .landslide-panel .inspection-footnote {font-size:10px;}
+ .landslide-panel .home-object img {width:55px;height:65px;}
+ .landslide-compare-grid [role="row"] {grid-template-columns:.65fr 1fr 1.2fr;gap:7px;font-size:11px;padding:7px 0;}
+ .landslide-simulation-panel .landslide-effect {font-size:11px;}
+}
+@media(max-width:600px){.landslide-comparison{max-height:92%;}.landslide-comparison .inspection-footnote{font-size:9px;}.landslide-comparison .landslide-compare-grid [role="row"]{font-size:10px;line-height:1.35;padding:6px 0;}}
+/* Keep the distant hillside visible beside the simulation controls. */
+.landslide-simulation-panel {left:18px;right:auto;}
+@media(max-width:600px){.landslide-simulation-panel{left:10px;}}
+.landslide-effect-compact{display:none;}
+.landslide-simulation-actions{display:flex;gap:8px;align-items:stretch;}
+.landslide-simulation-actions button{flex:1;font-size:12px;}
+@media(max-width:600px){
+ .landslide-simulation-panel{max-height:48%;}
+ .landslide-simulation-panel .landslide-effect,.landslide-simulation-panel .inspection-footnote{display:none;}
+ .landslide-simulation-panel .landslide-effect-compact{display:block;font-size:11px;}
+ .landslide-simulation-panel > small{font-size:9px;}
+ .landslide-simulation-panel .landslide-timer{font-size:12px;}
+ .landslide-simulation-actions button{font-size:11px;line-height:1.3;padding:9px;}
+}
+.landslide-audio{display:flex;align-items:center;gap:8px;font-size:13px;color:#426663;margin:8px 0;}
+.landslide-audio select{padding:6px;border:1px solid #adc8bd;border-radius:8px;background:#fff;}
+.landslide-panel:not(.landslide-comparison){left:18px;right:auto;}
+@media(max-width:600px){.landslide-panel:not(.landslide-comparison){left:10px;}}

@@ -1,0 +1,850 @@
+[
+  {
+    "moment": "overview",
+    "image": "yamac-overview-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Landslide",
+    "player": {
+      "x": 900,
+      "y": 613.7664999999997
+    },
+    "robot": {
+      "x": 852,
+      "y": 635.8250635980178
+    },
+    "landslide": {
+      "risks": {
+        "slopeCrack": "unseen",
+        "slopeHouse": "unseen",
+        "slopeDrain": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "forcing": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "yamac",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        }
+      },
+      "phase": "meetMurat",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "yamac-rain-soil-01",
+      "seed": 83,
+      "durationSeconds": 40,
+      "rainfall": "şiddetli / uzun süreli",
+      "soilSensitivity": "duyarlı zemin",
+      "slope": "dik eğim",
+      "initialMoisture": "önceden nemli",
+      "initialGround": "aynı yüzey / aynı bitki örtüsü",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "surveyPlanned": false,
+      "engineeringPlanned": false,
+      "warningEarly": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "localRunoff": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1480,
+      "y": 870,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "murat-dialogue",
+    "image": "yamac-murat-dialogue-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Landslide",
+    "player": {
+      "x": 813.4548049826423,
+      "y": 778.1362522566349
+    },
+    "robot": {
+      "x": 769.3347839047397,
+      "y": 795.2288498646147
+    },
+    "landslide": {
+      "risks": {
+        "slopeCrack": "unseen",
+        "slopeHouse": "unseen",
+        "slopeDrain": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": "murat",
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "forcing": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "yamac",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        }
+      },
+      "phase": "meetMurat",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "yamac-rain-soil-01",
+      "seed": 83,
+      "durationSeconds": 40,
+      "rainfall": "şiddetli / uzun süreli",
+      "soilSensitivity": "duyarlı zemin",
+      "slope": "dik eğim",
+      "initialMoisture": "önceden nemli",
+      "initialGround": "aynı yüzey / aynı bitki örtüsü",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "surveyPlanned": false,
+      "engineeringPlanned": false,
+      "warningEarly": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "localRunoff": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1480,
+      "y": 870,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "risk-investigation",
+    "image": "yamac-risk-investigation-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Landslide",
+    "player": {
+      "x": 1027.1868049826408,
+      "y": 751.8945022566344
+    },
+    "robot": {
+      "x": 975.2197911074429,
+      "y": 770.1308631838151
+    },
+    "landslide": {
+      "risks": {
+        "slopeCrack": "identified",
+        "slopeHouse": "unseen",
+        "slopeDrain": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": "slopeCrack",
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "forcing": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "yamac",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        }
+      },
+      "phase": "inspect3",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "yamac-rain-soil-01",
+      "seed": 83,
+      "durationSeconds": 40,
+      "rainfall": "şiddetli / uzun süreli",
+      "soilSensitivity": "duyarlı zemin",
+      "slope": "dik eğim",
+      "initialMoisture": "önceden nemli",
+      "initialGround": "aynı yüzey / aynı bitki örtüsü",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "surveyPlanned": false,
+      "engineeringPlanned": false,
+      "warningEarly": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "localRunoff": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1480,
+      "y": 870,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "risk-feedback-wrong",
+    "image": "yamac-risk-feedback-wrong-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Landslide",
+    "player": {
+      "x": 1027.1868049826408,
+      "y": 751.8945022566344
+    },
+    "robot": {
+      "x": 975.2197911074429,
+      "y": 770.1308631838151
+    },
+    "landslide": {
+      "risks": {
+        "slopeCrack": "identified",
+        "slopeHouse": "unseen",
+        "slopeDrain": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": "slopeCrack",
+      "feedback": "Tekrar düşünelim. Yüzey değişimi uzman incelemesi gerektiren bir belirti olabilir; tek başına kesin heyelan demek değildir. Yaklaşmadan yetişkine ve ilgili yetkililere bildir, değerlendirme ve resmî uyarıları bekle.",
+      "retry": true,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "forcing": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "yamac",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        }
+      },
+      "phase": "inspect3",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "yamac-rain-soil-01",
+      "seed": 83,
+      "durationSeconds": 40,
+      "rainfall": "şiddetli / uzun süreli",
+      "soilSensitivity": "duyarlı zemin",
+      "slope": "dik eğim",
+      "initialMoisture": "önceden nemli",
+      "initialGround": "aynı yüzey / aynı bitki örtüsü",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "surveyPlanned": false,
+      "engineeringPlanned": false,
+      "warningEarly": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "localRunoff": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1480,
+      "y": 870,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "risk-feedback-correct",
+    "image": "yamac-risk-feedback-correct-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Landslide",
+    "player": {
+      "x": 1027.1868049826408,
+      "y": 751.8945022566344
+    },
+    "robot": {
+      "x": 975.2197911074429,
+      "y": 770.1308631838151
+    },
+    "landslide": {
+      "risks": {
+        "slopeCrack": "decided",
+        "slopeHouse": "unseen",
+        "slopeDrain": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": "slopeCrack",
+      "feedback": "Güvenli karar. Yüzey değişimi uzman incelemesi gerektiren bir belirti olabilir; tek başına kesin heyelan demek değildir. Yaklaşmadan yetişkine ve ilgili yetkililere bildir, değerlendirme ve resmî uyarıları bekle.",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "forcing": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "yamac",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        }
+      },
+      "phase": "inspect3",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "yamac-rain-soil-01",
+      "seed": 83,
+      "durationSeconds": 40,
+      "rainfall": "şiddetli / uzun süreli",
+      "soilSensitivity": "duyarlı zemin",
+      "slope": "dik eğim",
+      "initialMoisture": "önceden nemli",
+      "initialGround": "aynı yüzey / aynı bitki örtüsü",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "surveyPlanned": false,
+      "engineeringPlanned": false,
+      "warningEarly": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "localRunoff": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1480,
+      "y": 870,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "before",
+    "image": "yamac-before-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Landslide",
+    "player": {
+      "x": 644.7093049826416,
+      "y": 564.3975022566361
+    },
+    "robot": {
+      "x": 600.4855494803119,
+      "y": 582.4301569157693
+    },
+    "landslide": {
+      "risks": {
+        "slopeCrack": "explained",
+        "slopeHouse": "explained",
+        "slopeDrain": "explained"
+      },
+      "voiceVolume": 0.5,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "survey",
+        "engineering",
+        "warning"
+      ],
+      "elapsed": 8,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "forcing": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü",
+        "elapsed": 8,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "yamac",
+        "measures": [
+          "survey",
+          "engineering",
+          "warning"
+        ],
+        "scenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        }
+      },
+      "phase": "beforeSimulation",
+      "simulation": true
+    },
+    "frame": {
+      "scenarioId": "yamac-rain-soil-01",
+      "seed": 83,
+      "durationSeconds": 40,
+      "rainfall": "şiddetli / uzun süreli",
+      "soilSensitivity": "duyarlı zemin",
+      "slope": "dik eğim",
+      "initialMoisture": "önceden nemli",
+      "initialGround": "aynı yüzey / aynı bitki örtüsü",
+      "elapsed": 8.132980000000046,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "surveyPlanned": false,
+      "engineeringPlanned": false,
+      "warningEarly": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "localRunoff": 0.20332450000000116,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1480,
+      "y": 870,
+      "visible": true
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "after",
+    "image": "yamac-after-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Landslide",
+    "player": {
+      "x": 644.7093049826416,
+      "y": 564.3975022566361
+    },
+    "robot": {
+      "x": 600.4855494803119,
+      "y": 582.4301569157693
+    },
+    "landslide": {
+      "risks": {
+        "slopeCrack": "explained",
+        "slopeHouse": "explained",
+        "slopeDrain": "explained"
+      },
+      "voiceVolume": 0.5,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "survey",
+        "engineering",
+        "warning"
+      ],
+      "elapsed": 8,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "forcing": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü",
+        "elapsed": 8,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "yamac",
+        "measures": [
+          "survey",
+          "engineering",
+          "warning"
+        ],
+        "scenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        }
+      },
+      "phase": "afterSimulation",
+      "simulation": true
+    },
+    "frame": {
+      "scenarioId": "yamac-rain-soil-01",
+      "seed": 83,
+      "durationSeconds": 40,
+      "rainfall": "şiddetli / uzun süreli",
+      "soilSensitivity": "duyarlı zemin",
+      "slope": "dik eğim",
+      "initialMoisture": "önceden nemli",
+      "initialGround": "aynı yüzey / aynı bitki örtüsü",
+      "elapsed": 8.166320000000047,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "surveyPlanned": true,
+      "engineeringPlanned": true,
+      "warningEarly": true,
+      "residentsDirected": true,
+      "residentProgress": 1,
+      "localRunoff": 0.11228690000000065,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1480,
+      "y": 870,
+      "visible": true
+    },
+    "residents": {
+      "x": 860,
+      "y": 950
+    }
+  },
+  {
+    "moment": "comparison",
+    "image": "yamac-comparison-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Landslide",
+    "player": {
+      "x": 644.7093049826416,
+      "y": 564.3975022566361
+    },
+    "robot": {
+      "x": 600.4855494803119,
+      "y": 582.4301569157693
+    },
+    "landslide": {
+      "risks": {
+        "slopeCrack": "explained",
+        "slopeHouse": "explained",
+        "slopeDrain": "explained"
+      },
+      "voiceVolume": 0.5,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "survey",
+        "engineering",
+        "warning"
+      ],
+      "elapsed": 40,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "forcing": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü",
+        "elapsed": 40,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "yamac",
+        "measures": [
+          "survey",
+          "engineering",
+          "warning"
+        ],
+        "scenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        }
+      },
+      "phase": "compare",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "yamac-rain-soil-01",
+      "seed": 83,
+      "durationSeconds": 40,
+      "rainfall": "şiddetli / uzun süreli",
+      "soilSensitivity": "duyarlı zemin",
+      "slope": "dik eğim",
+      "initialMoisture": "önceden nemli",
+      "initialGround": "aynı yüzey / aynı bitki örtüsü",
+      "elapsed": 40,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "surveyPlanned": true,
+      "engineeringPlanned": true,
+      "warningEarly": true,
+      "residentsDirected": true,
+      "residentProgress": 1,
+      "localRunoff": 0.55,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1488,
+      "y": 882,
+      "visible": true
+    },
+    "residents": {
+      "x": 860,
+      "y": 950
+    }
+  }
+]

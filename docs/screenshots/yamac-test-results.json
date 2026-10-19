@@ -1,0 +1,427 @@
+{
+  "result": "PASS",
+  "baseCommit": "b2f4330df695136c1c6818b2951289dea6592a32",
+  "branch": "feat/landslide-yamac",
+  "build": "PASS (existing Phaser chunk-size warning)",
+  "unitTests": {
+    "passed": 38,
+    "failed": 0
+  },
+  "browserResults": {
+    "fullChain": [
+      {
+        "mode": "desktop",
+        "result": "PASS",
+        "homeRisks": 4,
+        "homeSafe": 2,
+        "completionCount": 1,
+        "replayMutedReducedMotion": true
+      },
+      {
+        "mode": "desktop",
+        "result": "PASS",
+        "investigated": 3,
+        "sameRain": {
+          "durationSeconds": 45,
+          "intensity": "yoğun",
+          "riverRise": 0.8,
+          "seed": 41
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "componentFixture": false,
+        "stableCounts": {
+          "objects": 29,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 43
+        }
+      },
+      {
+        "mode": "desktop",
+        "result": "PASS",
+        "componentFixture": false,
+        "forestBeforeFlood": false,
+        "investigated": 3,
+        "smokeSolved": true,
+        "sameWeather": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "stableCounts": {
+          "objects": 35,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 50
+        }
+      },
+      {
+        "mode": "desktop",
+        "result": "PASS",
+        "componentFixture": false,
+        "chain": true,
+        "investigated": 3,
+        "sameScenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "previousCompletionCounts": {
+          "home": 1,
+          "flood": 1,
+          "forest": 1
+        },
+        "stableCounts": {
+          "objects": 35,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 59
+        }
+      },
+      {
+        "mode": "mobile",
+        "result": "PASS",
+        "homeRisks": 4,
+        "homeSafe": 2,
+        "completionCount": 1,
+        "replayMutedReducedMotion": true
+      },
+      {
+        "mode": "mobile",
+        "result": "PASS",
+        "investigated": 3,
+        "sameRain": {
+          "durationSeconds": 45,
+          "intensity": "yoğun",
+          "riverRise": 0.8,
+          "seed": 41
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "componentFixture": false,
+        "stableCounts": {
+          "objects": 29,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 43
+        }
+      },
+      {
+        "mode": "mobile",
+        "result": "PASS",
+        "componentFixture": false,
+        "forestBeforeFlood": false,
+        "investigated": 3,
+        "smokeSolved": true,
+        "sameWeather": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "stableCounts": {
+          "objects": 35,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 50
+        }
+      },
+      {
+        "mode": "mobile",
+        "result": "PASS",
+        "componentFixture": false,
+        "chain": true,
+        "investigated": 3,
+        "sameScenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "previousCompletionCounts": {
+          "home": 1,
+          "flood": 1,
+          "forest": 1
+        },
+        "stableCounts": {
+          "objects": 35,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 59
+        }
+      }
+    ],
+    "finalDirect": [
+      {
+        "mode": "desktop",
+        "result": "PASS",
+        "componentFixture": false,
+        "chain": false,
+        "investigated": 3,
+        "sameScenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "previousCompletionCounts": {
+          "home": 1,
+          "flood": 0,
+          "forest": 0
+        },
+        "stableCounts": {
+          "objects": 35,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 43
+        }
+      },
+      {
+        "mode": "mobile",
+        "result": "PASS",
+        "componentFixture": false,
+        "chain": false,
+        "investigated": 3,
+        "sameScenario": {
+          "scenarioId": "yamac-rain-soil-01",
+          "seed": 83,
+          "durationSeconds": 40,
+          "rainfall": "şiddetli / uzun süreli",
+          "soilSensitivity": "duyarlı zemin",
+          "slope": "dik eğim",
+          "initialMoisture": "önceden nemli",
+          "initialGround": "aynı yüzey / aynı bitki örtüsü"
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "previousCompletionCounts": {
+          "home": 1,
+          "flood": 0,
+          "forest": 0
+        },
+        "stableCounts": {
+          "objects": 35,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 43
+        }
+      }
+    ],
+    "townHall": [
+      {
+        "mode": "desktop",
+        "result": "PASS",
+        "exitReentryCycles": 5,
+        "heapBefore": 8170720,
+        "heapAfter": 8382052,
+        "stableCounts": {
+          "objects": 18,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 3,
+          "textureCount": 8
+        },
+        "screenshot": "/workspace/afet-kahramanlari-guvenkent/docs/screenshots/town-hall-desktop.png"
+      },
+      {
+        "mode": "touch",
+        "result": "PASS",
+        "exitReentryCycles": 5,
+        "heapBefore": 8276644,
+        "heapAfter": 8431156,
+        "stableCounts": {
+          "objects": 18,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 3,
+          "textureCount": 8
+        },
+        "screenshot": "/workspace/afet-kahramanlari-guvenkent/docs/screenshots/town-hall-mobile.png"
+      }
+    ],
+    "classroom": [
+      {
+        "mode": "desktop",
+        "result": "PASS",
+        "riskCount": 6,
+        "safeCount": 4,
+        "exitReentryCycles": 5,
+        "stableCounts": {
+          "objects": 96,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 26
+        },
+        "heapBefore": 9614664,
+        "heapAfter": 9806364
+      },
+      {
+        "mode": "touch",
+        "result": "PASS",
+        "riskCount": 6,
+        "safeCount": 4,
+        "exitReentryCycles": 5,
+        "stableCounts": {
+          "objects": 96,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 26
+        },
+        "heapBefore": 9991624,
+        "heapAfter": 9856912
+      }
+    ]
+  },
+  "sequenceNote": "Full-chain and old-scene regressions ran before the final deterministic resident reset; the rebuilt final source then passed the direct first-day → Yamaç suite on both viewports, including identical initial resident positions.",
+  "screenshots": [
+    {
+      "file": "docs/screenshots/yamac-overview-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-murat-dialogue.png",
+      "width": 1440,
+      "height": 1000,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-risk-investigation.png",
+      "width": 1440,
+      "height": 1000,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-risk-feedback-wrong.png",
+      "width": 1440,
+      "height": 1000,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-risk-feedback-correct.png",
+      "width": 1440,
+      "height": 1000,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-before.png",
+      "width": 1440,
+      "height": 1000,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-after.png",
+      "width": 1440,
+      "height": 1000,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-comparison.png",
+      "width": 1440,
+      "height": 1000,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-overview-mobile.png",
+      "width": 390,
+      "height": 844,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-murat-dialogue-mobile.png",
+      "width": 390,
+      "height": 844,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-risk-investigation-mobile.png",
+      "width": 390,
+      "height": 844,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-risk-feedback-wrong-mobile.png",
+      "width": 390,
+      "height": 844,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-risk-feedback-correct-mobile.png",
+      "width": 390,
+      "height": 844,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-before-mobile.png",
+      "width": 390,
+      "height": 844,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-after-mobile.png",
+      "width": 390,
+      "height": 844,
+      "verified": true
+    },
+    {
+      "file": "docs/screenshots/yamac-comparison-mobile.png",
+      "width": 390,
+      "height": 844,
+      "verified": true
+    }
+  ],
+  "previousSceneVisualProofs": [
+    "docs/screenshots/yamac-regression/camlik-overview-desktop.png",
+    "docs/screenshots/yamac-regression/city-square-desktop.png",
+    "docs/screenshots/yamac-regression/flood-area-desktop.png",
+    "docs/screenshots/yamac-regression/home-desktop.png",
+    "docs/screenshots/yamac-regression/school-classroom-desktop.png",
+    "docs/screenshots/yamac-regression/town-hall-desktop.png"
+  ],
+  "mobileMethod": "Chromium 390x844 touch emulation; no physical phone test",
+  "officialContentReview": {
+    "status": "pending before production",
+    "reason": "AFAD requests failed: tunnel 403 Forbidden"
+  },
+  "scope": "No main merge, production deployment, Karlıtepe, day three or final exam"
+}

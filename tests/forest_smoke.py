@@ -25,7 +25,7 @@ def first_day_direct(browser,mobile):
  if mobile:
   p.tap(p.page.get_by_role('button',name='Ayarlar',exact=True));p.tap(p.page.get_by_role('button',name='Sessiz mod',exact=True));p.tap(p.page.get_by_text('♿ Azaltılmış hareket',exact=True));p.tap(p.page.get_by_text('💬 Konuşma balonları',exact=True));p.choose('← Oyuna dön')
  return p
-def run(browser,mobile,fixture=False):
+def run(browser,mobile,fixture=False,keep_open=False):
  mode='mobile' if mobile else 'desktop'
  out=Path('/tmp/guvenkent-forest-component') if fixture else OUT;out.mkdir(parents=True,exist_ok=True)
  if fixture:
@@ -44,7 +44,7 @@ def run(browser,mobile,fixture=False):
   (out/f'camlik-evidence-{mode}.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
  def enter():
   choice('İkinci gün bölgelerini aç')
-  for name in ['Yamaç','Karlıtepe']:assert p.page.get_by_role('button',name=name+' · Henüz geliştiriliyor',exact=True).is_disabled()
+  for name in ['Karlıtepe']:assert p.page.get_by_role('button',name=name+' · Henüz geliştiriliyor',exact=True).is_disabled()
   assert p.page.get_by_role('button',name='Dere Mahallesi · Sel ve taşkın',exact=True).is_enabled()
   choice('Çamlık · Orman yangını farkındalığı');p.stable('CamlikForest');p.page.evaluate('window.scrollTo(0,0)')
  if not fixture:enter()
@@ -130,7 +130,9 @@ def run(browser,mobile,fixture=False):
  for _ in range(0 if fixture else 5):
   choice('Meydana dön');p.stable('CitySquare');enter();assert {k:p.snapshot()[k] for k in fields}==baseline
   assert state()['completionCount']==1 and state()['investigated']==3;p.check()
- print(json.dumps({'mode':mode,'result':'PASS','componentFixture':fixture,'forestBeforeFlood':'--direct' in sys.argv,'investigated':3,'smokeSolved':state()['smokeSolved'],'sameWeather':weather,'completionCount':1,'reentryCycles':0 if fixture else 5,'stableCounts':baseline},ensure_ascii=False),flush=True);p.close()
+ print(json.dumps({'mode':mode,'result':'PASS','componentFixture':fixture,'forestBeforeFlood':'--direct' in sys.argv,'investigated':3,'smokeSolved':state()['smokeSolved'],'sameWeather':weather,'completionCount':1,'reentryCycles':0 if fixture else 5,'stableCounts':baseline},ensure_ascii=False),flush=True)
+ if keep_open:return p
+ p.close()
 def main():
  with sync_playwright() as p:
   b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-background-timer-throttling','--disable-renderer-backgrounding'])
