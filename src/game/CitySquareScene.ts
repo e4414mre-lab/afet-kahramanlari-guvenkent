@@ -70,6 +70,11 @@ export class CitySquareScene extends AdventureScene {
     } else this.session.interact(id);
   }
   protected updateWorld() {
+    if (this.session.forestEntryRequested && this.session.forestUnlocked) {
+      this.session.forestEntryRequested = false;
+      this.switchTo("CamlikForest");
+      return;
+    }
     if (this.session.floodEntryRequested && this.session.floodUnlocked) {
       this.session.floodEntryRequested = false;
       this.switchTo("Flood");

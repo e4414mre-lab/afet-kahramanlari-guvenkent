@@ -1,0 +1,176 @@
+{
+  "checkedOn": "2026-10-19",
+  "unitTests": {
+    "passed": 34,
+    "failed": 0
+  },
+  "fullChainBeforeFinalSmokePosition": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    }
+  ],
+  "finalForestBeforeFlood": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": true,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": true,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    }
+  ],
+  "townHallRegression": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "exitReentryCycles": 5,
+      "heapBefore": 8054124,
+      "heapAfter": 8269252,
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 8
+      }
+    },
+    {
+      "mode": "touch",
+      "result": "PASS",
+      "exitReentryCycles": 5,
+      "heapBefore": 8084356,
+      "heapAfter": 8318548,
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 8
+      }
+    }
+  ],
+  "schoolRegression": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "riskCount": 6,
+      "safeCount": 4,
+      "exitReentryCycles": 5,
+      "stableCounts": {
+        "objects": 96,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 26
+      },
+      "heapBefore": 9492968,
+      "heapAfter": 9699756
+    },
+    {
+      "mode": "touch",
+      "result": "PASS",
+      "riskCount": 6,
+      "safeCount": 4,
+      "exitReentryCycles": 5,
+      "stableCounts": {
+        "objects": 96,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 26
+      },
+      "heapBefore": 9834640,
+      "heapAfter": 9665540
+    }
+  ],
+  "missingMayorArt": "PASS",
+  "missingClassroomArt": "PASS",
+  "physicalMobileDeviceTested": false
+}

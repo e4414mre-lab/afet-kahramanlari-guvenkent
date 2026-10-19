@@ -1,0 +1,776 @@
+[
+  {
+    "moment": "overview",
+    "image": "camlik-overview-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 900,
+      "y": 565.0112499999996
+    },
+    "robot": {
+      "x": 852,
+      "y": 587.3892036026976
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "unseen",
+        "forestBrush": "unseen",
+        "forestSign": "unseen"
+      },
+      "smokeSolved": false,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 0,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "meetElif",
+      "simulation": false
+    },
+    "smokeVisual": {
+      "x": 1560,
+      "y": 275,
+      "width": 120,
+      "alpha": 1
+    },
+    "managedFuelArt": false,
+    "expertCount": 0
+  },
+  {
+    "moment": "elif-dialogue",
+    "image": "camlik-elif-dialogue-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 813.5566204923655,
+      "y": 776.8086564254194
+    },
+    "robot": {
+      "x": 769.4177795812252,
+      "y": 793.8701111694476
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "unseen",
+        "forestBrush": "unseen",
+        "forestSign": "unseen"
+      },
+      "smokeSolved": false,
+      "openId": "elif",
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 0,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "meetElif",
+      "simulation": false
+    },
+    "smokeVisual": {
+      "x": 1560,
+      "y": 275,
+      "width": 120,
+      "alpha": 1
+    },
+    "managedFuelArt": false,
+    "expertCount": 0
+  },
+  {
+    "moment": "risk-review",
+    "image": "camlik-risk-review-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 1056.2552499999981,
+      "y": 701.8116564254191
+    },
+    "robot": {
+      "x": 1004.3882433077598,
+      "y": 719.9685210168003
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "identified",
+        "forestBrush": "unseen",
+        "forestSign": "unseen"
+      },
+      "smokeSolved": false,
+      "openId": "forestEmbers",
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 0,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "inspectRisks",
+      "simulation": false
+    },
+    "smokeVisual": {
+      "x": 1560,
+      "y": 275,
+      "width": 120,
+      "alpha": 1
+    },
+    "managedFuelArt": false,
+    "expertCount": 0
+  },
+  {
+    "moment": "risk-feedback-wrong",
+    "image": "camlik-risk-feedback-wrong-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 1056.2552499999981,
+      "y": 701.8116564254191
+    },
+    "robot": {
+      "x": 1004.3882433077598,
+      "y": 719.9685210168003
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "identified",
+        "forestBrush": "unseen",
+        "forestSign": "unseen"
+      },
+      "smokeSolved": false,
+      "openId": "forestEmbers",
+      "feedback": "Tekrar düşünelim. Rüzgâr közleri kuru örtüye taşıyabilir. Yaklaşma veya kendin söndürme; güvenli yere uzaklaşıp yetişkine ve gerekiyorsa 112’ye haber verilmesini sağla.",
+      "retry": true,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 0,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "inspectRisks",
+      "simulation": false
+    },
+    "smokeVisual": {
+      "x": 1560,
+      "y": 275,
+      "width": 120,
+      "alpha": 1
+    },
+    "managedFuelArt": false,
+    "expertCount": 0
+  },
+  {
+    "moment": "risk-feedback-correct",
+    "image": "camlik-risk-feedback-correct-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 1056.2552499999981,
+      "y": 701.8116564254191
+    },
+    "robot": {
+      "x": 1004.3882433077598,
+      "y": 719.9685210168003
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "decisionMade",
+        "forestBrush": "unseen",
+        "forestSign": "unseen"
+      },
+      "smokeSolved": false,
+      "openId": "forestEmbers",
+      "feedback": "Güvenli karar. Rüzgâr közleri kuru örtüye taşıyabilir. Yaklaşma veya kendin söndürme; güvenli yere uzaklaşıp yetişkine ve gerekiyorsa 112’ye haber verilmesini sağla.",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 0,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "inspectRisks",
+      "simulation": false
+    },
+    "smokeVisual": {
+      "x": 1560,
+      "y": 275,
+      "width": 120,
+      "alpha": 1
+    },
+    "managedFuelArt": false,
+    "expertCount": 0
+  },
+  {
+    "moment": "smoke-decision",
+    "image": "camlik-smoke-decision-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 643.7762499999991,
+      "y": 671.8146564254195
+    },
+    "robot": {
+      "x": 599.5547669000161,
+      "y": 689.8429979036742
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "reviewed",
+        "forestBrush": "reviewed",
+        "forestSign": "reviewed"
+      },
+      "smokeSolved": false,
+      "openId": "smoke",
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 0,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "smokeDecision",
+      "simulation": false
+    },
+    "smokeVisual": {
+      "x": 1640,
+      "y": 350,
+      "width": 180,
+      "alpha": 0.7
+    },
+    "managedFuelArt": false,
+    "expertCount": 0
+  },
+  {
+    "moment": "smoke-feedback",
+    "image": "camlik-smoke-feedback-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 643.7762499999991,
+      "y": 671.8146564254195
+    },
+    "robot": {
+      "x": 599.5547669000161,
+      "y": 689.8429979036742
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "reviewed",
+        "forestBrush": "reviewed",
+        "forestSign": "reviewed"
+      },
+      "smokeSolved": false,
+      "openId": "smoke",
+      "feedback": "Tekrar düşünelim. Duman şüpheli bir belirtidir; her duman kesin yangın demek değildir. Yaklaşmadan güvenli uzaklaşma yönlendirmelerine uy; bir yetişkine, gerekiyorsa 112’ye güvenli konumunu ve gördüğün belirtiyi bildir.",
+      "retry": true,
+      "investigated": 3,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 0,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "smokeDecision",
+      "simulation": false
+    },
+    "smokeVisual": {
+      "x": 1640,
+      "y": 350,
+      "width": 180,
+      "alpha": 0.7
+    },
+    "managedFuelArt": false,
+    "expertCount": 0
+  },
+  {
+    "moment": "before",
+    "image": "camlik-before-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 643.7807499999986,
+      "y": 563.0744064254202
+    },
+    "robot": {
+      "x": 599.5965159360807,
+      "y": 581.0960363915385
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "reviewed",
+        "forestBrush": "reviewed",
+        "forestSign": "reviewed"
+      },
+      "smokeSolved": true,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "routes",
+        "maintenance",
+        "watch"
+      ],
+      "elapsed": 8,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 8.166330000000041,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [
+          "routes",
+          "maintenance",
+          "watch"
+        ],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "beforeSimulation",
+      "simulation": true
+    },
+    "smokeVisual": {
+      "x": 1640,
+      "y": 350,
+      "width": 180,
+      "alpha": 0.7
+    },
+    "managedFuelArt": false,
+    "expertCount": 0
+  },
+  {
+    "moment": "after",
+    "image": "camlik-after-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 643.7807499999986,
+      "y": 563.0744064254202
+    },
+    "robot": {
+      "x": 599.5965159360807,
+      "y": 581.0960363915385
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "reviewed",
+        "forestBrush": "reviewed",
+        "forestSign": "reviewed"
+      },
+      "smokeSolved": true,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "routes",
+        "maintenance",
+        "watch"
+      ],
+      "elapsed": 8,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 8.166340000000044,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [
+          "routes",
+          "maintenance",
+          "watch"
+        ],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "afterSimulation",
+      "simulation": true
+    },
+    "smokeVisual": {
+      "x": 1640,
+      "y": 350,
+      "width": 180,
+      "alpha": 0.7
+    },
+    "managedFuelArt": true,
+    "expertCount": 2
+  },
+  {
+    "moment": "comparison",
+    "image": "camlik-comparison-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "CamlikForest",
+    "player": {
+      "x": 643.7807499999986,
+      "y": 563.0744064254202
+    },
+    "robot": {
+      "x": 599.5965159360807,
+      "y": 581.0960363915385
+    },
+    "forest": {
+      "risks": {
+        "forestEmbers": "reviewed",
+        "forestBrush": "reviewed",
+        "forestSign": "reviewed"
+      },
+      "smokeSolved": true,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "routes",
+        "maintenance",
+        "watch"
+      ],
+      "elapsed": 40,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "forcing": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67,
+        "elapsed": 40,
+        "dangerAccessible": false
+      },
+      "preparation": {
+        "version": 1,
+        "region": "camlik",
+        "measures": [
+          "routes",
+          "maintenance",
+          "watch"
+        ],
+        "scenario": {
+          "durationSeconds": 40,
+          "windDirection": "kuzeydoğu",
+          "windKmh": 18,
+          "temperatureC": 32,
+          "dryness": "kuru",
+          "seed": 67
+        }
+      },
+      "phase": "compare",
+      "simulation": false
+    },
+    "smokeVisual": {
+      "x": 1648,
+      "y": 350,
+      "width": 201,
+      "alpha": 0.7699999999999999
+    },
+    "managedFuelArt": true,
+    "expertCount": 2
+  }
+]

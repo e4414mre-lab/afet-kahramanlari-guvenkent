@@ -1,7 +1,8 @@
 # Afet Kahramanları – Güvenkent
 
 5. sınıf öğrencileri için React + TypeScript + Phaser ile geliştirilen
-2.5D afet farkındalığı macera oyununun oynanabilir meydan, belediye ve 5-A sınıf risk avı prototipi.
+2.5D afet farkındalığı macera oyununun meydan, belediye, sınıf, ev/tatbikat,
+Dere Mahallesi ve Çamlık Ormanı prototipi.
 
 **Belediye binasının görsel tasarımı onaylandı. Animasyon ve ses varlıkları henüz nihai değildir.**
 
@@ -56,8 +57,8 @@ ve `town-hall-mobile.png` olarak; ek dönüş görüntülerini
 
 ## Kapsam ve sanat durumu
 
-- Oynanabilir alanlar: şehir meydanı, belediye iç mekânı ve 5-A sınıfı.
-- Ev, gerçek deprem tatbikatı, yeni afet bölgeleri, sınav ve öğretmen sistemi bu fazda yok.
+- Oynanabilir alanlar: şehir meydanı, belediye, 5-A sınıfı, ev/tatbikat, Dere Mahallesi ve Çamlık Ormanı.
+- Sınav/öğretmen paneli, heyelan ve çığ bölümleri bu prototipte yok.
 - Öğretmen bilgilendirme ekranı gerçek kimlik doğrulaması yapmaz.
 - Karakterler ayrı transparan PNG konseptlerdir; yürüyüş/yön atlasları eksiktir.
 - Meydan çevresi mevcut boyalı konsepttir. Belediye mobilyaları ve NPC,
@@ -94,7 +95,7 @@ sayımı üretmez. Yeni sahneler görsel onay bekler; sonraki bölge açılmaz.
 ### Faz 05 — Dere Mahallesi
 
 Deprem tatbikatını ve buluşma alanını tamamladıktan sonra meydandaki
-**İkinci gün bölgelerini aç** düğmesinden Dere Mahallesi seçilir. Diğer üç bölge
+**İkinci gün bölgelerini aç** düğmesinden Dere Mahallesi seçilir. Çamlık da seçilebilir; Yamaç ve Karlıtepe
 henüz geliştiriliyor. Hasan Amca, üç güvenli risk araştırması, hazırlık panosu ve
 aynı 45 saniyelik yağışın önce/sonra karşılaştırması oynanabilir. Simülasyon gerçek
 sel tahmini değildir. Hazırlık ve rapor yalnızca açık oturumda tutulur.
@@ -102,3 +103,23 @@ sel tahmini değildir. Hazırlık ve rapor yalnızca açık oturumda tutulur.
 Yeni kabul testi (önceki belediye/okul/ev akışını da gerçek girdilerle oynar):
 `GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/flood_smoke.py`.
 [Testler, ekran görüntüleri ve varlık eksikleri](docs/FAZ_05_TESLIM_RAPORU.md).
+
+### Faz 06 — Çamlık Ormanı
+
+Aynı ikinci gün seçiminden **Çamlık · Orman yangını farkındalığı** açılır;
+Dere Mahallesi'ni önce bitirmek gerekmez. Orman Görevlisi Elif ile tanışın,
+üç riski güvenli seyir yolundan inceleyin ve duman belirtisinde yaklaşmadan
+güvenli uzaklaşma/haber verme kararı verin. Uzman hazırlıklarını seçip aynı
+rüzgâr, sıcaklık ve kuruluk varsayımlarıyla iki 40 saniyelik, atlanabilir
+canlandırmayı karşılaştırın. Çocuk yangın söndürmez; gerçek 112 araması yapılmaz.
+
+Tam kabul (önceki ilk gün ve Dere Mahallesi akışlarını da oynar):
+`GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/forest_smoke.py`.
+`--direct` seçeneği ilk günü gerçek girdilerle tamamlayıp Dere oynanmadan
+Çamlık'ın açıldığını da kontrol eder; görev/konum yazma kestirmesi kullanmaz.
+Yerel üretim önizlemesi için önce `npm run build`, sonra
+`npm run preview -- --port 4173 --strictPort` çalıştırılır.
+
+[Testler ve masaüstü/mobil kanıtlar](docs/FAZ_06_TESLIM_RAPORU.md) ·
+[Yeni sanat varlıkları ve eksikler](public/assets/forest/README.md).
+Orman görünümü ve pedagojik onay beklenir; heyelan ve çığa geçilmedi.

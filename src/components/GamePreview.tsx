@@ -1,3 +1,6 @@
+import { CamlikForestScene } from "../game/CamlikForestScene";
+import { ForestPanel } from "./ForestPanel";
+import { FOREST_SAFETY } from "../data/forestFire";
 import { FloodScene } from "../game/FloodScene";
 import { FloodPanel } from "./FloodPanel";
 import { FLOOD_SAFETY } from "../data/flood";
@@ -48,6 +51,7 @@ export function GamePreview({
       new HomeScene(session),
       new GatheringPointScene(session),
       new FloodScene(session),
+      new CamlikForestScene(session),
     ];
     const game = new Phaser.Game({
       type: Phaser.AUTO,
@@ -123,11 +127,17 @@ export function GamePreview({
   const homeScene =
     status.scene === "Home" || status.scene === "GatheringPoint";
   const homeLocked = homeScene && !!sessionRef.current?.home.locked;
+  const forestScene = status.scene === "CamlikForest";
+  const forestLocked = forestScene && !!sessionRef.current?.forest.locked;
   const floodScene = status.scene === "Flood";
   const floodLocked = floodScene && !!sessionRef.current?.flood.locked;
   const dialogue = status.dialogue;
   useEffect(() => {
-    if (status.scene !== "Flood" || !status.dialogue) return;
+    if (
+      (status.scene !== "Flood" && status.scene !== "CamlikForest") ||
+      !status.dialogue
+    )
+      return;
     const frame = requestAnimationFrame(() =>
       ref.current?.parentElement
         ?.querySelector<HTMLButtonElement>(".story-dialogue .primary")
@@ -144,21 +154,23 @@ export function GamePreview({
         if (event.target instanceof Element && event.target.closest("button"))
           event.stopPropagation();
       }}
-      className={`city-shell ${status.scene === "SchoolClassroom" || homeScene || floodScene ? "classroom-shell" : ""}`}
+      className={`city-shell ${status.scene === "SchoolClassroom" || homeScene || floodScene || forestScene ? "classroom-shell" : ""}`}
     >
       <div className="city-top">
         <div>
           <span className="eyebrow">GÖRSEL ONAY BEKLEYEN PROTOTİP</span>
           <h2>
-            {floodScene
-              ? "Dere Mahallesi · Sel ve taşkın"
-              : homeScene
-                ? status.scene === "Home"
-                  ? "Çağrı’nın evi"
-                  : "Güvenli buluşma alanı"
-                : status.scene === "SchoolClassroom"
-                  ? "Güvenkent İlkokulu · 5-A"
-                  : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
+            {forestScene
+              ? "Çamlık Ormanı · Yangın farkındalığı"
+              : floodScene
+                ? "Dere Mahallesi · Sel ve taşkın"
+                : homeScene
+                  ? status.scene === "Home"
+                    ? "Çağrı’nın evi"
+                    : "Güvenli buluşma alanı"
+                  : status.scene === "SchoolClassroom"
+                    ? "Güvenkent İlkokulu · 5-A"
+                    : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
           </h2>
         </div>
         <button onClick={onSettings}>Ayarlar</button>
@@ -169,56 +181,64 @@ export function GamePreview({
           className="city-canvas"
           tabIndex={0}
           aria-label={
-            floodScene
-              ? "Oynanabilir Dere Mahallesi"
-              : homeScene
-                ? "Oynanabilir ev ve eğitim tatbikatı"
-                : status.scene === "SchoolClassroom"
-                  ? "Oynanabilir 5-A sınıfı"
-                  : status.scene === "TownHall"
-                    ? "Oynanabilir belediye iç mekânı"
-                    : "Oynanabilir Güvenkent meydanı"
+            forestScene
+              ? "Oynanabilir Çamlık Ormanı"
+              : floodScene
+                ? "Oynanabilir Dere Mahallesi"
+                : homeScene
+                  ? "Oynanabilir ev ve eğitim tatbikatı"
+                  : status.scene === "SchoolClassroom"
+                    ? "Oynanabilir 5-A sınıfı"
+                    : status.scene === "TownHall"
+                      ? "Oynanabilir belediye iç mekânı"
+                      : "Oynanabilir Güvenkent meydanı"
           }
         />
         <div className="quest-card" role="status">
           <small>
-            {floodScene
-              ? `İKİNCİ GÜN · ${status.flood.investigated}/3 ARAŞTIRMA`
-              : homeScene
-                ? `PLANLI EĞİTİM · ${status.home.risks}/4 EV RİSKİ`
-                : status.scene === "SchoolClassroom"
-                  ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
-                  : status.schoolVisited
-                    ? "İLK DURAK ✓"
-                    : "İLK HİKÂYE •"}
+            {forestScene
+              ? `İKİNCİ GÜN · ${status.forest.investigated}/3 ARAŞTIRMA`
+              : floodScene
+                ? `İKİNCİ GÜN · ${status.flood.investigated}/3 ARAŞTIRMA`
+                : homeScene
+                  ? `PLANLI EĞİTİM · ${status.home.risks}/4 EV RİSKİ`
+                  : status.scene === "SchoolClassroom"
+                    ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
+                    : status.schoolVisited
+                      ? "İLK DURAK ✓"
+                      : "İLK HİKÂYE •"}
           </small>
           <span>
-            {floodScene
+            {forestScene
               ? status.objective
-              : homeScene
-                ? `${status.home.safe}/2 güvenli nesne · ${
-                    status.scene === "GatheringPoint" &&
-                    status.home.phase === "gatheringPoint"
-                      ? status.objective
-                      : status.home.phase === "completed"
-                        ? "Tatbikat tamam"
-                        : status.home.phase === "drillReady"
-                          ? "Masa yanında tatbikatı başlat"
-                          : status.home.evacuation
-                            ? "Açık kapıdan kontrollü çıkış"
-                            : "Gözlemle · Yetişkine bildir"
-                  }`
-                : status.scene === "SchoolClassroom"
-                  ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
-                  : status.schoolVisited
-                    ? "5-A sınıfına giriş hazır"
-                    : status.objective}
+              : floodScene
+                ? status.objective
+                : homeScene
+                  ? `${status.home.safe}/2 güvenli nesne · ${
+                      status.scene === "GatheringPoint" &&
+                      status.home.phase === "gatheringPoint"
+                        ? status.objective
+                        : status.home.phase === "completed"
+                          ? "Tatbikat tamam"
+                          : status.home.phase === "drillReady"
+                            ? "Masa yanında tatbikatı başlat"
+                            : status.home.evacuation
+                              ? "Açık kapıdan kontrollü çıkış"
+                              : "Gözlemle · Yetişkine bildir"
+                    }`
+                  : status.scene === "SchoolClassroom"
+                    ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
+                    : status.schoolVisited
+                      ? "5-A sınıfına giriş hazır"
+                      : status.objective}
           </span>
         </div>
         <button
           className="afi-hint"
           aria-label="AFİ’den ipucu al"
-          disabled={status.transitioning || homeLocked || floodLocked}
+          disabled={
+            status.transitioning || homeLocked || floodLocked || forestLocked
+          }
           onClick={() => sessionRef.current?.hint()}
         >
           AFİ <span>?</span>
@@ -246,6 +266,13 @@ export function GamePreview({
             onFocus={() => ref.current?.focus({ preventScroll: true })}
           />
         )}
+        {forestScene && sessionRef.current && (
+          <ForestPanel
+            session={sessionRef.current}
+            status={status}
+            onFocus={() => ref.current?.focus({ preventScroll: true })}
+          />
+        )}
         {floodScene && sessionRef.current && (
           <FloodPanel
             status={status}
@@ -260,10 +287,7 @@ export function GamePreview({
             aria-label="İkinci gün bölgeleri"
           >
             <h3>İkinci gün · Bölgeni seç</h3>
-            <p>
-              Bölgeler serbest sırayla seçilecek. Şimdilik yalnızca Dere
-              Mahallesi oynanabilir.
-            </p>
+            <p>Dere Mahallesi ve Çamlık Ormanı serbest sırayla oynanabilir.</p>
             <button
               autoFocus
               className="primary"
@@ -274,7 +298,16 @@ export function GamePreview({
             >
               Dere Mahallesi · Sel ve taşkın
             </button>
-            {["Çamlık", "Yamaç", "Karlıtepe"].map((name) => (
+            <button
+              className="primary"
+              onClick={() => {
+                setRegionsOpen(false);
+                sessionRef.current?.requestForest();
+              }}
+            >
+              Çamlık · Orman yangını farkındalığı
+            </button>
+            {["Yamaç", "Karlıtepe"].map((name) => (
               <button disabled key={name}>
                 {name} · Henüz geliştiriliyor
               </button>
@@ -284,61 +317,69 @@ export function GamePreview({
             </button>
           </div>
         )}
-        {!status.inspection && !homeLocked && !floodLocked && !regionsOpen && (
-          <div className="city-bottom story-bottom">
-            {dialogue ? (
-              <div className="dialogue story-dialogue" aria-live="polite">
-                <p>{dialogue.pages[dialogue.index]}</p>
-                <div className="dialogue-actions">
-                  <small>
-                    {dialogue.index + 1}/{dialogue.pages.length}
-                  </small>
-                  <button
-                    className="subtle"
-                    onClick={() => sessionRef.current?.skip()}
-                    disabled={lastPage && dialogue.accept === "mayor"}
-                  >
-                    Geç
-                  </button>
-                  <button
-                    className="primary"
-                    autoFocus={floodScene}
-                    onClick={() => sessionRef.current?.next()}
-                  >
-                    {lastPage ? (dialogue.label ?? "Tamam") : "Konuşmaya Devam"}
-                  </button>
+        {!status.inspection &&
+          !homeLocked &&
+          !floodLocked &&
+          !forestLocked &&
+          !regionsOpen && (
+            <div className="city-bottom story-bottom">
+              {dialogue ? (
+                <div className="dialogue story-dialogue" aria-live="polite">
+                  <p>{dialogue.pages[dialogue.index]}</p>
+                  <div className="dialogue-actions">
+                    <small>
+                      {dialogue.index + 1}/{dialogue.pages.length}
+                    </small>
+                    <button
+                      className="subtle"
+                      onClick={() => sessionRef.current?.skip()}
+                      disabled={lastPage && dialogue.accept === "mayor"}
+                    >
+                      Geç
+                    </button>
+                    <button
+                      className="primary"
+                      autoFocus={floodScene || forestScene}
+                      onClick={() => sessionRef.current?.next()}
+                    >
+                      {lastPage
+                        ? (dialogue.label ?? "Tamam")
+                        : "Konuşmaya Devam"}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <>
-                {settings.text &&
-                  status.scene !== "SchoolClassroom" &&
-                  !homeScene &&
-                  !floodScene && (
-                    <p className="dialogue scene-guidance">
-                      {status.scene === "TownHall"
-                        ? "AFİ: Nesnelere dokunarak yaklaşabilir veya E / Enter ile inceleyebilirsin."
-                        : "AFİ: Belediye kapısından başlayalım. Zemine dokunarak da yürüyebilirsin."}
-                    </p>
-                  )}
-                <button
-                  className="primary interact"
-                  disabled={!status.nearby || status.transitioning}
-                  onClick={() => {
-                    if (sessionRef.current)
-                      sessionRef.current.controls.interact = true;
-                  }}
-                >
-                  Etkileşim{status.nearby ? ` · ${status.nearby}` : ""}
-                </button>
-              </>
-            )}
-          </div>
-        )}
+              ) : (
+                <>
+                  {settings.text &&
+                    status.scene !== "SchoolClassroom" &&
+                    !homeScene &&
+                    !floodScene &&
+                    !forestScene && (
+                      <p className="dialogue scene-guidance">
+                        {status.scene === "TownHall"
+                          ? "AFİ: Nesnelere dokunarak yaklaşabilir veya E / Enter ile inceleyebilirsin."
+                          : "AFİ: Belediye kapısından başlayalım. Zemine dokunarak da yürüyebilirsin."}
+                      </p>
+                    )}
+                  <button
+                    className="primary interact"
+                    disabled={!status.nearby || status.transitioning}
+                    onClick={() => {
+                      if (sessionRef.current)
+                        sessionRef.current.controls.interact = true;
+                    }}
+                  >
+                    Etkileşim{status.nearby ? ` · ${status.nearby}` : ""}
+                  </button>
+                </>
+              )}
+            </div>
+          )}
         {!dialogue &&
           !status.inspection &&
           !homeLocked &&
           !floodLocked &&
+          !forestLocked &&
           !regionsOpen && (
             <div className="dpad" aria-label="Dokunmatik yön kontrolü">
               {[
@@ -361,6 +402,7 @@ export function GamePreview({
             </div>
           )}
       </div>
+      {forestScene && <p className="safety-caption">{FOREST_SAFETY}</p>}
       {floodScene && <p className="safety-caption">{FLOOD_SAFETY}</p>}
       {status.scene === "CitySquare" && status.floodUnlocked && (
         <button
@@ -378,6 +420,7 @@ export function GamePreview({
       {status.homeUnlocked &&
         !homeScene &&
         !floodScene &&
+        !forestScene &&
         !status.floodUnlocked && (
           <p className="next-step" role="status">
             AFİ: Ev görevimiz açıldı. Meydandaki EV YOLU girişinden Çağrı’nın
@@ -401,7 +444,10 @@ export function GamePreview({
       )}
       <p className="city-help">
         WASD / yön tuşları: yürü · E / Enter: etkileşim · H: ipucu
-        {status.scene === "SchoolClassroom" || homeScene || floodScene
+        {status.scene === "SchoolClassroom" ||
+        homeScene ||
+        floodScene ||
+        forestScene
           ? " · Q: yakındaki nesne · Tab: seçim"
           : ""}{" "}
         <span>Konsept varlıkları · İlerleme yalnızca açık oturumda.</span>

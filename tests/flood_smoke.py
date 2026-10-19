@@ -7,7 +7,7 @@ from town_hall_smoke import OUT
 from home_smoke import HomePlayer
 from pathlib import Path
 RISKS=['floodStorage','floodDrain','floodBridge']
-def run(browser,mobile,fixture=False):
+def run(browser,mobile,fixture=False,keep_open=False):
  out=Path('/tmp/guvenkent-flood-component') if fixture else OUT
  out.mkdir(parents=True,exist_ok=True)
  if fixture:
@@ -18,7 +18,7 @@ def run(browser,mobile,fixture=False):
   p.choose('Meydana dön');p.stable('CitySquare')
  def enter():
   p.tap(p.page.get_by_role('button',name='İkinci gün bölgelerini aç',exact=True))
-  for name in ['Çamlık','Yamaç','Karlıtepe']:assert p.page.get_by_role('button',name=name+' · Henüz geliştiriliyor',exact=True).is_disabled()
+  for name in ['Yamaç','Karlıtepe']:assert p.page.get_by_role('button',name=name+' · Henüz geliştiriliyor',exact=True).is_disabled()
   p.tap(p.page.get_by_role('button',name='Dere Mahallesi · Sel ve taşkın',exact=True));p.stable('Flood');p.page.evaluate('window.scrollTo(0,0)')
  if not fixture:enter()
  def status():return p.snapshot()['status']['flood']
@@ -138,6 +138,7 @@ def run(browser,mobile,fixture=False):
   assert status()['completionCount']==1 and status()['investigated']==3
   p.check()
  print(json.dumps({'mode':mode,'result':'PASS','investigated':3,'sameRain':rain,'completionCount':1,'reentryCycles':0 if fixture else 5,'componentFixture':fixture,'stableCounts':baseline},ensure_ascii=False),flush=True)
+ if keep_open:return p
  p.close()
 def main():
  with sync_playwright() as p:

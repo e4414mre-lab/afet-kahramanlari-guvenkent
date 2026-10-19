@@ -696,3 +696,39 @@ main {
  .flood-simulation-panel .flood-timer{font-size:12px;}
  .flood-simulation-actions button{font-size:11px;line-height:1.3;padding:9px;}
 }
+
+/* Forest-only panels: keep the diorama visible and critical text available. */
+.forest-panel {max-height:68%; overflow:auto;}
+.forest-panel h3 {margin:9px 22px 12px 0;}
+.forest-panel > button {margin:5px 5px 0 0;}
+.forest-panel [aria-pressed="true"] {background:#dfede2;border-color:#4b8972;}
+.forest-panel progress {width:100%;height:8px;accent-color:#3d7b7c;}
+.forest-panel .forest-timer {font-weight:700;font-size:14px;}
+.forest-effect {font-size:13px;}
+.forest-comparison {width:min(670px,calc(100% - 32px));}
+.forest-compare-grid [role="row"] {display:grid;grid-template-columns:.7fr 1fr 1.5fr;gap:10px;padding:9px 0;border-bottom:1px solid #ccd8d0;font-size:13px;line-height:1.45;}
+@media(max-width:600px){
+ .forest-panel {max-height:58%;}
+ .forest-panel p {font-size:12px;line-height:1.45;margin:8px 0;}
+ .forest-panel h3 {font-size:18px;margin:7px 20px 9px 0;}
+ .forest-panel .inspection-choices button {font-size:12px;padding:9px;}
+ .forest-panel .inspection-footnote {font-size:10px;}
+ .forest-panel .home-object img {width:55px;height:65px;}
+ .forest-compare-grid [role="row"] {grid-template-columns:.65fr 1fr 1.2fr;gap:7px;font-size:11px;padding:7px 0;}
+ .forest-simulation-panel .forest-effect {font-size:11px;}
+}
+@media(max-width:600px){.forest-comparison{max-height:92%;}.forest-comparison .inspection-footnote{font-size:9px;}.forest-comparison .forest-compare-grid [role="row"]{font-size:10px;line-height:1.35;padding:6px 0;}}
+/* Keep the distant forest ridge visible beside the simulation controls. */
+.forest-simulation-panel {left:18px;right:auto;}
+@media(max-width:600px){.forest-simulation-panel{left:10px;}}
+.forest-effect-compact{display:none;}
+.forest-simulation-actions{display:flex;gap:8px;align-items:stretch;}
+.forest-simulation-actions button{flex:1;font-size:12px;}
+@media(max-width:600px){
+ .forest-simulation-panel{max-height:48%;}
+ .forest-simulation-panel .forest-effect,.forest-simulation-panel .inspection-footnote{display:none;}
+ .forest-simulation-panel .forest-effect-compact{display:block;font-size:11px;}
+ .forest-simulation-panel > small{font-size:9px;}
+ .forest-simulation-panel .forest-timer{font-size:12px;}
+ .forest-simulation-actions button{font-size:11px;line-height:1.3;padding:9px;}
+}
