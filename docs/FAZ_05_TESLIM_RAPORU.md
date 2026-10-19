@@ -120,6 +120,9 @@ Masaüstü 1440×1000; mobil 390×844 Chromium dokunmatik emülasyonudur, fiziks
 telefon/tablet denenmedi. Simülasyon gerçek taşkın tahmini değildir; yayın öncesi
 resmî yerel yönergeler ve eğitimcilerle pedagojik doğrulama beklenir.
 
+Güncel ilk konuşma, nesne inceleme ve beş anın masaüstü/mobil kanıtları:
+[Kanıt ve pedagojik kontrol raporu](FAZ_05_KANIT_RAPORU.md).
+
 ## Ekran görüntüleri
 
 | An | Masaüstü | Mobil |

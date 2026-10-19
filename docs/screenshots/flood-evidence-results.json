@@ -1,0 +1,44 @@
+[
+  {
+    "mode": "desktop",
+    "result": "PASS",
+    "investigated": 3,
+    "sameRain": {
+      "durationSeconds": 45,
+      "intensity": "yoğun",
+      "riverRise": 0.8,
+      "seed": 41
+    },
+    "completionCount": 1,
+    "reentryCycles": 5,
+    "componentFixture": false,
+    "stableCounts": {
+      "objects": 29,
+      "blurListeners": 4,
+      "pointerListeners": 1,
+      "keyboardListeners": 4,
+      "textureCount": 43
+    }
+  },
+  {
+    "mode": "mobile",
+    "result": "PASS",
+    "investigated": 3,
+    "sameRain": {
+      "durationSeconds": 45,
+      "intensity": "yoğun",
+      "riverRise": 0.8,
+      "seed": 41
+    },
+    "completionCount": 1,
+    "reentryCycles": 5,
+    "componentFixture": false,
+    "stableCounts": {
+      "objects": 29,
+      "blurListeners": 4,
+      "pointerListeners": 1,
+      "keyboardListeners": 4,
+      "textureCount": 43
+    }
+  }
+]

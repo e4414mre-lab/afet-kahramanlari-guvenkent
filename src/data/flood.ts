@@ -154,8 +154,8 @@ export function simulationFrame(
 
 export const FLOOD_INTRO = {
   hasan:
-    "Hasan Amca: “Yağmur çok yağınca dere bazen kabarır. Sence hangi yerlere dikkat etmeliyiz?”",
+    "Hasan Amca: “Ben bu mahallede yaşayan Hasan. Yağmur çok yağınca dere bazen kabarır. Sence hangi yerlere dikkat etmeliyiz?”",
   afi: "AFİ: Üç riski yüksek, güvenli meydandan gözlemleyelim. Dereye veya köprüye yaklaşmamıza gerek yok.",
   speech:
-    "Hasan Amca: Yağmur çok yağınca dere bazen kabarır. Önce güvenli meydandan gözlemleyelim.",
+    "Hasan Amca: Ben bu mahallede yaşayan Hasan. Önce güvenli meydandan gözlemleyelim.",
 };

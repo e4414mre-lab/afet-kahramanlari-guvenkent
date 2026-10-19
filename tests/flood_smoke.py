@@ -45,7 +45,11 @@ def run(browser,mobile,fixture=False):
  def choice(label):p.tap(p.page.get_by_role('button',name=label,exact=True))
  # Muted and reduced motion from the first-day replay remain intact on entry.
  assert p.snapshot()['waterAnimation'] is False
- open_near('hasan');choice('Güvenli meydandan araştır')
+ mode='mobile' if mobile else 'desktop'
+ open_near('hasan')
+ p.page.get_by_text('Ben bu mahallede yaşayan Hasan.',exact=False).wait_for()
+ p.page.screenshot(path=str(out/f'flood-hasan-{mode}.png'))
+ choice('Güvenli meydandan araştır')
  p.wait('d.status.flood.phase === "investigate3"')
  if fixture and '--navigation-only' in sys.argv:
   # Hold past the NPC footprint; the child must stop before walking through him.
@@ -56,7 +60,6 @@ def run(browser,mobile,fixture=False):
   if mobile:p.cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]})
   else:p.page.keyboard.up('ArrowUp')
   assert p.snapshot()['player']['y']>=755,p.snapshot()['player']
- mode='mobile' if mobile else 'desktop'
  # Prove keyboard/dpad cannot walk down to the low bank or river.
  p.axis('x',800);p.axis('y',830)
  if mobile:
@@ -79,12 +82,17 @@ def run(browser,mobile,fixture=False):
  for identifier in RISKS:
   open_near(identifier)
   assert status()['risks'][identifier]=='identified'
+  position=p.snapshot()['player']
+  if identifier=='floodStorage':p.page.screenshot(path=str(out/f'flood-inspection-{mode}.png'))
   p.tap(p.page.locator('.flood-panel .inspection-choices button').nth(1));p.wait('d.status.flood.retry')
   assert status()['risks'][identifier]=='identified'
+  assert status()['feedback'] and p.snapshot()['player']==position
   if not mobile and identifier=='floodStorage':
    p.page.keyboard.press('Shift+Tab');p.page.keyboard.press('Enter')
   else:p.tap(p.page.locator('.flood-panel .inspection-choices button').first)
   p.wait('d.status.flood.risks[arg] === "decisionMade"',identifier)
+  assert status()['feedback'] and not status()['retry']
+  assert p.snapshot()['player']==position
   choice('Gerekçeyi not et');p.wait('d.status.flood.openId === null')
   print(mode+' '+identifier+' safe research PASS',flush=True)
  assert status()['investigated']==3
