@@ -1,6 +1,12 @@
 import { Component, useEffect, useRef, type ReactNode } from "react";
 import type { GameSession, GameStatus } from "../game/story";
-import { DAY3_SAFETY, MEASURES, REGIONS, REASONS } from "../data/day3";
+import {
+  DAY3_SAFETY,
+  MEASURES,
+  REGIONS,
+  REASONS,
+  afiUnfundedFeedback,
+} from "../data/day3";
 class PlanningBoundary extends Component<
   { children: ReactNode; close: () => void },
   { failed: boolean }
@@ -71,6 +77,12 @@ function PlanningView({
       body.current?.scrollTo(0, 0);
     }
   }, [s.step, s.open]);
+  useEffect(() => {
+    if (s.budgetError)
+      ref.current
+        ?.querySelector<HTMLElement>("[data-budget-error]")
+        ?.scrollIntoView({ block: "nearest", behavior: "instant" });
+  }, [s.budgetError?.measureId, s.budgetError?.remaining]);
   if (!s.open) return null;
   const act = (fn: () => void) => {
     fn();
@@ -88,6 +100,34 @@ function PlanningView({
     replanning: "Planını yeniden düşün",
     finalized: "Güvenkent belediye raporu",
   };
+  const allocation = s.allocations.find((a) => a.region === s.region)!;
+  const unfunded =
+    (planning || s.step === "comparing") && allocation.spent === 0;
+  const allocationSummary = (
+    <figure
+      className="day3-allocation"
+      aria-label="Dört bölgeye ayrılan planlama puanları"
+    >
+      <figcaption>
+        Bölgelere ayrılan kaynak · Toplam harcanan {s.spentBudget} / 1.000 puan
+      </figcaption>
+      <ul>
+        {s.allocations.map((a) => (
+          <li key={a.region}>
+            <span>{a.name}</span>
+            <strong>{a.spent} puan</strong>
+            <span className="day3-allocation-track" aria-hidden="true">
+              <span style={{ width: `${a.spent / 10}%` }} />
+            </span>
+          </li>
+        ))}
+      </ul>
+      <small>
+        Çubuklar 1.000 planlama puanına göredir; afet riski göstermez. Kalan:{" "}
+        {s.remainingBudget} puan.
+      </small>
+    </figure>
+  );
   const picked = MEASURES.filter((m) => s.selectedIds.includes(m.id));
   return (
     <section
@@ -137,7 +177,7 @@ function PlanningView({
           <span> / 1.000 planlama puanı kaldı</span>
         </div>
         <small>
-          Gerçek para ve başarı puanı değil · {s.selectedIds.length}/12 önlem ·
+          Harcanan {s.spentBudget} puan · {s.selectedIds.length}/12 önlem ·
           Deneme {s.planRevision}
         </small>
         <meter
@@ -175,13 +215,30 @@ function PlanningView({
                         ? "İncelendi"
                         : "Raporu incele"
                       : `${picked.filter((m) => m.region === r.id).length}/3 önlem`}
+                  {s.step !== "consulting" &&
+                    ` · ${s.allocations.find((a) => a.region === r.id)!.spent} puan`}
                 </small>
+                {s.step !== "consulting" && (
+                  <span className="day3-nav-allocation" aria-hidden="true">
+                    <span
+                      style={{
+                        width: `${s.allocations.find((a) => a.region === r.id)!.spent / 10}%`,
+                      }}
+                    />
+                  </span>
+                )}
               </span>
             </button>
           ))}
         </nav>
       )}
       <div className="day3-body" ref={body}>
+        {unfunded && (
+          <aside className="day3-afi" aria-label="AFİ ile düşün">
+            <strong>AFİ ile düşün</strong>
+            <p>{afiUnfundedFeedback(s.region)}</p>
+          </aside>
+        )}
         {s.step === "briefing" && (
           <div className="day3-welcome">
             <img
@@ -277,6 +334,16 @@ function PlanningView({
                         {checked ? "Geri al" : "Seç"}
                       </button>
                     </aside>
+                    {s.budgetError?.measureId === m.id && (
+                      <div
+                        className="day3-insufficient"
+                        role="alert"
+                        data-budget-error
+                      >
+                        <strong>Planlama puanı yetmiyor</strong>
+                        <p>{s.feedback}</p>
+                      </div>
+                    )}
                     {pending && (
                       <div
                         className="day3-reasons"
@@ -383,6 +450,37 @@ function PlanningView({
               Aynı bölge senaryosu, aynı afet koşulları. Değişen yalnızca üçüncü
               gün hazırlıklarıdır.
             </p>
+            <details className="day3-overview">
+              <summary>Dört bölgenin sonuçlarını birlikte gör</summary>
+              <div className="day3-regional-grid">
+                {s.outcomes.map((o) => (
+                  <article key={o.region}>
+                    <h5>{o.name}</h5>
+                    <strong>
+                      {s.allocations.find((a) => a.region === o.region)!.spent}{" "}
+                      planlama puanı · {o.selectedIds.length}/3 önlem
+                    </strong>
+                    <p>
+                      <b>Önce:</b> Yeni üçüncü gün önlemi yok.
+                    </p>
+                    <p>
+                      <b>Sonra:</b>{" "}
+                      {o.selectedIds.length
+                        ? "Seçilen yetkili hazırlıkları:"
+                        : "Bu bölge için yeni önlem seçilmedi."}
+                    </p>
+                    {o.selectedIds.length > 0 && (
+                      <ul>
+                        {o.rows.map((row) => (
+                          <li key={row.label}>{row.after}</li>
+                        ))}
+                      </ul>
+                    )}
+                    <p className="day3-risk">{o.residualRisk}</p>
+                  </article>
+                ))}
+              </div>
+            </details>
             <div className="day3-outcomes">
               {outcome.rows.map((row) => (
                 <article key={row.label}>
@@ -449,6 +547,7 @@ function PlanningView({
             <span className="eyebrow">SON PLAN · DENEME {s.planRevision}</span>
             <h4>Güvenkent için düşünülmüş bir plan</h4>
             <p>
+              <strong>Harcanan:</strong> {s.spentBudget} planlama puanı ·{" "}
               <strong>Kalan kaynak:</strong> {s.remainingBudget} planlama puanı
               · <strong>Gerekçem:</strong> {s.finalReason}
             </p>
@@ -456,10 +555,18 @@ function PlanningView({
               Planlama puanları başarı puanı değildir. Rapor yalnızca bu açık
               oyun oturumunda; gerçek belediyeye gönderilmedi.
             </p>
+            {allocationSummary}
             <div className="day3-final-grid">
               {s.outcomes.map((o) => (
                 <article key={o.region}>
                   <h5>{o.name}</h5>
+                  <p>
+                    <strong>
+                      Ayrılan kaynak:{" "}
+                      {s.allocations.find((a) => a.region === o.region)!.spent}{" "}
+                      planlama puanı
+                    </strong>
+                  </p>
                   <p>
                     {o.selectedIds.length
                       ? MEASURES.filter((m) => o.selectedIds.includes(m.id))
@@ -468,6 +575,9 @@ function PlanningView({
                       : "Bu bölgeye yeni kaynak ayrılmadı."}
                   </p>
                   <p>{o.rows.map((row) => row.after).join(" ")}</p>
+                  {o.selectedIds.length === 0 && (
+                    <p className="day3-afi">{afiUnfundedFeedback(o.region)}</p>
+                  )}
                   <strong>{o.residualRisk}</strong>
                 </article>
               ))}
@@ -483,7 +593,7 @@ function PlanningView({
             </details>
           </>
         )}
-        {s.feedback && (
+        {s.feedback && !s.budgetError && (
           <p className="day3-feedback" role="status">
             {s.feedback}
           </p>

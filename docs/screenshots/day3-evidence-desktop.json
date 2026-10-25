@@ -9,10 +9,38 @@
       "height": 1000
     },
     "player": {
-      "x": 395.54061015320485,
-      "y": 781.2937919829129
+      "x": 402.75375470717364,
+      "y": 783.7192955747184
     },
     "day3": {
+      "spentBudget": 0,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 0,
+          "count": 0
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": false,
       "step": "briefing",
@@ -376,10 +404,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 0,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 0,
+          "count": 0
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "planning",
@@ -748,10 +804,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 130,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 130,
+          "count": 1
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 0,
+          "count": 0
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "planning",
@@ -1118,6 +1202,446 @@
     }
   },
   {
+    "moment": "insufficient-budget",
+    "image": "day3-insufficient-budget.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "player": {
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
+    },
+    "day3": {
+      "spentBudget": 1000,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": {
+        "measureId": "L2",
+        "cost": 160,
+        "remaining": 0,
+        "missing": 160
+      },
+      "active": true,
+      "open": true,
+      "step": "planning",
+      "region": "landslide",
+      "selectedIds": [
+        "F1",
+        "F2",
+        "F3",
+        "W1",
+        "W2",
+        "W3",
+        "A1",
+        "A3"
+      ],
+      "reasons": {
+        "F1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "F2": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "F3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "W1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "W2": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "W3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "A1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "A3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum."
+      },
+      "pending": null,
+      "remainingBudget": 0,
+      "startingBudget": 1000,
+      "studentScore": null,
+      "plannedMeasures": [
+        "F1",
+        "F2",
+        "F3",
+        "W1",
+        "W2",
+        "W3",
+        "A1",
+        "A3"
+      ],
+      "consulted": [
+        "flood",
+        "wildfire",
+        "landslide",
+        "avalanche"
+      ],
+      "viewed": [],
+      "elapsed": 0,
+      "feedback": "Bu önlem 160 planlama puanı istiyor; 0 puanın kaldığı için 160 puan eksik. Seçim eklenmedi; bir önlemi geri alıp yeniden deneyebilirsin.",
+      "finalReason": "",
+      "planRevision": 0,
+      "completionCount": 0,
+      "missingRegions": [
+        "Yamaç Mahallesi"
+      ],
+      "history": [],
+      "outcomes": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "selectedIds": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "before": {
+            "baselineScenario": {
+              "durationSeconds": 45,
+              "intensity": "yoğun",
+              "riverRise": 0.8,
+              "seed": 41
+            },
+            "modelFrame": {
+              "elapsed": 45,
+              "intensity": "yoğun",
+              "riverLevel": 1,
+              "bridgeClosed": true,
+              "localAccumulation": 1,
+              "informedEarlier": false,
+              "passageClosed": true
+            }
+          },
+          "after": {
+            "baselineScenario": {
+              "durationSeconds": 45,
+              "intensity": "yoğun",
+              "riverRise": 0.8,
+              "seed": 41
+            },
+            "modelFrame": {
+              "elapsed": 45,
+              "intensity": "yoğun",
+              "riverLevel": 1,
+              "bridgeClosed": true,
+              "localAccumulation": 0.45,
+              "informedEarlier": true,
+              "passageClosed": true
+            }
+          },
+          "rows": [
+            {
+              "label": "Uyarı",
+              "before": "Yeni üçüncü gün uyarı planı yok.",
+              "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+            },
+            {
+              "label": "Bakım ve inceleme",
+              "before": "Yeni uzman bakım planı yok.",
+              "after": "Yetkili bakım veya uzman incelemesi planlandı."
+            },
+            {
+              "label": "Güvenli ulaşım",
+              "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+              "after": "Kapalı yol ve güvenli yönlendirme önceden duyurulur."
+            },
+            {
+              "label": "Bilgilendirme",
+              "before": "Yeni plan bilgisi hazırlanmadı.",
+              "after": "Seçilen hazırlıklar yetişkinlerce açıklanır."
+            }
+          ],
+          "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "selectedIds": [
+            "W1",
+            "W2",
+            "W3"
+          ],
+          "before": {
+            "baselineScenario": {
+              "durationSeconds": 40,
+              "windDirection": "kuzeydoğu",
+              "windKmh": 18,
+              "temperatureC": 32,
+              "dryness": "kuru",
+              "seed": 67
+            },
+            "modelFrame": {
+              "durationSeconds": 40,
+              "windDirection": "kuzeydoğu",
+              "windKmh": 18,
+              "temperatureC": 32,
+              "dryness": "kuru",
+              "seed": 67,
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "warningEarly": false,
+              "visitorsDirected": true,
+              "expertsNotified": true,
+              "managedFuel": false,
+              "residualRisk": true
+            }
+          },
+          "after": {
+            "baselineScenario": {
+              "durationSeconds": 40,
+              "windDirection": "kuzeydoğu",
+              "windKmh": 18,
+              "temperatureC": 32,
+              "dryness": "kuru",
+              "seed": 67
+            },
+            "modelFrame": {
+              "durationSeconds": 40,
+              "windDirection": "kuzeydoğu",
+              "windKmh": 18,
+              "temperatureC": 32,
+              "dryness": "kuru",
+              "seed": 67,
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "warningEarly": true,
+              "visitorsDirected": true,
+              "expertsNotified": true,
+              "managedFuel": true,
+              "residualRisk": true
+            }
+          },
+          "rows": [
+            {
+              "label": "Uyarı",
+              "before": "Yeni üçüncü gün uyarı planı yok.",
+              "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+            },
+            {
+              "label": "Bakım ve inceleme",
+              "before": "Yeni uzman bakım planı yok.",
+              "after": "Yetkili bakım veya uzman incelemesi planlandı."
+            },
+            {
+              "label": "Güvenli ulaşım",
+              "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+              "after": "Kapalı yol ve güvenli yönlendirme önceden duyurulur."
+            },
+            {
+              "label": "Bilgilendirme",
+              "before": "Yeni plan bilgisi hazırlanmadı.",
+              "after": "Seçilen hazırlıklar yetişkinlerce açıklanır."
+            }
+          ],
+          "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "selectedIds": [],
+          "before": {
+            "baselineScenario": {
+              "scenarioId": "yamac-rain-soil-01",
+              "seed": 83,
+              "durationSeconds": 40,
+              "rainfall": "şiddetli / uzun süreli",
+              "soilSensitivity": "duyarlı zemin",
+              "slope": "dik eğim",
+              "initialMoisture": "önceden nemli",
+              "initialGround": "aynı yüzey / aynı bitki örtüsü"
+            },
+            "modelFrame": {
+              "scenarioId": "yamac-rain-soil-01",
+              "seed": 83,
+              "durationSeconds": 40,
+              "rainfall": "şiddetli / uzun süreli",
+              "soilSensitivity": "duyarlı zemin",
+              "slope": "dik eğim",
+              "initialMoisture": "önceden nemli",
+              "initialGround": "aynı yüzey / aynı bitki örtüsü",
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "roadClosed": true,
+              "surveyPlanned": false,
+              "engineeringPlanned": false,
+              "warningEarly": false,
+              "residentsDirected": true,
+              "residentProgress": 1,
+              "localRunoff": 1,
+              "residualRisk": true
+            }
+          },
+          "after": {
+            "baselineScenario": {
+              "scenarioId": "yamac-rain-soil-01",
+              "seed": 83,
+              "durationSeconds": 40,
+              "rainfall": "şiddetli / uzun süreli",
+              "soilSensitivity": "duyarlı zemin",
+              "slope": "dik eğim",
+              "initialMoisture": "önceden nemli",
+              "initialGround": "aynı yüzey / aynı bitki örtüsü"
+            },
+            "modelFrame": {
+              "scenarioId": "yamac-rain-soil-01",
+              "seed": 83,
+              "durationSeconds": 40,
+              "rainfall": "şiddetli / uzun süreli",
+              "soilSensitivity": "duyarlı zemin",
+              "slope": "dik eğim",
+              "initialMoisture": "önceden nemli",
+              "initialGround": "aynı yüzey / aynı bitki örtüsü",
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "roadClosed": true,
+              "surveyPlanned": false,
+              "engineeringPlanned": false,
+              "warningEarly": false,
+              "residentsDirected": true,
+              "residentProgress": 1,
+              "localRunoff": 1,
+              "residualRisk": true
+            }
+          },
+          "rows": [
+            {
+              "label": "Uyarı",
+              "before": "Yeni üçüncü gün uyarı planı yok.",
+              "after": "Yeni uyarı önlemi seçilmedi."
+            },
+            {
+              "label": "Bakım ve inceleme",
+              "before": "Yeni uzman bakım planı yok.",
+              "after": "Yeni bakım önlemi seçilmedi."
+            },
+            {
+              "label": "Güvenli ulaşım",
+              "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+              "after": "Yeni ulaşım önlemi seçilmedi; kapalı yola girilmez."
+            },
+            {
+              "label": "Bilgilendirme",
+              "before": "Yeni plan bilgisi hazırlanmadı.",
+              "after": "Bu bölgeye yeni kaynak ayrılmadı."
+            }
+          ],
+          "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "selectedIds": [
+            "A1",
+            "A3"
+          ],
+          "before": {
+            "baselineScenario": {
+              "scenarioId": "karlitepe-winter-01",
+              "scenarioSeed": 97,
+              "durationSeconds": 40,
+              "snowpack": "high",
+              "slope": "steep",
+              "weather": "cold",
+              "wind": "aynı rüzgâr",
+              "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+            },
+            "modelFrame": {
+              "scenarioId": "karlitepe-winter-01",
+              "scenarioSeed": 97,
+              "durationSeconds": 40,
+              "snowpack": "high",
+              "slope": "steep",
+              "weather": "cold",
+              "wind": "aynı rüzgâr",
+              "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "roadClosed": true,
+              "monitoringPlanned": false,
+              "closurePlanned": false,
+              "educationReady": false,
+              "residentsDirected": true,
+              "residentProgress": 1,
+              "snowActivity": 1,
+              "residualRisk": true
+            }
+          },
+          "after": {
+            "baselineScenario": {
+              "scenarioId": "karlitepe-winter-01",
+              "scenarioSeed": 97,
+              "durationSeconds": 40,
+              "snowpack": "high",
+              "slope": "steep",
+              "weather": "cold",
+              "wind": "aynı rüzgâr",
+              "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+            },
+            "modelFrame": {
+              "scenarioId": "karlitepe-winter-01",
+              "scenarioSeed": 97,
+              "durationSeconds": 40,
+              "snowpack": "high",
+              "slope": "steep",
+              "weather": "cold",
+              "wind": "aynı rüzgâr",
+              "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "roadClosed": true,
+              "monitoringPlanned": true,
+              "closurePlanned": false,
+              "educationReady": true,
+              "residentsDirected": true,
+              "residentProgress": 1,
+              "snowActivity": 1,
+              "residualRisk": true
+            }
+          },
+          "rows": [
+            {
+              "label": "Uyarı",
+              "before": "Yeni üçüncü gün uyarı planı yok.",
+              "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+            },
+            {
+              "label": "Bakım ve inceleme",
+              "before": "Yeni uzman bakım planı yok.",
+              "after": "Yeni bakım önlemi seçilmedi."
+            },
+            {
+              "label": "Güvenli ulaşım",
+              "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+              "after": "Yeni ulaşım önlemi seçilmedi; kapalı yola girilmez."
+            },
+            {
+              "label": "Bilgilendirme",
+              "before": "Yeni plan bilgisi hazırlanmadı.",
+              "after": "Ziyaretçilere kış güvenliği eğitimi planlandı."
+            }
+          ],
+          "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+        }
+      ]
+    }
+  },
+  {
     "moment": "before-after",
     "image": "day3-before-after.png",
     "componentFixture": false,
@@ -1127,10 +1651,840 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 1000,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
+      "active": true,
+      "open": true,
+      "step": "comparing",
+      "region": "flood",
+      "selectedIds": [
+        "F1",
+        "F2",
+        "F3",
+        "W1",
+        "W2",
+        "W3",
+        "A1",
+        "A3"
+      ],
+      "reasons": {
+        "F1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "F2": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "F3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "W1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "W2": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "W3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "A1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+        "A3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum."
+      },
+      "pending": null,
+      "remainingBudget": 0,
+      "startingBudget": 1000,
+      "studentScore": null,
+      "plannedMeasures": [
+        "F1",
+        "F2",
+        "F3",
+        "W1",
+        "W2",
+        "W3",
+        "A1",
+        "A3"
+      ],
+      "consulted": [
+        "flood",
+        "wildfire",
+        "landslide",
+        "avalanche"
+      ],
+      "viewed": [
+        "landslide",
+        "flood",
+        "wildfire",
+        "avalanche"
+      ],
+      "elapsed": 12,
+      "feedback": "",
+      "finalReason": "",
+      "planRevision": 1,
+      "completionCount": 0,
+      "missingRegions": [
+        "Yamaç Mahallesi"
+      ],
+      "history": [
+        {
+          "revision": 1,
+          "selectedIds": [
+            "F1",
+            "F2",
+            "F3",
+            "W1",
+            "W2",
+            "W3",
+            "A1",
+            "A3"
+          ],
+          "remainingBudget": 0,
+          "reasons": {
+            "F1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+            "F2": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+            "F3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+            "W1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+            "W2": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+            "W3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+            "A1": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.",
+            "A3": "Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum."
+          },
+          "outcomes": [
+            {
+              "region": "flood",
+              "name": "Dere Mahallesi",
+              "selectedIds": [
+                "F1",
+                "F2",
+                "F3"
+              ],
+              "before": {
+                "baselineScenario": {
+                  "durationSeconds": 45,
+                  "intensity": "yoğun",
+                  "riverRise": 0.8,
+                  "seed": 41
+                },
+                "modelFrame": {
+                  "elapsed": 45,
+                  "intensity": "yoğun",
+                  "riverLevel": 1,
+                  "bridgeClosed": true,
+                  "localAccumulation": 1,
+                  "informedEarlier": false,
+                  "passageClosed": true
+                }
+              },
+              "after": {
+                "baselineScenario": {
+                  "durationSeconds": 45,
+                  "intensity": "yoğun",
+                  "riverRise": 0.8,
+                  "seed": 41
+                },
+                "modelFrame": {
+                  "elapsed": 45,
+                  "intensity": "yoğun",
+                  "riverLevel": 1,
+                  "bridgeClosed": true,
+                  "localAccumulation": 0.45,
+                  "informedEarlier": true,
+                  "passageClosed": true
+                }
+              },
+              "rows": [
+                {
+                  "label": "Uyarı",
+                  "before": "Yeni üçüncü gün uyarı planı yok.",
+                  "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+                },
+                {
+                  "label": "Bakım ve inceleme",
+                  "before": "Yeni uzman bakım planı yok.",
+                  "after": "Yetkili bakım veya uzman incelemesi planlandı."
+                },
+                {
+                  "label": "Güvenli ulaşım",
+                  "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+                  "after": "Kapalı yol ve güvenli yönlendirme önceden duyurulur."
+                },
+                {
+                  "label": "Bilgilendirme",
+                  "before": "Yeni plan bilgisi hazırlanmadı.",
+                  "after": "Seçilen hazırlıklar yetişkinlerce açıklanır."
+                }
+              ],
+              "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+            },
+            {
+              "region": "wildfire",
+              "name": "Çamlık Ormanı",
+              "selectedIds": [
+                "W1",
+                "W2",
+                "W3"
+              ],
+              "before": {
+                "baselineScenario": {
+                  "durationSeconds": 40,
+                  "windDirection": "kuzeydoğu",
+                  "windKmh": 18,
+                  "temperatureC": 32,
+                  "dryness": "kuru",
+                  "seed": 67
+                },
+                "modelFrame": {
+                  "durationSeconds": 40,
+                  "windDirection": "kuzeydoğu",
+                  "windKmh": 18,
+                  "temperatureC": 32,
+                  "dryness": "kuru",
+                  "seed": 67,
+                  "elapsed": 40,
+                  "dangerAccessible": false,
+                  "warningEarly": false,
+                  "visitorsDirected": true,
+                  "expertsNotified": true,
+                  "managedFuel": false,
+                  "residualRisk": true
+                }
+              },
+              "after": {
+                "baselineScenario": {
+                  "durationSeconds": 40,
+                  "windDirection": "kuzeydoğu",
+                  "windKmh": 18,
+                  "temperatureC": 32,
+                  "dryness": "kuru",
+                  "seed": 67
+                },
+                "modelFrame": {
+                  "durationSeconds": 40,
+                  "windDirection": "kuzeydoğu",
+                  "windKmh": 18,
+                  "temperatureC": 32,
+                  "dryness": "kuru",
+                  "seed": 67,
+                  "elapsed": 40,
+                  "dangerAccessible": false,
+                  "warningEarly": true,
+                  "visitorsDirected": true,
+                  "expertsNotified": true,
+                  "managedFuel": true,
+                  "residualRisk": true
+                }
+              },
+              "rows": [
+                {
+                  "label": "Uyarı",
+                  "before": "Yeni üçüncü gün uyarı planı yok.",
+                  "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+                },
+                {
+                  "label": "Bakım ve inceleme",
+                  "before": "Yeni uzman bakım planı yok.",
+                  "after": "Yetkili bakım veya uzman incelemesi planlandı."
+                },
+                {
+                  "label": "Güvenli ulaşım",
+                  "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+                  "after": "Kapalı yol ve güvenli yönlendirme önceden duyurulur."
+                },
+                {
+                  "label": "Bilgilendirme",
+                  "before": "Yeni plan bilgisi hazırlanmadı.",
+                  "after": "Seçilen hazırlıklar yetişkinlerce açıklanır."
+                }
+              ],
+              "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+            },
+            {
+              "region": "landslide",
+              "name": "Yamaç Mahallesi",
+              "selectedIds": [],
+              "before": {
+                "baselineScenario": {
+                  "scenarioId": "yamac-rain-soil-01",
+                  "seed": 83,
+                  "durationSeconds": 40,
+                  "rainfall": "şiddetli / uzun süreli",
+                  "soilSensitivity": "duyarlı zemin",
+                  "slope": "dik eğim",
+                  "initialMoisture": "önceden nemli",
+                  "initialGround": "aynı yüzey / aynı bitki örtüsü"
+                },
+                "modelFrame": {
+                  "scenarioId": "yamac-rain-soil-01",
+                  "seed": 83,
+                  "durationSeconds": 40,
+                  "rainfall": "şiddetli / uzun süreli",
+                  "soilSensitivity": "duyarlı zemin",
+                  "slope": "dik eğim",
+                  "initialMoisture": "önceden nemli",
+                  "initialGround": "aynı yüzey / aynı bitki örtüsü",
+                  "elapsed": 40,
+                  "dangerAccessible": false,
+                  "roadClosed": true,
+                  "surveyPlanned": false,
+                  "engineeringPlanned": false,
+                  "warningEarly": false,
+                  "residentsDirected": true,
+                  "residentProgress": 1,
+                  "localRunoff": 1,
+                  "residualRisk": true
+                }
+              },
+              "after": {
+                "baselineScenario": {
+                  "scenarioId": "yamac-rain-soil-01",
+                  "seed": 83,
+                  "durationSeconds": 40,
+                  "rainfall": "şiddetli / uzun süreli",
+                  "soilSensitivity": "duyarlı zemin",
+                  "slope": "dik eğim",
+                  "initialMoisture": "önceden nemli",
+                  "initialGround": "aynı yüzey / aynı bitki örtüsü"
+                },
+                "modelFrame": {
+                  "scenarioId": "yamac-rain-soil-01",
+                  "seed": 83,
+                  "durationSeconds": 40,
+                  "rainfall": "şiddetli / uzun süreli",
+                  "soilSensitivity": "duyarlı zemin",
+                  "slope": "dik eğim",
+                  "initialMoisture": "önceden nemli",
+                  "initialGround": "aynı yüzey / aynı bitki örtüsü",
+                  "elapsed": 40,
+                  "dangerAccessible": false,
+                  "roadClosed": true,
+                  "surveyPlanned": false,
+                  "engineeringPlanned": false,
+                  "warningEarly": false,
+                  "residentsDirected": true,
+                  "residentProgress": 1,
+                  "localRunoff": 1,
+                  "residualRisk": true
+                }
+              },
+              "rows": [
+                {
+                  "label": "Uyarı",
+                  "before": "Yeni üçüncü gün uyarı planı yok.",
+                  "after": "Yeni uyarı önlemi seçilmedi."
+                },
+                {
+                  "label": "Bakım ve inceleme",
+                  "before": "Yeni uzman bakım planı yok.",
+                  "after": "Yeni bakım önlemi seçilmedi."
+                },
+                {
+                  "label": "Güvenli ulaşım",
+                  "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+                  "after": "Yeni ulaşım önlemi seçilmedi; kapalı yola girilmez."
+                },
+                {
+                  "label": "Bilgilendirme",
+                  "before": "Yeni plan bilgisi hazırlanmadı.",
+                  "after": "Bu bölgeye yeni kaynak ayrılmadı."
+                }
+              ],
+              "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+            },
+            {
+              "region": "avalanche",
+              "name": "Karlıtepe",
+              "selectedIds": [
+                "A1",
+                "A3"
+              ],
+              "before": {
+                "baselineScenario": {
+                  "scenarioId": "karlitepe-winter-01",
+                  "scenarioSeed": 97,
+                  "durationSeconds": 40,
+                  "snowpack": "high",
+                  "slope": "steep",
+                  "weather": "cold",
+                  "wind": "aynı rüzgâr",
+                  "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+                },
+                "modelFrame": {
+                  "scenarioId": "karlitepe-winter-01",
+                  "scenarioSeed": 97,
+                  "durationSeconds": 40,
+                  "snowpack": "high",
+                  "slope": "steep",
+                  "weather": "cold",
+                  "wind": "aynı rüzgâr",
+                  "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+                  "elapsed": 40,
+                  "dangerAccessible": false,
+                  "roadClosed": true,
+                  "monitoringPlanned": false,
+                  "closurePlanned": false,
+                  "educationReady": false,
+                  "residentsDirected": true,
+                  "residentProgress": 1,
+                  "snowActivity": 1,
+                  "residualRisk": true
+                }
+              },
+              "after": {
+                "baselineScenario": {
+                  "scenarioId": "karlitepe-winter-01",
+                  "scenarioSeed": 97,
+                  "durationSeconds": 40,
+                  "snowpack": "high",
+                  "slope": "steep",
+                  "weather": "cold",
+                  "wind": "aynı rüzgâr",
+                  "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+                },
+                "modelFrame": {
+                  "scenarioId": "karlitepe-winter-01",
+                  "scenarioSeed": 97,
+                  "durationSeconds": 40,
+                  "snowpack": "high",
+                  "slope": "steep",
+                  "weather": "cold",
+                  "wind": "aynı rüzgâr",
+                  "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+                  "elapsed": 40,
+                  "dangerAccessible": false,
+                  "roadClosed": true,
+                  "monitoringPlanned": true,
+                  "closurePlanned": false,
+                  "educationReady": true,
+                  "residentsDirected": true,
+                  "residentProgress": 1,
+                  "snowActivity": 1,
+                  "residualRisk": true
+                }
+              },
+              "rows": [
+                {
+                  "label": "Uyarı",
+                  "before": "Yeni üçüncü gün uyarı planı yok.",
+                  "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+                },
+                {
+                  "label": "Bakım ve inceleme",
+                  "before": "Yeni uzman bakım planı yok.",
+                  "after": "Yeni bakım önlemi seçilmedi."
+                },
+                {
+                  "label": "Güvenli ulaşım",
+                  "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+                  "after": "Yeni ulaşım önlemi seçilmedi; kapalı yola girilmez."
+                },
+                {
+                  "label": "Bilgilendirme",
+                  "before": "Yeni plan bilgisi hazırlanmadı.",
+                  "after": "Ziyaretçilere kış güvenliği eğitimi planlandı."
+                }
+              ],
+              "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+            }
+          ]
+        }
+      ],
+      "outcomes": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "selectedIds": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "before": {
+            "baselineScenario": {
+              "durationSeconds": 45,
+              "intensity": "yoğun",
+              "riverRise": 0.8,
+              "seed": 41
+            },
+            "modelFrame": {
+              "elapsed": 45,
+              "intensity": "yoğun",
+              "riverLevel": 1,
+              "bridgeClosed": true,
+              "localAccumulation": 1,
+              "informedEarlier": false,
+              "passageClosed": true
+            }
+          },
+          "after": {
+            "baselineScenario": {
+              "durationSeconds": 45,
+              "intensity": "yoğun",
+              "riverRise": 0.8,
+              "seed": 41
+            },
+            "modelFrame": {
+              "elapsed": 45,
+              "intensity": "yoğun",
+              "riverLevel": 1,
+              "bridgeClosed": true,
+              "localAccumulation": 0.45,
+              "informedEarlier": true,
+              "passageClosed": true
+            }
+          },
+          "rows": [
+            {
+              "label": "Uyarı",
+              "before": "Yeni üçüncü gün uyarı planı yok.",
+              "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+            },
+            {
+              "label": "Bakım ve inceleme",
+              "before": "Yeni uzman bakım planı yok.",
+              "after": "Yetkili bakım veya uzman incelemesi planlandı."
+            },
+            {
+              "label": "Güvenli ulaşım",
+              "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+              "after": "Kapalı yol ve güvenli yönlendirme önceden duyurulur."
+            },
+            {
+              "label": "Bilgilendirme",
+              "before": "Yeni plan bilgisi hazırlanmadı.",
+              "after": "Seçilen hazırlıklar yetişkinlerce açıklanır."
+            }
+          ],
+          "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "selectedIds": [
+            "W1",
+            "W2",
+            "W3"
+          ],
+          "before": {
+            "baselineScenario": {
+              "durationSeconds": 40,
+              "windDirection": "kuzeydoğu",
+              "windKmh": 18,
+              "temperatureC": 32,
+              "dryness": "kuru",
+              "seed": 67
+            },
+            "modelFrame": {
+              "durationSeconds": 40,
+              "windDirection": "kuzeydoğu",
+              "windKmh": 18,
+              "temperatureC": 32,
+              "dryness": "kuru",
+              "seed": 67,
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "warningEarly": false,
+              "visitorsDirected": true,
+              "expertsNotified": true,
+              "managedFuel": false,
+              "residualRisk": true
+            }
+          },
+          "after": {
+            "baselineScenario": {
+              "durationSeconds": 40,
+              "windDirection": "kuzeydoğu",
+              "windKmh": 18,
+              "temperatureC": 32,
+              "dryness": "kuru",
+              "seed": 67
+            },
+            "modelFrame": {
+              "durationSeconds": 40,
+              "windDirection": "kuzeydoğu",
+              "windKmh": 18,
+              "temperatureC": 32,
+              "dryness": "kuru",
+              "seed": 67,
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "warningEarly": true,
+              "visitorsDirected": true,
+              "expertsNotified": true,
+              "managedFuel": true,
+              "residualRisk": true
+            }
+          },
+          "rows": [
+            {
+              "label": "Uyarı",
+              "before": "Yeni üçüncü gün uyarı planı yok.",
+              "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+            },
+            {
+              "label": "Bakım ve inceleme",
+              "before": "Yeni uzman bakım planı yok.",
+              "after": "Yetkili bakım veya uzman incelemesi planlandı."
+            },
+            {
+              "label": "Güvenli ulaşım",
+              "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+              "after": "Kapalı yol ve güvenli yönlendirme önceden duyurulur."
+            },
+            {
+              "label": "Bilgilendirme",
+              "before": "Yeni plan bilgisi hazırlanmadı.",
+              "after": "Seçilen hazırlıklar yetişkinlerce açıklanır."
+            }
+          ],
+          "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "selectedIds": [],
+          "before": {
+            "baselineScenario": {
+              "scenarioId": "yamac-rain-soil-01",
+              "seed": 83,
+              "durationSeconds": 40,
+              "rainfall": "şiddetli / uzun süreli",
+              "soilSensitivity": "duyarlı zemin",
+              "slope": "dik eğim",
+              "initialMoisture": "önceden nemli",
+              "initialGround": "aynı yüzey / aynı bitki örtüsü"
+            },
+            "modelFrame": {
+              "scenarioId": "yamac-rain-soil-01",
+              "seed": 83,
+              "durationSeconds": 40,
+              "rainfall": "şiddetli / uzun süreli",
+              "soilSensitivity": "duyarlı zemin",
+              "slope": "dik eğim",
+              "initialMoisture": "önceden nemli",
+              "initialGround": "aynı yüzey / aynı bitki örtüsü",
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "roadClosed": true,
+              "surveyPlanned": false,
+              "engineeringPlanned": false,
+              "warningEarly": false,
+              "residentsDirected": true,
+              "residentProgress": 1,
+              "localRunoff": 1,
+              "residualRisk": true
+            }
+          },
+          "after": {
+            "baselineScenario": {
+              "scenarioId": "yamac-rain-soil-01",
+              "seed": 83,
+              "durationSeconds": 40,
+              "rainfall": "şiddetli / uzun süreli",
+              "soilSensitivity": "duyarlı zemin",
+              "slope": "dik eğim",
+              "initialMoisture": "önceden nemli",
+              "initialGround": "aynı yüzey / aynı bitki örtüsü"
+            },
+            "modelFrame": {
+              "scenarioId": "yamac-rain-soil-01",
+              "seed": 83,
+              "durationSeconds": 40,
+              "rainfall": "şiddetli / uzun süreli",
+              "soilSensitivity": "duyarlı zemin",
+              "slope": "dik eğim",
+              "initialMoisture": "önceden nemli",
+              "initialGround": "aynı yüzey / aynı bitki örtüsü",
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "roadClosed": true,
+              "surveyPlanned": false,
+              "engineeringPlanned": false,
+              "warningEarly": false,
+              "residentsDirected": true,
+              "residentProgress": 1,
+              "localRunoff": 1,
+              "residualRisk": true
+            }
+          },
+          "rows": [
+            {
+              "label": "Uyarı",
+              "before": "Yeni üçüncü gün uyarı planı yok.",
+              "after": "Yeni uyarı önlemi seçilmedi."
+            },
+            {
+              "label": "Bakım ve inceleme",
+              "before": "Yeni uzman bakım planı yok.",
+              "after": "Yeni bakım önlemi seçilmedi."
+            },
+            {
+              "label": "Güvenli ulaşım",
+              "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+              "after": "Yeni ulaşım önlemi seçilmedi; kapalı yola girilmez."
+            },
+            {
+              "label": "Bilgilendirme",
+              "before": "Yeni plan bilgisi hazırlanmadı.",
+              "after": "Bu bölgeye yeni kaynak ayrılmadı."
+            }
+          ],
+          "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "selectedIds": [
+            "A1",
+            "A3"
+          ],
+          "before": {
+            "baselineScenario": {
+              "scenarioId": "karlitepe-winter-01",
+              "scenarioSeed": 97,
+              "durationSeconds": 40,
+              "snowpack": "high",
+              "slope": "steep",
+              "weather": "cold",
+              "wind": "aynı rüzgâr",
+              "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+            },
+            "modelFrame": {
+              "scenarioId": "karlitepe-winter-01",
+              "scenarioSeed": 97,
+              "durationSeconds": 40,
+              "snowpack": "high",
+              "slope": "steep",
+              "weather": "cold",
+              "wind": "aynı rüzgâr",
+              "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "roadClosed": true,
+              "monitoringPlanned": false,
+              "closurePlanned": false,
+              "educationReady": false,
+              "residentsDirected": true,
+              "residentProgress": 1,
+              "snowActivity": 1,
+              "residualRisk": true
+            }
+          },
+          "after": {
+            "baselineScenario": {
+              "scenarioId": "karlitepe-winter-01",
+              "scenarioSeed": 97,
+              "durationSeconds": 40,
+              "snowpack": "high",
+              "slope": "steep",
+              "weather": "cold",
+              "wind": "aynı rüzgâr",
+              "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+            },
+            "modelFrame": {
+              "scenarioId": "karlitepe-winter-01",
+              "scenarioSeed": 97,
+              "durationSeconds": 40,
+              "snowpack": "high",
+              "slope": "steep",
+              "weather": "cold",
+              "wind": "aynı rüzgâr",
+              "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+              "elapsed": 40,
+              "dangerAccessible": false,
+              "roadClosed": true,
+              "monitoringPlanned": true,
+              "closurePlanned": false,
+              "educationReady": true,
+              "residentsDirected": true,
+              "residentProgress": 1,
+              "snowActivity": 1,
+              "residualRisk": true
+            }
+          },
+          "rows": [
+            {
+              "label": "Uyarı",
+              "before": "Yeni üçüncü gün uyarı planı yok.",
+              "after": "Güncel uyarıya erişim / erken haber verme planlandı."
+            },
+            {
+              "label": "Bakım ve inceleme",
+              "before": "Yeni uzman bakım planı yok.",
+              "after": "Yeni bakım önlemi seçilmedi."
+            },
+            {
+              "label": "Güvenli ulaşım",
+              "before": "Yeni alternatif rota duyurusu yok; riskli geçişe girilmez.",
+              "after": "Yeni ulaşım önlemi seçilmedi; kapalı yola girilmez."
+            },
+            {
+              "label": "Bilgilendirme",
+              "before": "Yeni plan bilgisi hazırlanmadı.",
+              "after": "Ziyaretçilere kış güvenliği eğitimi planlandı."
+            }
+          ],
+          "residualRisk": "Risk sürer; hazırlık afet tehlikesini tamamen kaldırmaz."
+        }
+      ]
+    }
+  },
+  {
+    "moment": "regional-comparison",
+    "image": "day3-regional-comparison.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "player": {
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
+    },
+    "day3": {
+      "spentBudget": 1000,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "comparing",
@@ -1901,10 +3255,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 1000,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 0,
+          "count": 0
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "comparing",
@@ -2675,10 +4057,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 1000,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 390,
+          "count": 3
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 150,
+          "count": 1
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "replanning",
@@ -3448,10 +4858,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 950,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 250,
+          "count": 2
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "finalized",
@@ -4945,10 +6383,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 950,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 250,
+          "count": 2
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "finalized",
@@ -6442,10 +7908,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 950,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 250,
+          "count": 2
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "finalized",
@@ -7939,10 +9433,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 950,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 250,
+          "count": 2
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "finalized",
@@ -9436,10 +10958,38 @@
       "height": 1000
     },
     "player": {
-      "x": 398.570109512126,
-      "y": 692.098975582542
+      "x": 400.92398377260514,
+      "y": 694.8676343151998
     },
     "day3": {
+      "spentBudget": 950,
+      "allocations": [
+        {
+          "region": "flood",
+          "name": "Dere Mahallesi",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "wildfire",
+          "name": "Çamlık Ormanı",
+          "spent": 240,
+          "count": 2
+        },
+        {
+          "region": "landslide",
+          "name": "Yamaç Mahallesi",
+          "spent": 250,
+          "count": 2
+        },
+        {
+          "region": "avalanche",
+          "name": "Karlıtepe",
+          "spent": 220,
+          "count": 2
+        }
+      ],
+      "budgetError": null,
       "active": true,
       "open": true,
       "step": "finalized",

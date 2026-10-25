@@ -1,0 +1,16 @@
+{
+  "profile": "tablet-portrait",
+  "viewport": {
+    "width": 768,
+    "height": 1024
+  },
+  "touch": true,
+  "bodyFontPx": 15.0,
+  "nativeScroll": {
+    "needed": true,
+    "verified": true,
+    "scrollDelta": 285
+  },
+  "result": "PASS",
+  "image": "day3-tablet-portrait-final-report.png"
+}

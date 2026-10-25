@@ -1,0 +1,16 @@
+{
+  "profile": "tablet-landscape",
+  "viewport": {
+    "width": 1024,
+    "height": 768
+  },
+  "touch": true,
+  "bodyFontPx": 15.0,
+  "nativeScroll": {
+    "needed": true,
+    "verified": true,
+    "scrollDelta": 185
+  },
+  "result": "PASS",
+  "image": "day3-tablet-landscape-final-report.png"
+}

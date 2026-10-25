@@ -217,3 +217,85 @@ test("an unconfirmed reason cancels when browsing another region; visitor educat
   assert.notEqual(before.rows[3].after, after.rows[3].after);
   assert.match(after.rows[3].after, /kış güvenliği/);
 });
+
+test("regional allocations account for every point, including zero and duplicate selections", async () => {
+  const { calculateRegionalAllocations } = await import("../src/data/day3.ts");
+  for (let mask = 0; mask < 4096; mask++) {
+    const ids = MEASURES.filter((_, i) => mask & (1 << i)).map((m) => m.id);
+    if (
+      MEASURES.filter((m) => ids.includes(m.id)).reduce(
+        (n, m) => n + m.cost,
+        0,
+      ) > 1000
+    )
+      continue;
+    const a = calculateRegionalAllocations([...ids, ...ids]);
+    assert.equal(
+      a.allocations.reduce((sum, r) => sum + r.spent, 0) + a.remainingBudget,
+      1000,
+    );
+    assert.equal(a.spentBudget + a.remainingBudget, 1000);
+    assert.equal(
+      a.allocations.reduce((sum, r) => sum + r.count, 0),
+      ids.length,
+    );
+    for (const region of REGIONS)
+      assert.equal(
+        a.allocations.find((r) => r.region === region.id)!.spent,
+        MEASURES.filter(
+          (m) => m.region === region.id && ids.includes(m.id),
+        ).reduce((n, m) => n + m.cost, 0),
+      );
+  }
+});
+test("insufficient funds explain cost, available points and shortfall; refund clears error without charging twice", () => {
+  const f = ready();
+  for (const id of ["F1", "F2", "F3", "W1", "W2", "W3", "A1", "A3"] as const)
+    pick(f, id);
+  assert.equal(f.remainingBudget, 0);
+  f.choose("L2");
+  assert.deepEqual(f.snapshot().budgetError, {
+    measureId: "L2",
+    cost: 160,
+    remaining: 0,
+    missing: 160,
+  });
+  assert.match(f.feedback, /160 puan eksik/);
+  assert.match(f.feedback, /geri al/);
+  assert.equal(f.selectedIds.length, 8);
+  f.choose("F2");
+  assert.equal(f.remainingBudget, 150);
+  assert.equal(f.snapshot().budgetError, null);
+  f.choose("L2");
+  assert.equal(f.snapshot().budgetError!.missing, 10);
+  assert.equal(f.remainingBudget, 150);
+  f.choose("F1");
+  assert.equal(f.remainingBudget, 280);
+  f.choose("L2");
+  f.explain(REASONS[0]);
+  f.explain(REASONS[0]);
+  assert.equal(f.remainingBudget, 120);
+  assert.equal(f.selectedIds.filter((id) => id === "L2").length, 1);
+  assert.equal(f.snapshot().spentBudget, 880);
+  f.apply();
+  assert.equal(f.snapshot().budgetError, null);
+});
+test("AFI questions do not force balanced funding or forbid deliberate unfunded reports", async () => {
+  const { afiUnfundedFeedback } = await import("../src/data/day3.ts");
+  for (const r of REGIONS) {
+    const text = afiUnfundedFeedback(r.id);
+    assert.ok(text.includes(r.name));
+    assert.match(text, /Son karar senin/);
+    assert.match(text, /\?/);
+  }
+  const f = ready();
+  f.apply();
+  f.summary();
+  for (const r of REGIONS) f.viewRegion(r.id);
+  f.setFinalReason(REASONS[0]);
+  f.finalize();
+  assert.equal(f.completionCount, 1);
+  assert.equal(f.snapshot().spentBudget, 0);
+  assert.ok(f.snapshot().allocations.every((a) => a.spent === 0));
+  assert.equal(f.snapshot().studentScore, null);
+});

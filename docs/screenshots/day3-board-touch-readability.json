@@ -1,0 +1,16 @@
+{
+  "profile": "board-touch",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "touch": true,
+  "bodyFontPx": 18.0,
+  "nativeScroll": {
+    "needed": true,
+    "verified": true,
+    "scrollDelta": 301
+  },
+  "result": "PASS",
+  "image": "day3-board-touch-final-report.png"
+}

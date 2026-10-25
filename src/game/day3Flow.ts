@@ -4,6 +4,7 @@ import {
   REASONS,
   STARTING_BUDGET,
   calculateRemainingBudget,
+  calculateRegionalAllocations,
   toggleMeasure,
   buildRegionalOutcomes,
   type MeasureId,
@@ -29,6 +30,12 @@ export class Day3Flow {
   viewed: RegionId[] = [];
   elapsed = 0;
   feedback = "";
+  budgetError: {
+    measureId: MeasureId;
+    cost: number;
+    remaining: number;
+    missing: number;
+  } | null = null;
   finalReason = "";
   completionCount = 0;
   history: {
@@ -51,6 +58,7 @@ export class Day3Flow {
   show() {
     this.open = true;
     this.feedback = "";
+    this.budgetError = null;
   }
   close() {
     this.open = false;
@@ -64,6 +72,7 @@ export class Day3Flow {
     if (this.editable && this.region !== id) {
       this.pending = null;
       this.feedback = "";
+      this.budgetError = null;
     }
     this.region = id;
     if (this.step === "consulting" && !this.consulted.includes(id))
@@ -80,6 +89,7 @@ export class Day3Flow {
   }
   choose(id: MeasureId) {
     if (!this.editable) return;
+    this.budgetError = null;
     try {
       const next = toggleMeasure(this.selectedIds, id);
       if (this.selectedIds.includes(id)) {
@@ -93,8 +103,19 @@ export class Day3Flow {
           "Neden bunu önceliklendirdin? Tek bir doğru strateji yok.";
       }
     } catch (e) {
-      this.feedback =
-        e instanceof Error ? e.message : "Plan hesaplanamadı; tekrar dene.";
+      const measure = MEASURES.find((m) => m.id === id);
+      if (measure && measure.cost > this.remainingBudget) {
+        const remaining = this.remainingBudget;
+        this.budgetError = {
+          measureId: id,
+          cost: measure.cost,
+          remaining,
+          missing: measure.cost - remaining,
+        };
+        this.feedback = `Bu önlem ${measure.cost} planlama puanı istiyor; ${remaining} puanın kaldığı için ${measure.cost - remaining} puan eksik. Seçim eklenmedi; bir önlemi geri alıp yeniden deneyebilirsin.`;
+      } else
+        this.feedback =
+          e instanceof Error ? e.message : "Plan hesaplanamadı; tekrar dene.";
       this.pending = null;
     }
   }
@@ -127,6 +148,7 @@ export class Day3Flow {
         reasons: { ...this.reasons },
         outcomes: buildRegionalOutcomes(this.selectedIds),
       });
+      this.budgetError = null;
       this.elapsed = 0;
       this.viewed = [];
       this.step = "simulating";
@@ -151,6 +173,7 @@ export class Day3Flow {
   }
   replan() {
     if (this.step === "comparing" || this.step === "finalized") {
+      this.budgetError = null;
       this.step = "replanning";
       this.pending = null;
       this.feedback =
@@ -173,10 +196,14 @@ export class Day3Flow {
     }
   }
   snapshot() {
+    const allocation = calculateRegionalAllocations(this.selectedIds);
     const covered = new Set(
       this.selectedIds.map((id) => MEASURES.find((m) => m.id === id)!.region),
     );
     return {
+      spentBudget: allocation.spentBudget,
+      allocations: allocation.allocations,
+      budgetError: this.budgetError ? { ...this.budgetError } : null,
       active: this.active,
       open: this.open,
       step: this.step,

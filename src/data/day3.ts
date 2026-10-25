@@ -282,3 +282,25 @@ export function buildRegionalOutcomes(ids: readonly string[], seconds = 45) {
     };
   });
 }
+
+/** Planned resource use, never a risk percentage or academic score. */
+export function calculateRegionalAllocations(ids: readonly string[]) {
+  const remaining = calculateRemainingBudget(ids);
+  const chosen = selected(ids);
+  return {
+    spentBudget: STARTING_BUDGET - remaining,
+    remainingBudget: remaining,
+    allocations: REGIONS.map((region) => ({
+      region: region.id,
+      name: region.name,
+      spent: chosen
+        .filter((m) => m.region === region.id)
+        .reduce((total, m) => total + m.cost, 0),
+      count: chosen.filter((m) => m.region === region.id).length,
+    })),
+  };
+}
+export function afiUnfundedFeedback(region: RegionId) {
+  const name = REGIONS.find((r) => r.id === region)!.name;
+  return `AFİ: ${name} için henüz önlem seçmedin. Bu bölgedeki insanların hangi ihtiyacı öncelikli olabilir; bir seçimi değiştirsen nasıl yer açabilirsin? Son karar senin; bütün puanı harcamak zorunda değilsin.`;
+}

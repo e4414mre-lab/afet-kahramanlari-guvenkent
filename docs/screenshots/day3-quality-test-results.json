@@ -1,0 +1,778 @@
+{
+  "result": "PASS",
+  "date": "2026-10-25",
+  "branch": "feat/day3-budget-planning",
+  "baseCommit": "8411ead57aa92ebdabf98180b08b3e11b85eb210",
+  "build": "PASS; existing Phaser bundle-size warning",
+  "unitTests": {
+    "passed": 53,
+    "failed": 0,
+    "budgetSubsetsChecked": 4096
+  },
+  "fullGameAcceptance": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "homeRisks": 4,
+      "homeSafe": 2,
+      "completionCount": 1,
+      "replayMutedReducedMotion": true
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "investigated": 3,
+      "sameRain": {
+        "durationSeconds": 45,
+        "intensity": "yoğun",
+        "riverRise": 0.8,
+        "seed": 41
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "componentFixture": false,
+      "stableCounts": {
+        "objects": 29,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1
+      },
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 59
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1
+      },
+      "stableCounts": {
+        "objects": 34,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 67
+      }
+    },
+    {
+      "mode": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "touch": false,
+      "nativeScroll": {
+        "needed": false,
+        "verified": true
+      },
+      "displayProfiles": [],
+      "result": "PASS",
+      "componentFixture": false,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1,
+        "avalanche": 1
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 65
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "homeRisks": 4,
+      "homeSafe": 2,
+      "completionCount": 1,
+      "replayMutedReducedMotion": true
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "investigated": 3,
+      "sameRain": {
+        "durationSeconds": 45,
+        "intensity": "yoğun",
+        "riverRise": 0.8,
+        "seed": 41
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "componentFixture": false,
+      "stableCounts": {
+        "objects": 29,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1
+      },
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 59
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1
+      },
+      "stableCounts": {
+        "objects": 34,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 67
+      }
+    },
+    {
+      "mode": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "nativeScroll": {
+        "needed": true,
+        "verified": true,
+        "scrollDelta": 198
+      },
+      "displayProfiles": [
+        {
+          "profile": "tablet-portrait",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "touch": true,
+          "bodyFontPx": 15.0,
+          "nativeScroll": {
+            "needed": true,
+            "verified": true,
+            "scrollDelta": 285
+          },
+          "result": "PASS",
+          "image": "day3-tablet-portrait-final-report.png"
+        },
+        {
+          "profile": "tablet-landscape",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "touch": true,
+          "bodyFontPx": 15.0,
+          "nativeScroll": {
+            "needed": true,
+            "verified": true,
+            "scrollDelta": 185
+          },
+          "result": "PASS",
+          "image": "day3-tablet-landscape-final-report.png"
+        },
+        {
+          "profile": "board-touch",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "touch": true,
+          "bodyFontPx": 18.0,
+          "nativeScroll": {
+            "needed": true,
+            "verified": true,
+            "scrollDelta": 301
+          },
+          "result": "PASS",
+          "image": "day3-board-touch-final-report.png"
+        }
+      ],
+      "result": "PASS",
+      "componentFixture": false,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1,
+        "avalanche": 1
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 65
+      }
+    }
+  ],
+  "developmentComponentChecks": [
+    {
+      "mode": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "touch": false,
+      "displayProfiles": [],
+      "result": "PASS",
+      "componentFixture": true,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 0,
+      "previousCompletionCounts": {
+        "home": 0,
+        "flood": 0,
+        "forest": 0,
+        "landslide": 0,
+        "avalanche": 0
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 7
+      }
+    },
+    {
+      "mode": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "displayProfiles": [],
+      "result": "PASS",
+      "componentFixture": true,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 0,
+      "previousCompletionCounts": {
+        "home": 0,
+        "flood": 0,
+        "forest": 0,
+        "landslide": 0,
+        "avalanche": 0
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 7
+      }
+    },
+    {
+      "mode": "tablet-portrait",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "touch": true,
+      "displayProfiles": [],
+      "result": "PASS",
+      "componentFixture": true,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 0,
+      "previousCompletionCounts": {
+        "home": 0,
+        "flood": 0,
+        "forest": 0,
+        "landslide": 0,
+        "avalanche": 0
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 7
+      }
+    },
+    {
+      "mode": "tablet-landscape",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "touch": true,
+      "displayProfiles": [],
+      "result": "PASS",
+      "componentFixture": true,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 0,
+      "previousCompletionCounts": {
+        "home": 0,
+        "flood": 0,
+        "forest": 0,
+        "landslide": 0,
+        "avalanche": 0
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 7
+      }
+    },
+    {
+      "mode": "board-touch",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "touch": true,
+      "displayProfiles": [],
+      "result": "PASS",
+      "componentFixture": true,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 0,
+      "previousCompletionCounts": {
+        "home": 0,
+        "flood": 0,
+        "forest": 0,
+        "landslide": 0,
+        "avalanche": 0
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 7
+      }
+    }
+  ],
+  "errorRecovery": "PASS; injected render failure, safe close, retry, state and movement preserved",
+  "displayProfiles": [
+    {
+      "profile": "tablet-portrait",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "touch": true,
+      "bodyFontPx": 15.0,
+      "nativeScroll": {
+        "needed": true,
+        "verified": true,
+        "scrollDelta": 285
+      },
+      "result": "PASS",
+      "image": "day3-tablet-portrait-final-report.png"
+    },
+    {
+      "profile": "tablet-landscape",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "touch": true,
+      "bodyFontPx": 15.0,
+      "nativeScroll": {
+        "needed": true,
+        "verified": true,
+        "scrollDelta": 185
+      },
+      "result": "PASS",
+      "image": "day3-tablet-landscape-final-report.png"
+    },
+    {
+      "profile": "board-touch",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "touch": true,
+      "bodyFontPx": 18.0,
+      "nativeScroll": {
+        "needed": true,
+        "verified": true,
+        "scrollDelta": 301
+      },
+      "result": "PASS",
+      "image": "day3-board-touch-final-report.png"
+    }
+  ],
+  "deviceScope": "Chromium viewport/touch emulation; no physical tablet or smartboard claim",
+  "unchangedPriorFiles": 106,
+  "images": [
+    {
+      "path": "docs/screenshots/day3-before-after-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "ea4fc88111fce1f80e6b36c97a2023840b01bd1d27f1f986d85925db1552446f"
+    },
+    {
+      "path": "docs/screenshots/day3-before-after.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "5a37c118b8b332d613deaa7f557e0e439524396617f78782e1eb86cc23143f9e"
+    },
+    {
+      "path": "docs/screenshots/day3-board-touch-final-report.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "5d90e73c197a75a64f766a746221ed6ef8e7bfe59ead4509911444c72f084a8a"
+    },
+    {
+      "path": "docs/screenshots/day3-budget-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "b1c879efb9854d4ef85fe74bcaef757304dedf1d1e3094543dc2cb9857aec4ae"
+    },
+    {
+      "path": "docs/screenshots/day3-budget-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "a49936ff4242bab2312bb94a26e186e71e27bb7f01e7c83f3986d44a03e8cd23"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-avalanche-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "41b510cf551e8fd032ee75919f686820bdb948f06cebdef4273e01fc7bb45a89"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-avalanche.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "b8d5fcfc04e8456cddab7d9ec371ed58c06336fe112e14fc13a0201115aa80e7"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-flood-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "6844bf0ab464c9f311ffefd7896350cc8895ba3e52a1dd5466e866f26b833c52"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-flood.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "14b7aaf799aece9e37a539f82402aadd798335954d3a53b528caf2d3841d5979"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-landslide-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "6100c0ad8b8d4b0cb29569eddf7fb3ff1f59730baa1d30ecfe592031590d3627"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-landslide.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "b8d5fcfc04e8456cddab7d9ec371ed58c06336fe112e14fc13a0201115aa80e7"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "920b5df8dca2c0531ebbdc2838ef4df353fb7a450d7e3f8b24ce533c0ee06e67"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-wildfire-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "ec6f2689b1bcc718384e25ddbfc83ed70fbe8e9bed135366cbbc08ad894e745c"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-wildfire.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "14b7aaf799aece9e37a539f82402aadd798335954d3a53b528caf2d3841d5979"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "448100a180aea3af6ad9b085ea83efed8c937e63c7fcb62873a88569ad719455"
+    },
+    {
+      "path": "docs/screenshots/day3-insufficient-budget-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "02645e94b98289cbb47020c847cbd97f1084acf7efaa1ba9f2b376d6f3929855"
+    },
+    {
+      "path": "docs/screenshots/day3-insufficient-budget.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "1cd8929d0ec1d7c1db40f28e53ed589ffaafb13abb9b38e1a502c3f9f2fcd169"
+    },
+    {
+      "path": "docs/screenshots/day3-measure-selected-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "ae292d6047dbf2145d0dab499032fec77a396599cc0f0b1a9a1b036fd1497638"
+    },
+    {
+      "path": "docs/screenshots/day3-measure-selected.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "2ebc9257e31b816b39522ab04f41951228ab4feecac72a66a657a892d43483fa"
+    },
+    {
+      "path": "docs/screenshots/day3-regional-comparison-avalanche-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "f1bcc442325fe19df6669d0abda061b0c0a63da49bb17e76e1650b0c8f260175"
+    },
+    {
+      "path": "docs/screenshots/day3-regional-comparison-flood-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "ef7a786aec5d9d30cf049a6df4b6327654c21c3d3df477081c11a752feae940a"
+    },
+    {
+      "path": "docs/screenshots/day3-regional-comparison-landslide-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "2245950b9c5ca733dad058e9b8d442c782efe1348b2e9b77c46408cc9adae72c"
+    },
+    {
+      "path": "docs/screenshots/day3-regional-comparison-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "95c0123906479e49f6a8ff75679498a620028a8b871467de33f178bd5da42454"
+    },
+    {
+      "path": "docs/screenshots/day3-regional-comparison-wildfire-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "a03b9aa10e7f97b03d3014a64beca4c204f1dd8c98d0aad03e87a1e2fc00d2b8"
+    },
+    {
+      "path": "docs/screenshots/day3-regional-comparison.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "b6ee439450a6bef88ab564444b2f38f6bfca229dc22e902f14185d1c51584fc3"
+    },
+    {
+      "path": "docs/screenshots/day3-replanning-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "fe1c0f03ea59f61ed16f215ce39e98c07b1062ccd361ce2ae2354f4cf2847267"
+    },
+    {
+      "path": "docs/screenshots/day3-replanning.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "9849ee070d9160f2ab59a9e33d7fbc007ec3ce757ee9ce77416118f280fb3030"
+    },
+    {
+      "path": "docs/screenshots/day3-tablet-landscape-final-report.png",
+      "width": 1024,
+      "height": 768,
+      "sha256": "59543c368212360f0aa321c2c92575606b3d234b98e038a74acc1765ae2811d8"
+    },
+    {
+      "path": "docs/screenshots/day3-tablet-portrait-final-report.png",
+      "width": 768,
+      "height": 1024,
+      "sha256": "4b99691bfadf0fca0a7d3ad5c5c5bae9cdf49bda499f4312505734c9e0a9917c"
+    },
+    {
+      "path": "docs/screenshots/day3-town-hall-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "8e8f4f238b33a80efecbf6b95f63e3461b118a07cf45414c7e9b2f417d1bb7d5"
+    },
+    {
+      "path": "docs/screenshots/day3-town-hall.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "ddcb84304301b36b397010571d1a201305e87cfe881f690b9c34cc986db4fe51"
+    },
+    {
+      "path": "docs/screenshots/day3-unfunded-region-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "3e90202e34813f90fdb2d4831c2dd14069b88a185e48a839e836491d3aee8da3"
+    },
+    {
+      "path": "docs/screenshots/day3-unfunded-region.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "71e3827233a67f64d1f7972fbc710e333dc0529c906763b128ebc9624ce3010a"
+    }
+  ]
+}
