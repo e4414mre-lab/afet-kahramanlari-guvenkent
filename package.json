@@ -9,12 +9,13 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
+    "lucide-react": "^0.468.0",
     "phaser": "^3.90.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "lucide-react": "^0.468.0"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@types/node": "^24.19.2",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "typescript": "^5.8.3",

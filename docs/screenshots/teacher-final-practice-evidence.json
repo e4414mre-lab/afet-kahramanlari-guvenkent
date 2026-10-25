@@ -1,0 +1,595 @@
+[
+  {
+    "moment": "result",
+    "image": "teacher-final-practice-desktop.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "assessment": {
+      "open": true,
+      "phase": "result",
+      "index": 14,
+      "seed": 3355028576,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "earthquake-drag-2",
+        "hazard": "earthquake",
+        "type": "drag_drop",
+        "difficulty": "medium",
+        "points": 20,
+        "instruction": "İki kartı da uygun başlığa yerleştir. Kartı seçip hedefe dokunabilir veya sürükleyebilirsin.",
+        "zones": [
+          {
+            "id": "99c3d3ca-80e3-4b4e-8090-a24b9eef75f0",
+            "label": "Önceden hazırlık"
+          },
+          {
+            "id": "2342b3de-c298-4bd0-9f04-017a73a651e2",
+            "label": "Bu başlığa uymaz"
+          }
+        ],
+        "items": [
+          {
+            "id": "8efa3be7-be1c-45bc-813c-91f5ae87ccf3",
+            "text": "Afet çantasını hazırla"
+          },
+          {
+            "id": "b11018a9-981e-492c-9c5e-cc69549be580",
+            "text": "Camın yanında bekle"
+          }
+        ],
+        "explanation": "“Afet çantasını hazırla” bu etkinlikte “Önceden hazırlık” başlığına uyar. “Camın yanında bekle” bu başlığa uymaz. Başlığa uymamak her zaman tehlikeli olmak demek değildir. Tehlikeli alanlara girme; müdahaleyi yetkili yetişkinlere bırak. Hazırlık riski tamamen yok etmez."
+      },
+      "questionIds": [
+        "wildfire-tf-4",
+        "landslide-tf-4",
+        "avalanche-drag-2",
+        "wildfire-drag-2",
+        "earthquake-tf-2",
+        "avalanche-match-4",
+        "flood-tf-1",
+        "landslide-drag-1",
+        "wildfire-match-4",
+        "avalanche-tf-1",
+        "flood-drag-1",
+        "earthquake-match-3",
+        "flood-match-2",
+        "landslide-match-1",
+        "earthquake-drag-2"
+      ],
+      "answered": 15,
+      "record": {
+        "points": 20,
+        "correct": 2,
+        "total": 2,
+        "answer": {
+          "8efa3be7-be1c-45bc-813c-91f5ae87ccf3": "99c3d3ca-80e3-4b4e-8090-a24b9eef75f0",
+          "b11018a9-981e-492c-9c5e-cc69549be580": "2342b3de-c298-4bd0-9f04-017a73a651e2"
+        },
+        "practiceAnswer": null,
+        "practiceCorrect": null
+      },
+      "draft": {
+        "8efa3be7-be1c-45bc-813c-91f5ae87ccf3": "99c3d3ca-80e3-4b4e-8090-a24b9eef75f0",
+        "b11018a9-981e-492c-9c5e-cc69549be580": "2342b3de-c298-4bd0-9f04-017a73a651e2"
+      },
+      "points": 270,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [
+        "b11018a9-981e-492c-9c5e-cc69549be580",
+        "8efa3be7-be1c-45bc-813c-91f5ae87ccf3"
+      ],
+      "attempts": 1,
+      "first": {
+        "id": 1,
+        "seed": 3355028576,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 50,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "wildfire-tf-4",
+          "landslide-tf-4",
+          "avalanche-drag-2",
+          "wildfire-drag-2",
+          "earthquake-tf-2",
+          "avalanche-match-4",
+          "flood-tf-1",
+          "landslide-drag-1",
+          "wildfire-match-4",
+          "avalanche-tf-1",
+          "flood-drag-1",
+          "earthquake-match-3",
+          "flood-match-2",
+          "landslide-match-1",
+          "earthquake-drag-2"
+        ]
+      },
+      "last": {
+        "id": 1,
+        "seed": 3355028576,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 50,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "wildfire-tf-4",
+          "landslide-tf-4",
+          "avalanche-drag-2",
+          "wildfire-drag-2",
+          "earthquake-tf-2",
+          "avalanche-match-4",
+          "flood-tf-1",
+          "landslide-drag-1",
+          "wildfire-match-4",
+          "avalanche-tf-1",
+          "flood-drag-1",
+          "earthquake-match-3",
+          "flood-match-2",
+          "landslide-match-1",
+          "earthquake-drag-2"
+        ]
+      },
+      "best": {
+        "id": 1,
+        "seed": 3355028576,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 50,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "wildfire-tf-4",
+          "landslide-tf-4",
+          "avalanche-drag-2",
+          "wildfire-drag-2",
+          "earthquake-tf-2",
+          "avalanche-match-4",
+          "flood-tf-1",
+          "landslide-drag-1",
+          "wildfire-match-4",
+          "avalanche-tf-1",
+          "flood-drag-1",
+          "earthquake-match-3",
+          "flood-match-2",
+          "landslide-match-1",
+          "earthquake-drag-2"
+        ]
+      },
+      "source": "practice-server",
+      "busy": false
+    }
+  },
+  {
+    "moment": "result",
+    "image": "teacher-final-practice-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "result",
+      "index": 14,
+      "seed": 2060632186,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "avalanche-match-1",
+        "hazard": "avalanche",
+        "type": "matching",
+        "difficulty": "easy",
+        "points": 20,
+        "instruction": "Her durumu ona uygun güvenli davranışla eşleştir. Önce bir durum, sonra bir davranış seç.",
+        "pairs": [
+          {
+            "id": "7144f30a-794e-4ff2-b238-6b1abee280af",
+            "left": "Karlı yol çığ riskiyle kapatılmış"
+          },
+          {
+            "id": "b4ae4e61-e60d-4fcd-af6c-3bf90ac3f61b",
+            "left": "Arkadaşın bariyeri geçmek istiyor"
+          },
+          {
+            "id": "d5a91dfc-13af-434a-9da1-fc0ba6fe545b",
+            "left": "Güvenli rota duyurulmuş"
+          }
+        ],
+        "explanation": "Duruma uygun güvenli davranışı seç: Karlı yol çığ riskiyle kapatılmış → Bariyeri aşmadan kapalı yoldan uzak dur · Arkadaşın bariyeri geçmek istiyor → Geçmemesini söyle ve yetişkine bildir · Güvenli rota duyurulmuş → Grubunla belirtilen rotayı izle.",
+        "targets": [
+          {
+            "id": "95b7b74c-1d10-4817-9a8c-566c4564285f",
+            "right": "Bariyeri aşmadan kapalı yoldan uzak dur"
+          },
+          {
+            "id": "6ad3dc8d-4027-4a2b-b472-6aafab9cc19e",
+            "right": "Geçmemesini söyle ve yetişkine bildir"
+          },
+          {
+            "id": "1bcfa788-95b9-485c-bb6b-3f4349ccb791",
+            "right": "Grubunla belirtilen rotayı izle"
+          }
+        ]
+      },
+      "questionIds": [
+        "wildfire-match-2",
+        "wildfire-tf-4",
+        "landslide-match-4",
+        "earthquake-match-3",
+        "avalanche-drag-2",
+        "flood-tf-1",
+        "flood-match-2",
+        "flood-drag-1",
+        "avalanche-tf-1",
+        "landslide-tf-4",
+        "wildfire-drag-2",
+        "earthquake-tf-1",
+        "landslide-drag-4",
+        "earthquake-drag-3",
+        "avalanche-match-1"
+      ],
+      "answered": 15,
+      "record": {
+        "points": 20,
+        "correct": 3,
+        "total": 3,
+        "answer": {
+          "7144f30a-794e-4ff2-b238-6b1abee280af": "95b7b74c-1d10-4817-9a8c-566c4564285f",
+          "b4ae4e61-e60d-4fcd-af6c-3bf90ac3f61b": "6ad3dc8d-4027-4a2b-b472-6aafab9cc19e",
+          "d5a91dfc-13af-434a-9da1-fc0ba6fe545b": "1bcfa788-95b9-485c-bb6b-3f4349ccb791"
+        },
+        "practiceAnswer": null,
+        "practiceCorrect": null
+      },
+      "draft": {
+        "7144f30a-794e-4ff2-b238-6b1abee280af": "95b7b74c-1d10-4817-9a8c-566c4564285f",
+        "b4ae4e61-e60d-4fcd-af6c-3bf90ac3f61b": "6ad3dc8d-4027-4a2b-b472-6aafab9cc19e",
+        "d5a91dfc-13af-434a-9da1-fc0ba6fe545b": "1bcfa788-95b9-485c-bb6b-3f4349ccb791"
+      },
+      "points": 270,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [
+        "95b7b74c-1d10-4817-9a8c-566c4564285f",
+        "6ad3dc8d-4027-4a2b-b472-6aafab9cc19e",
+        "1bcfa788-95b9-485c-bb6b-3f4349ccb791"
+      ],
+      "attempts": 1,
+      "first": {
+        "id": 1,
+        "seed": 2060632186,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 50,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "wildfire-match-2",
+          "wildfire-tf-4",
+          "landslide-match-4",
+          "earthquake-match-3",
+          "avalanche-drag-2",
+          "flood-tf-1",
+          "flood-match-2",
+          "flood-drag-1",
+          "avalanche-tf-1",
+          "landslide-tf-4",
+          "wildfire-drag-2",
+          "earthquake-tf-1",
+          "landslide-drag-4",
+          "earthquake-drag-3",
+          "avalanche-match-1"
+        ]
+      },
+      "last": {
+        "id": 1,
+        "seed": 2060632186,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 50,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "wildfire-match-2",
+          "wildfire-tf-4",
+          "landslide-match-4",
+          "earthquake-match-3",
+          "avalanche-drag-2",
+          "flood-tf-1",
+          "flood-match-2",
+          "flood-drag-1",
+          "avalanche-tf-1",
+          "landslide-tf-4",
+          "wildfire-drag-2",
+          "earthquake-tf-1",
+          "landslide-drag-4",
+          "earthquake-drag-3",
+          "avalanche-match-1"
+        ]
+      },
+      "best": {
+        "id": 1,
+        "seed": 2060632186,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 50,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "wildfire-match-2",
+          "wildfire-tf-4",
+          "landslide-match-4",
+          "earthquake-match-3",
+          "avalanche-drag-2",
+          "flood-tf-1",
+          "flood-match-2",
+          "flood-drag-1",
+          "avalanche-tf-1",
+          "landslide-tf-4",
+          "wildfire-drag-2",
+          "earthquake-tf-1",
+          "landslide-drag-4",
+          "earthquake-drag-3",
+          "avalanche-match-1"
+        ]
+      },
+      "source": "practice-server",
+      "busy": false
+    }
+  }
+]

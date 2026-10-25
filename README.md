@@ -1,5 +1,21 @@
 # Afet Kahramanları – Güvenkent
 
+## Bu dalın güncel durumu — FAZ 11
+
+Öğretmen/sınıf/öğrenci takibi arayüzü, Supabase migration/RLS/Edge kodu ve
+sunucuda puanlama geliştirilmiştir. **Gerçek Supabase projesi bağlı değildir.**
+Öğretmen veri ekranları açıkça **Demo – veri kaydedilmiyor** olarak gösterilir;
+canlı giriş ve sınıfa katılım yapılandırma olmadan kapalıdır.
+
+Finalin cevabı tarayıcı paketinde değildir. `npm run dev` / `npm run preview`
+Node alıştırma sunucusunu da başlatır; yalnız statik `dist` sunmak final
+puanlaması sağlamaz. Gerçek sınıf finali Supabase Edge/PostgreSQL bağlantısını
+bekler. Kurulum artık `npm ci` ile kilit dosyasından tekrar üretilebilir.
+
+[Güncel teslim, 65 otomatik test, 28 gerçek PostgreSQL güvenlik kontrolü ve
+27 görüntü](docs/FAZ_11_TESLIM_RAPORU.md). Önceki bölümlerdeki “henüz yok”
+ifadeleri ilgili eski fazların tarihsel durumudur; güncel kapsam için bu raporu okuyun.
+
 5. sınıf öğrencileri için React + TypeScript + Phaser ile geliştirilen
 2.5D afet farkındalığı macera oyununun meydan, belediye, sınıf, ev/tatbikat,
 Dere Mahallesi, Çamlık Ormanı, Yamaç Mahallesi ve Karlıtepe prototipi.

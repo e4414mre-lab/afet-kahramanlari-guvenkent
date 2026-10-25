@@ -1,0 +1,118 @@
+{
+  "result": "PASS",
+  "engine": "Real PostgreSQL 17 Docker, isolated synthetic fixture; not Supabase Auth integration",
+  "checks": [
+    {
+      "test": "non-provisioned auth user cannot become teacher",
+      "result": "PASS"
+    },
+    {
+      "test": "teacher B cannot mutate A class",
+      "result": "PASS"
+    },
+    {
+      "test": "teacher B cannot read A dashboard",
+      "result": "PASS"
+    },
+    {
+      "test": "teacher B RLS SELECT sees zero A rows",
+      "result": "PASS"
+    },
+    {
+      "test": "anonymous cannot read students",
+      "result": "PASS"
+    },
+    {
+      "test": "authenticated user cannot read sessions or answer bank",
+      "result": "PASS"
+    },
+    {
+      "test": "authenticated user cannot directly write a score",
+      "result": "PASS"
+    },
+    {
+      "test": "anonymous cannot invoke capability RPC directly",
+      "result": "PASS"
+    },
+    {
+      "test": "same nickname creates distinct students and capabilities",
+      "result": "PASS"
+    },
+    {
+      "test": "only hashes stored",
+      "result": "PASS"
+    },
+    {
+      "test": "start idempotently resumes same active attempt",
+      "result": "PASS"
+    },
+    {
+      "test": "foreign student cannot read another attempt",
+      "result": "PASS"
+    },
+    {
+      "test": "foreign student cannot submit into another attempt",
+      "result": "PASS"
+    },
+    {
+      "test": "foreign student cannot finalize another attempt",
+      "result": "PASS"
+    },
+    {
+      "test": "finalization requires 15 answers",
+      "result": "PASS"
+    },
+    {
+      "test": "public question payload has no answer key, seed or paired IDs",
+      "result": "PASS"
+    },
+    {
+      "test": "30 real server selections satisfy every group and 5/6/4",
+      "result": "PASS"
+    },
+    {
+      "test": "15 server grades, tampered total rejected, duplicates and out-of-order answers rejected, finalization once",
+      "result": "PASS"
+    },
+    {
+      "test": "result subtotals equal verified 300",
+      "result": "PASS"
+    },
+    {
+      "test": "top5 uses best completed score, stable deterministic tie order",
+      "result": "PASS"
+    },
+    {
+      "test": "rotated/closed links reject previous capability",
+      "result": "PASS"
+    },
+    {
+      "test": "logout revokes session token",
+      "result": "PASS"
+    },
+    {
+      "test": "expired capability rejected",
+      "result": "PASS"
+    },
+    {
+      "test": "all tables RLS enabled; all security-definer paths fixed",
+      "result": "PASS"
+    },
+    {
+      "test": "real SQL partial grades exactly 7/20,10/20,0/20",
+      "result": "PASS"
+    },
+    {
+      "test": "archiving revokes sessions and closes admission",
+      "result": "PASS"
+    },
+    {
+      "test": "committed edge throttle blocks subsequent requests at configured limit",
+      "result": "PASS"
+    },
+    {
+      "test": "class deletion cascades private student records",
+      "result": "PASS"
+    }
+  ]
+}

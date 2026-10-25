@@ -1,0 +1,6 @@
+-- Local/staging ONLY. No auth account or fixed teacher password is seeded.
+-- Tests create isolated fictional users/classes in a rollback transaction.
+-- Provision a teacher by an authenticated institutional administrator, e.g.:
+-- insert into guvenkent.teacher_profiles(user_id,display_name)
+-- values ('<EXISTING_AUTH_USER_UUID>','Örnek öğretmen');
+-- Never use real children or change auth.user_metadata to grant teacher access.

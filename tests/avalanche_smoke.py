@@ -69,7 +69,9 @@ def run(browser,mobile,fixture=False,keep_open=False):
   d=p.snapshot();h=d['hotspots'][0];b=p.page.locator('canvas').bounding_box();z=d['zoom'];point=(b['x']+h['screen']['x']+(x-h['hit']['x'])*z,b['y']+h['screen']['y']+(y-h['hit']['y'])*z)
   assert p.page.evaluate("p=>document.elementFromPoint(p.x,p.y)?.tagName==='CANVAS'",{'x':point[0],'y':point[1]})
   p.page.touchscreen.tap(*point) if mobile else p.page.mouse.click(*point)
- p.axis('y',620);p.page.wait_for_timeout(500)
+ # (780,620) is 80.62px from the 80px snowSlope radius: a flaky boundary.
+ # Walk safely inside the existing observation range, never into the slope.
+ p.axis('y',600);p.page.wait_for_timeout(500)
  if not fixture:
   prompt=p.page.locator('.avalanche-interact');assert prompt.is_visible()
   assert 'Güvenli yerden incele' in prompt.inner_text() and 'Dik ve kar yüklü yamaç' in prompt.inner_text()

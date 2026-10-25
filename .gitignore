@@ -8,4 +8,4 @@ dist/
 *.tsbuildinfo
 
 # Generated browser QA import cache
-tests/__pycache__/
+**/__pycache__/

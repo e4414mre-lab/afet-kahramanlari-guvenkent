@@ -1,14 +1,14 @@
 import { Component, useEffect, useRef, useState, type ReactNode } from "react";
 import type { GameSession, GameStatus } from "../game/story";
-import { newExamSeed } from "../game/finalAssessmentFlow";
+
 import {
   HAZARDS,
   HAZARD_NAMES,
   HAZARD_ART,
   TYPE_NAMES,
   type FinalAnswer,
-  type FinalQuestion,
-} from "../data/finalAssessment";
+  type PublicQuestion,
+} from "../data/assessmentPresentation";
 class AssessmentBoundary extends Component<
   { children: ReactNode; close: () => void },
   { failed: boolean }
@@ -156,6 +156,17 @@ function AssessmentView({
         />
       </div>
       <div className="final-body" ref={body}>
+        <p className="final-note" role="status">
+          {s.source === "class-server"
+            ? "Sınıf değerlendirmesi · Puanı sunucu doğrular."
+            : "Yerel sunucu alıştırması · Sınıf verisi kaydedilmiyor. Statik yayında alıştırma sunucusu ayrıca gerekir."}
+        </p>
+        {s.busy && <p role="status">Sunucu yanıtı bekleniyor…</p>}
+        {s.error && (
+          <button onClick={() => f.reconnect()}>
+            Aynı denemeye yeniden bağlan
+          </button>
+        )}
         {s.phase === "intro" ? (
           <div className="final-intro">
             <div className="final-hero">
@@ -242,7 +253,7 @@ function AssessmentView({
             />
             <div className="final-hints">
               <button
-                disabled={s.hintLevel === 3}
+                disabled={s.busy || s.hintLevel === 3}
                 onClick={() => act(() => f.hint())}
               >
                 AFİ’den ipucu {s.hintLevel}/3
@@ -322,11 +333,7 @@ function AssessmentView({
                 </article>
               ))}
             </div>
-            <p className="final-note">
-              Bu sonuç yalnızca açık oyun oturumunda saklanır. Resmî sertifika
-              değildir; bir sınıf liderliğine veya öğretmen paneline
-              gönderilmedi. Yeniden denemeler toplam puan biriktirmez.
-            </p>
+            <p className="final-note">{s.source === 'class-server' ? 'Bu sonuç sunucuda doğrulandı ve sınıfına kaydedildi. Resmî sertifika değildir. Yeniden denemeler toplam puan biriktirmez.' : 'Yerel sunucu alıştırması: Sonuç bu sunucu oturumunda tutulur; sınıfa veya liderliğe gönderilmez. Resmî sertifika değildir. Yeniden denemeler toplam puan biriktirmez.'}</p>
             <small>
               Deneme {s.last.id} · Tohum {s.last.seed} · Havuz{" "}
               {s.last.bankVersion}
@@ -345,19 +352,13 @@ function AssessmentView({
         </small>
         <div>
           {s.phase === "intro" ? (
-            <button
-              className="primary"
-              onClick={() => act(() => f.start(newExamSeed()))}
-            >
+            <button className="primary" onClick={() => act(() => f.start())}>
               15 etkinliğe başla
             </button>
           ) : s.phase === "result" ? (
             <>
               <button onClick={close}>Belediye raporuna dön</button>
-              <button
-                className="primary"
-                onClick={() => act(() => f.retry(newExamSeed()))}
-              >
+              <button className="primary" onClick={() => act(() => f.retry())}>
                 Yeni sınav dene
               </button>
             </>
@@ -372,7 +373,7 @@ function AssessmentView({
               {s.index < 14 ? (
                 <button
                   className="primary"
-                  disabled={!s.record}
+                  disabled={s.busy || !s.record}
                   onClick={() => act(() => f.move(1))}
                 >
                   Sonraki etkinlik
@@ -380,7 +381,7 @@ function AssessmentView({
               ) : (
                 <button
                   className="primary"
-                  disabled={s.answered !== 15}
+                  disabled={s.busy || s.answered !== 15}
                   onClick={() => act(() => f.finalize())}
                 >
                   Sonucumu gör
@@ -406,7 +407,7 @@ function Activity({
   session,
   status,
 }: {
-  question: FinalQuestion;
+  question: PublicQuestion;
   session: GameSession;
   status: GameStatus;
 }) {
@@ -424,7 +425,14 @@ function Activity({
       y: number;
       dragged: boolean;
     } | null>(null);
-  const locked = !!record && !practicing;
+  useEffect(() => {
+    if (record)
+      feedback.current?.scrollIntoView({
+        block: "nearest",
+        behavior: "instant",
+      });
+  }, [record?.points, record?.practiceCorrect]);
+  const locked = (!!record && !practicing) || s.busy;
   useEffect(() => {
     if (!record && !practicing) session.finalAssessment.saveDraft(answer);
   }, [answer, record, practicing, session]);
@@ -497,7 +505,7 @@ function Activity({
                     {p.left}
                     <small>
                       {map[p.id]
-                        ? `→ ${q.pairs.find((t) => t.id === map[p.id])?.right}`
+                        ? `→ ${q.targets.find((t) => t.id === map[p.id])?.right}`
                         : "Henüz eşleşmedi"}
                     </small>
                   </span>
@@ -507,7 +515,7 @@ function Activity({
             <div>
               <h5>Güvenli davranışlar</h5>
               {s.cardOrder.map((id) => {
-                const p = q.pairs.find((p) => p.id === id)!;
+                const p = q.targets.find((p) => p.id === id)!;
                 return (
                   <button
                     data-target={id}

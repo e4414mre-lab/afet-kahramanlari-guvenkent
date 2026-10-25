@@ -1,3 +1,5 @@
+import { TeacherDashboard } from "./components/TeacherDashboard";
+import { StudentClassJoin } from "./components/StudentClassJoin";
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { GamePreview } from "./components/GamePreview";
@@ -8,9 +10,23 @@ import {
   type Settings,
 } from "./lib/settings";
 import "./styles/app.css";
-type View = "home" | "student" | "teacher" | "settings" | "preview";
+const fragment = new URLSearchParams(location.hash.slice(1));
+const invitationToken = fragment.get("class") ?? "";
+const recoveryToken =
+  fragment.get("type") === "recovery"
+    ? (fragment.get("access_token") ?? "")
+    : "";
+if (location.hash)
+  history.replaceState({}, "", location.pathname + location.search);
+type View = "join" | "home" | "student" | "teacher" | "settings" | "preview";
 function App() {
-  const [view, setView] = useState<View>("home");
+  const [view, setView] = useState<View>(
+    recoveryToken
+      ? "teacher"
+      : invitationToken || location.pathname === "/join"
+        ? "join"
+        : "home",
+  );
   const [returnTo, setReturnTo] = useState<View>("home");
   const [name, setName] = useState("");
   const [settings, setSettings] = useState<Settings>(loadSettings);
@@ -74,6 +90,9 @@ function App() {
                 Öğretmen girişi
               </button>
             </div>
+            <button onClick={() => setView("join")}>
+              Sınıf bağlantısıyla katıl
+            </button>
             <button className="subtle" onClick={() => setView("preview")}>
               Meydan prototipini keşfet
             </button>
@@ -81,6 +100,17 @@ function App() {
               Oynanabilir ilk prototip • Görseller onay bekliyor.
             </p>
           </section>
+        ) : view === "teacher" ? (
+          <TeacherDashboard
+            onBack={() => setView("home")}
+            recoveryToken={recoveryToken}
+          />
+        ) : view === "join" ? (
+          <StudentClassJoin
+            token={invitationToken}
+            onBack={() => setView("home")}
+            onPlay={() => setView("preview")}
+          />
         ) : view !== "preview" ? (
           <section className="panel">
             <button
@@ -112,18 +142,6 @@ function App() {
                 <p className="note">
                   Adın yalnızca bu demoda kullanılır. Hesap veya puan kaydı
                   oluşturulmaz.
-                </p>
-              </>
-            ) : view === "teacher" ? (
-              <>
-                <h2>Öğretmen paneli</h2>
-                <p>
-                  Şifreli öğretmen girişi, sınıf bağlantıları ve ilk 5
-                  sıralaması Supabase entegrasyonunda açılacak.
-                </p>
-                <p className="note">
-                  Giriş çalışıyor gibi gösterilmez; henüz sunucu bağlantısı
-                  yoktur.
                 </p>
               </>
             ) : (

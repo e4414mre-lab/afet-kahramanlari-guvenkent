@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "path": "/docs/data/final-question-bank-v1.1.json",
+      "status": 403
+    },
+    {
+      "path": "/src/data/finalAssessment.ts",
+      "status": 403
+    },
+    {
+      "path": "/src/game/finalAssessmentFlow.ts",
+      "status": 403
+    },
+    {
+      "path": "/server/practice.ts",
+      "status": 403
+    },
+    {
+      "path": "/supabase/migrations/202610260003_bank.sql",
+      "status": 403
+    },
+    {
+      "path": "/vite.config.ts",
+      "status": 403
+    }
+  ]
+}

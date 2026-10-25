@@ -1,4 +1,4 @@
-import { FinalAssessmentFlow } from "./finalAssessmentFlow.ts";
+import { RemoteFinalFlow } from "./remoteFinalFlow.ts";
 import { Day3Flow } from "./day3Flow.ts";
 import { AvalancheFlow } from "./avalancheFlow.ts";
 import {
@@ -154,7 +154,7 @@ export type GameStatus = {
   forestUnlocked: boolean;
   day3: ReturnType<Day3Flow["snapshot"]>;
   day3Unlocked: boolean;
-  finalAssessment: ReturnType<FinalAssessmentFlow["snapshot"]>;
+  finalAssessment: ReturnType<RemoteFinalFlow["snapshot"]>;
   avalanche: ReturnType<AvalancheFlow["snapshot"]>;
   avalancheUnlocked: boolean;
   landslide: ReturnType<LandslideFlow["snapshot"]>;
@@ -178,7 +178,7 @@ export class GameSession {
   dialogue: Dialogue | null = null;
   nearby: string | null = null;
   assetErrors: string[] = [];
-  readonly finalAssessment = new FinalAssessmentFlow();
+  readonly finalAssessment = new RemoteFinalFlow(() => this.notify());
   requestFinalAssessment() {
     if (
       this.scene !== "TownHall" ||

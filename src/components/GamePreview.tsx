@@ -1,3 +1,5 @@
+import { syncObservedProgress } from "../lib/progressSync";
+import { currentStudent } from "../lib/classroom";
 import { FinalAssessmentPanel } from "./FinalAssessmentPanel";
 import { Day3Panel } from "./Day3Panel";
 import { AvalancheScene } from "../game/AvalancheScene";
@@ -40,6 +42,8 @@ export function GamePreview({
   onSettings: () => void;
   paused: boolean;
 }) {
+  const [syncError, setSyncError] = useState("");
+  const boundStudent = useRef(currentStudent()?.studentId);
   const [regionsOpen, setRegionsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const sessionRef = useRef<GameSession | null>(null);
@@ -47,6 +51,20 @@ export function GamePreview({
   const [status, setStatus] = useState<GameStatus>(() =>
     new GameSession(settings, () => {}).status(),
   );
+  useEffect(() => {
+    if (
+      boundStudent.current &&
+      currentStudent()?.studentId !== boundStudent.current
+    ) {
+      setSyncError(
+        "Sınıf oturumu sona erdi veya değişti. İlerleme kaydedilmiyor; sınıf bağlantısıyla yeniden katıl.",
+      );
+      return;
+    }
+    syncObservedProgress(status)
+      .then(() => setSyncError(""))
+      .catch((e) => setSyncError(e.message));
+  }, [status]);
   useEffect(() => {
     if (!ref.current) return;
     const session = new GameSession(settings, setStatus);
@@ -181,6 +199,27 @@ export function GamePreview({
       }}
       className={`city-shell ${status.scene === "SchoolClassroom" || homeScene || floodScene || forestScene || landslideScene || avalancheScene ? "classroom-shell" : ""}`}
     >
+      {currentStudent() && (
+        <p className="teacher-privacy">
+          Sınıf oturumu: {currentStudent()?.classLabel} · #
+          {currentStudent()?.code}. İlerleme cihazından bildirilir; finali
+          sunucu puanlar.
+        </p>
+      )}
+      {syncError && (
+        <p role="alert">
+          İlerleme eşitlenemedi: {syncError}{" "}
+          <button
+            onClick={() =>
+              syncObservedProgress(status)
+                .then(() => setSyncError(""))
+                .catch((e) => setSyncError(e.message))
+            }
+          >
+            Eşitlemeyi tekrar dene
+          </button>
+        </p>
+      )}
       <div className="city-top">
         <div>
           <span className="eyebrow">GÖRSEL ONAY BEKLEYEN PROTOTİP</span>

@@ -259,14 +259,13 @@ test("municipal report gates entry, budget stays separate, safe return preserves
   s.requestFinalAssessment();
   assert.equal(s.finalAssessment.open, true);
   assert.equal(s.day3.open, false);
-  s.finalAssessment.start(123);
-  const q = s.finalAssessment.snapshot().question!;
-  s.finalAssessment.submit(correct(q));
+  // The game now uses an asynchronous server adapter, never a client answer key.
+  // Scoring/resume are exercised through the practice HTTP and real PostgreSQL tests.
   s.closeFinalAssessment();
   assert.equal(s.day3.open, true);
   s.requestFinalAssessment();
-  assert.equal(s.finalAssessment.snapshot().points, 20);
-  assert.equal(s.finalAssessment.snapshot().seed, 123);
+  assert.equal(s.finalAssessment.snapshot().points, 0);
+  assert.equal(s.finalAssessment.snapshot().phase, "intro");
   assert.equal(s.day3.remainingBudget, 1000);
   assert.equal(s.day3.snapshot().studentScore, null);
 });

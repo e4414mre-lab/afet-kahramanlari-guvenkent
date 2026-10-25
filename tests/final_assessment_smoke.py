@@ -9,6 +9,15 @@ from day3_smoke import run as day3
 from home_smoke import HomePlayer
 from town_hall_smoke import OUT
 REGIONS=['flood','wildfire','landslide','avalanche']
+BANK={q['id']:q for q in json.loads((Path(__file__).resolve().parents[1]/'docs/data/final-question-bank-v1.1.json').read_text())['questions']}
+def correct_value(q,card=None):
+ original=BANK[q['id']]
+ if q['type']=='true_false':return original['correct']
+ if q['type']=='matching':
+  right=next(p['right'] for p in original['pairs'] if p['left']==card['left'])
+  return next(t['id'] for t in q['targets'] if t['right']==right)
+ zone=next(p['correctZone'] for p in original['items'] if p['text']==card['text']);label=next(z['label'] for z in original['zones'] if z['id']==zone)
+ return next(z['id'] for z in q['zones'] if z['label']==label)
 
 def run(browser,mobile,fixture=False,board=False):
  mode='board-touch' if board else 'mobile' if mobile else 'desktop';folder=Path('/workspace/final-validation/component-images')/mode if fixture else OUT;folder.mkdir(parents=True,exist_ok=True)
@@ -24,7 +33,9 @@ def run(browser,mobile,fixture=False,board=False):
  else:p=day3(browser,mobile,keep_open=True)
  answer_viewport=p.page.viewport_size
  def state():return p.snapshot()['status']['finalAssessment']
- def choose(label):p.tap(p.page.get_by_role('button',name=label,exact=True).first)
+ def choose(label):
+  p.tap(p.page.get_by_role('button',name=label,exact=True).first)
+  if state()['open']:p.wait('!d.status.finalAssessment.busy')
  evidence=[]
  def capture(name):
   filename=('final-result-'+mode+'.png') if name=='result' else 'final-'+name+('-mobile' if mobile else '')+'.png'
@@ -39,14 +50,15 @@ def run(browser,mobile,fixture=False,board=False):
    b.scroll_into_view_if_needed();box=b.bounding_box();p.page.mouse.move(box['x']+box['width']/2,box['y']+box['height']/2,steps=15);p.page.mouse.up()
   else:input_button(a);input_button(b)
  def answer(q,wrong=False,partial=False):
-  if q['type']=='true_false':input_button(p.page.locator('[data-tf="'+str(not q['correct'] if wrong else q['correct']).lower()+'"]'))
+  if q['type']=='true_false':input_button(p.page.locator('[data-tf="'+str(not correct_value(q) if wrong else correct_value(q)).lower()+'"]'))
   elif q['type']=='matching':
-   for i,card in enumerate(q['pairs']):place(card['id'],q['pairs'][(i+1)%3]['id'] if wrong else card['id'])
+   for i,card in enumerate(q['pairs']):place(card['id'],correct_value(q,q['pairs'][(i+1)%3]) if wrong else correct_value(q,card))
   else:
    for i,card in enumerate(q['items']):
-    target=next(z['id'] for z in q['zones'] if z['id']!=card['correctZone']) if wrong or partial and i==1 else card['correctZone']
+    target=next(z['id'] for z in q['zones'] if z['id']!=correct_value(q,card)) if wrong or partial and i==1 else correct_value(q,card)
     place(card['id'],target,drag=not mobile)
   choose('Yanıtımı kontrol et')
+  assert state()['record'] is not None,(q['id'],state()['error'])
  p.choose('Çağrı ve AFİ ile final değerlendirmesi');p.wait('d.status.finalAssessment.open');capture('intro');seed_budget=p.snapshot()['status']['day3']['remainingBudget'];choose('15 etkinliğe başla')
  seed=state()['seed'];assert len(state()['questionIds'])==15;seen=set();expected=0
  position=p.snapshot()['player'];p.page.keyboard.press('ArrowRight');assert p.snapshot()['player']==position
@@ -70,11 +82,11 @@ def run(browser,mobile,fixture=False,board=False):
   if i==0:
    choose('Puansız yeniden dene')
    # submit the correct answer through practice controls
-   if q['type']=='true_false':input_button(p.page.locator('[data-tf="'+str(q['correct']).lower()+'"]'))
+   if q['type']=='true_false':input_button(p.page.locator('[data-tf="'+str(correct_value(q)).lower()+'"]'))
    elif q['type']=='matching':
-    for card in q['pairs']:place(card['id'],card['id'])
+    for card in q['pairs']:place(card['id'],correct_value(q,card))
    else:
-    for card in q['items']:place(card['id'],card['correctZone'],drag=not mobile)
+    for card in q['items']:place(card['id'],correct_value(q,card),drag=not mobile)
    choose('Alıştırmayı kontrol et');assert state()['points']==expected and state()['record']['practiceCorrect']==record['total']
   if i<14:choose('Sonraki etkinlik')
  assert seen=={'true_false','matching','drag_drop'};choose('Sonucumu gör');assert state()['phase']=='result' and state()['attempts']==1 and state()['last']['total']==expected<=300;capture('result')

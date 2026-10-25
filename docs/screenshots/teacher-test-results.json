@@ -1,0 +1,834 @@
+{
+  "result": "PASS within explicitly scoped local tests",
+  "date": "2026-10-26",
+  "branch": "feat/teacher-dashboard-supabase",
+  "baseCommit": "be106360675fd2b87f4d3575d246ca55298984f1",
+  "supabaseConnected": false,
+  "liveAuthAndEdgeIntegration": "NOT RUN: no real project credentials/deployment; not claimed complete",
+  "build": "PASS; existing Phaser bundle-size warning",
+  "unitTests": {
+    "passed": 65,
+    "failed": 0,
+    "originalDomainSelectionSeeds": 10000
+  },
+  "postgresql": {
+    "engine": "17.11 Docker pinned image, isolated synthetic data",
+    "checksPassed": 28,
+    "authUidAdapter": "test-only; not real GoTrue/JWT validation",
+    "freshMigrationAndReapply": "PASS",
+    "concurrentStartAndFinalize": "PASS"
+  },
+  "edgeTypecheck": "PASS, Deno 2.5.6; not deployment",
+  "browserKeyBuildGuard": "PASS synthetic private key rejected before emit",
+  "browserPrivateBankAudit": "PASS all 60 explanations/TF pool/correctZone absent",
+  "privateDevPaths": {
+    "result": "PASS",
+    "checks": [
+      {
+        "path": "/docs/data/final-question-bank-v1.1.json",
+        "status": 403
+      },
+      {
+        "path": "/src/data/finalAssessment.ts",
+        "status": 403
+      },
+      {
+        "path": "/src/game/finalAssessmentFlow.ts",
+        "status": 403
+      },
+      {
+        "path": "/server/practice.ts",
+        "status": 403
+      },
+      {
+        "path": "/supabase/migrations/202610260003_bank.sql",
+        "status": 403
+      },
+      {
+        "path": "/vite.config.ts",
+        "status": 403
+      }
+    ]
+  },
+  "teacherBrowserAcceptance": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "supabaseConnected": false,
+      "demoOnly": true,
+      "overflow": false,
+      "errors": [],
+      "checks": [
+        "login-disabled",
+        "no-live-requests",
+        "classes",
+        "8-progress-cards",
+        "duplicate-nickname-filter",
+        "5-ranking",
+        "detail",
+        "empty-ranking",
+        "join-disabled",
+        "token-fragment-removed",
+        "game-canvas"
+      ]
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "supabaseConnected": false,
+      "demoOnly": true,
+      "overflow": false,
+      "errors": [],
+      "checks": [
+        "login-disabled",
+        "no-live-requests",
+        "classes",
+        "8-progress-cards",
+        "duplicate-nickname-filter",
+        "5-ranking",
+        "detail",
+        "empty-ranking",
+        "join-disabled",
+        "token-fragment-removed",
+        "game-canvas"
+      ]
+    },
+    {
+      "mode": "tablet",
+      "result": "PASS",
+      "supabaseConnected": false,
+      "demoOnly": true,
+      "overflow": false,
+      "errors": [],
+      "checks": [
+        "login-disabled",
+        "no-live-requests",
+        "classes",
+        "8-progress-cards",
+        "duplicate-nickname-filter",
+        "5-ranking",
+        "detail",
+        "empty-ranking",
+        "join-disabled",
+        "token-fragment-removed",
+        "game-canvas"
+      ]
+    }
+  ],
+  "finalComponentAcceptance": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": true,
+      "answerViewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "firstScore": 270,
+      "lastScore": 300,
+      "bestScore": 300,
+      "attempts": 2,
+      "seed": 1211350756,
+      "keyboard": true,
+      "pointerDrag": true,
+      "tapPlacement": false,
+      "nativeTouchProfiles": [],
+      "budgetUnchanged": 1000,
+      "scene": "TownHall"
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": true,
+      "answerViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "firstScore": 280,
+      "lastScore": 300,
+      "bestScore": 300,
+      "attempts": 2,
+      "seed": 2993364313,
+      "keyboard": false,
+      "pointerDrag": false,
+      "tapPlacement": true,
+      "nativeTouchProfiles": [
+        {
+          "name": "phone",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "nativeTouchScroll": "PASS",
+          "verifiedMinimumBodyFontPx": 15
+        },
+        {
+          "name": "tablet",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "nativeTouchScroll": "PASS",
+          "verifiedMinimumBodyFontPx": 15
+        },
+        {
+          "name": "board",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "nativeTouchScroll": "PASS",
+          "verifiedMinimumBodyFontPx": 20
+        }
+      ],
+      "budgetUnchanged": 1000,
+      "scene": "TownHall"
+    }
+  ],
+  "finalErrorRecovery": "PASS: intentional view failure, safe return, same seed/question order/answer/20 points retained, no finalized duplicate",
+  "fullGameAcceptance": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "homeRisks": 4,
+      "homeSafe": 2,
+      "completionCount": 1,
+      "replayMutedReducedMotion": true
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "investigated": 3,
+      "sameRain": {
+        "durationSeconds": 45,
+        "intensity": "yoğun",
+        "riverRise": 0.8,
+        "seed": 41
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "componentFixture": false,
+      "stableCounts": {
+        "objects": 29,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1
+      },
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 59
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1
+      },
+      "stableCounts": {
+        "objects": 34,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 67
+      }
+    },
+    {
+      "mode": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "touch": false,
+      "nativeScroll": {
+        "needed": false,
+        "verified": true
+      },
+      "displayProfiles": [],
+      "result": "PASS",
+      "componentFixture": false,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1,
+        "avalanche": 1
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 65
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "answerViewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "firstScore": 270,
+      "lastScore": 300,
+      "bestScore": 300,
+      "attempts": 2,
+      "seed": 3355028576,
+      "keyboard": true,
+      "pointerDrag": true,
+      "tapPlacement": false,
+      "nativeTouchProfiles": [],
+      "budgetUnchanged": 50,
+      "scene": "TownHall"
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "homeRisks": 4,
+      "homeSafe": 2,
+      "completionCount": 1,
+      "replayMutedReducedMotion": true
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "investigated": 3,
+      "sameRain": {
+        "durationSeconds": 45,
+        "intensity": "yoğun",
+        "riverRise": 0.8,
+        "seed": 41
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "componentFixture": false,
+      "stableCounts": {
+        "objects": 29,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1
+      },
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 59
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1
+      },
+      "stableCounts": {
+        "objects": 34,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 67
+      }
+    },
+    {
+      "mode": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "nativeScroll": {
+        "needed": true,
+        "verified": true,
+        "scrollDelta": 198
+      },
+      "displayProfiles": [
+        {
+          "profile": "tablet-portrait",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "touch": true,
+          "bodyFontPx": 15.0,
+          "nativeScroll": {
+            "needed": true,
+            "verified": true,
+            "scrollDelta": 285
+          },
+          "result": "PASS",
+          "image": "day3-tablet-portrait-final-report.png"
+        },
+        {
+          "profile": "tablet-landscape",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "touch": true,
+          "bodyFontPx": 15.0,
+          "nativeScroll": {
+            "needed": true,
+            "verified": true,
+            "scrollDelta": 185
+          },
+          "result": "PASS",
+          "image": "day3-tablet-landscape-final-report.png"
+        },
+        {
+          "profile": "board-touch",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "touch": true,
+          "bodyFontPx": 18.0,
+          "nativeScroll": {
+            "needed": true,
+            "verified": true,
+            "scrollDelta": 301
+          },
+          "result": "PASS",
+          "image": "day3-board-touch-final-report.png"
+        }
+      ],
+      "result": "PASS",
+      "componentFixture": false,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1,
+        "avalanche": 1
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 65
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "answerViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "firstScore": 270,
+      "lastScore": 300,
+      "bestScore": 300,
+      "attempts": 2,
+      "seed": 2060632186,
+      "keyboard": false,
+      "pointerDrag": false,
+      "tapPlacement": true,
+      "nativeTouchProfiles": [
+        {
+          "name": "phone",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "nativeTouchScroll": "PASS",
+          "verifiedMinimumBodyFontPx": 15
+        },
+        {
+          "name": "tablet",
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "nativeTouchScroll": "PASS",
+          "verifiedMinimumBodyFontPx": 15
+        },
+        {
+          "name": "board",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "nativeTouchScroll": "PASS",
+          "verifiedMinimumBodyFontPx": 20
+        }
+      ],
+      "budgetUnchanged": 50,
+      "scene": "TownHall"
+    }
+  ],
+  "priorUnchangedFiles": 106,
+  "reproducibleNpmCi": "PASS isolated clean manifest/lock install",
+  "deviceScope": "Chromium viewport/touch emulation; not physical devices",
+  "images": [
+    {
+      "path": "docs/screenshots/student-class-join-demo-mobile.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 110153,
+      "sha256": "b8bc50e7d0ad669dcb1eb3499da1da6dfeacc3049473288fab26fccd9c2b8333",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/student-class-join-demo-tablet.png",
+      "width": 768,
+      "height": 1024,
+      "bytes": 162531,
+      "sha256": "e24c1c05356e53a8a7baf92775609781e70263f20dc363cde801619a6334fd87",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/student-class-join-demo.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 319129,
+      "sha256": "9e0e09f2f7e0ac91c777697bad8913c183ab54017ce4f3aa45f2f682bd20237e",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/student-class-join-mobile.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 83368,
+      "sha256": "8fa97c18ac0682a82f3ace9c66fb76d959bf85c43b6c72f14f39dbc79b86d92c",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/student-class-join-tablet.png",
+      "width": 768,
+      "height": 1024,
+      "bytes": 166758,
+      "sha256": "632273c6c06d1277b262229211fdcdbd21299d51d26a6f8b765b8ee6af075b90",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/student-class-join.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 317984,
+      "sha256": "9e05d01e9687ed6f4c1479af443b1f444e7b02ed8ca2e1e0d13827e0dc138778",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-class-progress-mobile.png",
+      "width": 390,
+      "height": 3302,
+      "bytes": 299161,
+      "sha256": "0daaca79a9354e506d45812dd34766f42d1e18f05a72c40d75fad8cd8d6bd506",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-class-progress-tablet.png",
+      "width": 768,
+      "height": 1966,
+      "bytes": 335504,
+      "sha256": "b815cac85905ceea0f84e25a590c00278d7a3f826a26c48d2e4c73e8e5e974f8",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-class-progress.png",
+      "width": 1440,
+      "height": 1502,
+      "bytes": 642464,
+      "sha256": "f2a6d235990e7166c8c561942c30d8addae9823aa541fee07f2e729ec8e880ff",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-classes-mobile.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 105851,
+      "sha256": "181f6a5ac072886abca79bb6cab8cfaa8da5a10b861db57808fbe98eddd6f6ee",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-classes-tablet.png",
+      "width": 768,
+      "height": 1024,
+      "bytes": 227661,
+      "sha256": "7c27310cc7b76cf9f8ff4f94c85e811d8808d70a69d5fdefc419c6251a23a7f7",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-classes.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 437199,
+      "sha256": "b11f01e810ea62191e728fb5d11853107983371a41cdf2114491714f03063602",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-empty-mobile.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 162831,
+      "sha256": "4d47d11f68ec5b2cc65616e11e89bec472ddde8228a8da79413a2f91505e7d68",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-empty-tablet.png",
+      "width": 768,
+      "height": 1024,
+      "bytes": 261070,
+      "sha256": "0c8e65e01c0a359b94977773bbd18b8b384e3ef8cc3c1e1756da5424c78f0f24",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-empty.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 317478,
+      "sha256": "88bc79a144b4a266d9b822b549c98a3c21151b156f60c685777be333bf3602a2",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-final-practice-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 349062,
+      "sha256": "2f14a3dfe95cd8dde7a97c492d40309ebe25ac4dcab2a8fca33949dab49cbeda",
+      "dataSource": "server-graded anonymous local practice; not a classroom"
+    },
+    {
+      "path": "docs/screenshots/teacher-final-practice-mobile.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 147754,
+      "sha256": "df1a9185a16dc253a19ddcec8e1735bcfdf4a1501b386de297d346c21e797448",
+      "dataSource": "server-graded anonymous local practice; not a classroom"
+    },
+    {
+      "path": "docs/screenshots/teacher-login-mobile.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 170069,
+      "sha256": "6992fab541a14f132f9c1576a8a7f061c222e46d6073ea30c65ddd263cb8c96c",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-login-tablet.png",
+      "width": 768,
+      "height": 1024,
+      "bytes": 290219,
+      "sha256": "039b77de82c5b789e7ca650e5d689d6f0166d99994c2100a8c656ad34bf23ef4",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-login.png",
+      "width": 1440,
+      "height": 1000,
+      "bytes": 499624,
+      "sha256": "81125483ef4720ccfff409db77da7fef3f2e56099a6221f09ff3b9ce6eb09045",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-mobile.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 110064,
+      "sha256": "7b0142db5fd51422236a85e3170806b43a57a9efa2b2cd347d29d8f72ccca1be",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-student-details-mobile.png",
+      "width": 390,
+      "height": 2630,
+      "bytes": 251860,
+      "sha256": "15249b5988e8a555e27a92da16e4689066c28572dbde1075db34f046e31c916d",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-student-details-tablet.png",
+      "width": 768,
+      "height": 2106,
+      "bytes": 373596,
+      "sha256": "58a18c182bcdf85deb33bc8558afb98007280cb2919c869e675e7a2c74d0bfc9",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-student-details.png",
+      "width": 1440,
+      "height": 1771,
+      "bytes": 435956,
+      "sha256": "bb9a75bd2b93865fc2230fce47d4054ad9dffc05943b3680aebbc58bdbc21a62",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-top5-mobile.png",
+      "width": 390,
+      "height": 1609,
+      "bytes": 262475,
+      "sha256": "540ba5b72e8598f572b7c53d4e96563ef1911f53ccf8b253073d04ad1b5a66e5",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-top5-tablet.png",
+      "width": 768,
+      "height": 1464,
+      "bytes": 328996,
+      "sha256": "9088bc95fb4f0adf59f9874ffc0144fea9ea4b362e2d18d9c6d587c255a25341",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    },
+    {
+      "path": "docs/screenshots/teacher-top5.png",
+      "width": 1440,
+      "height": 1290,
+      "bytes": 534981,
+      "sha256": "4de68e3d119fee600fcdc773d59613ed29d01680f4f11eef7a45dbf99a4c4b12",
+      "dataSource": "explicit fictional demo or disabled/unconfigured state; not a live Supabase screen"
+    }
+  ]
+}
