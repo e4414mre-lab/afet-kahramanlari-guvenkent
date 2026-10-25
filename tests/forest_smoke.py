@@ -44,7 +44,7 @@ def run(browser,mobile,fixture=False,keep_open=False):
   (out/f'camlik-evidence-{mode}.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
  def enter():
   choice('İkinci gün bölgelerini aç')
-  for name in ['Karlıtepe']:assert p.page.get_by_role('button',name=name+' · Henüz geliştiriliyor',exact=True).is_disabled()
+  assert p.page.get_by_role('button',name='Karlıtepe · Çığ farkındalığı',exact=True).is_enabled()
   assert p.page.get_by_role('button',name='Dere Mahallesi · Sel ve taşkın',exact=True).is_enabled()
   choice('Çamlık · Orman yangını farkındalığı');p.stable('CamlikForest');p.page.evaluate('window.scrollTo(0,0)')
  if not fixture:enter()

@@ -1,0 +1,363 @@
+{
+  "validationDate": "2026-10-25",
+  "result": "PASS",
+  "baseCommit": "8dc74fcd85c2002929518c04eb34cc7d31674932",
+  "branch": "feat/avalanche-karlitepe",
+  "build": "PASS; existing large Phaser chunk warning",
+  "unitTests": {
+    "passed": 42,
+    "failed": 0
+  },
+  "chain": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "homeRisks": 4,
+      "homeSafe": 2,
+      "completionCount": 1,
+      "replayMutedReducedMotion": true
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "investigated": 3,
+      "sameRain": {
+        "durationSeconds": 45,
+        "intensity": "yoğun",
+        "riverRise": 0.8,
+        "seed": 41
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "componentFixture": false,
+      "stableCounts": {
+        "objects": 29,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1
+      },
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 59
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1
+      },
+      "stableCounts": {
+        "objects": 34,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 67
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "homeRisks": 4,
+      "homeSafe": 2,
+      "completionCount": 1,
+      "replayMutedReducedMotion": true
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "investigated": 3,
+      "sameRain": {
+        "durationSeconds": 45,
+        "intensity": "yoğun",
+        "riverRise": 0.8,
+        "seed": 41
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "componentFixture": false,
+      "stableCounts": {
+        "objects": 29,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1
+      },
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 59
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1
+      },
+      "stableCounts": {
+        "objects": 34,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 67
+      }
+    }
+  ],
+  "testHarnessCorrection": {
+    "initialMobileResult": "failed at an exact waypoint after touch overshoot; safe boundary blocked movement and inspection remained available",
+    "fix": "observe 35px lower inside the existing 80px interaction radius; no game or collision changes",
+    "rerun": "entire mobile chain passed; desktop result retained because game code did not change"
+  },
+  "images": [
+    {
+      "path": "docs/screenshots/karlitepe-overview-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "55e6c0effcee2f0ba653ed166f25ad1c663e997cb91add210559b7411975c0ad"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-zeynep-dialogue.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "6bd996bbea85e3599dbc471b7742b58db1b3cd9dda5581315d004bc1faa29273"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-risk-inspection.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "87b76b292f306fa1c31d90b601d9035784de0ae51ec6ed53bf16ea50c83ccedb"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-risk-feedback-wrong.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "00855d8b371a4338b1f6454225590f481d7f6092c4f52fbc43d14f9a1b7ff2c1"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-risk-feedback-correct.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "50b16099e92649791b9d1c3b156e34be61b208f1b3b69b8d6da145bf88f9db38"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-before.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "0d41540aa8885504989c3eb8e2f61c19dff7430b021417a65f4f4f6163526764"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-after.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "62a9faf9d7d512ddf89ef02dac6289569a4b9e157d830d9e134a49ad0954690f"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-comparison.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "6ad90a1275c9e31a3f2b20ee3048cf414a32e7dc97d011a0c799eebe5d425926"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-overview-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "2a3fbf9a08538ff59ea9e0358145fc5e9fc556ca1894cca6d73b11b3f4fa4aef"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-zeynep-dialogue-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "09a1ec53d07558ced807f69bb0d3c2019bf927fb8ab88a557c719deecede55ff"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-risk-inspection-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "ae83c8d7b0524098fa4f2ef72c5adba5543c3da657534d1f93ef89d8d2c910b6"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-risk-feedback-wrong-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "67f6fc3211f2275b3932e7f636c55c6e6f949a7ee3195a15aae5b58fd2279afe"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-risk-feedback-correct-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "88ecabefd3a8b42838e8ace0e4bc004b3a06735b75c48696c335093a65c5289d"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-before-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "a24457cd9bf16ad4c889cd9505978faa37d247f18702efb1739e362b81da518e"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-after-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "e4ec534743a8c79b79eb6c216901932e7b7c38da17e8d4e113cd0290a9ee7c02"
+    },
+    {
+      "path": "docs/screenshots/karlitepe-comparison-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "f65a4fde3fd3654781467d535cc326994b022245eb5173c1731f5a7b6bef56c6"
+    }
+  ],
+  "officialSources": [
+    {
+      "url": "https://www.afad.gov.tr/cig",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "url": "https://www.mgm.gov.tr/",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ],
+  "officialReview": "pending before production; proxy 403",
+  "mobileMethod": "Chromium touch emulation 390x844; no physical phone test",
+  "scope": "No main merge, production deployment, third day, budget, or final exam"
+}

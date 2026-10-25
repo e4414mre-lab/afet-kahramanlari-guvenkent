@@ -2,7 +2,7 @@
 
 5. sınıf öğrencileri için React + TypeScript + Phaser ile geliştirilen
 2.5D afet farkındalığı macera oyununun meydan, belediye, sınıf, ev/tatbikat,
-Dere Mahallesi, Çamlık Ormanı ve Yamaç Mahallesi prototipi.
+Dere Mahallesi, Çamlık Ormanı, Yamaç Mahallesi ve Karlıtepe prototipi.
 
 **Belediye binasının görsel tasarımı onaylandı. Animasyon ve ses varlıkları henüz nihai değildir.**
 
@@ -57,8 +57,8 @@ ve `town-hall-mobile.png` olarak; ek dönüş görüntülerini
 
 ## Kapsam ve sanat durumu
 
-- Oynanabilir alanlar: şehir meydanı, belediye, 5-A sınıfı, ev/tatbikat, Dere Mahallesi, Çamlık Ormanı ve Yamaç Mahallesi.
-- Sınav/öğretmen paneli, üçüncü gün ve çığ bölümü bu prototipte yok.
+- Oynanabilir alanlar: şehir meydanı, belediye, 5-A sınıfı, ev/tatbikat, Dere Mahallesi, Çamlık Ormanı, Yamaç Mahallesi ve Karlıtepe.
+- Sınav/öğretmen paneli, üçüncü gün bu prototipte yok.
 - Öğretmen bilgilendirme ekranı gerçek kimlik doğrulaması yapmaz.
 - Karakterler ayrı transparan PNG konseptlerdir; yürüyüş/yön atlasları eksiktir.
 - Meydan çevresi mevcut boyalı konsepttir. Belediye mobilyaları ve NPC,
@@ -95,8 +95,7 @@ sayımı üretmez. İlk gün tamamlanınca ikinci gün bölge seçimi açılır.
 ### Faz 05 — Dere Mahallesi
 
 Deprem tatbikatını ve buluşma alanını tamamladıktan sonra meydandaki
-**İkinci gün bölgelerini aç** düğmesinden Dere Mahallesi seçilir. Çamlık ve Yamaç da seçilebilir; Karlıtepe
-henüz geliştiriliyor. Hasan Amca, üç güvenli risk araştırması, hazırlık panosu ve
+**İkinci gün bölgelerini aç** düğmesinden Dere Mahallesi seçilir. Çamlık, Yamaç ve Karlıtepe de seçilebilir. Hasan Amca, üç güvenli risk araştırması, hazırlık panosu ve
 aynı 45 saniyelik yağışın önce/sonra karşılaştırması oynanabilir. Simülasyon gerçek
 sel tahmini değildir. Hazırlık ve rapor yalnızca açık oturumda tutulur.
 
@@ -122,7 +121,7 @@ Yerel üretim önizlemesi için önce `npm run build`, sonra
 
 [Testler ve masaüstü/mobil kanıtlar](docs/FAZ_06_TESLIM_RAPORU.md) ·
 [Yeni sanat varlıkları ve eksikler](public/assets/forest/README.md).
-Orman bölümü korunur; yeni Yamaç bölümü için görsel ve pedagojik onay beklenir.
+Orman ve Yamaç bölümleri korunur; Karlıtepe görsel ve pedagojik onayı beklenir.
 
 ### Faz 07 — Yamaç Mahallesi
 
@@ -142,4 +141,17 @@ ve üretim kapısını doğruladığı iddiasında değildir.
 
 [Testler, masaüstü/mobil kanıtlar ve resmî içerik kontrolünün açık sınırı](docs/FAZ_07_TESLIM_RAPORU.md) ·
 [Yeni görseller ve eksikler](public/assets/landslide/README.md).
-Karlıtepe, üçüncü gün ve final sınavı yapılmadı; görsel/pedagojik onay beklenir.
+Üçüncü gün ve final sınavı yapılmadı; Karlıtepe görsel/pedagojik onayı beklenir.
+
+### Faz 08 — Karlıtepe
+
+İlk günün ev tatbikatı ve güvenli buluşmasından sonra ikinci gün haritasından
+**Karlıtepe · Çığ farkındalığı** seçilir. Diğer ikinci gün bölgelerini önce
+bitirmek gerekmez. Çığ Uzmanı Zeynep ile tanışın, üç riski güvenli platformdan
+inceleyin ve yetkili hazırlıklarını seçin. Aynı kar/hava/eğim koşullarındaki
+iki 40 saniyelik atlanabilir canlandırma uyarı ve güvenli rota farkını gösterir;
+kapalı yol açılmaz, çığ tehlikesi sıfırlanmaz.
+
+[Test raporu, masaüstü/mobil kanıtlar ve yayın öncesi içerik incelemesi](docs/FAZ_08_TESLIM_RAPORU.md) ·
+[Sanat kaynakları ve eksikler](public/assets/avalanche/README.md).
+Üçüncü gün ve final sınavı geliştirilmedi; Karlıtepe görsel/pedagojik onayı beklenir.

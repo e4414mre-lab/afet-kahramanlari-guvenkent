@@ -9,7 +9,7 @@ from home_smoke import HomePlayer
 from town_hall_smoke import OUT
 RISKS=['slopeCrack','slopeHouse','slopeDrain']
 MEASURES=['Zemin / şev incelemesi ve uzman arazi kullanım kararı','Yetkili ekiplerle drenaj, istinat ve şev güvenliği planı','Erken uyarı, yol kısıtlaması ve güvenli buluşma güzergâhı']
-def run(browser,mobile,fixture=False):
+def run(browser,mobile,fixture=False,keep_open=False):
  mode='mobile' if mobile else 'desktop';out=Path('/tmp/guvenkent-yamac-component') if fixture else OUT;out.mkdir(parents=True,exist_ok=True)
  if fixture:
   p=HomePlayer(browser,mobile);p.page.goto('http://127.0.0.1:5173/tests/landslide-fixture.html');p.page.wait_for_function('window.__guvenkent && window.__guvenkent().player');p.stable('Landslide')
@@ -28,7 +28,7 @@ def run(browser,mobile,fixture=False):
   evidence.append({'moment':name,'image':filename,'componentFixture':fixture,'viewport':p.page.viewport_size,'scene':d['scene'],'player':d['player'],'robot':d['robot'],'landslide':d['status']['landslide'],'frame':d['landslideFrame'],'earthVisual':d['earthVisual'],'residents':d['residents']})
   (out/f'yamac-evidence-{mode}.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
  def enter():
-  choice('İkinci gün bölgelerini aç');assert p.page.get_by_role('button',name='Karlıtepe · Henüz geliştiriliyor',exact=True).is_disabled()
+  choice('İkinci gün bölgelerini aç');assert p.page.get_by_role('button',name='Karlıtepe · Çığ farkındalığı',exact=True).is_enabled()
   for label in ['Dere Mahallesi · Sel ve taşkın','Çamlık · Orman yangını farkındalığı']:assert p.page.get_by_role('button',name=label,exact=True).is_enabled()
   choice('Yamaç · Heyelan farkındalığı');p.stable('Landslide');p.page.evaluate('window.scrollTo(0,0)')
  if not fixture:
@@ -113,7 +113,9 @@ def run(browser,mobile,fixture=False):
  for _ in range(0 if fixture else 5):
   choice('Meydana dön');p.stable('CitySquare');enter();assert {k:p.snapshot()[k] for k in fields}==baseline;assert state()['completionCount']==1 and state()['investigated']==3
   assert {key:p.snapshot()['status'][key]['completionCount'] for key in previous}==previous;p.check()
- print(json.dumps({'mode':mode,'result':'PASS','componentFixture':fixture,'chain':'--chain' in sys.argv,'investigated':3,'sameScenario':scenario,'completionCount':1,'reentryCycles':0 if fixture else 5,'previousCompletionCounts':previous,'stableCounts':baseline},ensure_ascii=False),flush=True);p.close()
+ print(json.dumps({'mode':mode,'result':'PASS','componentFixture':fixture,'chain':'--chain' in sys.argv,'investigated':3,'sameScenario':scenario,'completionCount':1,'reentryCycles':0 if fixture else 5,'previousCompletionCounts':previous,'stableCounts':baseline},ensure_ascii=False),flush=True)
+ if keep_open:return p
+ p.close()
 def main():
  with sync_playwright() as p:
   b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-background-timer-throttling','--disable-renderer-backgrounding'])

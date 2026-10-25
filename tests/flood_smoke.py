@@ -18,7 +18,7 @@ def run(browser,mobile,fixture=False,keep_open=False):
   p.choose('Meydana dön');p.stable('CitySquare')
  def enter():
   p.tap(p.page.get_by_role('button',name='İkinci gün bölgelerini aç',exact=True))
-  for name in ['Karlıtepe']:assert p.page.get_by_role('button',name=name+' · Henüz geliştiriliyor',exact=True).is_disabled()
+  assert p.page.get_by_role('button',name='Karlıtepe · Çığ farkındalığı',exact=True).is_enabled()
   p.tap(p.page.get_by_role('button',name='Dere Mahallesi · Sel ve taşkın',exact=True));p.stable('Flood');p.page.evaluate('window.scrollTo(0,0)')
  if not fixture:enter()
  def status():return p.snapshot()['status']['flood']

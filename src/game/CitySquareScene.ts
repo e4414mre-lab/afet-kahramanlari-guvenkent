@@ -71,6 +71,14 @@ export class CitySquareScene extends AdventureScene {
   }
   protected updateWorld() {
     if (
+      this.session.avalancheEntryRequested &&
+      this.session.avalancheUnlocked
+    ) {
+      this.session.avalancheEntryRequested = false;
+      this.switchTo("Avalanche");
+      return;
+    }
+    if (
       this.session.landslideEntryRequested &&
       this.session.landslideUnlocked
     ) {

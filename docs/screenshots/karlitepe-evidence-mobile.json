@@ -1,0 +1,850 @@
+[
+  {
+    "moment": "overview",
+    "image": "karlitepe-overview-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Avalanche",
+    "player": {
+      "x": 780,
+      "y": 617.5172500000007
+    },
+    "robot": {
+      "x": 732,
+      "y": 639.3272393196308
+    },
+    "avalanche": {
+      "risks": {
+        "iceRoad": "unseen",
+        "snowSlope": "unseen",
+        "routeSign": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "forcing": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "karlitepe",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        }
+      },
+      "phase": "meetZeynep",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "karlitepe-winter-01",
+      "scenarioSeed": 97,
+      "durationSeconds": 40,
+      "snowpack": "high",
+      "slope": "steep",
+      "weather": "cold",
+      "wind": "aynı rüzgâr",
+      "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "monitoringPlanned": false,
+      "closurePlanned": false,
+      "educationReady": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "snowActivity": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1750,
+      "y": 890,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "zeynep-dialogue",
+    "image": "karlitepe-zeynep-dialogue-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Avalanche",
+    "player": {
+      "x": 825.0560015561372,
+      "y": 778.2184416033921
+    },
+    "robot": {
+      "x": 773.8932378782578,
+      "y": 793.9935652950718
+    },
+    "avalanche": {
+      "risks": {
+        "iceRoad": "unseen",
+        "snowSlope": "unseen",
+        "routeSign": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": "zeynep",
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "forcing": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "karlitepe",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        }
+      },
+      "phase": "meetZeynep",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "karlitepe-winter-01",
+      "scenarioSeed": 97,
+      "durationSeconds": 40,
+      "snowpack": "high",
+      "slope": "steep",
+      "weather": "cold",
+      "wind": "aynı rüzgâr",
+      "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "monitoringPlanned": false,
+      "closurePlanned": false,
+      "educationReady": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "snowActivity": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1750,
+      "y": 890,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "risk-inspection",
+    "image": "karlitepe-risk-inspection-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Avalanche",
+    "player": {
+      "x": 937.5627515561397,
+      "y": 751.9676916033918
+    },
+    "robot": {
+      "x": 885.6950528193248,
+      "y": 770.094728036068
+    },
+    "avalanche": {
+      "risks": {
+        "iceRoad": "identified",
+        "snowSlope": "unseen",
+        "routeSign": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": "iceRoad",
+      "feedback": "",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "forcing": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "karlitepe",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        }
+      },
+      "phase": "inspectThreeRisks",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "karlitepe-winter-01",
+      "scenarioSeed": 97,
+      "durationSeconds": 40,
+      "snowpack": "high",
+      "slope": "steep",
+      "weather": "cold",
+      "wind": "aynı rüzgâr",
+      "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "monitoringPlanned": false,
+      "closurePlanned": false,
+      "educationReady": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "snowActivity": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1750,
+      "y": 890,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "risk-feedback-wrong",
+    "image": "karlitepe-risk-feedback-wrong-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Avalanche",
+    "player": {
+      "x": 937.5627515561397,
+      "y": 751.9676916033918
+    },
+    "robot": {
+      "x": 885.6950528193248,
+      "y": 770.094728036068
+    },
+    "avalanche": {
+      "risks": {
+        "iceRoad": "identified",
+        "snowSlope": "unseen",
+        "routeSign": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": "iceRoad",
+      "feedback": "Tekrar düşünelim. Kestirme olması kapalı yolu güvenli yapmaz. Bariyeri geçme; yetkili duyurusuna uy ve uzmanların belirttiği güvenli alternatif rotayı kullan.",
+      "retry": true,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "forcing": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "karlitepe",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        }
+      },
+      "phase": "inspectThreeRisks",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "karlitepe-winter-01",
+      "scenarioSeed": 97,
+      "durationSeconds": 40,
+      "snowpack": "high",
+      "slope": "steep",
+      "weather": "cold",
+      "wind": "aynı rüzgâr",
+      "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "monitoringPlanned": false,
+      "closurePlanned": false,
+      "educationReady": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "snowActivity": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1750,
+      "y": 890,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "risk-feedback-correct",
+    "image": "karlitepe-risk-feedback-correct-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Avalanche",
+    "player": {
+      "x": 937.5627515561397,
+      "y": 751.9676916033918
+    },
+    "robot": {
+      "x": 885.6950528193248,
+      "y": 770.094728036068
+    },
+    "avalanche": {
+      "risks": {
+        "iceRoad": "decided",
+        "snowSlope": "unseen",
+        "routeSign": "unseen"
+      },
+      "voiceVolume": 0.5,
+      "openId": "iceRoad",
+      "feedback": "Güvenli karar. Kestirme olması kapalı yolu güvenli yapmaz. Bariyeri geçme; yetkili duyurusuna uy ve uzmanların belirttiği güvenli alternatif rotayı kullan.",
+      "retry": false,
+      "investigated": 0,
+      "measures": [],
+      "elapsed": 0,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "forcing": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+        "elapsed": 0,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "karlitepe",
+        "measures": [],
+        "scenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        }
+      },
+      "phase": "inspectThreeRisks",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "karlitepe-winter-01",
+      "scenarioSeed": 97,
+      "durationSeconds": 40,
+      "snowpack": "high",
+      "slope": "steep",
+      "weather": "cold",
+      "wind": "aynı rüzgâr",
+      "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+      "elapsed": 0,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "monitoringPlanned": false,
+      "closurePlanned": false,
+      "educationReady": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "snowActivity": 0,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1750,
+      "y": 890,
+      "visible": false
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "before",
+    "image": "karlitepe-before-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Avalanche",
+    "player": {
+      "x": 643.9580015561554,
+      "y": 598.23194160339
+    },
+    "robot": {
+      "x": 599.7274963887103,
+      "y": 616.5279741788561
+    },
+    "avalanche": {
+      "risks": {
+        "iceRoad": "explained",
+        "snowSlope": "explained",
+        "routeSign": "explained"
+      },
+      "voiceVolume": 0.5,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "monitoring",
+        "closure",
+        "education"
+      ],
+      "elapsed": 8,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "forcing": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+        "elapsed": 8,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "karlitepe",
+        "measures": [
+          "monitoring",
+          "closure",
+          "education"
+        ],
+        "scenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        }
+      },
+      "phase": "beforeSimulation",
+      "simulation": true
+    },
+    "frame": {
+      "scenarioId": "karlitepe-winter-01",
+      "scenarioSeed": 97,
+      "durationSeconds": 40,
+      "snowpack": "high",
+      "slope": "steep",
+      "weather": "cold",
+      "wind": "aynı rüzgâr",
+      "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+      "elapsed": 8.166339999999993,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "monitoringPlanned": false,
+      "closurePlanned": false,
+      "educationReady": false,
+      "residentsDirected": false,
+      "residentProgress": 0,
+      "snowActivity": 0.20415849999999983,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1750,
+      "y": 890,
+      "visible": true
+    },
+    "residents": {
+      "x": 720,
+      "y": 550
+    }
+  },
+  {
+    "moment": "after",
+    "image": "karlitepe-after-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Avalanche",
+    "player": {
+      "x": 643.9580015561554,
+      "y": 598.23194160339
+    },
+    "robot": {
+      "x": 599.7274963887103,
+      "y": 616.5279741788561
+    },
+    "avalanche": {
+      "risks": {
+        "iceRoad": "explained",
+        "snowSlope": "explained",
+        "routeSign": "explained"
+      },
+      "voiceVolume": 0.5,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "monitoring",
+        "closure",
+        "education"
+      ],
+      "elapsed": 8,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "forcing": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+        "elapsed": 8,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "karlitepe",
+        "measures": [
+          "monitoring",
+          "closure",
+          "education"
+        ],
+        "scenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        }
+      },
+      "phase": "afterSimulation",
+      "simulation": true
+    },
+    "frame": {
+      "scenarioId": "karlitepe-winter-01",
+      "scenarioSeed": 97,
+      "durationSeconds": 40,
+      "snowpack": "high",
+      "slope": "steep",
+      "weather": "cold",
+      "wind": "aynı rüzgâr",
+      "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+      "elapsed": 8.132999999999996,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "monitoringPlanned": true,
+      "closurePlanned": true,
+      "educationReady": true,
+      "residentsDirected": true,
+      "residentProgress": 1,
+      "snowActivity": 0.2033249999999999,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1750,
+      "y": 890,
+      "visible": true
+    },
+    "residents": {
+      "x": 860,
+      "y": 950
+    }
+  },
+  {
+    "moment": "comparison",
+    "image": "karlitepe-comparison-mobile.png",
+    "componentFixture": false,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Avalanche",
+    "player": {
+      "x": 643.9580015561554,
+      "y": 598.23194160339
+    },
+    "robot": {
+      "x": 599.7274963887103,
+      "y": 616.5279741788561
+    },
+    "avalanche": {
+      "risks": {
+        "iceRoad": "explained",
+        "snowSlope": "explained",
+        "routeSign": "explained"
+      },
+      "voiceVolume": 0.5,
+      "openId": null,
+      "feedback": "",
+      "retry": false,
+      "investigated": 3,
+      "measures": [
+        "monitoring",
+        "closure",
+        "education"
+      ],
+      "elapsed": 40,
+      "completionCount": 0,
+      "hintLevel": 0,
+      "scenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "forcing": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+        "elapsed": 40,
+        "dangerAccessible": false,
+        "roadClosed": true
+      },
+      "preparation": {
+        "version": 1,
+        "region": "karlitepe",
+        "measures": [
+          "monitoring",
+          "closure",
+          "education"
+        ],
+        "scenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        }
+      },
+      "phase": "compare",
+      "simulation": false
+    },
+    "frame": {
+      "scenarioId": "karlitepe-winter-01",
+      "scenarioSeed": 97,
+      "durationSeconds": 40,
+      "snowpack": "high",
+      "slope": "steep",
+      "weather": "cold",
+      "wind": "aynı rüzgâr",
+      "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu",
+      "elapsed": 40,
+      "dangerAccessible": false,
+      "roadClosed": true,
+      "monitoringPlanned": true,
+      "closurePlanned": true,
+      "educationReady": true,
+      "residentsDirected": true,
+      "residentProgress": 1,
+      "snowActivity": 1,
+      "residualRisk": true
+    },
+    "earthVisual": {
+      "x": 1758,
+      "y": 902,
+      "visible": true
+    },
+    "residents": {
+      "x": 860,
+      "y": 950
+    }
+  }
+]

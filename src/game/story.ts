@@ -1,3 +1,8 @@
+import { AvalancheFlow } from "./avalancheFlow.ts";
+import {
+  AVALANCHE_OBJECTIVES,
+  type AvalancheRiskId,
+} from "../data/avalanche.ts";
 import { LandslideFlow } from "./landslideFlow.ts";
 import {
   LANDSLIDE_OBJECTIVES,
@@ -31,7 +36,8 @@ export type SceneId =
   | "GatheringPoint"
   | "Flood"
   | "CamlikForest"
-  | "Landslide";
+  | "Landslide"
+  | "Avalanche";
 export type InteriorObject =
   | "mayor"
   | "certificate"
@@ -61,7 +67,11 @@ export type InteractionId =
   | LandslideRiskId
   | "murat"
   | "landslidePreparedness"
-  | "landslideExit";
+  | "landslideExit"
+  | AvalancheRiskId
+  | "zeynep"
+  | "avalanchePreparedness"
+  | "avalancheExit";
 export type Controls = {
   x: number;
   y: number;
@@ -140,6 +150,8 @@ export type GameStatus = {
   floodUnlocked: boolean;
   forest: ReturnType<ForestFlow["snapshot"]>;
   forestUnlocked: boolean;
+  avalanche: ReturnType<AvalancheFlow["snapshot"]>;
+  avalancheUnlocked: boolean;
   landslide: ReturnType<LandslideFlow["snapshot"]>;
   landslideUnlocked: boolean;
 };
@@ -161,6 +173,15 @@ export class GameSession {
   dialogue: Dialogue | null = null;
   nearby: string | null = null;
   assetErrors: string[] = [];
+  readonly avalanche = new AvalancheFlow();
+  avalancheEntryRequested = false;
+  get avalancheUnlocked() {
+    return this.home.completedOnce;
+  }
+  requestAvalanche() {
+    if (this.avalancheUnlocked && this.scene === "CitySquare")
+      this.avalancheEntryRequested = true;
+  }
   readonly landslide = new LandslideFlow();
   landslideEntryRequested = false;
   get landslideUnlocked() {
@@ -210,26 +231,30 @@ export class GameSession {
       scene: this.scene,
       quest: this.quest,
       objective:
-        this.scene === "Landslide"
-          ? LANDSLIDE_OBJECTIVES[this.landslide.phase]
-          : this.scene === "CamlikForest"
-            ? FOREST_OBJECTIVES[this.forest.phase]
-            : this.scene === "Flood"
-              ? FLOOD_OBJECTIVES[this.flood.phase]
-              : this.scene === "Home"
-                ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
-                : this.scene === "GatheringPoint"
-                  ? "Belirlenmiş buluşma alanına yürü"
-                  : this.scene === "SchoolClassroom"
-                    ? this.riskHunt.snapshot().complete
-                      ? "Güvenli çözümleri birlikte planladık"
-                      : "Sınıftaki riskleri incele"
-                    : OBJECTIVES[this.quest],
+        this.scene === "Avalanche"
+          ? AVALANCHE_OBJECTIVES[this.avalanche.phase]
+          : this.scene === "Landslide"
+            ? LANDSLIDE_OBJECTIVES[this.landslide.phase]
+            : this.scene === "CamlikForest"
+              ? FOREST_OBJECTIVES[this.forest.phase]
+              : this.scene === "Flood"
+                ? FLOOD_OBJECTIVES[this.flood.phase]
+                : this.scene === "Home"
+                  ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
+                  : this.scene === "GatheringPoint"
+                    ? "Belirlenmiş buluşma alanına yürü"
+                    : this.scene === "SchoolClassroom"
+                      ? this.riskHunt.snapshot().complete
+                        ? "Güvenli çözümleri birlikte planladık"
+                        : "Sınıftaki riskleri incele"
+                      : OBJECTIVES[this.quest],
       nearby: this.nearby,
       dialogue: this.dialogue ? { ...this.dialogue } : null,
       schoolVisited: this.schoolVisited,
       transitioning: this.transitioning,
       assetErrors: [...this.assetErrors],
+      avalanche: this.avalanche.snapshot(),
+      avalancheUnlocked: this.avalancheUnlocked,
       landslide: this.landslide.snapshot(),
       landslideUnlocked: this.landslideUnlocked,
       forest: this.forest.snapshot(),
@@ -338,6 +363,10 @@ export class GameSession {
     this.notify();
   }
   hint() {
+    if (this.scene === "Avalanche") {
+      if (!this.avalanche.locked) this.say([this.avalanche.hint()]);
+      return;
+    }
     if (this.scene === "Landslide") {
       if (!this.landslide.locked) this.say([this.landslide.hint()]);
       return;

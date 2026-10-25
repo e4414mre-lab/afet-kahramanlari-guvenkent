@@ -772,3 +772,43 @@ main {
 .landslide-audio select{padding:6px;border:1px solid #adc8bd;border-radius:8px;background:#fff;}
 .landslide-panel:not(.landslide-comparison){left:18px;right:auto;}
 @media(max-width:600px){.landslide-panel:not(.landslide-comparison){left:10px;}}
+
+/* Karlıtepe: scoped chapter panels, previous styles unchanged. */
+.avalanche-panel {max-height:68%; overflow:auto;}
+.avalanche-panel h3 {margin:9px 22px 12px 0;}
+.avalanche-panel > button {margin:5px 5px 0 0;}
+.avalanche-panel [aria-pressed="true"] {background:#dfede2;border-color:#4b8972;}
+.avalanche-panel progress {width:100%;height:8px;accent-color:#3d7b7c;}
+.avalanche-panel .avalanche-timer {font-weight:700;font-size:14px;}
+.avalanche-effect {font-size:13px;}
+.avalanche-comparison {width:min(670px,calc(100% - 32px));}
+.avalanche-compare-grid [role="row"] {display:grid;grid-template-columns:.7fr 1fr 1.5fr;gap:10px;padding:9px 0;border-bottom:1px solid #ccd8d0;font-size:13px;line-height:1.45;}
+@media(max-width:600px){
+ .avalanche-panel {max-height:58%;}
+ .avalanche-panel p {font-size:12px;line-height:1.45;margin:8px 0;}
+ .avalanche-panel h3 {font-size:18px;margin:7px 20px 9px 0;}
+ .avalanche-panel .inspection-choices button {font-size:12px;padding:9px;}
+ .avalanche-panel .inspection-footnote {font-size:10px;}
+ .avalanche-panel .home-object img {width:55px;height:65px;}
+ .avalanche-compare-grid [role="row"] {grid-template-columns:.65fr 1fr 1.2fr;gap:7px;font-size:11px;padding:7px 0;}
+ .avalanche-simulation-panel .avalanche-effect {font-size:11px;}
+}
+@media(max-width:600px){.avalanche-comparison{max-height:92%;}.avalanche-comparison .inspection-footnote{font-size:9px;}.avalanche-comparison .avalanche-compare-grid [role="row"]{font-size:10px;line-height:1.35;padding:6px 0;}}
+/* Keep the distant hillside visible beside the simulation controls. */
+.avalanche-simulation-panel {left:18px;right:auto;}
+@media(max-width:600px){.avalanche-simulation-panel{left:10px;}}
+.avalanche-effect-compact{display:none;}
+.avalanche-simulation-actions{display:flex;gap:8px;align-items:stretch;}
+.avalanche-simulation-actions button{flex:1;font-size:12px;}
+@media(max-width:600px){
+ .avalanche-simulation-panel{max-height:48%;}
+ .avalanche-simulation-panel .avalanche-effect,.avalanche-simulation-panel .inspection-footnote{display:none;}
+ .avalanche-simulation-panel .avalanche-effect-compact{display:block;font-size:11px;}
+ .avalanche-simulation-panel > small{font-size:9px;}
+ .avalanche-simulation-panel .avalanche-timer{font-size:12px;}
+ .avalanche-simulation-actions button{font-size:11px;line-height:1.3;padding:9px;}
+}
+.avalanche-audio{display:flex;align-items:center;gap:8px;font-size:13px;color:#426663;margin:8px 0;}
+.avalanche-audio select{padding:6px;border:1px solid #adc8bd;border-radius:8px;background:#fff;}
+.avalanche-panel:not(.avalanche-comparison){left:18px;right:auto;}
+@media(max-width:600px){.avalanche-panel:not(.avalanche-comparison){left:10px;}}

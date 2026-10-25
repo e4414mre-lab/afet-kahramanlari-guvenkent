@@ -1,3 +1,6 @@
+import { AvalancheScene } from "../game/AvalancheScene";
+import { AvalanchePanel } from "./AvalanchePanel";
+import { AVALANCHE_SAFETY } from "../data/avalanche";
 import { LandslideScene } from "../game/LandslideScene";
 import { LandslidePanel } from "./LandslidePanel";
 import { LANDSLIDE_SAFETY } from "../data/landslide";
@@ -55,6 +58,7 @@ export function GamePreview({
       new GatheringPointScene(session),
       new FloodScene(session),
       new CamlikForestScene(session),
+      new AvalancheScene(session),
       new LandslideScene(session),
     ];
     const game = new Phaser.Game({
@@ -131,6 +135,9 @@ export function GamePreview({
   const homeScene =
     status.scene === "Home" || status.scene === "GatheringPoint";
   const homeLocked = homeScene && !!sessionRef.current?.home.locked;
+  const avalancheScene = status.scene === "Avalanche";
+  const avalancheLocked =
+    avalancheScene && !!sessionRef.current?.avalanche.locked;
   const landslideScene = status.scene === "Landslide";
   const landslideLocked =
     landslideScene && !!sessionRef.current?.landslide.locked;
@@ -143,7 +150,8 @@ export function GamePreview({
     if (
       (status.scene !== "Flood" &&
         status.scene !== "CamlikForest" &&
-        status.scene !== "Landslide") ||
+        status.scene !== "Landslide" &&
+        status.scene !== "Avalanche") ||
       !status.dialogue
     )
       return;
@@ -166,25 +174,27 @@ export function GamePreview({
         )
           event.stopPropagation();
       }}
-      className={`city-shell ${status.scene === "SchoolClassroom" || homeScene || floodScene || forestScene || landslideScene ? "classroom-shell" : ""}`}
+      className={`city-shell ${status.scene === "SchoolClassroom" || homeScene || floodScene || forestScene || landslideScene || avalancheScene ? "classroom-shell" : ""}`}
     >
       <div className="city-top">
         <div>
           <span className="eyebrow">GÖRSEL ONAY BEKLEYEN PROTOTİP</span>
           <h2>
-            {landslideScene
-              ? "Yamaç Mahallesi · Heyelan farkındalığı"
-              : forestScene
-                ? "Çamlık Ormanı · Yangın farkındalığı"
-                : floodScene
-                  ? "Dere Mahallesi · Sel ve taşkın"
-                  : homeScene
-                    ? status.scene === "Home"
-                      ? "Çağrı’nın evi"
-                      : "Güvenli buluşma alanı"
-                    : status.scene === "SchoolClassroom"
-                      ? "Güvenkent İlkokulu · 5-A"
-                      : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
+            {avalancheScene
+              ? "Karlıtepe · Çığ farkındalığı"
+              : landslideScene
+                ? "Yamaç Mahallesi · Heyelan farkındalığı"
+                : forestScene
+                  ? "Çamlık Ormanı · Yangın farkındalığı"
+                  : floodScene
+                    ? "Dere Mahallesi · Sel ve taşkın"
+                    : homeScene
+                      ? status.scene === "Home"
+                        ? "Çağrı’nın evi"
+                        : "Güvenli buluşma alanı"
+                      : status.scene === "SchoolClassroom"
+                        ? "Güvenkent İlkokulu · 5-A"
+                        : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
           </h2>
         </div>
         <button onClick={onSettings}>Ayarlar</button>
@@ -195,62 +205,68 @@ export function GamePreview({
           className="city-canvas"
           tabIndex={0}
           aria-label={
-            landslideScene
-              ? "Oynanabilir Yamaç Mahallesi"
-              : forestScene
-                ? "Oynanabilir Çamlık Ormanı"
-                : floodScene
-                  ? "Oynanabilir Dere Mahallesi"
-                  : homeScene
-                    ? "Oynanabilir ev ve eğitim tatbikatı"
-                    : status.scene === "SchoolClassroom"
-                      ? "Oynanabilir 5-A sınıfı"
-                      : status.scene === "TownHall"
-                        ? "Oynanabilir belediye iç mekânı"
-                        : "Oynanabilir Güvenkent meydanı"
+            avalancheScene
+              ? "Oynanabilir Karlıtepe"
+              : landslideScene
+                ? "Oynanabilir Yamaç Mahallesi"
+                : forestScene
+                  ? "Oynanabilir Çamlık Ormanı"
+                  : floodScene
+                    ? "Oynanabilir Dere Mahallesi"
+                    : homeScene
+                      ? "Oynanabilir ev ve eğitim tatbikatı"
+                      : status.scene === "SchoolClassroom"
+                        ? "Oynanabilir 5-A sınıfı"
+                        : status.scene === "TownHall"
+                          ? "Oynanabilir belediye iç mekânı"
+                          : "Oynanabilir Güvenkent meydanı"
           }
         />
         <div className="quest-card" role="status">
           <small>
-            {landslideScene
-              ? `İKİNCİ GÜN · ${status.landslide.investigated}/3 ARAŞTIRMA`
-              : forestScene
-                ? `İKİNCİ GÜN · ${status.forest.investigated}/3 ARAŞTIRMA`
-                : floodScene
-                  ? `İKİNCİ GÜN · ${status.flood.investigated}/3 ARAŞTIRMA`
-                  : homeScene
-                    ? `PLANLI EĞİTİM · ${status.home.risks}/4 EV RİSKİ`
-                    : status.scene === "SchoolClassroom"
-                      ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
-                      : status.schoolVisited
-                        ? "İLK DURAK ✓"
-                        : "İLK HİKÂYE •"}
+            {avalancheScene
+              ? `İKİNCİ GÜN · ${status.avalanche.investigated}/3 ARAŞTIRMA`
+              : landslideScene
+                ? `İKİNCİ GÜN · ${status.landslide.investigated}/3 ARAŞTIRMA`
+                : forestScene
+                  ? `İKİNCİ GÜN · ${status.forest.investigated}/3 ARAŞTIRMA`
+                  : floodScene
+                    ? `İKİNCİ GÜN · ${status.flood.investigated}/3 ARAŞTIRMA`
+                    : homeScene
+                      ? `PLANLI EĞİTİM · ${status.home.risks}/4 EV RİSKİ`
+                      : status.scene === "SchoolClassroom"
+                        ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
+                        : status.schoolVisited
+                          ? "İLK DURAK ✓"
+                          : "İLK HİKÂYE •"}
           </small>
           <span>
-            {landslideScene
+            {avalancheScene
               ? status.objective
-              : forestScene
+              : landslideScene
                 ? status.objective
-                : floodScene
+                : forestScene
                   ? status.objective
-                  : homeScene
-                    ? `${status.home.safe}/2 güvenli nesne · ${
-                        status.scene === "GatheringPoint" &&
-                        status.home.phase === "gatheringPoint"
-                          ? status.objective
-                          : status.home.phase === "completed"
-                            ? "Tatbikat tamam"
-                            : status.home.phase === "drillReady"
-                              ? "Masa yanında tatbikatı başlat"
-                              : status.home.evacuation
-                                ? "Açık kapıdan kontrollü çıkış"
-                                : "Gözlemle · Yetişkine bildir"
-                      }`
-                    : status.scene === "SchoolClassroom"
-                      ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
-                      : status.schoolVisited
-                        ? "5-A sınıfına giriş hazır"
-                        : status.objective}
+                  : floodScene
+                    ? status.objective
+                    : homeScene
+                      ? `${status.home.safe}/2 güvenli nesne · ${
+                          status.scene === "GatheringPoint" &&
+                          status.home.phase === "gatheringPoint"
+                            ? status.objective
+                            : status.home.phase === "completed"
+                              ? "Tatbikat tamam"
+                              : status.home.phase === "drillReady"
+                                ? "Masa yanında tatbikatı başlat"
+                                : status.home.evacuation
+                                  ? "Açık kapıdan kontrollü çıkış"
+                                  : "Gözlemle · Yetişkine bildir"
+                        }`
+                      : status.scene === "SchoolClassroom"
+                        ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
+                        : status.schoolVisited
+                          ? "5-A sınıfına giriş hazır"
+                          : status.objective}
           </span>
         </div>
         <button
@@ -261,7 +277,8 @@ export function GamePreview({
             homeLocked ||
             floodLocked ||
             forestLocked ||
-            landslideLocked
+            landslideLocked ||
+            avalancheLocked
           }
           onClick={() => sessionRef.current?.hint()}
         >
@@ -287,6 +304,13 @@ export function GamePreview({
           <HomePanel
             status={status}
             session={sessionRef.current}
+            onFocus={() => ref.current?.focus({ preventScroll: true })}
+          />
+        )}
+        {avalancheScene && sessionRef.current && (
+          <AvalanchePanel
+            session={sessionRef.current}
+            status={status}
             onFocus={() => ref.current?.focus({ preventScroll: true })}
           />
         )}
@@ -319,8 +343,8 @@ export function GamePreview({
           >
             <h3>İkinci gün · Bölgeni seç</h3>
             <p>
-              Dere Mahallesi, Çamlık Ormanı ve Yamaç Mahallesi serbest sırayla
-              oynanabilir.
+              Dere Mahallesi, Çamlık Ormanı, Yamaç Mahallesi ve Karlıtepe
+              serbest sırayla oynanabilir.
             </p>
             <button
               autoFocus
@@ -350,11 +374,15 @@ export function GamePreview({
             >
               Yamaç · Heyelan farkındalığı
             </button>
-            {["Karlıtepe"].map((name) => (
-              <button disabled key={name}>
-                {name} · Henüz geliştiriliyor
-              </button>
-            ))}
+            <button
+              className="primary"
+              onClick={() => {
+                setRegionsOpen(false);
+                sessionRef.current?.requestAvalanche();
+              }}
+            >
+              Karlıtepe · Çığ farkındalığı
+            </button>
             <button onClick={() => setRegionsOpen(false)}>
               Bölge seçimini kapat
             </button>
@@ -365,6 +393,7 @@ export function GamePreview({
           !floodLocked &&
           !forestLocked &&
           !landslideLocked &&
+          !avalancheLocked &&
           !regionsOpen && (
             <div className="city-bottom story-bottom">
               {dialogue ? (
@@ -383,7 +412,12 @@ export function GamePreview({
                     </button>
                     <button
                       className="primary"
-                      autoFocus={floodScene || forestScene || landslideScene}
+                      autoFocus={
+                        floodScene ||
+                        forestScene ||
+                        landslideScene ||
+                        avalancheScene
+                      }
                       onClick={() => sessionRef.current?.next()}
                     >
                       {lastPage
@@ -399,7 +433,8 @@ export function GamePreview({
                     !homeScene &&
                     !floodScene &&
                     !forestScene &&
-                    !landslideScene && (
+                    !landslideScene &&
+                    !avalancheScene && (
                       <p className="dialogue scene-guidance">
                         {status.scene === "TownHall"
                           ? "AFİ: Nesnelere dokunarak yaklaşabilir veya E / Enter ile inceleyebilirsin."
@@ -426,6 +461,7 @@ export function GamePreview({
           !floodLocked &&
           !forestLocked &&
           !landslideLocked &&
+          !avalancheLocked &&
           !regionsOpen && (
             <div className="dpad" aria-label="Dokunmatik yön kontrolü">
               {[
@@ -448,6 +484,29 @@ export function GamePreview({
             </div>
           )}
       </div>
+      {avalancheScene && (
+        <>
+          <p className="safety-caption">{AVALANCHE_SAFETY}</p>
+          <label className="avalanche-audio">
+            Okuma sesi düzeyi{" "}
+            <select
+              aria-label="Karlıtepe okuma sesi düzeyi"
+              disabled={!settings.voice}
+              value={status.avalanche.voiceVolume}
+              onChange={(e) => {
+                sessionRef.current?.avalanche.setVoiceVolume(
+                  Number(e.target.value) === 0.25 ? 0.25 : 0.5,
+                );
+                sessionRef.current?.notify();
+              }}
+            >
+              <option value={0.25}>Düşük</option>
+              <option value={0.5}>Normal</option>
+            </select>
+            {!settings.voice && <small> · Seslendirme kapalı</small>}
+          </label>
+        </>
+      )}
       {landslideScene && (
         <>
           <p className="safety-caption">{LANDSLIDE_SAFETY}</p>
@@ -491,6 +550,7 @@ export function GamePreview({
         !floodScene &&
         !forestScene &&
         !landslideScene &&
+        !avalancheScene &&
         !status.floodUnlocked && (
           <p className="next-step" role="status">
             AFİ: Ev görevimiz açıldı. Meydandaki EV YOLU girişinden Çağrı’nın
@@ -518,7 +578,8 @@ export function GamePreview({
         homeScene ||
         floodScene ||
         forestScene ||
-        landslideScene
+        landslideScene ||
+        avalancheScene
           ? " · Q: yakındaki nesne · Tab: seçim"
           : ""}{" "}
         <span>Konsept varlıkları · İlerleme yalnızca açık oturumda.</span>
