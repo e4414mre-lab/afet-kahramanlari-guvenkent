@@ -10,7 +10,7 @@ from home_smoke import HomePlayer
 from town_hall_smoke import OUT
 RISKS=['iceRoad','snowSlope','routeSign']
 MEASURES=['Yetkili çığ izleme, saha değerlendirmesi ve güncel uyarılar','Riskli geçişlerin kapatılması ve güvenli alternatif rota duyurusu','Ziyaretçilere kış koşulları ve güvenli davranış bilgilendirmesi']
-def run(browser,mobile,fixture=False):
+def run(browser,mobile,fixture=False,keep_open=False):
  mode='mobile' if mobile else 'desktop';out=Path('/tmp/guvenkent-karlitepe-component') if fixture else OUT;out.mkdir(parents=True,exist_ok=True)
  if fixture:
   p=HomePlayer(browser,mobile);p.page.goto('http://127.0.0.1:5173/tests/avalanche-fixture.html');p.page.wait_for_function('window.__guvenkent && window.__guvenkent().player');p.stable('Avalanche')
@@ -122,7 +122,9 @@ def run(browser,mobile,fixture=False):
  for _ in range(0 if fixture else 5):
   choice('Meydana dön');p.stable('CitySquare');enter();assert {k:p.snapshot()[k] for k in fields}==baseline;assert state()['completionCount']==1 and state()['investigated']==3
   assert {key:p.snapshot()['status'][key]['completionCount'] for key in previous}==previous;p.check()
- print(json.dumps({'mode':mode,'result':'PASS','componentFixture':fixture,'chain':'--chain' in sys.argv,'investigated':3,'sameScenario':scenario,'completionCount':1,'reentryCycles':0 if fixture else 5,'previousCompletionCounts':previous,'stableCounts':baseline},ensure_ascii=False),flush=True);p.close()
+ print(json.dumps({'mode':mode,'result':'PASS','componentFixture':fixture,'chain':'--chain' in sys.argv,'investigated':3,'sameScenario':scenario,'completionCount':1,'reentryCycles':0 if fixture else 5,'previousCompletionCounts':previous,'stableCounts':baseline},ensure_ascii=False),flush=True)
+ if keep_open:return p
+ p.close()
 def main():
  with sync_playwright() as p:
   b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-background-timer-throttling','--disable-renderer-backgrounding'])

@@ -1,3 +1,4 @@
+import { Day3Panel } from "./Day3Panel";
 import { AvalancheScene } from "../game/AvalancheScene";
 import { AvalanchePanel } from "./AvalanchePanel";
 import { AVALANCHE_SAFETY } from "../data/avalanche";
@@ -132,6 +133,8 @@ export function GamePreview({
       c.y = 0;
     }
   };
+  const day3Locked =
+    status.scene === "TownHall" && status.day3.active && status.day3.open;
   const homeScene =
     status.scene === "Home" || status.scene === "GatheringPoint";
   const homeLocked = homeScene && !!sessionRef.current?.home.locked;
@@ -180,21 +183,23 @@ export function GamePreview({
         <div>
           <span className="eyebrow">GÖRSEL ONAY BEKLEYEN PROTOTİP</span>
           <h2>
-            {avalancheScene
-              ? "Karlıtepe · Çığ farkındalığı"
-              : landslideScene
-                ? "Yamaç Mahallesi · Heyelan farkındalığı"
-                : forestScene
-                  ? "Çamlık Ormanı · Yangın farkındalığı"
-                  : floodScene
-                    ? "Dere Mahallesi · Sel ve taşkın"
-                    : homeScene
-                      ? status.scene === "Home"
-                        ? "Çağrı’nın evi"
-                        : "Güvenli buluşma alanı"
-                      : status.scene === "SchoolClassroom"
-                        ? "Güvenkent İlkokulu · 5-A"
-                        : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
+            {status.scene === "TownHall" && status.day3.active
+              ? "Belediye · Güvenkent hazırlık planı"
+              : avalancheScene
+                ? "Karlıtepe · Çığ farkındalığı"
+                : landslideScene
+                  ? "Yamaç Mahallesi · Heyelan farkındalığı"
+                  : forestScene
+                    ? "Çamlık Ormanı · Yangın farkındalığı"
+                    : floodScene
+                      ? "Dere Mahallesi · Sel ve taşkın"
+                      : homeScene
+                        ? status.scene === "Home"
+                          ? "Çağrı’nın evi"
+                          : "Güvenli buluşma alanı"
+                        : status.scene === "SchoolClassroom"
+                          ? "Güvenkent İlkokulu · 5-A"
+                          : `Güvenkent • ${status.scene === "TownHall" ? "Belediye" : "Şehir meydanı"}`}
           </h2>
         </div>
         <button onClick={onSettings}>Ayarlar</button>
@@ -224,55 +229,60 @@ export function GamePreview({
         />
         <div className="quest-card" role="status">
           <small>
-            {avalancheScene
-              ? `İKİNCİ GÜN · ${status.avalanche.investigated}/3 ARAŞTIRMA`
-              : landslideScene
-                ? `İKİNCİ GÜN · ${status.landslide.investigated}/3 ARAŞTIRMA`
-                : forestScene
-                  ? `İKİNCİ GÜN · ${status.forest.investigated}/3 ARAŞTIRMA`
-                  : floodScene
-                    ? `İKİNCİ GÜN · ${status.flood.investigated}/3 ARAŞTIRMA`
-                    : homeScene
-                      ? `PLANLI EĞİTİM · ${status.home.risks}/4 EV RİSKİ`
-                      : status.scene === "SchoolClassroom"
-                        ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
-                        : status.schoolVisited
-                          ? "İLK DURAK ✓"
-                          : "İLK HİKÂYE •"}
+            {status.scene === "TownHall" && status.day3.active
+              ? "ÜÇÜNCÜ GÜN · PLANLAMA KAYNAKLARI"
+              : avalancheScene
+                ? `İKİNCİ GÜN · ${status.avalanche.investigated}/3 ARAŞTIRMA`
+                : landslideScene
+                  ? `İKİNCİ GÜN · ${status.landslide.investigated}/3 ARAŞTIRMA`
+                  : forestScene
+                    ? `İKİNCİ GÜN · ${status.forest.investigated}/3 ARAŞTIRMA`
+                    : floodScene
+                      ? `İKİNCİ GÜN · ${status.flood.investigated}/3 ARAŞTIRMA`
+                      : homeScene
+                        ? `PLANLI EĞİTİM · ${status.home.risks}/4 EV RİSKİ`
+                        : status.scene === "SchoolClassroom"
+                          ? `RİSK AVI · ${status.hunt.found}/6 BULGU`
+                          : status.schoolVisited
+                            ? "İLK DURAK ✓"
+                            : "İLK HİKÂYE •"}
           </small>
           <span>
-            {avalancheScene
+            {status.scene === "TownHall" && status.day3.active
               ? status.objective
-              : landslideScene
+              : avalancheScene
                 ? status.objective
-                : forestScene
+                : landslideScene
                   ? status.objective
-                  : floodScene
+                  : forestScene
                     ? status.objective
-                    : homeScene
-                      ? `${status.home.safe}/2 güvenli nesne · ${
-                          status.scene === "GatheringPoint" &&
-                          status.home.phase === "gatheringPoint"
-                            ? status.objective
-                            : status.home.phase === "completed"
-                              ? "Tatbikat tamam"
-                              : status.home.phase === "drillReady"
-                                ? "Masa yanında tatbikatı başlat"
-                                : status.home.evacuation
-                                  ? "Açık kapıdan kontrollü çıkış"
-                                  : "Gözlemle · Yetişkine bildir"
-                        }`
-                      : status.scene === "SchoolClassroom"
-                        ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
-                        : status.schoolVisited
-                          ? "5-A sınıfına giriş hazır"
-                          : status.objective}
+                    : floodScene
+                      ? status.objective
+                      : homeScene
+                        ? `${status.home.safe}/2 güvenli nesne · ${
+                            status.scene === "GatheringPoint" &&
+                            status.home.phase === "gatheringPoint"
+                              ? status.objective
+                              : status.home.phase === "completed"
+                                ? "Tatbikat tamam"
+                                : status.home.phase === "drillReady"
+                                  ? "Masa yanında tatbikatı başlat"
+                                  : status.home.evacuation
+                                    ? "Açık kapıdan kontrollü çıkış"
+                                    : "Gözlemle · Yetişkine bildir"
+                          }`
+                        : status.scene === "SchoolClassroom"
+                          ? `${status.hunt.fixed}/6 yetişkin çözümü · ${status.hunt.safeCount}/4 güvenli nesne`
+                          : status.schoolVisited
+                            ? "5-A sınıfına giriş hazır"
+                            : status.objective}
           </span>
         </div>
         <button
           className="afi-hint"
           aria-label="AFİ’den ipucu al"
           disabled={
+            day3Locked ||
             status.transitioning ||
             homeLocked ||
             floodLocked ||
@@ -307,6 +317,16 @@ export function GamePreview({
             onFocus={() => ref.current?.focus({ preventScroll: true })}
           />
         )}
+        {status.scene === "TownHall" &&
+          status.day3.active &&
+          sessionRef.current && (
+            <Day3Panel
+              session={sessionRef.current}
+              status={status}
+              onFocus={() => ref.current?.focus({ preventScroll: true })}
+              onSettings={onSettings}
+            />
+          )}
         {avalancheScene && sessionRef.current && (
           <AvalanchePanel
             session={sessionRef.current}
@@ -389,6 +409,7 @@ export function GamePreview({
           </div>
         )}
         {!status.inspection &&
+          !day3Locked &&
           !homeLocked &&
           !floodLocked &&
           !forestLocked &&
@@ -451,7 +472,8 @@ export function GamePreview({
                   >
                     {avalancheScene ? (
                       <>
-                        Etkileşim · {status.nearby === "Çığ Uzmanı Zeynep"
+                        Etkileşim ·{" "}
+                        {status.nearby === "Çığ Uzmanı Zeynep"
                           ? "Uzmandan bilgi al"
                           : status.nearby === "Uzman hazırlık panosu"
                             ? "Güvenli rota planını incele"
@@ -460,7 +482,10 @@ export function GamePreview({
                               : status.nearby
                                 ? "Güvenli yerden incele"
                                 : "Gözlem noktasına yürü"}
-                        <small>{status.nearby ?? "Kapalı yola ve karlı yamaca girme."}</small>
+                        <small>
+                          {status.nearby ??
+                            "Kapalı yola ve karlı yamaca girme."}
+                        </small>
                       </>
                     ) : (
                       <>Etkileşim{status.nearby ? ` · ${status.nearby}` : ""}</>
@@ -472,6 +497,7 @@ export function GamePreview({
           )}
         {!dialogue &&
           !status.inspection &&
+          !day3Locked &&
           !homeLocked &&
           !floodLocked &&
           !forestLocked &&
@@ -547,6 +573,14 @@ export function GamePreview({
       )}
       {forestScene && <p className="safety-caption">{FOREST_SAFETY}</p>}
       {floodScene && <p className="safety-caption">{FLOOD_SAFETY}</p>}
+      {status.scene === "CitySquare" && status.day3Unlocked && (
+        <button
+          className="primary day-two"
+          onClick={() => sessionRef.current?.requestDay3()}
+        >
+          Üçüncü gün · Belediye planlamasına git
+        </button>
+      )}
       {status.scene === "CitySquare" && status.floodUnlocked && (
         <button
           className="primary day-two"

@@ -1,3 +1,4 @@
+import { Day3Flow } from "./day3Flow.ts";
 import { AvalancheFlow } from "./avalancheFlow.ts";
 import {
   AVALANCHE_OBJECTIVES,
@@ -150,6 +151,8 @@ export type GameStatus = {
   floodUnlocked: boolean;
   forest: ReturnType<ForestFlow["snapshot"]>;
   forestUnlocked: boolean;
+  day3: ReturnType<Day3Flow["snapshot"]>;
+  day3Unlocked: boolean;
   avalanche: ReturnType<AvalancheFlow["snapshot"]>;
   avalancheUnlocked: boolean;
   landslide: ReturnType<LandslideFlow["snapshot"]>;
@@ -173,6 +176,20 @@ export class GameSession {
   dialogue: Dialogue | null = null;
   nearby: string | null = null;
   assetErrors: string[] = [];
+  readonly day3 = new Day3Flow();
+  day3EntryRequested = false;
+  get day3Unlocked() {
+    return [this.flood, this.forest, this.landslide, this.avalanche].every(
+      (f) => f.completionCount > 0,
+    );
+  }
+  requestDay3() {
+    if (this.scene === "CitySquare" && this.day3Unlocked) {
+      this.day3.enter();
+      this.day3EntryRequested = true;
+      this.notify();
+    }
+  }
   readonly avalanche = new AvalancheFlow();
   avalancheEntryRequested = false;
   get avalancheUnlocked() {
@@ -231,28 +248,34 @@ export class GameSession {
       scene: this.scene,
       quest: this.quest,
       objective:
-        this.scene === "Avalanche"
-          ? AVALANCHE_OBJECTIVES[this.avalanche.phase]
-          : this.scene === "Landslide"
-            ? LANDSLIDE_OBJECTIVES[this.landslide.phase]
-            : this.scene === "CamlikForest"
-              ? FOREST_OBJECTIVES[this.forest.phase]
-              : this.scene === "Flood"
-                ? FLOOD_OBJECTIVES[this.flood.phase]
-                : this.scene === "Home"
-                  ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
-                  : this.scene === "GatheringPoint"
-                    ? "Belirlenmiş buluşma alanına yürü"
-                    : this.scene === "SchoolClassroom"
-                      ? this.riskHunt.snapshot().complete
-                        ? "Güvenli çözümleri birlikte planladık"
-                        : "Sınıftaki riskleri incele"
-                      : OBJECTIVES[this.quest],
+        this.scene === "TownHall" && this.day3.active
+          ? this.day3.open
+            ? "Güvenkent Afet Hazırlık Planı"
+            : "Harita masasına yürü ve planlamayı aç"
+          : this.scene === "Avalanche"
+            ? AVALANCHE_OBJECTIVES[this.avalanche.phase]
+            : this.scene === "Landslide"
+              ? LANDSLIDE_OBJECTIVES[this.landslide.phase]
+              : this.scene === "CamlikForest"
+                ? FOREST_OBJECTIVES[this.forest.phase]
+                : this.scene === "Flood"
+                  ? FLOOD_OBJECTIVES[this.flood.phase]
+                  : this.scene === "Home"
+                    ? "Evde incele, yetişkine bildir; sonra planlı tatbikat"
+                    : this.scene === "GatheringPoint"
+                      ? "Belirlenmiş buluşma alanına yürü"
+                      : this.scene === "SchoolClassroom"
+                        ? this.riskHunt.snapshot().complete
+                          ? "Güvenli çözümleri birlikte planladık"
+                          : "Sınıftaki riskleri incele"
+                        : OBJECTIVES[this.quest],
       nearby: this.nearby,
       dialogue: this.dialogue ? { ...this.dialogue } : null,
       schoolVisited: this.schoolVisited,
       transitioning: this.transitioning,
       assetErrors: [...this.assetErrors],
+      day3: this.day3.snapshot(),
+      day3Unlocked: this.day3Unlocked,
       avalanche: this.avalanche.snapshot(),
       avalancheUnlocked: this.avalancheUnlocked,
       landslide: this.landslide.snapshot(),

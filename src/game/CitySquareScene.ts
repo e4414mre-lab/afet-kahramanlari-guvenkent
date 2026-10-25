@@ -70,6 +70,12 @@ export class CitySquareScene extends AdventureScene {
     } else this.session.interact(id);
   }
   protected updateWorld() {
+    if (this.session.day3EntryRequested && this.session.day3Unlocked) {
+      this.session.day3EntryRequested = false;
+      this.switchTo("TownHall");
+      return;
+    }
+
     if (
       this.session.avalancheEntryRequested &&
       this.session.avalancheUnlocked

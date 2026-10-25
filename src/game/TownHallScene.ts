@@ -8,6 +8,7 @@ import {
   HALL_ASSETS,
 } from "./townHallData";
 export class TownHallScene extends AdventureScene {
+  private wasPlanning = false;
   private schoolPin?: Phaser.GameObjects.Ellipse;
   constructor(session: GameSession) {
     super("TownHall", session, {
@@ -53,8 +54,47 @@ export class TownHallScene extends AdventureScene {
       .setDepth(571);
   }
   protected activate(id: InteractionId) {
+    if (this.session.day3.active) {
+      if (this.session.day3.open) return;
+      if (id === "plan" || id === "journal" || id === "mayor") {
+        this.session.day3.show();
+        this.configure();
+        this.session.notify();
+        return;
+      }
+      if (id === "exit") {
+        this.session.day3.close();
+        this.session.day3.active = false;
+        this.switchTo("CitySquare");
+        return;
+      }
+    }
     if (id === "exit") this.switchTo("CitySquare");
     else this.session.interact(id);
+  }
+  configure() {
+    super.configure();
+    if (
+      this.session.day3.active &&
+      this.session.day3.open &&
+      this.input?.keyboard
+    )
+      this.input.keyboard.enabled = false;
+  }
+  update(time: number, delta: number) {
+    const locked = this.session.day3.active && this.session.day3.open;
+    if (locked !== this.wasPlanning) {
+      this.configure();
+      this.wasPlanning = locked;
+    }
+    if (locked) {
+      if (!this.session.paused) {
+        this.session.day3.tick(Math.min(delta, 50) / 1000);
+        this.session.notify();
+      }
+      return;
+    }
+    super.update(time, delta);
   }
   protected updateWorld() {
     this.schoolPin?.setVisible(

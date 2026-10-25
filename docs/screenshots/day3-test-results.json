@@ -1,0 +1,492 @@
+{
+  "result": "PASS",
+  "date": "2026-10-25",
+  "baseCommit": "75952e4f2649e47fa50ecb5a5e0abd03e153a42a",
+  "branch": "feat/day3-budget-planning",
+  "build": "PASS; existing Phaser bundle-size warning",
+  "unitTests": {
+    "passed": 50,
+    "failed": 0,
+    "budgetSubsetsChecked": 4096
+  },
+  "fullGameAcceptance": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "homeRisks": 4,
+      "homeSafe": 2,
+      "completionCount": 1,
+      "replayMutedReducedMotion": true
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "investigated": 3,
+      "sameRain": {
+        "durationSeconds": 45,
+        "intensity": "yoğun",
+        "riverRise": 0.8,
+        "seed": 41
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "componentFixture": false,
+      "stableCounts": {
+        "objects": 29,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1
+      },
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 59
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1
+      },
+      "stableCounts": {
+        "objects": 34,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 67
+      }
+    },
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": false,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1,
+        "avalanche": 1
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 65
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "homeRisks": 4,
+      "homeSafe": 2,
+      "completionCount": 1,
+      "replayMutedReducedMotion": true
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "investigated": 3,
+      "sameRain": {
+        "durationSeconds": 45,
+        "intensity": "yoğun",
+        "riverRise": 0.8,
+        "seed": 41
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "componentFixture": false,
+      "stableCounts": {
+        "objects": 29,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 43
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "forestBeforeFlood": false,
+      "investigated": 3,
+      "smokeSolved": true,
+      "sameWeather": {
+        "durationSeconds": 40,
+        "windDirection": "kuzeydoğu",
+        "windKmh": 18,
+        "temperatureC": 32,
+        "dryness": "kuru",
+        "seed": 67
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 50
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "yamac-rain-soil-01",
+        "seed": 83,
+        "durationSeconds": 40,
+        "rainfall": "şiddetli / uzun süreli",
+        "soilSensitivity": "duyarlı zemin",
+        "slope": "dik eğim",
+        "initialMoisture": "önceden nemli",
+        "initialGround": "aynı yüzey / aynı bitki örtüsü"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1
+      },
+      "stableCounts": {
+        "objects": 35,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 59
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "chain": true,
+      "investigated": 3,
+      "sameScenario": {
+        "scenarioId": "karlitepe-winter-01",
+        "scenarioSeed": 97,
+        "durationSeconds": 40,
+        "snowpack": "high",
+        "slope": "steep",
+        "weather": "cold",
+        "wind": "aynı rüzgâr",
+        "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+      },
+      "completionCount": 1,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1
+      },
+      "stableCounts": {
+        "objects": 34,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 4,
+        "textureCount": 67
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": false,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 5,
+      "previousCompletionCounts": {
+        "home": 1,
+        "flood": 1,
+        "forest": 1,
+        "landslide": 1,
+        "avalanche": 1
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 65
+      }
+    }
+  ],
+  "componentAcceptance": [
+    {
+      "mode": "desktop",
+      "result": "PASS",
+      "componentFixture": true,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 0,
+      "previousCompletionCounts": {
+        "home": 0,
+        "flood": 0,
+        "forest": 0,
+        "landslide": 0,
+        "avalanche": 0
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 7
+      }
+    },
+    {
+      "mode": "mobile",
+      "result": "PASS",
+      "componentFixture": true,
+      "revisions": 3,
+      "replanningCycles": 2,
+      "remainingBudget": 50,
+      "selectedMeasures": 8,
+      "regionalReports": 4,
+      "reentryCycles": 0,
+      "previousCompletionCounts": {
+        "home": 0,
+        "flood": 0,
+        "forest": 0,
+        "landslide": 0,
+        "avalanche": 0
+      },
+      "stableCounts": {
+        "objects": 18,
+        "blurListeners": 4,
+        "pointerListeners": 1,
+        "keyboardListeners": 3,
+        "textureCount": 7
+      }
+    }
+  ],
+  "errorRecovery": "PASS: intentional fixture read failure, retry, safe room return, budget/progress preserved, movement restored",
+  "validationScope": "The full gated normal-flow suite ran first; the final closed-panel error-boundary unmount guard was then built and verified by both component viewports plus error injection. Disaster/budget logic and normal open-panel visuals did not change.",
+  "images": [
+    {
+      "path": "docs/screenshots/day3-town-hall.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "15ba5e969611cb40962d88a6c42eeeabfdb62643c5a5a2d93874002ac2079e99"
+    },
+    {
+      "path": "docs/screenshots/day3-budget-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "01a3fff8f8e5c68e73f8afe5ac5af4bcdf87be01f2d262b9992dcdbd83b227f0"
+    },
+    {
+      "path": "docs/screenshots/day3-measure-selected.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "ecb9bbff34af5a7fbd4c1308aaa8833a5c09e7b95d451df7126bbf0dafd5216c"
+    },
+    {
+      "path": "docs/screenshots/day3-before-after.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "e06eea98c46d555f8fb2d46efbe6c64efd5692b02fa83dbe4eeb2319c800e962"
+    },
+    {
+      "path": "docs/screenshots/day3-unfunded-region.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "42c5b688fb185beb751fa8a33d529119daf548d8ace5d129b85e9a88c555b861"
+    },
+    {
+      "path": "docs/screenshots/day3-replanning.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "b9e3a9eec474c5060162897ed2776a292460e138bb2d60ddc1aa5d14b6bcd97a"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "a260f75e75b0e720b57fe2a21f28d3ef9a9bb2710eea270b77227e9a3b33d38c"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-flood.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "a260f75e75b0e720b57fe2a21f28d3ef9a9bb2710eea270b77227e9a3b33d38c"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-wildfire.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "a260f75e75b0e720b57fe2a21f28d3ef9a9bb2710eea270b77227e9a3b33d38c"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-landslide.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "2ecd32c58ca8292cf6bbb35a1643e6632f26785319798462a7a5f6c8a86ae93c"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-avalanche.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "2ecd32c58ca8292cf6bbb35a1643e6632f26785319798462a7a5f6c8a86ae93c"
+    },
+    {
+      "path": "docs/screenshots/day3-town-hall-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "cca9351d23fcbd61bdab86ff0a081bd7868689c5379843e3d275ed362cea82b4"
+    },
+    {
+      "path": "docs/screenshots/day3-budget-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "d88d57fe1d8c1cdd2b53c39b30171eec4674dd66ceecb372061f851bb7ea6154"
+    },
+    {
+      "path": "docs/screenshots/day3-measure-selected-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "cc2fd013f095b3f7c5ed33edf3aeb5d196c2106ee01d9b4813f9781cd82d7bd7"
+    },
+    {
+      "path": "docs/screenshots/day3-before-after-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "eb331e730c6a811f8e144cf82886136841400584a82751052f401a54778cac59"
+    },
+    {
+      "path": "docs/screenshots/day3-unfunded-region-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "a8f6b436f09c652a103e44062078af49418cbfb2a3c70975802f2f665acb7b07"
+    },
+    {
+      "path": "docs/screenshots/day3-replanning-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "6b2a826e252e87ec7eaeb2a625c198e0ace89040ea4150642db1d8f51ad6a55c"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "1a333f77ef99e49e5d1c0b0146cc6d27172be21f5da57356c50e2db56b784804"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-flood-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "4bbb7c4967e122fd48af56adffaa9b33150a507ceaabb1ea0bf371af0d91d2b3"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-wildfire-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "a1d425076aefdffe8419e145fa28bcfa5ed514bc4f403c4b49ebfd34216e5916"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-landslide-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "7d9e76e6dc9bd9a7b1618ca885f51ac101cec0a3d5b988141ba2fa13be3f6e57"
+    },
+    {
+      "path": "docs/screenshots/day3-final-report-avalanche-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "834b17f3a0631c3923953e67dfdc2b755ad028a85fbfe864bf67549209778716"
+    }
+  ],
+  "priorSourceRegression": {
+    "unchangedFiles": 102,
+    "townHallAndCityDrawWorldIdentical": true
+  },
+  "mobile": "390x844 Chromium touch emulation; no physical device test",
+  "scope": "No main merge, production deployment, final exam or teacher panel"
+}

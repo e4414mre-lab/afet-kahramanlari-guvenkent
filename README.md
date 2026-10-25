@@ -58,7 +58,7 @@ ve `town-hall-mobile.png` olarak; ek dönüş görüntülerini
 ## Kapsam ve sanat durumu
 
 - Oynanabilir alanlar: şehir meydanı, belediye, 5-A sınıfı, ev/tatbikat, Dere Mahallesi, Çamlık Ormanı, Yamaç Mahallesi ve Karlıtepe.
-- Sınav/öğretmen paneli, üçüncü gün bu prototipte yok.
+- Sınav/öğretmen paneli bu prototipte yok.
 - Öğretmen bilgilendirme ekranı gerçek kimlik doğrulaması yapmaz.
 - Karakterler ayrı transparan PNG konseptlerdir; yürüyüş/yön atlasları eksiktir.
 - Meydan çevresi mevcut boyalı konsepttir. Belediye mobilyaları ve NPC,
@@ -141,7 +141,7 @@ ve üretim kapısını doğruladığı iddiasında değildir.
 
 [Testler, masaüstü/mobil kanıtlar ve resmî içerik kontrolünün açık sınırı](docs/FAZ_07_TESLIM_RAPORU.md) ·
 [Yeni görseller ve eksikler](public/assets/landslide/README.md).
-Üçüncü gün ve final sınavı yapılmadı; Karlıtepe görsel/pedagojik onayı beklenir.
+Final sınavı geliştirilmedi; üçüncü gün planlamasının görsel/işlevsel onayı beklenir.
 
 ### Faz 08 — Karlıtepe
 
@@ -154,4 +154,17 @@ kapalı yol açılmaz, çığ tehlikesi sıfırlanmaz.
 
 [Test raporu, masaüstü/mobil kanıtlar ve yayın öncesi içerik incelemesi](docs/FAZ_08_TESLIM_RAPORU.md) ·
 [Sanat kaynakları ve eksikler](public/assets/avalanche/README.md).
-Üçüncü gün ve final sınavı geliştirilmedi; Karlıtepe görsel/pedagojik onayı beklenir.
+Final sınavı geliştirilmedi; üçüncü gün planlamasının görsel/işlevsel onayı beklenir.
+
+### Faz 09 — Belediye hazırlık planı
+
+Dört ikinci gün afet bölgesi tamamlanınca meydandaki **Üçüncü gün · Belediye
+planlamasına git** düğmesini kullanın. Mevcut belediye harita masası, ayrı
+strateji görünümünü açar. Dört danışma kartını okuyun; 1.000 **planlama puanını**
+12 önlem arasında gerekçeli biçimde paylaştırın. Seç/Geri al ile planı değiştirin,
+aynı afet koşullarındaki nitel sonuçları inceleyip tekrar planlayın. Planlama
+puanları gerçek para, risk veya başarı puanı değildir; kayıt yalnızca açık oturumdadır.
+
+[Teslim, testler ve masaüstü/mobil görüntüler](docs/FAZ_09_TESLIM_RAPORU.md).
+Tam kabul: `GUVENKENT_TEST_URL=http://127.0.0.1:4173 python -u tests/day3_smoke.py --chain`.
+Final sınavı ve öğretmen paneli geliştirilmedi; görsel ve işlevsel onay beklenir.
