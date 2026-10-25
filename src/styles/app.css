@@ -812,3 +812,7 @@ main {
 .avalanche-audio select{padding:6px;border:1px solid #adc8bd;border-radius:8px;background:#fff;}
 .avalanche-panel:not(.avalanche-comparison){left:18px;right:auto;}
 @media(max-width:600px){.avalanche-panel:not(.avalanche-comparison){left:10px;}}
+
+/* Karlıtepe interaction: teach safe observation without covering the D-pad. */
+.avalanche-interact {white-space:normal;max-width:min(320px,100%);line-height:1.35;text-align:left;}
+.avalanche-interact small {display:block;font-size:12px;font-weight:500;margin-top:3px;}

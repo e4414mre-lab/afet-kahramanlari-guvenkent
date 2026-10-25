@@ -69,7 +69,11 @@ def run(browser,mobile,fixture=False):
   d=p.snapshot();h=d['hotspots'][0];b=p.page.locator('canvas').bounding_box();z=d['zoom'];point=(b['x']+h['screen']['x']+(x-h['hit']['x'])*z,b['y']+h['screen']['y']+(y-h['hit']['y'])*z)
   assert p.page.evaluate("p=>document.elementFromPoint(p.x,p.y)?.tagName==='CANVAS'",{'x':point[0],'y':point[1]})
   p.page.touchscreen.tap(*point) if mobile else p.page.mouse.click(*point)
- p.axis('y',620);p.page.wait_for_timeout(500);capture('overview')
+ p.axis('y',620);p.page.wait_for_timeout(500)
+ if not fixture:
+  prompt=p.page.locator('.avalanche-interact');assert prompt.is_visible()
+  assert 'Güvenli yerden incele' in prompt.inner_text() and 'Dik ve kar yüklü yamaç' in prompt.inner_text()
+ capture('overview')
  start=p.snapshot()['player'];ground(700,620);p.wait('d.player.x<arg',start['x']-30);p.page.wait_for_timeout(500)
  inspect('zeynep');p.page.get_by_text('Çığ Uzmanı Zeynep.',exact=False).wait_for();capture('zeynep-dialogue');choice('Güvenli platformdan araştır');close_guide()
  for _ in range(3):choice('AFİ’den ipucu al');close_guide()

@@ -254,61 +254,61 @@
       "path": "docs/screenshots/karlitepe-overview-desktop.png",
       "width": 1440,
       "height": 1000,
-      "sha256": "55e6c0effcee2f0ba653ed166f25ad1c663e997cb91add210559b7411975c0ad"
+      "sha256": "db0dd9cdf1de308aedd68f2450bde6117f13559df6c10b79fdf53c48aee092f0"
     },
     {
       "path": "docs/screenshots/karlitepe-zeynep-dialogue.png",
       "width": 1440,
       "height": 1000,
-      "sha256": "6bd996bbea85e3599dbc471b7742b58db1b3cd9dda5581315d004bc1faa29273"
+      "sha256": "856df99a5ee0c15ee39504486f92d904c3ea18ea7b18cda21466713db7e5a5b5"
     },
     {
       "path": "docs/screenshots/karlitepe-risk-inspection.png",
       "width": 1440,
       "height": 1000,
-      "sha256": "87b76b292f306fa1c31d90b601d9035784de0ae51ec6ed53bf16ea50c83ccedb"
+      "sha256": "7258264e5dc36b6e30c15ac2443bfbd8fc242acd5aec8fdfc3f3789d5917769c"
     },
     {
       "path": "docs/screenshots/karlitepe-risk-feedback-wrong.png",
       "width": 1440,
       "height": 1000,
-      "sha256": "00855d8b371a4338b1f6454225590f481d7f6092c4f52fbc43d14f9a1b7ff2c1"
+      "sha256": "3749307215a6c057fc4766d6785d1fbc7e37e61798dcfa3d19b7e37df7dbbbb7"
     },
     {
       "path": "docs/screenshots/karlitepe-risk-feedback-correct.png",
       "width": 1440,
       "height": 1000,
-      "sha256": "50b16099e92649791b9d1c3b156e34be61b208f1b3b69b8d6da145bf88f9db38"
+      "sha256": "cb032146d949d9db17d762e26b00ac5f31e2e7b9c63135478b42760e7c94eaaa"
     },
     {
       "path": "docs/screenshots/karlitepe-before.png",
       "width": 1440,
       "height": 1000,
-      "sha256": "0d41540aa8885504989c3eb8e2f61c19dff7430b021417a65f4f4f6163526764"
+      "sha256": "c4ed8ff7d441083f8dc64e0d10dd13f689ea24c63c6f2a4f76fd9b184d8b5128"
     },
     {
       "path": "docs/screenshots/karlitepe-after.png",
       "width": 1440,
       "height": 1000,
-      "sha256": "62a9faf9d7d512ddf89ef02dac6289569a4b9e157d830d9e134a49ad0954690f"
+      "sha256": "61f96a2bec5d01fee1819e39c835ed58ccbaf3afa575bc4b17460dfed1416c6d"
     },
     {
       "path": "docs/screenshots/karlitepe-comparison.png",
       "width": 1440,
       "height": 1000,
-      "sha256": "6ad90a1275c9e31a3f2b20ee3048cf414a32e7dc97d011a0c799eebe5d425926"
+      "sha256": "54625a3433e9c703430ce9364d8cf9c43ec96d5658ad702012deaf33401bd188"
     },
     {
       "path": "docs/screenshots/karlitepe-overview-mobile.png",
       "width": 390,
       "height": 844,
-      "sha256": "2a3fbf9a08538ff59ea9e0358145fc5e9fc556ca1894cca6d73b11b3f4fa4aef"
+      "sha256": "8e05b22c055c0f673f5bdbb9688b3e62f5040eed00c3644e27d078d03e3e0b18"
     },
     {
       "path": "docs/screenshots/karlitepe-zeynep-dialogue-mobile.png",
       "width": 390,
       "height": 844,
-      "sha256": "09a1ec53d07558ced807f69bb0d3c2019bf927fb8ab88a557c719deecede55ff"
+      "sha256": "1f9ac1d7e56a3c252a9fb78dc2c93904e46ef00a74bb6b891f7e6c19fbea36be"
     },
     {
       "path": "docs/screenshots/karlitepe-risk-inspection-mobile.png",
@@ -320,7 +320,7 @@
       "path": "docs/screenshots/karlitepe-risk-feedback-wrong-mobile.png",
       "width": 390,
       "height": 844,
-      "sha256": "67f6fc3211f2275b3932e7f636c55c6e6f949a7ee3195a15aae5b58fd2279afe"
+      "sha256": "b3e3c9f114778a803095925996b5e1e56d10eea7869cc66310287b35d64f1b63"
     },
     {
       "path": "docs/screenshots/karlitepe-risk-feedback-correct-mobile.png",
@@ -359,5 +359,184 @@
   ],
   "officialReview": "pending before production; proxy 403",
   "mobileMethod": "Chromium touch emulation 390x844; no physical phone test",
-  "scope": "No main merge, production deployment, third day, budget, or final exam"
+  "scope": "No main merge, production deployment, third day, budget, or final exam",
+  "imageCaptureBasis": "Refreshed by the scoped UI proof review; chain records above are historical e48019c acceptance.",
+  "evidenceReview": {
+    "date": "2026-10-25",
+    "result": "PASS",
+    "baselineCommit": "e48019ce38293d82903c7cf37bea6d631abba6b4",
+    "scope": "Karlıtepe interaction copy only; same scenery, characters, NPCs, risk data and collisions",
+    "build": "PASS",
+    "unitTests": {
+      "passed": 42,
+      "failed": 0
+    },
+    "browserResults": [
+      {
+        "mode": "desktop",
+        "result": "PASS",
+        "componentFixture": false,
+        "chain": false,
+        "investigated": 3,
+        "sameScenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "previousCompletionCounts": {
+          "home": 1,
+          "flood": 0,
+          "forest": 0,
+          "landslide": 0
+        },
+        "stableCounts": {
+          "objects": 34,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 43
+        }
+      },
+      {
+        "mode": "mobile",
+        "result": "PASS",
+        "componentFixture": false,
+        "chain": false,
+        "investigated": 3,
+        "sameScenario": {
+          "scenarioId": "karlitepe-winter-01",
+          "scenarioSeed": 97,
+          "durationSeconds": 40,
+          "snowpack": "high",
+          "slope": "steep",
+          "weather": "cold",
+          "wind": "aynı rüzgâr",
+          "initialSurface": "aynı kar örtüsü ve ziyaretçi başlangıç konumu"
+        },
+        "completionCount": 1,
+        "reentryCycles": 5,
+        "previousCompletionCounts": {
+          "home": 1,
+          "flood": 0,
+          "forest": 0,
+          "landslide": 0
+        },
+        "stableCounts": {
+          "objects": 34,
+          "blurListeners": 4,
+          "pointerListeners": 1,
+          "keyboardListeners": 4,
+          "textureCount": 43
+        }
+      }
+    ],
+    "mobileMethod": "390x844 Chromium touch emulation; no physical phone test",
+    "images": [
+      {
+        "path": "docs/screenshots/karlitepe-overview-desktop.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "db0dd9cdf1de308aedd68f2450bde6117f13559df6c10b79fdf53c48aee092f0"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-zeynep-dialogue.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "856df99a5ee0c15ee39504486f92d904c3ea18ea7b18cda21466713db7e5a5b5"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-risk-inspection.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "7258264e5dc36b6e30c15ac2443bfbd8fc242acd5aec8fdfc3f3789d5917769c"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-risk-feedback-wrong.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "3749307215a6c057fc4766d6785d1fbc7e37e61798dcfa3d19b7e37df7dbbbb7"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-risk-feedback-correct.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "cb032146d949d9db17d762e26b00ac5f31e2e7b9c63135478b42760e7c94eaaa"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-before.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "c4ed8ff7d441083f8dc64e0d10dd13f689ea24c63c6f2a4f76fd9b184d8b5128"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-after.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "61f96a2bec5d01fee1819e39c835ed58ccbaf3afa575bc4b17460dfed1416c6d"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-comparison.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "54625a3433e9c703430ce9364d8cf9c43ec96d5658ad702012deaf33401bd188"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-overview-mobile.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "8e05b22c055c0f673f5bdbb9688b3e62f5040eed00c3644e27d078d03e3e0b18"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-zeynep-dialogue-mobile.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "1f9ac1d7e56a3c252a9fb78dc2c93904e46ef00a74bb6b891f7e6c19fbea36be"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-risk-inspection-mobile.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "ae83c8d7b0524098fa4f2ef72c5adba5543c3da657534d1f93ef89d8d2c910b6"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-risk-feedback-wrong-mobile.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "b3e3c9f114778a803095925996b5e1e56d10eea7869cc66310287b35d64f1b63"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-risk-feedback-correct-mobile.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "88ecabefd3a8b42838e8ace0e4bc004b3a06735b75c48696c335093a65c5289d"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-before-mobile.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "a24457cd9bf16ad4c889cd9505978faa37d247f18702efb1739e362b81da518e"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-after-mobile.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "e4ec534743a8c79b79eb6c216901932e7b7c38da17e8d4e113cd0290a9ee7c02"
+      },
+      {
+        "path": "docs/screenshots/karlitepe-comparison-mobile.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "f65a4fde3fd3654781467d535cc326994b022245eb5173c1731f5a7b6bef56c6"
+      }
+    ],
+    "unchangedSourceFilesChecked": 103,
+    "previousFullChain": "Historical acceptance at e48019c; not rerun for this scoped UI change"
+  }
 }

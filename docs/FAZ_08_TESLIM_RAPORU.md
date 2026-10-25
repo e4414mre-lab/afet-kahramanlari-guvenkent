@@ -164,3 +164,11 @@ URL/içerik doğrulaması, güncel resmî çığ/hava uyarıları ve ilgili uzma
 Mevcut metinler kullanıcı şartnamesinin güvenli uzak gözlem, yetişkin/uzman
 bildirimi ve riskin sıfırlanmaması ilkelerine dayanır. Kullanıcı görsel ve
 pedagojik onayı olmadan sonraki faza veya üretime geçilmez.
+
+## Genel görünüm onayından sonraki kanıt turu
+
+Genel görünüm kullanıcı tarafından onaylandı. Sonraki küçük etkileşim metni
+düzenlemesi ve güncel masaüstü/mobil görüntüler [kanıt raporundadır](FAZ_08_KANIT_RAPORU.md).
+Yukarıdaki tam zincir sonuçları `e48019c` sürümüne aittir; görseller yeni
+kanıt turunda güncellendi. Güncel hedefli test sonuçları ve dosya kimlikleri
+[kayıt dosyasında](screenshots/karlitepe-proof-test-results.json) ayrıdır.

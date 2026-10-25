@@ -442,14 +442,29 @@ export function GamePreview({
                       </p>
                     )}
                   <button
-                    className="primary interact"
+                    className={`primary interact${avalancheScene ? " avalanche-interact" : ""}`}
                     disabled={!status.nearby || status.transitioning}
                     onClick={() => {
                       if (sessionRef.current)
                         sessionRef.current.controls.interact = true;
                     }}
                   >
-                    Etkileşim{status.nearby ? ` · ${status.nearby}` : ""}
+                    {avalancheScene ? (
+                      <>
+                        Etkileşim · {status.nearby === "Çığ Uzmanı Zeynep"
+                          ? "Uzmandan bilgi al"
+                          : status.nearby === "Uzman hazırlık panosu"
+                            ? "Güvenli rota planını incele"
+                            : status.nearby === "Meydana dön"
+                              ? "Meydana güvenle dön"
+                              : status.nearby
+                                ? "Güvenli yerden incele"
+                                : "Gözlem noktasına yürü"}
+                        <small>{status.nearby ?? "Kapalı yola ve karlı yamaca girme."}</small>
+                      </>
+                    ) : (
+                      <>Etkileşim{status.nearby ? ` · ${status.nearby}` : ""}</>
+                    )}
                   </button>
                 </>
               )}
