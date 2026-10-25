@@ -1,0 +1,1980 @@
+[
+  {
+    "moment": "intro",
+    "image": "final-intro-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "intro",
+      "index": 0,
+      "seed": null,
+      "bankVersion": "1.1.0",
+      "question": null,
+      "questionIds": [],
+      "answered": 0,
+      "record": null,
+      "draft": null,
+      "points": 0,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [],
+      "attempts": 0,
+      "first": null,
+      "last": null,
+      "best": null
+    }
+  },
+  {
+    "moment": "matching",
+    "image": "final-matching-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "activity",
+      "index": 0,
+      "seed": 768255203,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "flood-match-1",
+        "hazard": "flood",
+        "type": "matching",
+        "difficulty": "easy",
+        "points": 20,
+        "instruction": "Her durumu ona uygun güvenli davranışla eşleştir. Önce bir durum, sonra bir davranış seç.",
+        "pairs": [
+          {
+            "id": "p1",
+            "left": "Yolun üstünden taşkın suyu geçiyor",
+            "right": "Suya girmeden güvenli yerde kal"
+          },
+          {
+            "id": "p2",
+            "left": "Arkadaşın taşkınlı yola yürüyor",
+            "right": "Suya girmemesi için uyar ve yetişkine bildir"
+          },
+          {
+            "id": "p3",
+            "left": "Güvenli yolun nerede olduğunu bilmiyorsun",
+            "right": "Yetişkinden resmî rota bilgisini öğren"
+          }
+        ],
+        "explanation": "Duruma uygun güvenli davranışı seç: Yolun üstünden taşkın suyu geçiyor → Suya girmeden güvenli yerde kal · Arkadaşın taşkınlı yola yürüyor → Suya girmemesi için uyar ve yetişkine bildir · Güvenli yolun nerede olduğunu bilmiyorsun → Yetişkinden resmî rota bilgisini öğren."
+      },
+      "questionIds": [
+        "flood-match-1",
+        "wildfire-drag-4",
+        "flood-drag-4",
+        "earthquake-tf-3",
+        "landslide-drag-4",
+        "avalanche-drag-3",
+        "landslide-match-3",
+        "landslide-tf-1",
+        "earthquake-match-4",
+        "wildfire-tf-2",
+        "avalanche-match-1",
+        "earthquake-drag-1",
+        "wildfire-match-1",
+        "flood-tf-3",
+        "avalanche-tf-2"
+      ],
+      "answered": 0,
+      "record": null,
+      "draft": {},
+      "points": 0,
+      "hintLevel": 3,
+      "hint": "Duruma uygun güvenli davranışı seç: Yolun üstünden taşkın suyu geçiyor → Suya girmeden güvenli yerde kal · Arkadaşın taşkınlı yola yürüyor → Suya girmemesi için uyar ve yetişkine bildir · Güvenli yolun nerede olduğunu bilmiyorsun → Yetişkinden resmî rota bilgisini öğren.",
+      "error": "",
+      "cardOrder": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "attempts": 0,
+      "first": null,
+      "last": null,
+      "best": null
+    }
+  },
+  {
+    "moment": "matching-feedback",
+    "image": "final-matching-feedback-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "activity",
+      "index": 0,
+      "seed": 768255203,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "flood-match-1",
+        "hazard": "flood",
+        "type": "matching",
+        "difficulty": "easy",
+        "points": 20,
+        "instruction": "Her durumu ona uygun güvenli davranışla eşleştir. Önce bir durum, sonra bir davranış seç.",
+        "pairs": [
+          {
+            "id": "p1",
+            "left": "Yolun üstünden taşkın suyu geçiyor",
+            "right": "Suya girmeden güvenli yerde kal"
+          },
+          {
+            "id": "p2",
+            "left": "Arkadaşın taşkınlı yola yürüyor",
+            "right": "Suya girmemesi için uyar ve yetişkine bildir"
+          },
+          {
+            "id": "p3",
+            "left": "Güvenli yolun nerede olduğunu bilmiyorsun",
+            "right": "Yetişkinden resmî rota bilgisini öğren"
+          }
+        ],
+        "explanation": "Duruma uygun güvenli davranışı seç: Yolun üstünden taşkın suyu geçiyor → Suya girmeden güvenli yerde kal · Arkadaşın taşkınlı yola yürüyor → Suya girmemesi için uyar ve yetişkine bildir · Güvenli yolun nerede olduğunu bilmiyorsun → Yetişkinden resmî rota bilgisini öğren."
+      },
+      "questionIds": [
+        "flood-match-1",
+        "wildfire-drag-4",
+        "flood-drag-4",
+        "earthquake-tf-3",
+        "landslide-drag-4",
+        "avalanche-drag-3",
+        "landslide-match-3",
+        "landslide-tf-1",
+        "earthquake-match-4",
+        "wildfire-tf-2",
+        "avalanche-match-1",
+        "earthquake-drag-1",
+        "wildfire-match-1",
+        "flood-tf-3",
+        "avalanche-tf-2"
+      ],
+      "answered": 1,
+      "record": {
+        "points": 0,
+        "correct": 0,
+        "total": 3,
+        "answer": {
+          "p1": "p2",
+          "p2": "p3",
+          "p3": "p1"
+        },
+        "practiceAnswer": null,
+        "practiceCorrect": null
+      },
+      "draft": {
+        "p1": "p2",
+        "p2": "p3",
+        "p3": "p1"
+      },
+      "points": 0,
+      "hintLevel": 3,
+      "hint": "Duruma uygun güvenli davranışı seç: Yolun üstünden taşkın suyu geçiyor → Suya girmeden güvenli yerde kal · Arkadaşın taşkınlı yola yürüyor → Suya girmemesi için uyar ve yetişkine bildir · Güvenli yolun nerede olduğunu bilmiyorsun → Yetişkinden resmî rota bilgisini öğren.",
+      "error": "",
+      "cardOrder": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "attempts": 0,
+      "first": null,
+      "last": null,
+      "best": null
+    }
+  },
+  {
+    "moment": "drag-drop",
+    "image": "final-drag-drop-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "activity",
+      "index": 1,
+      "seed": 768255203,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "wildfire-drag-4",
+        "hazard": "wildfire",
+        "type": "drag_drop",
+        "difficulty": "hard",
+        "points": 20,
+        "instruction": "İki kartı da uygun başlığa yerleştir. Kartı seçip hedefe dokunabilir veya sürükleyebilirsin.",
+        "zones": [
+          {
+            "id": "yes",
+            "label": "Duman görülünce"
+          },
+          {
+            "id": "no",
+            "label": "Bu başlığa uymaz"
+          }
+        ],
+        "items": [
+          {
+            "id": "i1",
+            "text": "Uzaklaşıp resmî uyarıları izle",
+            "correctZone": "yes"
+          },
+          {
+            "id": "i2",
+            "text": "Merak edip yakından bak",
+            "correctZone": "no"
+          }
+        ],
+        "explanation": "“Uzaklaşıp resmî uyarıları izle” bu etkinlikte “Duman görülünce” başlığına uyar. “Merak edip yakından bak” bu başlığa uymaz. Başlığa uymamak her zaman tehlikeli olmak demek değildir. Tehlikeli alanlara girme; müdahaleyi yetkili yetişkinlere bırak. Hazırlık riski tamamen yok etmez."
+      },
+      "questionIds": [
+        "flood-match-1",
+        "wildfire-drag-4",
+        "flood-drag-4",
+        "earthquake-tf-3",
+        "landslide-drag-4",
+        "avalanche-drag-3",
+        "landslide-match-3",
+        "landslide-tf-1",
+        "earthquake-match-4",
+        "wildfire-tf-2",
+        "avalanche-match-1",
+        "earthquake-drag-1",
+        "wildfire-match-1",
+        "flood-tf-3",
+        "avalanche-tf-2"
+      ],
+      "answered": 1,
+      "record": null,
+      "draft": {},
+      "points": 0,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [
+        "i1",
+        "i2"
+      ],
+      "attempts": 0,
+      "first": null,
+      "last": null,
+      "best": null
+    }
+  },
+  {
+    "moment": "drag_drop-feedback",
+    "image": "final-drag_drop-feedback-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "activity",
+      "index": 1,
+      "seed": 768255203,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "wildfire-drag-4",
+        "hazard": "wildfire",
+        "type": "drag_drop",
+        "difficulty": "hard",
+        "points": 20,
+        "instruction": "İki kartı da uygun başlığa yerleştir. Kartı seçip hedefe dokunabilir veya sürükleyebilirsin.",
+        "zones": [
+          {
+            "id": "yes",
+            "label": "Duman görülünce"
+          },
+          {
+            "id": "no",
+            "label": "Bu başlığa uymaz"
+          }
+        ],
+        "items": [
+          {
+            "id": "i1",
+            "text": "Uzaklaşıp resmî uyarıları izle",
+            "correctZone": "yes"
+          },
+          {
+            "id": "i2",
+            "text": "Merak edip yakından bak",
+            "correctZone": "no"
+          }
+        ],
+        "explanation": "“Uzaklaşıp resmî uyarıları izle” bu etkinlikte “Duman görülünce” başlığına uyar. “Merak edip yakından bak” bu başlığa uymaz. Başlığa uymamak her zaman tehlikeli olmak demek değildir. Tehlikeli alanlara girme; müdahaleyi yetkili yetişkinlere bırak. Hazırlık riski tamamen yok etmez."
+      },
+      "questionIds": [
+        "flood-match-1",
+        "wildfire-drag-4",
+        "flood-drag-4",
+        "earthquake-tf-3",
+        "landslide-drag-4",
+        "avalanche-drag-3",
+        "landslide-match-3",
+        "landslide-tf-1",
+        "earthquake-match-4",
+        "wildfire-tf-2",
+        "avalanche-match-1",
+        "earthquake-drag-1",
+        "wildfire-match-1",
+        "flood-tf-3",
+        "avalanche-tf-2"
+      ],
+      "answered": 2,
+      "record": {
+        "points": 10,
+        "correct": 1,
+        "total": 2,
+        "answer": {
+          "i1": "yes",
+          "i2": "yes"
+        },
+        "practiceAnswer": null,
+        "practiceCorrect": null
+      },
+      "draft": {
+        "i1": "yes",
+        "i2": "yes"
+      },
+      "points": 10,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [
+        "i1",
+        "i2"
+      ],
+      "attempts": 0,
+      "first": null,
+      "last": null,
+      "best": null
+    }
+  },
+  {
+    "moment": "true-false",
+    "image": "final-true-false-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "activity",
+      "index": 3,
+      "seed": 768255203,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "earthquake-tf-3",
+        "hazard": "earthquake",
+        "type": "true_false",
+        "difficulty": "medium",
+        "points": 20,
+        "statement": "Sabitlenmemiş yüksek dolabı çocuklar tek başına sabitlemelidir.",
+        "correct": false,
+        "explanation": "Ağır dolabı çocuklar taşımaz veya sabitlemez. Durumu yetişkine bildir; işi yetkili yetişkinler yapar."
+      },
+      "questionIds": [
+        "flood-match-1",
+        "wildfire-drag-4",
+        "flood-drag-4",
+        "earthquake-tf-3",
+        "landslide-drag-4",
+        "avalanche-drag-3",
+        "landslide-match-3",
+        "landslide-tf-1",
+        "earthquake-match-4",
+        "wildfire-tf-2",
+        "avalanche-match-1",
+        "earthquake-drag-1",
+        "wildfire-match-1",
+        "flood-tf-3",
+        "avalanche-tf-2"
+      ],
+      "answered": 3,
+      "record": null,
+      "draft": {},
+      "points": 30,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [],
+      "attempts": 0,
+      "first": null,
+      "last": null,
+      "best": null
+    }
+  },
+  {
+    "moment": "true_false-feedback",
+    "image": "final-true_false-feedback-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "activity",
+      "index": 3,
+      "seed": 768255203,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "earthquake-tf-3",
+        "hazard": "earthquake",
+        "type": "true_false",
+        "difficulty": "medium",
+        "points": 20,
+        "statement": "Sabitlenmemiş yüksek dolabı çocuklar tek başına sabitlemelidir.",
+        "correct": false,
+        "explanation": "Ağır dolabı çocuklar taşımaz veya sabitlemez. Durumu yetişkine bildir; işi yetkili yetişkinler yapar."
+      },
+      "questionIds": [
+        "flood-match-1",
+        "wildfire-drag-4",
+        "flood-drag-4",
+        "earthquake-tf-3",
+        "landslide-drag-4",
+        "avalanche-drag-3",
+        "landslide-match-3",
+        "landslide-tf-1",
+        "earthquake-match-4",
+        "wildfire-tf-2",
+        "avalanche-match-1",
+        "earthquake-drag-1",
+        "wildfire-match-1",
+        "flood-tf-3",
+        "avalanche-tf-2"
+      ],
+      "answered": 4,
+      "record": {
+        "points": 20,
+        "correct": 1,
+        "total": 1,
+        "answer": false,
+        "practiceAnswer": null,
+        "practiceCorrect": null
+      },
+      "draft": false,
+      "points": 50,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [],
+      "attempts": 0,
+      "first": null,
+      "last": null,
+      "best": null
+    }
+  },
+  {
+    "moment": "result",
+    "image": "final-result-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "result",
+      "index": 14,
+      "seed": 768255203,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "avalanche-tf-2",
+        "hazard": "avalanche",
+        "type": "true_false",
+        "difficulty": "medium",
+        "points": 20,
+        "statement": "Karın güvenliğini anlamak için dik yamaçta zıplanmalıdır.",
+        "correct": false,
+        "explanation": "Karın güvenliğini zıplayarak test etme; dik karlı yamaca girme. Değerlendirme uzmanların işidir."
+      },
+      "questionIds": [
+        "flood-match-1",
+        "wildfire-drag-4",
+        "flood-drag-4",
+        "earthquake-tf-3",
+        "landslide-drag-4",
+        "avalanche-drag-3",
+        "landslide-match-3",
+        "landslide-tf-1",
+        "earthquake-match-4",
+        "wildfire-tf-2",
+        "avalanche-match-1",
+        "earthquake-drag-1",
+        "wildfire-match-1",
+        "flood-tf-3",
+        "avalanche-tf-2"
+      ],
+      "answered": 15,
+      "record": {
+        "points": 20,
+        "correct": 1,
+        "total": 1,
+        "answer": false,
+        "practiceAnswer": null,
+        "practiceCorrect": null
+      },
+      "draft": false,
+      "points": 270,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [],
+      "attempts": 1,
+      "first": {
+        "id": 1,
+        "seed": 768255203,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 50,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 60,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "flood-match-1",
+          "wildfire-drag-4",
+          "flood-drag-4",
+          "earthquake-tf-3",
+          "landslide-drag-4",
+          "avalanche-drag-3",
+          "landslide-match-3",
+          "landslide-tf-1",
+          "earthquake-match-4",
+          "wildfire-tf-2",
+          "avalanche-match-1",
+          "earthquake-drag-1",
+          "wildfire-match-1",
+          "flood-tf-3",
+          "avalanche-tf-2"
+        ],
+        "answers": {
+          "flood-match-1": {
+            "points": 0,
+            "correct": 0,
+            "total": 3,
+            "answer": {
+              "p1": "p2",
+              "p2": "p3",
+              "p3": "p1"
+            },
+            "practiceAnswer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceCorrect": 3
+          },
+          "wildfire-drag-4": {
+            "points": 10,
+            "correct": 1,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "yes"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-drag-3": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-match-3": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-tf-1": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-match-4": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-drag-1": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          }
+        }
+      },
+      "last": {
+        "id": 1,
+        "seed": 768255203,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 50,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 60,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "flood-match-1",
+          "wildfire-drag-4",
+          "flood-drag-4",
+          "earthquake-tf-3",
+          "landslide-drag-4",
+          "avalanche-drag-3",
+          "landslide-match-3",
+          "landslide-tf-1",
+          "earthquake-match-4",
+          "wildfire-tf-2",
+          "avalanche-match-1",
+          "earthquake-drag-1",
+          "wildfire-match-1",
+          "flood-tf-3",
+          "avalanche-tf-2"
+        ],
+        "answers": {
+          "flood-match-1": {
+            "points": 0,
+            "correct": 0,
+            "total": 3,
+            "answer": {
+              "p1": "p2",
+              "p2": "p3",
+              "p3": "p1"
+            },
+            "practiceAnswer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceCorrect": 3
+          },
+          "wildfire-drag-4": {
+            "points": 10,
+            "correct": 1,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "yes"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-drag-3": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-match-3": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-tf-1": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-match-4": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-drag-1": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          }
+        }
+      },
+      "best": {
+        "id": 1,
+        "seed": 768255203,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 50,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 60,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "flood-match-1",
+          "wildfire-drag-4",
+          "flood-drag-4",
+          "earthquake-tf-3",
+          "landslide-drag-4",
+          "avalanche-drag-3",
+          "landslide-match-3",
+          "landslide-tf-1",
+          "earthquake-match-4",
+          "wildfire-tf-2",
+          "avalanche-match-1",
+          "earthquake-drag-1",
+          "wildfire-match-1",
+          "flood-tf-3",
+          "avalanche-tf-2"
+        ],
+        "answers": {
+          "flood-match-1": {
+            "points": 0,
+            "correct": 0,
+            "total": 3,
+            "answer": {
+              "p1": "p2",
+              "p2": "p3",
+              "p3": "p1"
+            },
+            "practiceAnswer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceCorrect": 3
+          },
+          "wildfire-drag-4": {
+            "points": 10,
+            "correct": 1,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "yes"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-drag-3": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-match-3": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-tf-1": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-match-4": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-drag-1": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          }
+        }
+      }
+    }
+  },
+  {
+    "moment": "result-details",
+    "image": "final-result-details-mobile.png",
+    "componentFixture": false,
+    "scene": "TownHall",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "assessment": {
+      "open": true,
+      "phase": "result",
+      "index": 14,
+      "seed": 768255203,
+      "bankVersion": "1.1.0",
+      "question": {
+        "id": "avalanche-tf-2",
+        "hazard": "avalanche",
+        "type": "true_false",
+        "difficulty": "medium",
+        "points": 20,
+        "statement": "Karın güvenliğini anlamak için dik yamaçta zıplanmalıdır.",
+        "correct": false,
+        "explanation": "Karın güvenliğini zıplayarak test etme; dik karlı yamaca girme. Değerlendirme uzmanların işidir."
+      },
+      "questionIds": [
+        "flood-match-1",
+        "wildfire-drag-4",
+        "flood-drag-4",
+        "earthquake-tf-3",
+        "landslide-drag-4",
+        "avalanche-drag-3",
+        "landslide-match-3",
+        "landslide-tf-1",
+        "earthquake-match-4",
+        "wildfire-tf-2",
+        "avalanche-match-1",
+        "earthquake-drag-1",
+        "wildfire-match-1",
+        "flood-tf-3",
+        "avalanche-tf-2"
+      ],
+      "answered": 15,
+      "record": {
+        "points": 20,
+        "correct": 1,
+        "total": 1,
+        "answer": false,
+        "practiceAnswer": null,
+        "practiceCorrect": null
+      },
+      "draft": false,
+      "points": 270,
+      "hintLevel": 0,
+      "hint": null,
+      "error": "",
+      "cardOrder": [],
+      "attempts": 1,
+      "first": {
+        "id": 1,
+        "seed": 768255203,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 50,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 60,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "flood-match-1",
+          "wildfire-drag-4",
+          "flood-drag-4",
+          "earthquake-tf-3",
+          "landslide-drag-4",
+          "avalanche-drag-3",
+          "landslide-match-3",
+          "landslide-tf-1",
+          "earthquake-match-4",
+          "wildfire-tf-2",
+          "avalanche-match-1",
+          "earthquake-drag-1",
+          "wildfire-match-1",
+          "flood-tf-3",
+          "avalanche-tf-2"
+        ],
+        "answers": {
+          "flood-match-1": {
+            "points": 0,
+            "correct": 0,
+            "total": 3,
+            "answer": {
+              "p1": "p2",
+              "p2": "p3",
+              "p3": "p1"
+            },
+            "practiceAnswer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceCorrect": 3
+          },
+          "wildfire-drag-4": {
+            "points": 10,
+            "correct": 1,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "yes"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-drag-3": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-match-3": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-tf-1": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-match-4": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-drag-1": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          }
+        }
+      },
+      "last": {
+        "id": 1,
+        "seed": 768255203,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 50,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 60,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "flood-match-1",
+          "wildfire-drag-4",
+          "flood-drag-4",
+          "earthquake-tf-3",
+          "landslide-drag-4",
+          "avalanche-drag-3",
+          "landslide-match-3",
+          "landslide-tf-1",
+          "earthquake-match-4",
+          "wildfire-tf-2",
+          "avalanche-match-1",
+          "earthquake-drag-1",
+          "wildfire-match-1",
+          "flood-tf-3",
+          "avalanche-tf-2"
+        ],
+        "answers": {
+          "flood-match-1": {
+            "points": 0,
+            "correct": 0,
+            "total": 3,
+            "answer": {
+              "p1": "p2",
+              "p2": "p3",
+              "p3": "p1"
+            },
+            "practiceAnswer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceCorrect": 3
+          },
+          "wildfire-drag-4": {
+            "points": 10,
+            "correct": 1,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "yes"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-drag-3": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-match-3": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-tf-1": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-match-4": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-drag-1": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          }
+        }
+      },
+      "best": {
+        "id": 1,
+        "seed": 768255203,
+        "bankVersion": "1.1.0",
+        "total": 270,
+        "byType": [
+          {
+            "type": "true_false",
+            "points": 100,
+            "maximum": 100
+          },
+          {
+            "type": "matching",
+            "points": 80,
+            "maximum": 100
+          },
+          {
+            "type": "drag_drop",
+            "points": 90,
+            "maximum": 100
+          }
+        ],
+        "byHazard": [
+          {
+            "hazard": "earthquake",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "flood",
+            "points": 40,
+            "maximum": 60
+          },
+          {
+            "hazard": "wildfire",
+            "points": 50,
+            "maximum": 60
+          },
+          {
+            "hazard": "landslide",
+            "points": 60,
+            "maximum": 60
+          },
+          {
+            "hazard": "avalanche",
+            "points": 60,
+            "maximum": 60
+          }
+        ],
+        "questionIds": [
+          "flood-match-1",
+          "wildfire-drag-4",
+          "flood-drag-4",
+          "earthquake-tf-3",
+          "landslide-drag-4",
+          "avalanche-drag-3",
+          "landslide-match-3",
+          "landslide-tf-1",
+          "earthquake-match-4",
+          "wildfire-tf-2",
+          "avalanche-match-1",
+          "earthquake-drag-1",
+          "wildfire-match-1",
+          "flood-tf-3",
+          "avalanche-tf-2"
+        ],
+        "answers": {
+          "flood-match-1": {
+            "points": 0,
+            "correct": 0,
+            "total": 3,
+            "answer": {
+              "p1": "p2",
+              "p2": "p3",
+              "p3": "p1"
+            },
+            "practiceAnswer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceCorrect": 3
+          },
+          "wildfire-drag-4": {
+            "points": 10,
+            "correct": 1,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "yes"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-drag-4": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-drag-3": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-match-3": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "landslide-tf-1": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-match-4": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "earthquake-drag-1": {
+            "points": 20,
+            "correct": 2,
+            "total": 2,
+            "answer": {
+              "i1": "yes",
+              "i2": "no"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "wildfire-match-1": {
+            "points": 20,
+            "correct": 3,
+            "total": 3,
+            "answer": {
+              "p1": "p1",
+              "p2": "p2",
+              "p3": "p3"
+            },
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "flood-tf-3": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": true,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          },
+          "avalanche-tf-2": {
+            "points": 20,
+            "correct": 1,
+            "total": 1,
+            "answer": false,
+            "practiceAnswer": null,
+            "practiceCorrect": null
+          }
+        }
+      }
+    }
+  }
+]

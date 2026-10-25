@@ -1,3 +1,4 @@
+import { FinalAssessmentFlow } from "./finalAssessmentFlow.ts";
 import { Day3Flow } from "./day3Flow.ts";
 import { AvalancheFlow } from "./avalancheFlow.ts";
 import {
@@ -153,6 +154,7 @@ export type GameStatus = {
   forestUnlocked: boolean;
   day3: ReturnType<Day3Flow["snapshot"]>;
   day3Unlocked: boolean;
+  finalAssessment: ReturnType<FinalAssessmentFlow["snapshot"]>;
   avalanche: ReturnType<AvalancheFlow["snapshot"]>;
   avalancheUnlocked: boolean;
   landslide: ReturnType<LandslideFlow["snapshot"]>;
@@ -176,6 +178,25 @@ export class GameSession {
   dialogue: Dialogue | null = null;
   nearby: string | null = null;
   assetErrors: string[] = [];
+  readonly finalAssessment = new FinalAssessmentFlow();
+  requestFinalAssessment() {
+    if (
+      this.scene !== "TownHall" ||
+      this.day3.step !== "finalized" ||
+      this.day3.completionCount < 1
+    )
+      return;
+    this.day3.close();
+    this.controls.x = this.controls.y = 0;
+    this.controls.interact = this.controls.next = this.controls.hint = false;
+    this.finalAssessment.show();
+    this.notify();
+  }
+  closeFinalAssessment() {
+    this.finalAssessment.close();
+    this.day3.show();
+    this.notify();
+  }
   readonly day3 = new Day3Flow();
   day3EntryRequested = false;
   get day3Unlocked() {
@@ -274,6 +295,7 @@ export class GameSession {
       schoolVisited: this.schoolVisited,
       transitioning: this.transitioning,
       assetErrors: [...this.assetErrors],
+      finalAssessment: this.finalAssessment.snapshot(),
       day3: this.day3.snapshot(),
       day3Unlocked: this.day3Unlocked,
       avalanche: this.avalanche.snapshot(),

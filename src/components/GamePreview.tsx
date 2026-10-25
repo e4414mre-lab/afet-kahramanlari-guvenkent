@@ -1,3 +1,4 @@
+import { FinalAssessmentPanel } from "./FinalAssessmentPanel";
 import { Day3Panel } from "./Day3Panel";
 import { AvalancheScene } from "../game/AvalancheScene";
 import { AvalanchePanel } from "./AvalanchePanel";
@@ -134,7 +135,8 @@ export function GamePreview({
     }
   };
   const day3Locked =
-    status.scene === "TownHall" && status.day3.active && status.day3.open;
+    status.scene === "TownHall" &&
+    (status.finalAssessment.open || (status.day3.active && status.day3.open));
   const homeScene =
     status.scene === "Home" || status.scene === "GatheringPoint";
   const homeLocked = homeScene && !!sessionRef.current?.home.locked;
@@ -327,6 +329,13 @@ export function GamePreview({
               onSettings={onSettings}
             />
           )}
+        {status.scene === "TownHall" && sessionRef.current && (
+          <FinalAssessmentPanel
+            session={sessionRef.current}
+            status={status}
+            onSettings={onSettings}
+          />
+        )}
         {avalancheScene && sessionRef.current && (
           <AvalanchePanel
             session={sessionRef.current}

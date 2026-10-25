@@ -7,7 +7,7 @@ from home_smoke import HomePlayer
 from town_hall_smoke import OUT
 REGIONS=['flood','wildfire','landslide','avalanche']
 REASONS=['Önce uyarı ve güvenli ulaşımı güçlendirmek istiyorum.','Uzman değerlendirmesi ve bakıma öncelik veriyorum.','Farklı bölgelerin ihtiyaçları arasında denge kuruyorum.']
-def run(browser,mobile,fixture=False,profile=None):
+def run(browser,mobile,fixture=False,profile=None,keep_open=False):
  mode=profile or ('mobile' if mobile else 'desktop');folder=Path('/workspace/day3-quality/profile-images')/mode if fixture else OUT;folder.mkdir(parents=True,exist_ok=True)
  if fixture:
   p=HomePlayer(browser,mobile)
@@ -126,7 +126,9 @@ def run(browser,mobile,fixture=False,profile=None):
    filename='day3-'+name+'-final-report.png';p.page.screenshot(path=str(folder/filename));(folder/('day3-'+name+'-readability.json')).write_text(json.dumps({'profile':name,'viewport':p.page.viewport_size,'touch':True,'bodyFontPx':font,'nativeScroll':profile_swipe,'result':'PASS','image':filename},ensure_ascii=False,indent=2)+'\n')
    display_profiles.append({'profile':name,'viewport':p.page.viewport_size,'touch':True,'bodyFontPx':font,'nativeScroll':profile_swipe,'result':'PASS','image':filename})
   p.page.set_viewport_size(original_viewport);p.stable('TownHall')
- print(json.dumps({'mode':mode,'viewport':p.page.viewport_size,'touch':mobile,'nativeScroll':touch_scroll,'displayProfiles':display_profiles,'result':'PASS','componentFixture':fixture,'revisions':3,'replanningCycles':2,'remainingBudget':50,'selectedMeasures':8,'regionalReports':4,'reentryCycles':0 if fixture else 5,'previousCompletionCounts':previous,'stableCounts':counts},ensure_ascii=False),flush=True);p.close()
+ print(json.dumps({'mode':mode,'viewport':p.page.viewport_size,'touch':mobile,'nativeScroll':touch_scroll,'displayProfiles':display_profiles,'result':'PASS','componentFixture':fixture,'revisions':3,'replanningCycles':2,'remainingBudget':50,'selectedMeasures':8,'regionalReports':4,'reentryCycles':0 if fixture else 5,'previousCompletionCounts':previous,'stableCounts':counts},ensure_ascii=False),flush=True)
+ if keep_open:return p
+ p.close()
 def main():
  with sync_playwright() as p:
   browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-background-timer-throttling','--disable-renderer-backgrounding'])

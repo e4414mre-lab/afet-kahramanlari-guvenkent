@@ -54,6 +54,7 @@ export class TownHallScene extends AdventureScene {
       .setDepth(571);
   }
   protected activate(id: InteractionId) {
+    if (this.session.finalAssessment.open) return;
     if (this.session.day3.active) {
       if (this.session.day3.open) return;
       if (id === "plan" || id === "journal" || id === "mayor") {
@@ -75,14 +76,16 @@ export class TownHallScene extends AdventureScene {
   configure() {
     super.configure();
     if (
-      this.session.day3.active &&
-      this.session.day3.open &&
+      (this.session.finalAssessment.open ||
+        (this.session.day3.active && this.session.day3.open)) &&
       this.input?.keyboard
     )
       this.input.keyboard.enabled = false;
   }
   update(time: number, delta: number) {
-    const locked = this.session.day3.active && this.session.day3.open;
+    const locked =
+      this.session.finalAssessment.open ||
+      (this.session.day3.active && this.session.day3.open);
     if (locked !== this.wasPlanning) {
       this.configure();
       this.wasPlanning = locked;

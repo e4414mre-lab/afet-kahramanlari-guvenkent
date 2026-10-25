@@ -555,6 +555,7 @@ function PlanningView({
               Planlama puanları başarı puanı değildir. Rapor yalnızca bu açık
               oyun oturumunda; gerçek belediyeye gönderilmedi.
             </p>
+            <button className="primary" onClick={() => session.requestFinalAssessment()}>Çağrı ve AFİ ile final değerlendirmesi</button>
             {allocationSummary}
             <div className="day3-final-grid">
               {s.outcomes.map((o) => (
